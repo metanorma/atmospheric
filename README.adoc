@@ -1,0 +1,70 @@
+= International Standard Atmosphere / ICAO Standard Atmosphere (ISA) in Ruby
+
+== Purpose
+
+This repository provides Ruby code for calculating values defined in the
+following documents:
+
+* International Standard Atmosphere (ISA) from ISO 2533:1975
+* ICAO Standard Atmosphere (ICAO Doc 7488/3, 1994)
+
+Which are technically identical documents but different in presentation and
+units (the ICAO document includes `ft` in addition to `m`).
+
+== Usage
+
+[source,ruby]
+----
+./isa.rb
+----
+
+== Testing
+
+[source,ruby]
+----
+./isa.rb
+----
+
+Tests are encoded in `tests.yml` in the following format:
+
+[source,yml]
+----
+- H: -2000.0
+  h: -1999.0
+  TK: 301.15
+  TC: 28.0
+  p_mbar: 1277.74
+  p_mmhg: 958.382
+  rho: 1.47808
+  g: 9.8128
+  p_p_n: 1.26103
+  rho_rho_n: 1.20659
+  root_rho_rho_n: 1.09845
+  a: 347.886
+  mu: 1.8514e-05
+  v: 1.2526e-05
+  lambda: 0.026359
+  H_p: 8809.5
+  gamma: 14.504
+  n: 3.0734e+25
+  v_bar: 469.18
+  omega: 8535100000.0
+  l: 549710000.0
+----
+
+Each of these values are associated with a cell in the tables of the source
+documents.
+
+The only defining value in a tests is `H` (geopotential altitude).
+It is used to generate all the other values.
+
+
+== License
+
+Copyright Ribose and its respective owners.
+
+
+== TODO
+
+* make into module
+* expose this as a plugin to LutaML / Metanorma YAML2text
