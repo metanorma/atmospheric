@@ -1,4 +1,4 @@
-= International Standard Atmosphere / ICAO Standard Atmosphere (ISA) in Ruby
+= Atmospheric for Ruby (International Standard Atmosphere / ICAO Standard Atmosphere (ISA))
 
 == Purpose
 
@@ -15,17 +15,44 @@ units (the ICAO document includes `ft` in addition to `m`).
 
 [source,ruby]
 ----
-./isa.rb
+> require 'atmospheric'
+> instance = Atmospheric::Isa.method_name
+> # method_name is one of the following
 ----
+
+The available methods are:
+
+* `geometric_altitude_from_geopotential(geopotential_altitude)`
+* `geopotential_altitude_from_geometric(geometric_altitude)`
+* `temperature_at_layer_from_H(geopotential_altitude)`
+* `temperature_at_layer_celcius(geopotential_altitude)`
+* `pressure_from_H_mbar(geopotential_altitude)`
+* `pressure_from_H_mmhg(geopotential_altitude)`
+* `density_from_H(geopotential_altitude)`
+* `gravity_at_geopotential(geopotential_altitude)`
+* `p_p_n_from_H(geopotential_altitude)`
+* `rho_rho_n_from_H(geopotential_altitude)`
+* `root_rho_rho_n_from_H(geopotential_altitude)`
+* `speed_of_sound_from_H(geopotential_altitude)`
+* `dynamic_viscosity_from_H(geopotential_altitude)`
+* `kinematic_viscosity_from_H(geopotential_altitude)`
+* `thermal_conductivity_from_H(geopotential_altitude)`
+* `pressure_scale_height_from_H(geopotential_altitude)`
+* `specific_weight_from_H(geopotential_altitude)`
+* `air_number_density_from_H(geopotential_altitude)`
+* `mean_air_particle_speed_from_H(geopotential_altitude)`
+* `air_particle_collision_frequency_from_H(geopotential_altitude)`
+* `mean_free_path_of_air_particles_from_H(geopotential_altitude)`
+
 
 == Testing
 
-[source,ruby]
+[source,sh]
 ----
-./isa.rb
+$ rspec
 ----
 
-Tests are encoded in `tests.yml` in the following format:
+Tests are encoded in `spec/fixtures/tests.yml` in the following format:
 
 [source,yml]
 ----
