@@ -8,7 +8,7 @@
 #           the calculation of the ISO Standard Atmosphere
 CONST = {
   g_n: 9.80665, # m.s-2
-  N_A: 602.257e24, # Avogadro constant, kmol-1
+  N_A: 602.257e21, # Avogadro constant, mol-1
   p_n: 101325, # In Pascal
   rho_n: 1.225, # rho_n standard air density
   T_n: 288.15, # T_n standard thermodynamic air temperature at mean sea level
@@ -147,7 +147,7 @@ def pressure_layers
 
     p[i] = if beta != 0
       # Formula (12)
-      pb * (1 + ((beta / capital_t_b) * (geopotential_alt - capital_h_b)) ** (-CONST[:g_n] / (beta * CONST[:R])))
+      pb * (1 + ((beta / capital_t_b) * (geopotential_alt - capital_h_b))) ** (-CONST[:g_n] / (beta * CONST[:R]))
     else
       # Formula (13)
       pb * Math.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * (geopotential_alt - capital_h_b))
@@ -181,7 +181,7 @@ def pressure_from_H(geopotential_alt)
 
   if beta != 0
     # Formula (12)
-    pb * (1 + ((beta / capital_t_b) * (geopotential_alt - capital_h_b)) ** (-CONST[:g_n] / (beta * CONST[:R])))
+    pb * (1 + ((beta / capital_t_b) * (geopotential_alt - capital_h_b))) ** (-CONST[:g_n] / (beta * CONST[:R]))
   else
     # Formula (13)
     pb * Math.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * (geopotential_alt - capital_h_b))
@@ -267,15 +267,14 @@ end
 # Formula (19)
 # l
 def mean_free_path_of_air_particles_from_H(geopotential_alt)
-  temp = temperature_at_layer_from_H(geopotential_alt)
-  0.944407e-18 * air_number_density_from_H(geopotential_alt) * Math.sqrt(CONST[:R] * temp)
+  1 / (1.414213562 * 3.141592654 * (0.365e-9 ** 2) * air_number_density_from_H(geopotential_alt))
 end
 
 # 2.13 Air-particle collision frequency
 # Formula (20)
 # omega
 def air_particle_collision_frequency_from_temp(n, temp)
-  0.99407e-18 * n * Math.sqrt(CONST[:R] * temp)
+  0.944407e-18 * n * Math.sqrt(CONST[:R] * temp)
 end
 
 def air_particle_collision_frequency_from_H(geopotential_alt)
@@ -308,7 +307,7 @@ def dynamic_viscosity(temp)
   capital_b_s = 1.458e-6
   capital_s = 110.4
 
-  (capital_b_s * (temp ** 1.5)) / (temp + capital_s)
+  (capital_b_s * (temp ** (1.5))) / (temp + capital_s)
 end
 
 def dynamic_viscosity_from_H(geopotential_alt)
@@ -319,21 +318,20 @@ end
 # 2.16 Kinematic viscosity
 # Formula (23)
 # v
-# CORRECT
 def kinematic_viscosity(temp)
   dynamic_viscosity(temp) / CONST[:rho_n]
 end
 
 def kinematic_viscosity_from_H(geopotential_alt)
   temp = temperature_at_layer_from_H(geopotential_alt)
-  kinematic_viscosity(temp)
+  dynamic_viscosity(temp) / density_from_H(geopotential_alt)
 end
 
 # 2.17 Thermal conductivity
 # Formula (24)
 # lambda
 def thermal_conductivity_from_temp(temp)
-  (2.648151e-3 * (temp ** (1.5))) / (temp + (245.4 * (10 ** (12.0/temp))))
+  (2.648151e-3 * (temp ** (1.5))) / (temp + (245.4 * (10 ** (-12.0/temp))))
 end
 
 def thermal_conductivity_from_H(geopotential_alt)
