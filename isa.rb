@@ -162,7 +162,7 @@ PRESSURE_LAYERS = pressure_layers
 pp PRESSURE_LAYERS
 
 def pa_to_mmhg(pascal)
-  pascal * 0.00750062
+  pascal * 0.007500616827
 end
 
 def pa_to_mbar(pascal)
@@ -237,7 +237,7 @@ end
 
 def pressure_scale_height_from_H(geopotential_alt)
   temp = temperature_at_layer_from_H(geopotential_alt)
-  pressure_scale_height_from_temp(temp)
+  (CONST[:R] * temp) / gravity_at_geopotential(geopotential_alt)
 end
 
 # 2.10 Air number density
@@ -274,7 +274,7 @@ end
 # Formula (20)
 # omega
 def air_particle_collision_frequency_from_temp(n, temp)
-  0.944407e-18 * n * Math.sqrt(CONST[:R] * temp)
+  4 * (0.365e-9 ** 2) * ((3.141592654 / (CONST[:R_star] * CONST[:M])) ** 0.5) * n * CONST[:R_star] * (temp ** 0.5)
 end
 
 def air_particle_collision_frequency_from_H(geopotential_alt)
@@ -351,27 +351,28 @@ require 'yaml'
 TEST_VALUES = YAML.load(IO.read('tests.yml'))
 
 MAPPING_VAR_TO_METHOD_NAME = {
+  # method name, digits to round
   H: nil,
-  h: "geometric_altitude_from_geopotential",
-  TK: "temperature_at_layer_from_H",
-  TC: "temperature_at_layer_celcius",
-  p_mbar: "pressure_from_H_mbar",
-  p_mmhg: "pressure_from_H_mmhg",
-  rho: "density_from_H",
-  g: "gravity_at_geopotential",
-  p_p_n: "p_p_n_from_H",
-  rho_rho_n: "rho_rho_n_from_H",
-  root_rho_rho_n: "root_rho_rho_n_from_H",
-  a: "speed_of_sound_from_H",
-  mu: "dynamic_viscosity_from_H",
-  v: "kinematic_viscosity_from_H",
-  lambda: "thermal_conductivity_from_H",
-  H_p: "pressure_scale_height_from_H",
-  gamma: "specific_weight_from_H",
-  n: "air_number_density_from_H",
-  v_bar: "mean_air_particle_speed_from_H",
-  omega: "air_particle_collision_frequency_from_H",
-  l: "mean_free_path_of_air_particles_from_H"
+  h: ["geometric_altitude_from_geopotential", 0],
+  TK: ["temperature_at_layer_from_H", 3],
+  TC: ["temperature_at_layer_celcius", 3],
+  p_mbar: ["pressure_from_H_mbar", 2],
+  p_mmhg: ["pressure_from_H_mmhg", 3],
+  rho: ["density_from_H", 5],
+  g: ["gravity_at_geopotential", 4],
+  p_p_n: ["p_p_n_from_H", 5],
+  rho_rho_n: ["rho_rho_n_from_H", 5],
+  root_rho_rho_n: ["root_rho_rho_n_from_H", 5],
+  a: ["speed_of_sound_from_H", 3],
+  mu: ["dynamic_viscosity_from_H", 9],
+  v: ["kinematic_viscosity_from_H", 9],
+  lambda: ["thermal_conductivity_from_H", 6],
+  H_p: ["pressure_scale_height_from_H", 1],
+  gamma: ["specific_weight_from_H", 3],
+  n: ["air_number_density_from_H", -21],
+  v_bar: ["mean_air_particle_speed_from_H", 2],
+  omega: ["air_particle_collision_frequency_from_H", -5],
+  l: ["mean_free_path_of_air_particles_from_H", 12]
 }
 
 TEST_VALUES.each_with_index do |hash, index|
@@ -381,10 +382,13 @@ TEST_VALUES.each_with_index do |hash, index|
   geopotential_h = hash["H"]
   puts "  H\t=\t#{geopotential_h}\t\t(#{hash["H"]})"
 
-  MAPPING_VAR_TO_METHOD_NAME.each_pair do |var, method_name|
-    next if method_name.nil?
+  MAPPING_VAR_TO_METHOD_NAME.each_pair do |var, method|
+    next if method.nil?
 
-    res = send(method_name, geopotential_h)
+    method_name = method[0]
+    method_round = method[1]
+
+    res = send(method_name, geopotential_h).round(method_round)
     puts "  #{var}\t=\t#{res}\t\t(#{hash[var.to_s]})"
   end
 end
