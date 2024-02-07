@@ -6,29 +6,46 @@ module Atmospheric
     # 2.1 Primary constants and characteristics
     # Table 1 - Main constants and characteristics adopted for
     #           the calculation of the ISO Standard Atmosphere
-    CONST = {
-      g_n: 9.80665, # m.s-2
-      N_A: 602.257e21, # Avogadro constant, mol-1
-      p_n: 101325, # In Pascal
-      rho_n: 1.225, # rho_n standard air density
-      T_n: 288.15, # T_n standard thermodynamic air temperature at mean sea level
-      R_star: 8.31432, # universal gas constant
+    constants = {
+      # g_n gravitation at mean sea level (m.s-2)
+      g_n: 9.80665,
 
-      radius: 6356766, # radius of the Earth (m)
-      k: 1.4 # adiabatic index, dimensionless
+      # Avogadro constant (mol-1)
+      N_A: 602.257e21,
+
+      # p_n pressure at mean sea level (Pa)
+      p_n: 101325,
+
+      # rho_n standard air density
+      rho_n: 1.225,
+
+      # T_n standard thermodynamic air temperature at mean sea level
+      T_n: 288.15,
+
+      # universal gas constant
+      R_star: 8.31432,
+
+      # radius of the Earth (m)
+      radius: 6356766,
+
+      # adiabatic index (dimensionless)
+      k: 1.4,
     }
 
     # 2.2 The equation of the static atmosphere and the perfect gas law
     # Formula (2)
     # M: air molar mass at sea level, kg.kmol-1
     # Value given in 2.1 as M: 28.964720
-    CONST[:M] = (CONST[:rho_n] * CONST[:R_star] * CONST[:T_n]) / CONST[:p_n]
+    constants[:M] =
+      (constants[:rho_n] * constants[:R_star] * constants[:T_n]) \
+        / constants[:p_n]
 
     # Formula (3)
     # R: specific gas constant, J.K-1.kg-1.
     # Value given in 2.1 as R: 287.05287
-    CONST[:R] = CONST[:R_star] / CONST[:M]
+    constants[:R] = constants[:R_star] / constants[:M]
 
+    CONST = constants.freeze
 
     class << self
       # 2.3 Geopotential and geometric altitides; acceleration of free fall
@@ -90,8 +107,8 @@ module Atmospheric
         return i - 1 if geopotential_alt >= TEMPERATURE_LAYERS[i][:H]
 
         # find last layer with H larger than our H
-        TEMPERATURE_LAYERS.each_with_index do |layer, i|
-          return i if layer[:H] > geopotential_alt
+        TEMPERATURE_LAYERS.each_with_index do |layer, ind|
+          return ind if layer[:H] > geopotential_alt
         end
 
         nil
@@ -108,17 +125,16 @@ module Atmospheric
         # [H: -5000, T: 320.65, B: -0.0065 ],
 
         # This line is from ISO 2533:1975
-        {H: -2000, T: 301.15, B: -0.0065 },
-        {H: 0,     T: 288.15, B: -0.0065 },
-        {H: 11000, T: 216.65, B: 0       },
-        {H: 20000, T: 216.65, B: 0.001   },
-        {H: 32000, T: 228.65, B: 0.0028  },
-        {H: 47000, T: 270.65, B: 0       },
-        {H: 51000, T: 270.65, B: -0.0028 },
-        {H: 71000, T: 214.65, B: -0.002  },
-        {H: 80000, T: 196.65},
-      ]
-
+        { H: -2000, T: 301.15, B: -0.0065 },
+        { H: 0,     T: 288.15, B: -0.0065 },
+        { H: 11000, T: 216.65, B: 0       },
+        { H: 20000, T: 216.65, B: 0.001   },
+        { H: 32000, T: 228.65, B: 0.0028  },
+        { H: 47000, T: 270.65, B: 0       },
+        { H: 51000, T: 270.65, B: -0.0028 },
+        { H: 71000, T: 214.65, B: -0.002  },
+        { H: 80000, T: 196.65 },
+      ].freeze
 
       # 2.7 Pressure
 
@@ -126,11 +142,11 @@ module Atmospheric
       def pressure_layers
         return @pressure_layers if @pressure_layers
 
-        # assuming TEMPERATURE_LAYERS index 1 base altitude is zero (mean sea level)
+        # assume TEMPERATURE_LAYERS index 1 base altitude is 0 (mean sea level)
         p = []
 
-        TEMPERATURE_LAYERS.each_with_index do |x, i|
-          last_i = (i == 0) ? 0 : i - 1
+        TEMPERATURE_LAYERS.each_with_index do |_x, i|
+          last_i = i.zero? ? 0 : i - 1
           last_layer = TEMPERATURE_LAYERS[last_i]
           beta = last_layer[:B]
 
@@ -149,15 +165,34 @@ module Atmospheric
           temp = current_layer[:T]
 
           p[i] = if beta != 0
-            # Formula (12)
-            pb * (1 + ((beta / capital_t_b) * (geopotential_alt - capital_h_b))) ** (-CONST[:g_n] / (beta * CONST[:R]))
-          else
-            # Formula (13)
-            pb * Math.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * (geopotential_alt - capital_h_b))
-          end
+                   # Formula (12)
+                   pressure_formula_beta_nonzero(
+                     pb,
+                     beta,
+                     capital_t_b,
+                     geopotential_alt - capital_h_b,
+                   )
+                 else
+                   # Formula (13)
+                   pressure_formula_beta_zero(
+                     pb,
+                     temp,
+                     geopotential_alt - capital_h_b,
+                   )
+                 end
         end
 
         @pressure_layers = p
+      end
+
+      # Formula (12)
+      def pressure_formula_beta_nonzero(pb, beta, temp, height_diff)
+        pb * (1 + ((beta / temp) * height_diff))**(-CONST[:g_n] / (beta * CONST[:R]))
+      end
+
+      # Formula (13)
+      def pressure_formula_beta_zero(pb, temp, height_diff)
+        pb * Math.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * height_diff)
       end
 
       # puts "PRE-CALCULATED PRESSURE LAYERS:"
@@ -183,10 +218,19 @@ module Atmospheric
 
         if beta != 0
           # Formula (12)
-          pb * (1 + ((beta / capital_t_b) * (geopotential_alt - capital_h_b))) ** (-CONST[:g_n] / (beta * CONST[:R]))
+          pressure_formula_beta_nonzero(
+            pb,
+            beta,
+            capital_t_b,
+            geopotential_alt - capital_h_b,
+          )
         else
           # Formula (13)
-          pb * Math.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * (geopotential_alt - capital_h_b))
+          pressure_formula_beta_zero(
+            pb,
+            temp,
+            geopotential_alt - capital_h_b,
+          )
         end
       end
 
@@ -204,7 +248,7 @@ module Atmospheric
 
       # 2.8 Density and specific weight
 
-      # Calculate density for a given geopotential altitude `H` (m) above mean sea level
+      # Density for a given geopotential altitude `H` (m) above mean sea level
       # Formula (14)
       # rho
       def density_from_H(geopotential_alt)
@@ -222,12 +266,12 @@ module Atmospheric
         Math.sqrt(rho_rho_n_from_H(geopotential_alt))
       end
 
-
       # Specific weight
       # Formula (15)
       # gamma
       def specific_weight_from_H(geopotential_alt)
-        density_from_H(geopotential_alt) * gravity_at_geopotential(geopotential_alt)
+        density_from_H(geopotential_alt) *
+          gravity_at_geopotential(geopotential_alt)
       end
 
       # 2.9 Pressure scale height
@@ -269,14 +313,17 @@ module Atmospheric
       # Formula (19)
       # l
       def mean_free_path_of_air_particles_from_H(geopotential_alt)
-        1 / (1.414213562 * 3.141592654 * (0.365e-9 ** 2) * air_number_density_from_H(geopotential_alt))
+        1 / (1.414213562 * 3.141592654 * (0.365e-9**2) * \
+          air_number_density_from_H(geopotential_alt))
       end
 
       # 2.13 Air-particle collision frequency
       # Formula (20)
       # omega
       def air_particle_collision_frequency_from_temp(n, temp)
-        4 * (0.365e-9 ** 2) * ((3.141592654 / (CONST[:R_star] * CONST[:M])) ** 0.5) * n * CONST[:R_star] * (temp ** 0.5)
+        4 * (0.365e-9**2) *
+          ((3.141592654 / (CONST[:R_star] * CONST[:M]))**0.5) * n * \
+          CONST[:R_star] * (temp**0.5)
       end
 
       def air_particle_collision_frequency_from_H(geopotential_alt)
@@ -300,7 +347,6 @@ module Atmospheric
         speed_of_sound_from_temp(temp)
       end
 
-
       # 2.15 Dynamic viscosity
       # Formula (22)
       # mu (Pa s)
@@ -309,7 +355,7 @@ module Atmospheric
         capital_b_s = 1.458e-6
         capital_s = 110.4
 
-        (capital_b_s * (temp ** (1.5))) / (temp + capital_s)
+        (capital_b_s * (temp**1.5)) / (temp + capital_s)
       end
 
       def dynamic_viscosity_from_H(geopotential_alt)
@@ -333,7 +379,7 @@ module Atmospheric
       # Formula (24)
       # lambda
       def thermal_conductivity_from_temp(temp)
-        (2.648151e-3 * (temp ** (1.5))) / (temp + (245.4 * (10 ** (-12.0/temp))))
+        (2.648151e-3 * (temp**1.5)) / (temp + (245.4 * (10**(-12.0 / temp))))
       end
 
       def thermal_conductivity_from_H(geopotential_alt)
@@ -344,7 +390,6 @@ module Atmospheric
       def kelvin_to_celsius(kelvin)
         kelvin - 273.15
       end
-
     end
   end
 end
