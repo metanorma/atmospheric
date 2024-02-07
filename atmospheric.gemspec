@@ -9,8 +9,13 @@ Gem::Specification.new do |spec|
   spec.email         = ["open.source@ribose.com"]
 
   spec.homepage      = "https://github.com/metanorma/atmospheric"
-  spec.summary       = "Library to calculate values for the International Standard Atmosphere (ISA)"
-  spec.description   = "Library to calculate values for the International Standard Atmosphere (ISA) defined in ISO 2533:1975 and ICAO 7488/3 1994"
+  spec.summary       = <<~HERE.strip
+    Implementation of International Standard Atmosphere (ISA) formulas"
+  HERE
+  spec.description = <<~HERE.strip
+    Implementation of International Standard Atmosphere (ISA) formulas as
+    defined in ISO 2533:1975 and ICAO 7488/3 1994"
+  HERE
   spec.license       = "BSD-2-Clause"
 
   spec.files         = Dir.chdir(File.expand_path(__dir__)) do

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
-require 'yaml'
+
+require "yaml"
 
 RSpec.describe Atmospheric::Isa do
-  MAPPING_VAR_TO_METHOD_NAME = {
-  # method name, digits to round
+  mapping_var_to_method_name = {
+    # method name, digits to round
     H: nil,
     h: ["geometric_altitude_from_geopotential", 0],
     TK: ["temperature_at_layer_from_H", 3],
@@ -24,19 +25,19 @@ RSpec.describe Atmospheric::Isa do
     n: ["air_number_density_from_H", -21],
     v_bar: ["mean_air_particle_speed_from_H", 2],
     omega: ["air_particle_collision_frequency_from_H", -5],
-    l: ["mean_free_path_of_air_particles_from_H", 12]
-  }
+    l: ["mean_free_path_of_air_particles_from_H", 12],
+  }.freeze
 
   let(:isa) { Atmospheric::Isa }
 
-  TEST_VALUES = YAML.load(IO.read('spec/fixtures/tests.yml'))
-  TEST_VALUES.each_with_index do |hash, index|
+  test_values = YAML.safe_load(IO.read("spec/fixtures/tests.yml"))
+  test_values.each do |hash|
     geopotential_h = hash["H"]
 
-    MAPPING_VAR_TO_METHOD_NAME.each_pair do |var, method|
+    mapping_var_to_method_name.each_pair do |var, method|
       next if method.nil?
 
-      it "conforms to test values at H(#{hash["H"]}), variable (#{var})" do
+      it "conforms to test values at H(#{hash['H']}), variable (#{var})" do
         method_name = method[0]
         method_round = method[1]
 
@@ -51,7 +52,5 @@ RSpec.describe Atmospheric::Isa do
         expect(calc).to eq(expected_value)
       end
     end
-
   end
-
 end
