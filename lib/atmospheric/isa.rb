@@ -11,7 +11,7 @@ module Atmospheric
       g_n: 9.80665,
 
       # Avogadro constant (mol-1)
-      N_A: 602.257e21,
+      N_A: 6.02257e+23,
 
       # p_n pressure at mean sea level (Pa)
       p_n: 101325,
@@ -151,11 +151,11 @@ module Atmospheric
           beta = last_layer[:B]
 
           if last_layer[:H] <= 0
-            pb = CONST[:p_n]
+            p_b = CONST[:p_n]
             capital_h_b = 0
             capital_t_b = CONST[:T_n]
           else
-            pb = p[last_i]
+            p_b = p[last_i]
             capital_h_b = last_layer[:H]
             capital_t_b = last_layer[:T]
           end
@@ -167,7 +167,7 @@ module Atmospheric
           p[i] = if beta != 0
                    # Formula (12)
                    pressure_formula_beta_nonzero(
-                     pb,
+                     p_b,
                      beta,
                      capital_t_b,
                      geopotential_alt - capital_h_b,
@@ -175,7 +175,7 @@ module Atmospheric
                  else
                    # Formula (13)
                    pressure_formula_beta_zero(
-                     pb,
+                     p_b,
                      temp,
                      geopotential_alt - capital_h_b,
                    )
@@ -186,13 +186,14 @@ module Atmospheric
       end
 
       # Formula (12)
-      def pressure_formula_beta_nonzero(pb, beta, temp, height_diff)
-        pb * (1 + ((beta / temp) * height_diff))**(-CONST[:g_n] / (beta * CONST[:R]))
+      def pressure_formula_beta_nonzero(p_b, beta, temp, height_diff)
+        p_b * (1 + ((beta / temp) * height_diff)) \
+          **(-CONST[:g_n] / (beta * CONST[:R]))
       end
 
       # Formula (13)
-      def pressure_formula_beta_zero(pb, temp, height_diff)
-        pb * Math.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * height_diff)
+      def pressure_formula_beta_zero(p_b, temp, height_diff)
+        p_b * Math.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * height_diff)
       end
 
       # puts "PRE-CALCULATED PRESSURE LAYERS:"
@@ -214,12 +215,12 @@ module Atmospheric
         capital_h_b = lower_temperature_layer[:H]
         capital_t_b = lower_temperature_layer[:T]
         temp = temperature_at_layer_from_H(geopotential_alt)
-        pb = pressure_layers[i]
+        p_b = pressure_layers[i]
 
         if beta != 0
           # Formula (12)
           pressure_formula_beta_nonzero(
-            pb,
+            p_b,
             beta,
             capital_t_b,
             geopotential_alt - capital_h_b,
@@ -227,7 +228,7 @@ module Atmospheric
         else
           # Formula (13)
           pressure_formula_beta_zero(
-            pb,
+            p_b,
             temp,
             geopotential_alt - capital_h_b,
           )
@@ -313,17 +314,17 @@ module Atmospheric
       # Formula (19)
       # l
       def mean_free_path_of_air_particles_from_H(geopotential_alt)
-        1 / (1.414213562 * 3.141592654 * (0.365e-9**2) * \
+        1 / (1.414213562 * 3.141592654 * (3.65e-10**2) * \
           air_number_density_from_H(geopotential_alt))
       end
 
       # 2.13 Air-particle collision frequency
       # Formula (20)
       # omega
-      def air_particle_collision_frequency_from_temp(n, temp)
-        4 * (0.365e-9**2) *
-          ((3.141592654 / (CONST[:R_star] * CONST[:M]))**0.5) * n * \
-          CONST[:R_star] * (temp**0.5)
+      def air_particle_collision_frequency_from_temp(air_number_density, temp)
+        4 * (3.65e-10**2) *
+          ((3.141592654 / (CONST[:R_star] * CONST[:M]))**0.5) *
+          air_number_density * CONST[:R_star] * (temp**0.5)
       end
 
       def air_particle_collision_frequency_from_H(geopotential_alt)
