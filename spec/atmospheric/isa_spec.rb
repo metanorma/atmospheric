@@ -30,7 +30,7 @@ RSpec.describe Atmospheric::Isa do
 
   let(:isa) { Atmospheric::Isa }
 
-  test_values = YAML.safe_load(IO.read("spec/fixtures/tests.yml"))
+  test_values = YAML.safe_load(IO.read("spec/fixtures/tests-geopotential.yml"))
   test_values.each do |hash|
     geopotential_h = hash["H"]
 
