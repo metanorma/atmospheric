@@ -46,7 +46,7 @@ RSpec.describe Atmospheric::Isa do
         calc = isa.send(method_name, geopotential_h)
         calc = calc.round(decimal_places) if !decimal_places.nil?
         calc = calc.round(significant_digits - Math.log10(calc).ceil) \
-		  if !significant_digits.nil? and calc != 0
+          if !significant_digits.nil? && calc != 0
 
         # For variable :n, the calculated value is an integer, but the tests
         # have it as a float, so we need to convert the calculated value to
