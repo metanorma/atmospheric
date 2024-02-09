@@ -84,7 +84,7 @@ module Atmospheric
 
       # Formula (11)
       # T
-      def temperature_at_layer_from_H(geopotential_alt)
+      def temperature_at_layer_from_geopotential(geopotential_alt)
         lower_layer_index = locate_lower_layer(geopotential_alt)
         lower_layer = TEMPERATURE_LAYERS[lower_layer_index]
         beta = lower_layer[:B]
@@ -95,7 +95,9 @@ module Atmospheric
       end
 
       def temperature_at_layer_celcius(geopotential_alt)
-        kelvin_to_celsius(temperature_at_layer_from_H(geopotential_alt))
+        kelvin_to_celsius(
+          temperature_at_layer_from_geopotential(geopotential_alt),
+        )
       end
 
       def locate_lower_layer(geopotential_alt)
@@ -139,6 +141,9 @@ module Atmospheric
       # 2.7 Pressure
 
       # Base pressure values given defined `TEMPERATURE_LAYERS` and constants
+      # rubocop:disable Metrics/AbcSize
+      # rubocop:disable Metrics/PerceivedComplexity
+      # rubocop:disable Metrics/MethodLength
       def pressure_layers
         return @pressure_layers if @pressure_layers
 
@@ -163,27 +168,24 @@ module Atmospheric
           current_layer = TEMPERATURE_LAYERS[i]
           geopotential_alt = current_layer[:H]
           temp = current_layer[:T]
+          temp_diff = geopotential_alt - capital_h_b
 
-          p[i] = if beta != 0
-                   # Formula (12)
-                   pressure_formula_beta_nonzero(
-                     p_b,
-                     beta,
-                     capital_t_b,
-                     geopotential_alt - capital_h_b,
-                   )
-                 else
-                   # Formula (13)
-                   pressure_formula_beta_zero(
-                     p_b,
-                     temp,
-                     geopotential_alt - capital_h_b,
-                   )
-                 end
+          p_i = if beta != 0
+                  # Formula (12)
+                  pressure_formula_beta_nonzero(p_b, beta, capital_t_b,
+                                                temp_diff)
+                else
+                  # Formula (13)
+                  pressure_formula_beta_zero(p_b, temp, temp_diff)
+                end
+          p[i] = p_i
         end
 
         @pressure_layers = p
       end
+      # rubocop:enable Metrics/AbcSize
+      # rubocop:enable Metrics/PerceivedComplexity
+      # rubocop:enable Metrics/MethodLength
 
       # Formula (12)
       def pressure_formula_beta_nonzero(p_b, beta, temp, height_diff)
@@ -207,44 +209,38 @@ module Atmospheric
         pascal * 0.01
       end
 
+      # rubocop:disable Metrics/MethodLength
       # Pressure for a given geopotential altitude `H` (m) above mean sea level
-      def pressure_from_H(geopotential_alt)
+      def pressure_from_geopotential(geopotential_alt)
         i = locate_lower_layer(geopotential_alt)
         lower_temperature_layer = TEMPERATURE_LAYERS[i]
         beta = lower_temperature_layer[:B]
         capital_h_b = lower_temperature_layer[:H]
         capital_t_b = lower_temperature_layer[:T]
-        temp = temperature_at_layer_from_H(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
         p_b = pressure_layers[i]
+        temp_diff = geopotential_alt - capital_h_b
 
         if beta != 0
           # Formula (12)
-          pressure_formula_beta_nonzero(
-            p_b,
-            beta,
-            capital_t_b,
-            geopotential_alt - capital_h_b,
-          )
+          pressure_formula_beta_nonzero(p_b, beta, capital_t_b, temp_diff)
         else
           # Formula (13)
-          pressure_formula_beta_zero(
-            p_b,
-            temp,
-            geopotential_alt - capital_h_b,
-          )
+          pressure_formula_beta_zero(p_b, temp, temp_diff)
         end
       end
+      # rubocop:enable Metrics/MethodLength
 
-      def pressure_from_H_mbar(geopotential_alt)
-        pa_to_mbar(pressure_from_H(geopotential_alt))
+      def pressure_from_geopotential_mbar(geopotential_alt)
+        pa_to_mbar(pressure_from_geopotential(geopotential_alt))
       end
 
-      def pressure_from_H_mmhg(geopotential_alt)
-        pa_to_mmhg(pressure_from_H(geopotential_alt))
+      def pressure_from_geopotential_mmhg(geopotential_alt)
+        pa_to_mmhg(pressure_from_geopotential(geopotential_alt))
       end
 
-      def p_p_n_from_H(geopotential_alt)
-        pressure_from_H(geopotential_alt) / CONST[:p_n]
+      def p_p_n_from_geopotential(geopotential_alt)
+        pressure_from_geopotential(geopotential_alt) / CONST[:p_n]
       end
 
       # 2.8 Density and specific weight
@@ -252,26 +248,26 @@ module Atmospheric
       # Density for a given geopotential altitude `H` (m) above mean sea level
       # Formula (14)
       # rho
-      def density_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
-        p = pressure_from_H(geopotential_alt)
+      def density_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
+        p = pressure_from_geopotential(geopotential_alt)
 
         p / (CONST[:R] * temp)
       end
 
-      def rho_rho_n_from_H(geopotential_alt)
-        density_from_H(geopotential_alt) / CONST[:rho_n]
+      def rho_rho_n_from_geopotential(geopotential_alt)
+        density_from_geopotential(geopotential_alt) / CONST[:rho_n]
       end
 
-      def root_rho_rho_n_from_H(geopotential_alt)
-        Math.sqrt(rho_rho_n_from_H(geopotential_alt))
+      def root_rho_rho_n_from_geopotential(geopotential_alt)
+        Math.sqrt(rho_rho_n_from_geopotential(geopotential_alt))
       end
 
       # Specific weight
       # Formula (15)
       # gamma
-      def specific_weight_from_H(geopotential_alt)
-        density_from_H(geopotential_alt) *
+      def specific_weight_from_geopotential(geopotential_alt)
+        density_from_geopotential(geopotential_alt) *
           gravity_at_geopotential(geopotential_alt)
       end
 
@@ -282,17 +278,17 @@ module Atmospheric
         (CONST[:R] * temp) / CONST[:g_n]
       end
 
-      def pressure_scale_height_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
+      def pressure_scale_height_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
         (CONST[:R] * temp) / gravity_at_geopotential(geopotential_alt)
       end
 
       # 2.10 Air number density
       # Formula (17)
       # n
-      def air_number_density_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
-        p = pressure_from_H(geopotential_alt)
+      def air_number_density_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
+        p = pressure_from_geopotential(geopotential_alt)
 
         CONST[:N_A] * p / (CONST[:R_star] * temp)
       end
@@ -305,17 +301,17 @@ module Atmospheric
         1.595769 * Math.sqrt(CONST[:R] * temp)
       end
 
-      def mean_air_particle_speed_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
+      def mean_air_particle_speed_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
         mean_air_particle_speed_from_temp(temp)
       end
 
       # 2.12 Mean free path of air particles
       # Formula (19)
       # l
-      def mean_free_path_of_air_particles_from_H(geopotential_alt)
+      def mean_free_path_of_air_particles_from_geopotential(geopotential_alt)
         1 / (1.414213562 * 3.141592654 * (3.65e-10**2) * \
-          air_number_density_from_H(geopotential_alt))
+          air_number_density_from_geopotential(geopotential_alt))
       end
 
       # 2.13 Air-particle collision frequency
@@ -327,9 +323,9 @@ module Atmospheric
           air_number_density * CONST[:R_star] * (temp**0.5)
       end
 
-      def air_particle_collision_frequency_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
-        n = air_number_density_from_H(geopotential_alt)
+      def air_particle_collision_frequency_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
+        n = air_number_density_from_geopotential(geopotential_alt)
         air_particle_collision_frequency_from_temp(n, temp)
       end
 
@@ -343,8 +339,8 @@ module Atmospheric
         Math.sqrt(kappa * CONST[:R] * temp)
       end
 
-      def speed_of_sound_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
+      def speed_of_sound_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
         speed_of_sound_from_temp(temp)
       end
 
@@ -359,8 +355,8 @@ module Atmospheric
         (capital_b_s * (temp**1.5)) / (temp + capital_s)
       end
 
-      def dynamic_viscosity_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
+      def dynamic_viscosity_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
         dynamic_viscosity(temp)
       end
 
@@ -371,9 +367,9 @@ module Atmospheric
         dynamic_viscosity(temp) / CONST[:rho_n]
       end
 
-      def kinematic_viscosity_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
-        dynamic_viscosity(temp) / density_from_H(geopotential_alt)
+      def kinematic_viscosity_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
+        dynamic_viscosity(temp) / density_from_geopotential(geopotential_alt)
       end
 
       # 2.17 Thermal conductivity
@@ -383,8 +379,8 @@ module Atmospheric
         (2.648151e-3 * (temp**1.5)) / (temp + (245.4 * (10**(-12.0 / temp))))
       end
 
-      def thermal_conductivity_from_H(geopotential_alt)
-        temp = temperature_at_layer_from_H(geopotential_alt)
+      def thermal_conductivity_from_geopotential(geopotential_alt)
+        temp = temperature_at_layer_from_geopotential(geopotential_alt)
         thermal_conductivity_from_temp(temp)
       end
 
