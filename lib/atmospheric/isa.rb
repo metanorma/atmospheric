@@ -108,9 +108,9 @@ module Atmospheric
         i = TEMPERATURE_LAYERS.length - 1
         return i - 1 if geopotential_alt >= TEMPERATURE_LAYERS[i][:H]
 
-        # find last layer with H larger than our H
+        # find last layer with H smaller than our H
         TEMPERATURE_LAYERS.each_with_index do |layer, ind|
-          return ind if layer[:H] > geopotential_alt
+          return ind-1 if layer[:H] > geopotential_alt
         end
 
         nil
