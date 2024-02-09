@@ -9151,15 +9151,6 @@ rows-h:
     kinematic-viscosity: 7.1558e-1
     thermal-conductivity: 1.7987e-2
 
-  - geometrical-altitude: 
-    ppn:
-    rhorhon:
-    sqrt-rhorhon:
-    speed-of-sound: 
-    dynamic-viscosity:
-    kinematic-viscosity:
-    thermal-conductivity:
-
 rows-H:
   - geopotential-altitude: -2000
     ppn: 1.26103e+0
