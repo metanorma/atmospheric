@@ -31,29 +31,32 @@ RSpec.describe Atmospheric::Isa do
   let(:isa) { Atmospheric::Isa }
 
   test_values = YAML.safe_load(IO.read("spec/fixtures/tests-geopotential.yml"))
-  test_values.each do |hash|
-    geopotential_h = hash["H"]
+  mapping_var_to_method_name.each_pair do |var, method|
+    next if method.nil?
 
-    mapping_var_to_method_name.each_pair do |var, method|
-      next if method.nil?
+    method_name = method[0]
+    decimal_places = method[1]
+    significant_digits = method[2]
 
-      it "conforms to test values at H(#{hash['H']}), variable (#{var})" do
-        method_name = method[0]
-        decimal_places = method[1]
-        significant_digits = method[2]
+    context "variable (#{var}) outputs conform to test values" do
+      test_values.each do |hash|
 
-        expected_value = hash[var.to_s]
-        calc = isa.send(method_name, geopotential_h)
-        calc = calc.round(decimal_places) if !decimal_places.nil?
-        calc = calc.round(significant_digits - Math.log10(calc).ceil) \
+        it "variable (#{var}) @#{hash["H"]} outputs conforms to test value" do
+          geopotential_h = hash["H"]
+          expected_value = hash[var.to_s]
+          calc = isa.send(method_name, geopotential_h)
+          calc = calc.round(decimal_places) if !decimal_places.nil?
           if !significant_digits.nil? && calc != 0
+            calc = calc.round(significant_digits - Math.log10(calc).ceil)
+          end
 
-        # For variable :n, the calculated value is an integer, but the tests
-        # have it as a float, so we need to convert the calculated value to
-        # float
-        calc = calc.to_f if var == :n
+          # For variable :n, the calculated value is an integer, but the tests
+          # have it as a float, so we need to convert the calculated value to
+          # float
+          calc = calc.to_f if var == :n
 
-        expect(calc).to eq(expected_value)
+          expect(calc).to eq(expected_value)
+        end
       end
     end
   end
