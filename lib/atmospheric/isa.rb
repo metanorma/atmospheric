@@ -1,3 +1,5 @@
+require "bigdecimal"
+require "bigdecimal/util"
 module Atmospheric
   module Isa
     # International Standard Atmosphere (ISA) (ISO 2533:1975)
@@ -8,28 +10,28 @@ module Atmospheric
     #           the calculation of the ISO Standard Atmosphere
     constants = {
       # g_n gravitation at mean sea level (m.s-2)
-      g_n: 9.80665,
+      g_n: BigDecimal("9.80665"),
 
       # Avogadro constant (mol-1)
-      N_A: 6.02257e+23,
+      N_A: BigDecimal("6.02257e+23"),
 
       # p_n pressure at mean sea level (Pa)
-      p_n: 101325,
+      p_n: BigDecimal("101325"),
 
       # rho_n standard air density
-      rho_n: 1.225,
+      rho_n: BigDecimal("1.225"),
 
       # T_n standard thermodynamic air temperature at mean sea level
-      T_n: 288.15,
+      T_n: BigDecimal("288.15"),
 
       # universal gas constant
-      R_star: 8.31432,
+      R_star: BigDecimal("8.31432"),
 
       # radius of the Earth (m)
-      radius: 6356766,
+      radius: BigDecimal("6356766"),
 
       # adiabatic index (dimensionless)
-      k: 1.4,
+      k: BigDecimal("1.4"),
     }
 
     # 2.2 The equation of the static atmosphere and the perfect gas law
@@ -48,7 +50,7 @@ module Atmospheric
     CONST = constants.freeze
 
     class << self
-      # 2.3 Geopotential and geometric altitides; acceleration of free fall
+      # 2.3 Geopotential and geometric altitudes; acceleration of free fall
 
       # 2.3 Formula (8)
       # H to h
@@ -124,18 +126,18 @@ module Atmospheric
         # B is Temperature gradient, "beta", K m^-1
 
         # This line is from ICAO 7488/3
-        # [H: -5000, T: 320.65, B: -0.0065 ],
+        # [H: BigDecimal("-5000"), T: BigDecimal("320.65"), B: BigDecimal("-0.0065") ],
 
         # This line is from ISO 2533:1975
-        { H: -2000, T: 301.15, B: -0.0065 },
-        { H: 0,     T: 288.15, B: -0.0065 },
-        { H: 11000, T: 216.65, B: 0       },
-        { H: 20000, T: 216.65, B: 0.001   },
-        { H: 32000, T: 228.65, B: 0.0028  },
-        { H: 47000, T: 270.65, B: 0       },
-        { H: 51000, T: 270.65, B: -0.0028 },
-        { H: 71000, T: 214.65, B: -0.002  },
-        { H: 80000, T: 196.65 },
+        { H: BigDecimal("-2000"), T: BigDecimal("301.15"), B: BigDecimal("-0.0065") },
+        { H: BigDecimal("0"),     T: BigDecimal("288.15"), B: BigDecimal("-0.0065") },
+        { H: BigDecimal("11000"), T: BigDecimal("216.65"), B: BigDecimal("0")       },
+        { H: BigDecimal("20000"), T: BigDecimal("216.65"), B: BigDecimal("0.001")   },
+        { H: BigDecimal("32000"), T: BigDecimal("228.65"), B: BigDecimal("0.0028")  },
+        { H: BigDecimal("47000"), T: BigDecimal("270.65"), B: BigDecimal("0")       },
+        { H: BigDecimal("51000"), T: BigDecimal("270.65"), B: BigDecimal("-0.0028") },
+        { H: BigDecimal("71000"), T: BigDecimal("214.65"), B: BigDecimal("-0.002")  },
+        { H: BigDecimal("80000"), T: BigDecimal("196.65") },
       ].freeze
 
       # 2.7 Pressure
@@ -189,24 +191,24 @@ module Atmospheric
 
       # Formula (12)
       def pressure_formula_beta_nonzero(p_b, beta, temp, height_diff)
-        p_b * (1 + ((beta / temp) * height_diff)) \
+        p_b * (BigDecimal("1") + ((beta / temp) * height_diff)) \
           **(-CONST[:g_n] / (beta * CONST[:R]))
       end
 
       # Formula (13)
       def pressure_formula_beta_zero(p_b, temp, height_diff)
-        p_b * Math.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * height_diff)
+        p_b * BigMath.exp(-(CONST[:g_n] / (CONST[:R] * temp)) * height_diff, 16)
       end
 
       # puts "PRE-CALCULATED PRESSURE LAYERS:"
       # pp @pressure_layers
 
       def pa_to_mmhg(pascal)
-        pascal * 0.007500616827
+        pascal * BigDecimal("0.007500616827")
       end
 
       def pa_to_mbar(pascal)
-        pascal * 0.01
+        pascal * BigDecimal("0.01")
       end
 
       # rubocop:disable Metrics/MethodLength
@@ -298,7 +300,7 @@ module Atmospheric
       # v_bar
       # CORRECT
       def mean_air_particle_speed_from_temp(temp)
-        1.595769 * Math.sqrt(CONST[:R] * temp)
+        BigDecimal("1.595769") * Math.sqrt(CONST[:R] * temp)
       end
 
       def mean_air_particle_speed_from_geopotential(geopotential_alt)
@@ -310,7 +312,7 @@ module Atmospheric
       # Formula (19)
       # l
       def mean_free_path_of_air_particles_from_geopotential(geopotential_alt)
-        1 / (1.414213562 * 3.141592654 * (3.65e-10**2) * \
+        BigDecimal("1") / (BigDecimal("1.414213562") * BigDecimal("3.141592654") * (BigDecimal("3.65e-10")**BigDecimal("2")) * \
           air_number_density_from_geopotential(geopotential_alt))
       end
 
@@ -318,9 +320,9 @@ module Atmospheric
       # Formula (20)
       # omega
       def air_particle_collision_frequency_from_temp(air_number_density, temp)
-        4 * (3.65e-10**2) *
-          ((3.141592654 / (CONST[:R_star] * CONST[:M]))**0.5) *
-          air_number_density * CONST[:R_star] * (temp**0.5)
+        BigDecimal("4") * (BigDecimal("3.65e-10")**BigDecimal("2")) *
+          ((BigDecimal("3.141592654") / (CONST[:R_star] * CONST[:M]))**BigDecimal("0.5")) *
+          air_number_density * CONST[:R_star] * (temp**BigDecimal("0.5"))
       end
 
       def air_particle_collision_frequency_from_geopotential(geopotential_alt)
@@ -335,7 +337,7 @@ module Atmospheric
       # CORRECT
       def speed_of_sound_from_temp(temp)
         # `kappa` (ratio of c_p / c_v) = 1.4 (see 2.14)
-        kappa = 1.4
+        kappa = BigDecimal("1.4")
         Math.sqrt(kappa * CONST[:R] * temp)
       end
 
@@ -349,10 +351,10 @@ module Atmospheric
       # mu (Pa s)
       def dynamic_viscosity(temp)
         # Sutherland's empirical constants in the equation for dynamic viscosity
-        capital_b_s = 1.458e-6
-        capital_s = 110.4
+        capital_b_s = BigDecimal("1.458e-6")
+        capital_s = BigDecimal("110.4")
 
-        (capital_b_s * (temp**1.5)) / (temp + capital_s)
+        (capital_b_s * (temp**BigDecimal("1.5"))) / (temp + capital_s)
       end
 
       def dynamic_viscosity_from_geopotential(geopotential_alt)
@@ -376,7 +378,7 @@ module Atmospheric
       # Formula (24)
       # lambda
       def thermal_conductivity_from_temp(temp)
-        (2.648151e-3 * (temp**1.5)) / (temp + (245.4 * (10**(-12.0 / temp))))
+        (BigDecimal("2.648151e-3") * (temp**BigDecimal("1.5"))) / (temp + (BigDecimal("245.4") * (BigDecimal("10")**(BigDecimal("-12.0") / temp))))
       end
 
       def thermal_conductivity_from_geopotential(geopotential_alt)
@@ -385,7 +387,7 @@ module Atmospheric
       end
 
       def kelvin_to_celsius(kelvin)
-        kelvin - 273.15
+        kelvin - BigDecimal("273.15")
       end
     end
   end

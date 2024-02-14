@@ -42,8 +42,8 @@ RSpec.describe Atmospheric::Isa do
       test_values.each do |hash|
 
         it "variable (#{var}) @#{hash["H"]} outputs conforms to test value" do
-          geopotential_h = hash["H"]
-          expected_value = hash[var.to_s]
+          geopotential_h = BigDecimal(hash["H"].to_s)
+          expected_value = BigDecimal(hash[var.to_s].to_s)
           calc = isa.send(method_name, geopotential_h)
           calc = calc.round(decimal_places) if !decimal_places.nil?
           if !significant_digits.nil? && calc != 0
