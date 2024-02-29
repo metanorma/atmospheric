@@ -168,15 +168,15 @@ module Atmospheric
           current_layer = TEMPERATURE_LAYERS[i]
           geopotential_alt = current_layer[:H]
           temp = current_layer[:T]
-          temp_diff = geopotential_alt - capital_h_b
+          height_diff = geopotential_alt - capital_h_b
 
           p_i = if beta != 0
                   # Formula (12)
                   pressure_formula_beta_nonzero(p_b, beta, capital_t_b,
-                                                temp_diff)
+                                                height_diff)
                 else
                   # Formula (13)
-                  pressure_formula_beta_zero(p_b, temp, temp_diff)
+                  pressure_formula_beta_zero(p_b, temp, height_diff)
                 end
           p[i] = p_i
         end
@@ -219,14 +219,14 @@ module Atmospheric
         capital_t_b = lower_temperature_layer[:T]
         temp = temperature_at_layer_from_geopotential(geopotential_alt)
         p_b = pressure_layers[i]
-        temp_diff = geopotential_alt - capital_h_b
+        height_diff = geopotential_alt - capital_h_b
 
         if beta != 0
           # Formula (12)
-          pressure_formula_beta_nonzero(p_b, beta, capital_t_b, temp_diff)
+          pressure_formula_beta_nonzero(p_b, beta, capital_t_b, height_diff)
         else
           # Formula (13)
-          pressure_formula_beta_zero(p_b, temp, temp_diff)
+          pressure_formula_beta_zero(p_b, temp, height_diff)
         end
       end
       # rubocop:enable Metrics/MethodLength
