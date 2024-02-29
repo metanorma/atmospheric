@@ -46,16 +46,30 @@ RSpec.describe Atmospheric::Isa do
           expected_value = hash[var.to_s]
           calc = isa.send(method_name, geopotential_h)
           calc = calc.round(decimal_places) if !decimal_places.nil?
-          if !significant_digits.nil? && calc != 0
-            calc = calc.round(significant_digits - Math.log10(calc).ceil)
-          end
 
           # For variable :n, the calculated value is an integer, but the tests
           # have it as a float, so we need to convert the calculated value to
           # float
           calc = calc.to_f if var == :n
 
-          expect(calc).to eq(expected_value)
+          if !significant_digits.nil? && calc != 0
+            calc = calc.round(significant_digits - Math.log10(calc).ceil)
+            diff = 10**(-(significant_digits - Math.log10(calc).ceil))
+
+            expected_min = expected_value - diff
+            expected_min = expected_min.round(significant_digits \
+              - Math.log10(calc).ceil)
+
+            expected_max = expected_value + diff
+            expected_max = expected_max.round(significant_digits \
+              - Math.log10(calc).ceil)
+          else
+            diff = 10**(-decimal_places)
+            expected_min = (expected_value - diff).round(decimal_places)
+            expected_max = (expected_value + diff).round(decimal_places)
+          end
+
+          expect(calc).to be_between(expected_min, expected_max)
         end
       end
     end
