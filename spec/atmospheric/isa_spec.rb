@@ -40,8 +40,7 @@ RSpec.describe Atmospheric::Isa do
 
     context "variable (#{var}) outputs conform to test values" do
       test_values.each do |hash|
-
-        it "variable (#{var}) @#{hash["H"]} outputs conforms to test value" do
+        it "variable (#{var}) @#{hash['H']} outputs conforms to test value" do
           geopotential_h = hash["H"]
           expected_value = hash[var.to_s]
           calc = isa.send(method_name, geopotential_h)
@@ -54,7 +53,7 @@ RSpec.describe Atmospheric::Isa do
 
           if !significant_digits.nil? && calc != 0
             calc = calc.round(significant_digits - Math.log10(calc).ceil)
-            diff = 10**(-(significant_digits - Math.log10(calc).ceil))
+            diff = 10**-(significant_digits - Math.log10(calc).ceil)
 
             expected_min = expected_value - diff
             expected_min = expected_min.round(significant_digits \
@@ -64,7 +63,7 @@ RSpec.describe Atmospheric::Isa do
             expected_max = expected_max.round(significant_digits \
               - Math.log10(calc).ceil)
           else
-            diff = 10**(-decimal_places)
+            diff = 10**-decimal_places
             expected_min = (expected_value - diff).round(decimal_places)
             expected_max = (expected_value + diff).round(decimal_places)
           end
