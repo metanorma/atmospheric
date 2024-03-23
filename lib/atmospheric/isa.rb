@@ -387,6 +387,41 @@ module Atmospheric
       def kelvin_to_celsius(kelvin)
         kelvin - 273.15
       end
+
+      # ADD 1
+      # Formulae used in the calculation of the relationships
+      # between geopotential altitude and pressure
+      # rubocop:disable Metrics/AbcSize
+      # rubocop:disable Metrics/MethodLength
+      def geopotential_altitude_from_pressure_mbar(pressure)
+        if pressure >= pa_to_mbar(pressure_layers[2]) # H <= 11 000 m
+          (3.731444 - pressure**0.1902631) / 8.41728e-5
+        elsif pressure >= pa_to_mbar(pressure_layers[3]) # H <= 20 000 m
+          (3.1080387 - Math.log10(pressure)) / 6.848325e-5
+        elsif pressure >= pa_to_mbar(pressure_layers[4]) # H <= 32 000 m
+          (1.2386515 - pressure**0.02927125) \
+            / (5.085177e-6 * pressure**0.02927125)
+        elsif pressure >= pa_to_mbar(pressure_layers[5]) # H <= 47 000 m
+          (1.9630052 - pressure**0.08195949) \
+            / (2.013664e-5 * pressure**0.08195949)
+        end
+      end
+
+      def geopotential_altitude_from_pressure_mmhg(pressure)
+        if pressure >= pa_to_mmhg(pressure_layers[2]) # H <= 11 000 m
+          (3.532747 - pressure**0.1902631) / 7.96906e-5
+        elsif pressure >= pa_to_mmhg(pressure_layers[3]) # H <= 20 000 m
+          (2.9831357 - Math.log10(pressure)) / 6.848325e-5
+        elsif pressure >= pa_to_mmhg(pressure_layers[4]) # H <= 32 000 m
+          (1.2282678 - pressure**0.02927125) \
+            / (5.085177e-6 * pressure**0.02927125)
+        elsif pressure >= pa_to_mmhg(pressure_layers[5]) # H <= 47 000 m
+          (1.9172753 - pressure**0.08195949) \
+            / (2.013664e-5 * pressure**0.08195949)
+        end
+      end
+      # rubocop:enable Metrics/AbcSize
+      # rubocop:enable Metrics/MethodLength
     end
   end
 end
