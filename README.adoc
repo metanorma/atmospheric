@@ -5,7 +5,8 @@
 This repository provides Ruby code for calculating values defined in the
 following documents:
 
-* International Standard Atmosphere (ISA) from ISO 2533:1975
+* International Standard Atmosphere (ISA) from ISO 2533:1975,
+  ISO 2533:1975/ADD 1:1985 and ISO 2533:1975/ADD 2:1997
 * ICAO Standard Atmosphere (ICAO Doc 7488/3, 1994)
 
 Which are technically identical documents but different in presentation and
@@ -66,6 +67,12 @@ Tables 5 to 7 all have height information of the following keys in the hash:
 * `geopotential-altitude-ft`
 * `geometrical-altitude-m`
 * `geometrical-altitude-ft`
+
+All YAML tables generated contain these two keys which group altitude values
+as the ISO 2533 tables are rendered in both types of altitudes:
+
+* `by-geopotential-altitude`
+* `by-geometric-altitude`
 
 ==== Table 5
 
