@@ -28,9 +28,9 @@ for i in range(counts[0]):
 		match = None
 		while match is None:
 			line = f.readline()
-			if line == "rows-h:\n":
+			if line == "by-geometrical-altitude:\n":
 				currentEntries = 0
-			elif line == "rows-H:\n":
+			elif line == "by-geopotential-altitude:\n":
 				currentEntries = 1
 			match = re.search(r'^  (-| ) (.+):(.*)', line)
 		while match is not None:
@@ -38,7 +38,7 @@ for i in range(counts[0]):
 				entriesh[i][match.group(2)] = match.group(3)
 			else:
 				entriesH[i][match.group(2)] = match.group(3)
-			
+
 			line = f.readline()
 			match = re.search(r'^  (-| ) (.+):(.*)', line)
 
@@ -48,7 +48,7 @@ for f in inputs:
 def output(filename, entries, geopotential):
 	output = open(filename, "w")
 	output.write("---\n")
-	
+
 	for e in entries:
 		if e == {}:
 			continue
@@ -58,7 +58,7 @@ def output(filename, entries, geopotential):
 		else:
 			output.write("- h: " + str(float(e["geometrical-altitude"])) + "\n")
 			output.write("  H: " + str(float(e["geopotential-altitude"])) + "\n")
-		
+
 		output.write("  TK: " + str(float(e["temperature-K"])/1000) + "\n")
 		output.write("  TC: " + str(float(e["temperature-C"])/1000) + "\n")
 		output.write("  p_mbar:" + e["p-mbar"] + "\n")

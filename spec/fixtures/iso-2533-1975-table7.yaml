@@ -6,7 +6,7 @@ title-ru: Высота однородной атмосферы (stem:[H_"p"]), �
 note-en: Values in terms of geometrical altitude.
 note-fr: Valeurs en fonction de l'altitude géométrique.
 note-ru: Значения величин в функции геометрической высоты.
-rows-h:
+by-geometrical-altitude:
   - geometrical-altitude: -2000
     pressure-scale-height: 8809.6
     specific-weight: 1.4505e+1
@@ -8135,7 +8135,7 @@ rows-h:
     frequency: 8.6564e+4
     mean-free-path: 4.4020e-3
 
-rows-H:
+by-geopotential-altitude:
   - geopotential-altitude: -2000
     pressure-scale-height: 8809.5
     specific-weight: 1.4504e+1

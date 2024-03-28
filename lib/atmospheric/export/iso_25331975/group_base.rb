@@ -24,8 +24,8 @@ module Atmospheric
 
         def height_hash(hgmm, hgmf, hgpm, hgpf)
           {
-            "geopotential-altitude-m"  => hgmm,
-            "geopotential-altitude-ft" => hgmf,
+            "geopotential-altitude-m"  => hgmm.round,
+            "geopotential-altitude-ft" => hgmf.round,
             "geometrical-altitude-m"   => hgpm.round,
             "geometrical-altitude-ft"  => hgpf.round,
           }
@@ -55,13 +55,13 @@ module Atmospheric
 
         def to_h(unit: steps_unit)
           d = {
-            "rows-h" => [],
-            "rows-H" => []
+            "by-geometrical-altitude" => [],
+            "by-geopotential-altitude" => []
           }
 
           steps.each do |h|
-            d["rows-h"] << row_small_h(h, unit: unit)
-            d["rows-H"] << row_big_h(h, unit: unit)
+            d["by-geometrical-altitude"] << row_small_h(h, unit: unit)
+            d["by-geopotential-altitude"] << row_big_h(h, unit: unit)
           end
           d
         end

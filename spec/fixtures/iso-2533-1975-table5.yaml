@@ -6,7 +6,7 @@ title-ru: Температура (stem:[T] и stem:[t]), давление (stem:
 note-en: Values in terms of geometrical altitude.
 note-fr: Valeurs en fonction de l'altitude géométrique.
 note-ru: Значения величин в функции геометрической высоты.
-rows-h:
+by-geometrical-altitude:
   - geometrical-altitude: -2000
     geopotential-altitude: -2001
     temperature-K: 301154
@@ -9151,7 +9151,7 @@ rows-h:
     density: 1.84580e-5
     acceleration: 9.5644
 
-rows-H:
+by-geopotential-altitude:
   - geopotential-altitude: -2000
     geometrical-altitude: -1999
     temperature-K: 301150

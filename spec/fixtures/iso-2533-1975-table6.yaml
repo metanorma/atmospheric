@@ -6,7 +6,7 @@ title-ru: Отношения stem:[p//p_"n"], stem:[rho//rho_"n"] и stem:[sqrt(
 note-en: Values in terms of geometrical altitude.
 note-fr: Valeurs en fonction de l'altitude géométrique.
 note-ru: Значения величин в функции геометрической высоты.
-rows-h:
+by-geometrical-altitude:
   - geometrical-altitude: -2000
     ppn: 1.26112e+0
     rhorhon: 1.20666e+0
@@ -9151,7 +9151,7 @@ rows-h:
     kinematic-viscosity: 7.1558e-1
     thermal-conductivity: 1.7987e-2
 
-rows-H:
+by-geopotential-altitude:
   - geopotential-altitude: -2000
     ppn: 1.26103e+0
     rhorhon: 1.20659e+0
