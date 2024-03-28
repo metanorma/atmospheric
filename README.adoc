@@ -13,6 +13,8 @@ units (the ICAO document includes `ft` in addition to `m`).
 
 == Usage
 
+=== Formulas and calculations
+
 [source,ruby]
 ----
 > require 'atmospheric'
@@ -43,6 +45,303 @@ The available methods are:
 * `mean_air_particle_speed_from_geopotential(geopotential_altitude)`
 * `air_particle_collision_frequency_from_geopotential(geopotential_altitude)`
 * `mean_free_path_of_air_particles_from_geopotential(geopotential_altitude)`
+
+
+== Generating ISO 2533 tables
+
+=== ISO 2533:1975
+
+All tables in the 1975 edition are arranged in these steps in meters:
+
+.ISO 2533:1975 table range: step 50 from -2k, 100 above 32k, 200 above 51k to 80k
+----
+(-2000..31999).step(50) +
+(32000..50999).step(100) +
+(51000..80000).step(200)
+----
+
+Tables 5 to 7 all have height information of the following keys in the hash:
+
+* `geopotential-altitude-m`
+* `geopotential-altitude-ft`
+* `geometrical-altitude-m`
+* `geometrical-altitude-ft`
+
+==== Table 5
+
+Title:
+"_Temperature (T and t), Pressure (p), Density (p) and Acceleration of free fall
+(g) in terms of geometrical altitude (h) and geopotential altitude (H)_"
+
+Provides the following values in addition to geopotential and geometric height:
+
+* `temperature-K`
+* `temperature-C`
+* `pressure-mbar`
+* `pressure-mmHg`
+* `density`
+* `acceleration`
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331975.table_5      #=> Hash
+Atmospheric::Export::Iso25331975.table_5_yaml #=> YAML
+----
+
+==== Table 6
+
+Title:
+"_Relations of p'pn, p/pn and bar(p/pn), Speed of sound (a), Dynamic viscosity
+(p), Kinematic viscosity (v) and Thermal conductivity (lambda) in terms of
+geometrical altitude (h), and geopotential altitude (H)_"
+
+Provides the following values in addition to geopotential and geometric height:
+
+* `ppn`
+* `rhorhon`
+* `sqrt-rhorhon`
+* `speed-of-sound`
+* `dynamic-viscosity`
+* `kinematic-viscosity`
+* `thermal-conductivity`
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331975.table_6      #=> Hash
+Atmospheric::Export::Iso25331975.table_6_yaml #=> YAML
+----
+
+==== Table 7
+
+Title:
+"_Pressure scale height (H_p) Specific weight (gamma), Air number density (n),
+Mean air-particle speed (v), Air-particle collision frequency (omega) and Mean
+free path of air particles (l) in terms of geometrical altitude (h) and
+geopotential altitude (H)_"
+
+* `pressure-scale-height`
+* `specific-weight`
+* `air-number-density`
+* `mean-speed`
+* `frequency`
+* `mean-free-path`
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331975.table_7      #=> Hash
+Atmospheric::Export::Iso25331975.table_7_yaml #=> YAML
+----
+
+
+=== ISO 2533 ADD 1:1985
+
+Addendum 1 adds "Hypsometrical tables".
+
+==== Table 1 (hPa)
+
+Title:
+"_Geopotential altitude as a function of barometric pressure
+for 5 <= p < 20 hPa at intervals of 0.01 hPa_"
+
+For the range of `(5.0..19.99).step(0.01)` in hPa.
+
+Provides:
+
+* `pressure-mbar`
+* `geopotential-altitude`
+
+[source,ruby]
+----
+Atmospheric::Export::HypsometricalTables.table_1      #=> Hash
+Atmospheric::Export::HypsometricalTables.table_1_yaml #=> YAML
+----
+
+==== Table 2 (hPa)
+
+Title:
+"_Geopotential altitude as a function of barometric pressure
+for 20 <= p < 1200 hPa at intervals of 0.1 hPa_"
+
+Same as Table 1 but for the range of `(20.0..1199.9).step(0.1)` in hPa.
+
+[source,ruby]
+----
+Atmospheric::Export::HypsometricalTables.table_2      #=> Hash
+Atmospheric::Export::HypsometricalTables.table_2_yaml #=> YAML
+----
+
+==== Table 3 (mmHg)
+
+Title:
+"_Geopotential altitude as a function of barometric pressure for 4 <= p < 10
+mmHg at intervals of 0.01 mmHg_"
+
+Same as Table 1 but for the range of `(4.0..9.99).step(0.01)` and results in mmhg.
+
+Provides:
+
+* `pressure-mmhg`
+* `geopotential-altitude`
+
+[source,ruby]
+----
+Atmospheric::Export::HypsometricalTables.table_3      #=> Hash
+Atmospheric::Export::HypsometricalTables.table_3_yaml #=> YAML
+----
+
+==== Table 4 (mmHg)
+
+Title:
+"_Geopotential altitude as a function of barometric pressure for 10 <= p < 900
+mmHg at intervals of 0.1 mmHg_"
+
+Same as Table 3 but for the range of `(10.0..899.9).step(0.1)` and results in mmhg.
+
+[source,ruby]
+----
+Atmospheric::Export::HypsometricalTables.table_4      #=> Hash
+Atmospheric::Export::HypsometricalTables.table_4_yaml #=> YAML
+----
+
+==== Table 5 (hPa) and Table 6 (mmHg)
+
+The difference is Table 5 is in hPa while Table 6 is in mmHg.
+
+Title:
+"_Barometric pressure, in hectopascals, as a function of geopotential altitude
+for -1000 <= H < +4600 m at intervals of 1m_"
+
+Provides:
+
+* `geopotential-altitude`
+* `pressure-mbar`
+* `pressure-mmhg`
+
+Range of `(-1000..4599).step(1)`.
+
+[source,ruby]
+----
+Atmospheric::Export::HypsometricalTables.table_56      #=> Hash
+Atmospheric::Export::HypsometricalTables.table_56_yaml #=> YAML
+----
+
+=== ISO 2533 ADD 2:1997
+
+Addendum 2 is exactly like ISO 2533:1975 with the tables but extended the tables:
+
+* 1975's range is -2km to 80km. 1997 provides -5km to 2km (yes -2km to 2km overlaps...)
+* 1975 tables only provide H and h in meters. 1997 adds a lookup table of H and h in feet.
+
+.ISO 2533 ADD 2:1997 Tables 1 to 3 have height range in meters
+----
+(-5000..2000).step(50)
+----
+
+.ISO 2533 ADD 2:1997 Tables 4 to 6 have height range in feet
+----
+(-16500..-13999).step(250) +
+(-14000..104999).step(200) +
+(105000..262500).step(500)
+----
+
+
+==== Table 1 (-5km to 2km)
+
+Title:
+"_Temperature (T and t), pressure (p), density (p) and acceleration of free fall
+(g) in terms of geometrical altitude (h) and geopotential altitude (H) --
+Altitudes in metres_"
+
+Exactly same as ISO 2533:1975 Table 5, but with a different height range.
+
+In addition, pressure at mmHg is no longer produced, but the implementation
+still provides it for completeness.
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331997.table_1      #=> Hash
+Atmospheric::Export::Iso25331997.table_1_yaml #=> YAML
+----
+
+==== Table 2 (-5km to 2km)
+
+Title:
+"_Relations of p'pn, p/pn and bar(p/pn), Speed of sound (a), Dynamic viscosity
+(p), Kinematic viscosity (v) and Thermal conductivity (lambda) in terms of
+geometrical altitude (h), and geopotential altitude (H) -- Altitudes in metres_"
+
+Exactly same as ISO 2533:1975 Table 6, but with a different height range.
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331997.table_2      #=> Hash
+Atmospheric::Export::Iso25331997.table_2_yaml #=> YAML
+----
+
+==== Table 3 (-5km to 2km)
+
+Title:
+"_Pressure scale height (H_p) Specific weight (gamma), Air number density (n),
+Mean air-particle speed (v), Air-particle collision frequency (omega) and Mean
+free path of air particles (l) in terms of geometrical altitude (h) and
+geopotential altitude (H) -- Altitudes in metres_"
+
+Exactly same as ISO 2533:1975 Table 7, but with a different height range.
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331997.table_3      #=> Hash
+Atmospheric::Export::Iso25331997.table_3_yaml #=> YAML
+----
+
+==== Table 4 (-16.5kft to 262.5kft)
+
+Title:
+"_Temperature (T and t), pressure (p), density (p) and acceleration of free fall
+(g) in terms of geometrical altitude (h) and geopotential altitude (H) --
+Altitudes in feet_"
+
+Exactly same as ISO 2533:1975 Table 5, but in feet and different range.
+
+Pressure at mmHg is not produced, but the implementation still provides it
+for completeness.
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331997.table_4      #=> Hash
+Atmospheric::Export::Iso25331997.table_4_yaml #=> YAML
+----
+
+==== Table 5 (-16.5kft to 262.5kft)
+
+Title:
+"_Relations of p'pn, p/pn and bar(p/pn), Speed of sound (a), Dynamic viscosity
+(p), Kinematic viscosity (v) and Thermal conductivity (lambda) in terms of
+geometrical altitude (h), and geopotential altitude (H) -- Altitudes in feet_"
+
+Exactly same as ISO 2533:1975 Table 6, but in feet and different range.
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331997.table_5      #=> Hash
+Atmospheric::Export::Iso25331997.table_5_yaml #=> YAML
+----
+
+==== Table 6 (-16.5kft to 262.5kft)
+
+Title:
+"_Pressure scale height (H_p) Specific weight (gamma), Air number density (n),
+Mean air-particle speed (v), Air-particle collision frequency (omega) and Mean
+free path of air particles (l) in terms of geometrical altitude (h) and
+geopotential altitude (H) -- Altitudes in feet_"
+
+Exactly same as ISO 2533:1975 Table 7, but in feet and different range.
+
+[source,ruby]
+----
+Atmospheric::Export::Iso25331997.table_6      #=> Hash
+Atmospheric::Export::Iso25331997.table_6_yaml #=> YAML
+----
 
 
 == Testing
@@ -88,10 +387,9 @@ It is used to generate all the other values.
 
 == License
 
-Copyright Ribose and its respective owners.
+Copyright Ribose.
 
 
 == TODO
 
-* make into module
 * expose this as a plugin to LutaML / Metanorma YAML2text
