@@ -46,6 +46,10 @@ RSpec.describe Atmospheric::Isa do
           calc = isa.send(method_name, geopotential_h)
           calc = calc.round(decimal_places) if !decimal_places.nil?
 
+          # Some values are missing due to missing page in original document
+          # See https://github.com/metanorma/iso-2533/issues/9
+          expect(expected_value).to_not be_nil
+
           # For variable :n, the calculated value is an integer, but the tests
           # have it as a float, so we need to convert the calculated value to
           # float
