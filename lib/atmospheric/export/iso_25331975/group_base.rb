@@ -24,10 +24,10 @@ module Atmospheric
 
         def height_hash(hgmm, hgmf, hgpm, hgpf)
           {
-            "geopotential-altitude-m"  => hgmm.round,
-            "geopotential-altitude-ft" => hgmf.round,
-            "geometrical-altitude-m"   => hgpm.round,
-            "geometrical-altitude-ft"  => hgpf.round,
+            "geometrical-altitude-m"  => hgmm.round,
+            "geometrical-altitude-ft" => hgmf.round,
+            "geopotential-altitude-m"   => hgpm.round,
+            "geopotential-altitude-ft"  => hgpf.round,
           }
         end
 
