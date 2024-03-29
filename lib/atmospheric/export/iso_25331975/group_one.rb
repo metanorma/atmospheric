@@ -17,7 +17,7 @@ module Atmospheric
             "temperature-K" => (Isa.temperature_at_layer_from_geopotential(gp_h_f) * 1000.0).round,
             "temperature-C" => (Isa.temperature_at_layer_celcius(gp_h_f) * 1000.0).round,
             "pressure-mbar" => round_to_sig_figs(Isa.pressure_from_geopotential_mbar(gp_h_f), 6),
-            "pressure-mmHg" => round_to_sig_figs(Isa.pressure_from_geopotential_mmhg(gp_h_f), 6),
+            "pressure-mmhg" => round_to_sig_figs(Isa.pressure_from_geopotential_mmhg(gp_h_f), 6),
             "density"       => round_to_sig_figs(Isa.density_from_geopotential(gp_h_f), 6),
             "acceleration"  => Isa.gravity_at_geopotential(gp_h_f).round(4),
           }
