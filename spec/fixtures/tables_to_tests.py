@@ -61,8 +61,8 @@ def output(filename, entries, geopotential):
 
 		output.write("  TK: " + str(float(e["temperature-K"])/1000) + "\n")
 		output.write("  TC: " + str(float(e["temperature-C"])/1000) + "\n")
-		output.write("  p_mbar:" + e["p-mbar"] + "\n")
-		output.write("  p_mmhg:" + e["p-mmHg"] + "\n")
+		output.write("  p_mbar:" + e["pressure-mbar"] + "\n")
+		output.write("  p_mmhg:" + e["ppressure-mmhg"] + "\n")
 		output.write("  rho:" + e["density"] + "\n")
 		output.write("  g:" + e["acceleration"] + "\n")
 		output.write("  p_p_n:" + e["ppn"] + "\n")
