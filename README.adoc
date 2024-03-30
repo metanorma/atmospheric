@@ -544,7 +544,7 @@ Atmospheric::Export::Iso25332024.table_10_yaml #=> YAML
 NOTE: This corresponds to ISO 2533:1975/ADD 1:1985 Table 1 combined with Table 2.
 
 Title:
-"_Geopotential altitude as a function of barometric pressure
+"_Geometric and geopotential altitude as a function of barometric pressure
 for 5 <= p < 20 hPa at intervals of 0.01 hPa and
 20 <= p < 1200 hPa at intervals of 0.1 hPa__"
 
@@ -554,6 +554,9 @@ Provides:
 
 * `pressure-mbar`
 * `geopotential-altitude-m`
+* `geopotential-altitude-ft`
+* `geometric-altitude-m`
+* `geometric-altitude-ft`
 
 [source,ruby]
 ----

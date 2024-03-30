@@ -81,10 +81,14 @@ module Atmospheric
           method_name = "geopotential_altitude_from_pressure_#{unit}"
           gp_h_m = Isa.send(method_name, p)
           gp_h_ft = m_to_ft(gp_h_m)
+          gm_h_m = Isa.geometric_altitude_from_geopotential(p)
+          gm_h_ft = m_to_ft(gm_h_m)
           {
             "pressure-#{unit}" => p,
             "geopotential-altitude-m" => gp_h_m.round(1),
             "geopotential-altitude-ft" => gp_h_ft.round,
+            "geometric-altitude-m" => gm_h_m.round(1),
+            "geometric-altitude-ft" => gm_h_ft.round,
           }
         end
       end
