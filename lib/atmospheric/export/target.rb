@@ -1,4 +1,3 @@
-require "measured"
 require "yaml"
 
 module Atmospheric
@@ -10,11 +9,11 @@ module Atmospheric
       end
 
       def m_to_ft(meters)
-        Measured::Length.new(meters, "m").convert_to("ft").value.to_f
+        meters / 0.3048
       end
 
       def ft_to_m(feet)
-        Measured::Length.new(feet, "ft").convert_to("m").value.to_f
+        feet * 0.3048
       end
 
       def to_yaml
