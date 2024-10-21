@@ -14,13 +14,44 @@ units (the ICAO document includes `ft` in addition to `m`).
 
 == Usage
 
+=== Precision modes
+
+There are two precision modes available for calculations: high precision and normal precision (default).
+
+High Precision Mode::
+Uses more accurate constants and number calculations through Ruby's BigDecimal
+to provide results with higher precision. Suitable for applications where the
+utmost accuracy is required.
+
+Normal Precision Mode (default)::
+Uses standard constants and number calculations to provide results with
+sufficient accuracy for most applications.
+
+To specify the precision mode, set the `precision` attribute when creating an instance of `Atmospheric::Isa`:
+
+`:high`:: High precision mode
+`:normal` or not specified:: Normal precision mode
+
+Example usage:
+
+[source,ruby]
+----
+require 'atmospheric'
+
+# Normal precision mode (default)
+normal_precision_instance = Atmospheric::Isa.new
+
+# High precision mode
+high_precision_instance = Atmospheric::Isa.new(precision: :high)
+----
+
 === Formulas and calculations
 
 [source,ruby]
 ----
-> require 'atmospheric'
-> instance = Atmospheric::Isa.method_name
-> # method_name is one of the following
+require 'atmospheric'
+instance = Atmospheric::Isa.{method_name}
+# {method_name} is one of the following
 ----
 
 The available methods are:
