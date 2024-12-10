@@ -16,12 +16,6 @@ module Atmospheric
         feet * 0.3048
       end
 
-      def to_yaml
-        to_h
-          .to_yaml(indentation: 4)
-          .gsub("\n-   ", "\n\n  - ")
-          .gsub(/^(.*):\n/, "\n\\1:") # Make fancy
-      end
 
       def to_file(hash = to_yaml)
         File.write(filename, hash)
