@@ -1,4 +1,7 @@
 require_relative "./group_base"
+require_relative "group_one_attrs"
+require 'bigdecimal'
+
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/BlockLength
 # rubocop:disable Metrics/CyclomaticComplexity
@@ -9,8 +12,15 @@ require_relative "./group_base"
 module Atmospheric
   module Export
     module Iso25331975
-
       class GroupOne < GroupBase
+        attribute :by_geometrical_altitude, GroupOneAttrs, collection: true
+        attribute :by_geopotential_altitude, GroupOneAttrs, collection: true
+
+        key_value do
+          map "by-geometrical-altitude", to: :by_geometrical_altitude
+          map "by-geopotential-altitude", to: :by_geopotential_altitude
+        end
+
         # In meters only
         def row_from_geopotential(gp_h_f)
           {
@@ -22,9 +32,19 @@ module Atmospheric
             "acceleration"  => Isa.gravity_at_geopotential(gp_h_f).round(4),
           }
         end
+
+        def set_attrs(unit: steps_unit)
+          self.by_geometrical_altitude = []
+          self.by_geometrical_altitude = []
+
+          steps.each do |h|
+            # Populate data for YAML XML TOML
+            self.by_geometrical_altitude << GroupOneAttrs.from_json(row_small_h(h, unit: unit).to_json)
+            self.by_geopotential_altitude << GroupOneAttrs.from_json(row_big_h(h, unit: unit).to_json)
+          end
+        end
       end
     end
-
   end
 end
 # rubocop:enable Metrics/AbcSize
