@@ -1,9 +1,10 @@
 require_relative "../target"
+require 'lutaml/model'
 
 module Atmospheric
   module Export
     module Iso25331975
-      class GroupBase
+      class GroupBase < Lutaml::Model::Serializable
         include Target
 
         def row_big_h(h, unit: :meters)
@@ -11,7 +12,7 @@ module Atmospheric
           hgmm = Isa.geometric_altitude_from_geopotential(hgpm)
           hgmf = m_to_ft(hgmm).round
           height_hash(hgmm, hgmf, hgpm, hgpf)
-            .merge(self.row_from_geopotential(hgpm))
+            .merge(row_from_geopotential(hgpm))
         end
 
         def row_small_h(h, unit: :meters)
@@ -19,15 +20,15 @@ module Atmospheric
           hgpm = Isa.geopotential_altitude_from_geometric(hgmm)
           hgpf = m_to_ft(hgpm).round
           height_hash(hgmm, hgmf, hgpm, hgpf)
-            .merge(self.row_from_geopotential(hgpm))
+            .merge(row_from_geopotential(hgpm))
         end
 
         def height_hash(hgmm, hgmf, hgpm, hgpf)
           {
-            "geometrical-altitude-m"  => hgmm.round,
+            "geometrical-altitude-m" => hgmm.round,
             "geometrical-altitude-ft" => hgmf.round,
-            "geopotential-altitude-m"   => hgpm.round,
-            "geopotential-altitude-ft"  => hgpf.round,
+            "geopotential-altitude-m" => hgpm.round,
+            "geopotential-altitude-ft" => hgpf.round,
           }
         end
 
@@ -54,19 +55,20 @@ module Atmospheric
         end
 
         def to_h(unit: steps_unit)
-          d = {
-            "by-geometrical-altitude" => [],
-            "by-geopotential-altitude" => [],
-          }
+          self.by_geometrical_altitude = []
+          self.by_geopotential_altitude = []
 
           steps.each do |h|
-            d["by-geometrical-altitude"] << row_small_h(h, unit: unit)
-            d["by-geopotential-altitude"] << row_big_h(h, unit: unit)
+            self.by_geometrical_altitude << row_small_h(h, unit: unit)
+            self.by_geopotential_altitude << row_big_h(h, unit: unit)
           end
-          d
+
+          {
+            "by-geometrical-altitude" => by_geometrical_altitude,
+            "by-geopotential-altitude" => by_geometrical_altitude,
+          }
         end
       end
-
     end
   end
 end
