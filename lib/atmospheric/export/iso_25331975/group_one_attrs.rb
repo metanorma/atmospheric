@@ -10,9 +10,9 @@ module Atmospheric
         attribute :geopotential_altitude_ft, :integer
         attribute :temperature_k, :integer
         attribute :temperature_c, :integer
-        attribute :pressure_mbar, :decimal
-        attribute :pressure_mmhg, :decimal
-        attribute :density, :decimal
+        attribute :pressure_mbar, :float
+        attribute :pressure_mmhg, :float
+        attribute :density, :float
         attribute :acceleration, :float
 
         key_value do

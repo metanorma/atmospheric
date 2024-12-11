@@ -3,8 +3,8 @@ module Atmospheric
     module Iso25331985
       class TableFiveSixAttrs < Lutaml::Model::Serializable
         attribute :geopotential_altitude, :integer
-        attribute :pressure_mbar, :decimal
-        attribute :pressure_mmhg, :decimal
+        attribute :pressure_mbar, :float
+        attribute :pressure_mmhg, :float
 
         key_value do
           map "geopotential-altitude", to: :geopotential_altitude
