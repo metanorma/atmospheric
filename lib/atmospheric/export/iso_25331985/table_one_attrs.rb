@@ -4,7 +4,7 @@ module Atmospheric
   module Export
     module Iso25331985
       class TableOneAttrs < Lutaml::Model::Serializable
-        attribute :pressure_mbar, :integer
+        attribute :pressure_mbar, :float
         attribute :geopotential_altitude, :integer
 
         key_value do
