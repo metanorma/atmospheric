@@ -7,6 +7,11 @@ module Atmospheric
       class GroupBase < Lutaml::Model::Serializable
         include Target
 
+        def initialize
+          super
+          set_attrs
+        end
+
         def row_big_h(h, unit: :meters)
           hgpm, hgpf = values_in_m_ft(h, unit: unit)
           hgmm = Isa.geometric_altitude_from_geopotential(hgpm)
@@ -55,18 +60,15 @@ module Atmospheric
         end
 
         def to_h(unit: steps_unit)
-          self.by_geometrical_altitude = []
-          self.by_geopotential_altitude = []
-
-          steps.each do |h|
-            self.by_geometrical_altitude << row_small_h(h, unit: unit)
-            self.by_geopotential_altitude << row_big_h(h, unit: unit)
+          steps.inject({ "by-geometrical-altitude" => [], "by-geopotential-altitude" => [] }) do |result, h|
+            result["by-geometrical-altitude"] << row_small_h(h, unit: unit)
+            result["by-geopotential-altitude"] << row_big_h(h, unit: unit)
+            result
           end
+        end
 
-          {
-            "by-geometrical-altitude" => by_geometrical_altitude,
-            "by-geopotential-altitude" => by_geometrical_altitude,
-          }
+        def set_attrs
+          raise NotImplementedError, "This method should be overridden in a subclass"
         end
       end
     end
