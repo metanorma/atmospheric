@@ -1,18 +1,14 @@
 require_relative "./target"
+require 'lutaml/model'
 
 module Atmospheric
   module Export
-
     module HypsometricalTables
-      class TableBase
+      class TableBase < Lutaml::Model::Serializable
         include Target
 
         def to_h(unit: steps_unit)
-          d = { "rows" => [] }
-          steps.each do |p|
-            d["rows"] << row(p, unit: unit)
-          end
-          d
+          { "rows" => steps.inject([]) { |rows, p| rows << row(p, unit: unit) } }
         end
 
         def steps
@@ -26,9 +22,15 @@ module Atmospheric
         def row(p, unit: steps_unit)
           {}
         end
+
+        def set_attrs(klass:, unit: steps_unit)
+          self.rows = []
+          steps.each do |p|
+            self.rows << klass.from_json(row(p, unit: unit).to_json)
+          end
+          self
+        end
       end
-
     end
-
   end
 end
