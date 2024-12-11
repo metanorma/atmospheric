@@ -21,6 +21,10 @@ module Atmospheric
           map "by-geopotential-altitude", to: :by_geopotential_altitude
         end
 
+        def set_attrs
+          super(klass: GroupOneAttrs)
+        end
+
         # In meters only
         def row_from_geopotential(gp_h_f)
           {
@@ -31,17 +35,6 @@ module Atmospheric
             "density"       => round_to_sig_figs(Isa.density_from_geopotential(gp_h_f), 6),
             "acceleration"  => Isa.gravity_at_geopotential(gp_h_f).round(4),
           }
-        end
-
-        def set_attrs(unit: steps_unit)
-          self.by_geometrical_altitude = []
-          self.by_geometrical_altitude = []
-
-          steps.each do |h|
-            # Populate data for YAML XML TOML
-            self.by_geometrical_altitude << GroupOneAttrs.from_json(row_small_h(h, unit: unit).to_json)
-            self.by_geopotential_altitude << GroupOneAttrs.from_json(row_big_h(h, unit: unit).to_json)
-          end
         end
       end
     end
