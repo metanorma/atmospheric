@@ -1,6 +1,9 @@
 require_relative "./target"
 require_relative "./hypsometrical_tables"
 require_relative "./iso_25331975"
+require_relative "iso_25332024/hypsometrical_mbar_attrs"
+require_relative "iso_25332024/hypsometrical_geometric_attrs"
+require_relative "iso_25332024/hypsometrical_geopotential_attrs"
 
 module Atmospheric
   module Export
@@ -56,6 +59,8 @@ module Atmospheric
       end
 
       class HypsometricalMbar < HypsometricalTables::TableBase
+        attribute :rows, HypsometricalMbarAttrs, collection: true
+
         # TODO: when Ruby's step does not create inaccurate floating point numbers
         # This is a hack to solve a Ruby bug with floating point calcuations
         # > (20.0..1770.9).step(0.1).to_a
@@ -91,9 +96,15 @@ module Atmospheric
             "geometric-altitude-ft" => gm_h_ft.round,
           }
         end
+
+        def set_attrs
+          super(klass: HypsometricalMbarAttrs)
+        end
       end
 
       class HypsometricalGeometric < HypsometricalTables::TableBase
+        attribute :rows, HypsometricalGeometricAttrs, collection: true
+
         def steps
           (-1000..4599).step(1)
         end
@@ -106,9 +117,15 @@ module Atmospheric
             # "pressure-mmhg" => round_to_sig_figs(Isa.pressure_from_geopotential_mmhg(hgpm.to_f), 6),
           }
         end
+
+        def set_attrs
+          super(klass: HypsometricalGeometricAttrs)
+        end
       end
 
       class HypsometricalGeopotential < HypsometricalTables::TableBase
+        attribute :rows, HypsometricalGeopotentialAttrs, collection: true
+
         def steps
           (-1000..4599).step(1)
         end
@@ -120,9 +137,11 @@ module Atmospheric
             # "pressure-mmhg" => round_to_sig_figs(Isa.pressure_from_geopotential_mmhg(hgpm.to_f), 6),
           }
         end
+
+        def set_attrs
+          super(klass: HypsometricalGeopotentialAttrs)
+        end
       end
-
-
 
       class << self
         def table_5
@@ -162,44 +181,41 @@ module Atmospheric
         end
 
         def table_5_yaml
-          GroupOneMeters.new.to_yaml
+          GroupOneMeters.new.set_attrs.to_yaml
         end
 
         def table_6_yaml
-          GroupTwoMeters.new.to_yaml
+          GroupTwoMeters.new.set_attrs.to_yaml
         end
 
         def table_7_yaml
-          GroupThreeMeters.new.to_yaml
+          GroupThreeMeters.new.set_attrs.to_yaml
         end
 
         def table_8_yaml
-          GroupOneFeet.new.to_yaml
+          GroupOneFeet.new.set_attrs.to_yaml
         end
 
         def table_9_yaml
-          GroupTwoFeet.new.to_yaml
+          GroupTwoFeet.new.set_attrs.to_yaml
         end
 
         def table_10_yaml
-          GroupThreeFeet.new.to_yaml
+          GroupThreeFeet.new.set_attrs.to_yaml
         end
 
         def table_11_yaml
-          HypsometricalMbar.new.to_yaml
+          HypsometricalMbar.new.set_attrs.to_yaml
         end
 
         def table_12_yaml
-          HypsometricalGeometric.new.to_yaml
+          HypsometricalGeometric.new.set_attrs.to_yaml
         end
 
         def table_13_yaml
-          HypsometricalGeopotential.new.to_yaml
+          HypsometricalGeopotential.new.set_attrs.to_yaml
         end
-
       end
-
     end
-
   end
 end
