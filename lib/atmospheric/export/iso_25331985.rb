@@ -12,6 +12,17 @@ module Atmospheric
     module Iso25331985
 
       class TableOne < HypsometricalTables::TableBase
+        # TODO: when Ruby's step does not create inaccurate floating point numbers
+        # This is a hack to solve a Ruby bug with floating point calcuations
+        # > (20.0..1770.9).step(0.1).to_a
+        #  ...
+        #  1769.4,
+        #  1769.5,
+        #  1769.6000000000001, # <== we need to clean these
+        #  1769.7,
+        #  1769.8000000000002, # <== we need to clean these
+        # The last `map` should be removed if this bug is fixed
+
         attribute :rows, TableOneAttrs, collection: true
 
         def steps
