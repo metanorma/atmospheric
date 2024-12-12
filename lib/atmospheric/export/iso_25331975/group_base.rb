@@ -64,10 +64,9 @@ module Atmospheric
 
         def set_attrs(klass:, unit: steps_unit)
           self.by_geometrical_altitude = []
-          self.by_geometrical_altitude = []
+          self.by_geopotential_altitude = []
 
           steps.each do |h|
-            # Populate data for YAML XML TOML
             self.by_geometrical_altitude << klass.from_json(row_small_h(h, unit: unit).to_json)
             self.by_geopotential_altitude << klass.from_json(row_big_h(h, unit: unit).to_json)
           end
