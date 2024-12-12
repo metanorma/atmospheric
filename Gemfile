@@ -6,3 +6,4 @@ gemspec
 gem "rubocop-performance"
 gem "rubocop-rake"
 gem "rubocop-rspec"
+gem 'lutaml-model'
