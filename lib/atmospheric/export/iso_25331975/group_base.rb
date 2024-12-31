@@ -1,5 +1,5 @@
 require_relative "../target"
-require 'lutaml/model'
+require "lutaml/model"
 
 module Atmospheric
   module Export
@@ -55,7 +55,8 @@ module Atmospheric
         end
 
         def to_h(unit: steps_unit)
-          steps.inject({ "by-geometrical-altitude" => [], "by-geopotential-altitude" => [] }) do |result, h|
+          steps.inject({ "by-geometrical-altitude" => [],
+                         "by-geopotential-altitude" => [] }) do |result, h|
             result["by-geometrical-altitude"] << row_small_h(h, unit: unit)
             result["by-geopotential-altitude"] << row_big_h(h, unit: unit)
             result
@@ -67,8 +68,10 @@ module Atmospheric
           self.by_geopotential_altitude = []
 
           steps.each do |h|
-            self.by_geometrical_altitude << klass.from_json(row_small_h(h, unit: unit).to_json)
-            self.by_geopotential_altitude << klass.from_json(row_big_h(h, unit: unit).to_json)
+            by_geometrical_altitude << klass.from_json(row_small_h(h,
+                                                                   unit: unit).to_json)
+            by_geopotential_altitude << klass.from_json(row_big_h(h,
+                                                                  unit: unit).to_json)
           end
           self
         end

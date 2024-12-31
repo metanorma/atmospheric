@@ -3,9 +3,7 @@ require_relative "./iso_25331975"
 
 module Atmospheric
   module Export
-
     module Iso25331997
-
       module GroupBaseMeters
         def steps
           (-5000..2000).step(50)

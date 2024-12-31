@@ -25,5 +25,5 @@ def verify_yaml_round_trip(yaml_path, model_class)
   generated_yaml = model_instance.to_yaml
 
   # Ensure the generated YAML matches the original YAML
-  expect(YAML.load(generated_yaml.strip)).to eq(YAML.load original_yaml.strip)
+  expect(YAML.load(generated_yaml.strip)).to eq(YAML.load(original_yaml.strip))
 end
