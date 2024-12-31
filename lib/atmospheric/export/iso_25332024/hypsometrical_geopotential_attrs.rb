@@ -1,4 +1,4 @@
-require 'lutaml/model'
+require "lutaml/model"
 
 module Atmospheric
   module Export

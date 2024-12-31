@@ -1,6 +1,6 @@
 require_relative "./group_base"
 require_relative "group_three_attrs"
-require 'bigdecimal'
+require "bigdecimal"
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/BlockLength
 # rubocop:disable Metrics/CyclomaticComplexity

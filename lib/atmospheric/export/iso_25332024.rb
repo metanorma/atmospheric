@@ -1,15 +1,12 @@
 require_relative "./target"
 require_relative "./hypsometrical_tables"
 require_relative "./iso_25331975"
-require_relative "iso_25332024/hypsometrical_mbar_attrs"
 require_relative "iso_25332024/hypsometrical_geometric_attrs"
 require_relative "iso_25332024/hypsometrical_geopotential_attrs"
 
 module Atmospheric
   module Export
-
     module Iso25332024
-
       module GroupBaseMeters
         def steps
           (
@@ -59,8 +56,6 @@ module Atmospheric
       end
 
       class HypsometricalMbar < HypsometricalTables::TableBase
-        attribute :rows, HypsometricalMbarAttrs, collection: true
-
         # TODO: when Ruby's step does not create inaccurate floating point numbers
         # This is a hack to solve a Ruby bug with floating point calcuations
         # > (20.0..1770.9).step(0.1).to_a
@@ -73,8 +68,8 @@ module Atmospheric
         # The last `map` should be removed if this bug is fixed
         def steps
           (
-            (5.0..19.99).step(0.01).to_a.map {|v| v.round(2)} +
-            (20.0..1770.9).step(0.1).to_a.map {|v| v.round(1)}
+            (5.0..19.99).step(0.01).to_a.map { |v| v.round(2) } +
+            (20.0..1770.9).step(0.1).to_a.map { |v| v.round(1) }
           )
         end
 
@@ -103,8 +98,6 @@ module Atmospheric
       end
 
       class HypsometricalGeometric < HypsometricalTables::TableBase
-        attribute :rows, HypsometricalGeometricAttrs, collection: true
-
         def steps
           (-1000..4599).step(1)
         end
@@ -113,7 +106,9 @@ module Atmospheric
           hgpm = Isa.geopotential_altitude_from_geometric(hgmm)
           {
             "geometric-altitude-m" => hgpm,
-            "pressure-mbar" => round_to_sig_figs(Isa.pressure_from_geopotential_mbar(hgpm.to_f), 6),
+            "pressure-mbar" => round_to_sig_figs(
+              Isa.pressure_from_geopotential_mbar(hgpm.to_f), 6
+            ),
             # "pressure-mmhg" => round_to_sig_figs(Isa.pressure_from_geopotential_mmhg(hgpm.to_f), 6),
           }
         end
@@ -124,8 +119,6 @@ module Atmospheric
       end
 
       class HypsometricalGeopotential < HypsometricalTables::TableBase
-        attribute :rows, HypsometricalGeopotentialAttrs, collection: true
-
         def steps
           (-1000..4599).step(1)
         end
@@ -133,7 +126,9 @@ module Atmospheric
         def row(hgpm, unit:)
           {
             "geopotential-altitude-m" => hgpm,
-            "pressure-mbar" => round_to_sig_figs(Isa.pressure_from_geopotential_mbar(hgpm.to_f), 6),
+            "pressure-mbar" => round_to_sig_figs(
+              Isa.pressure_from_geopotential_mbar(hgpm.to_f), 6
+            ),
             # "pressure-mmhg" => round_to_sig_figs(Isa.pressure_from_geopotential_mmhg(hgpm.to_f), 6),
           }
         end

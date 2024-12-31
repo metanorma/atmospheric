@@ -8,9 +8,7 @@ require_relative "iso_25331985/table_five_six_attrs"
 
 module Atmospheric
   module Export
-
     module Iso25331985
-
       class TableOne < HypsometricalTables::TableBase
         # TODO: when Ruby's step does not create inaccurate floating point numbers
         # This is a hack to solve a Ruby bug with floating point calcuations
@@ -26,7 +24,7 @@ module Atmospheric
         attribute :rows, TableOneAttrs, collection: true
 
         def steps
-          (5.0..19.99).step(0.01).to_a.map {|v| v.round(2)}
+          (5.0..19.99).step(0.01).to_a.map { |v| v.round(2) }
         end
 
         def steps_unit
@@ -51,7 +49,7 @@ module Atmospheric
         attribute :rows, TableTwoAttrs, collection: true
 
         def steps
-          (20.0..1199.9).step(0.1).to_a.map {|v| v.round(1)}
+          (20.0..1199.9).step(0.1).to_a.map { |v| v.round(1) }
         end
 
         def row(p, unit:)
@@ -72,7 +70,7 @@ module Atmospheric
         attribute :rows, TableThreeAttrs, collection: true
 
         def steps
-          (4.0..9.99).step(0.01).to_a.map {|v| v.round(2)}
+          (4.0..9.99).step(0.01).to_a.map { |v| v.round(2) }
         end
 
         def steps_unit
@@ -88,7 +86,7 @@ module Atmospheric
         attribute :rows, TableFourAttrs, collection: true
 
         def steps
-          (10.0..899.9).step(0.1).to_a.map {|v| v.round(1)}
+          (10.0..899.9).step(0.1).to_a.map { |v| v.round(1) }
         end
 
         def steps_unit
@@ -110,8 +108,12 @@ module Atmospheric
         def row(h, unit:)
           {
             "geopotential-altitude" => h,
-            "pressure-mbar" => round_to_sig_figs(Isa.pressure_from_geopotential_mbar(h.to_f), 6),
-            "pressure-mmhg" => round_to_sig_figs(Isa.pressure_from_geopotential_mmhg(h.to_f), 6),
+            "pressure-mbar" => round_to_sig_figs(
+              Isa.pressure_from_geopotential_mbar(h.to_f), 6
+            ),
+            "pressure-mmhg" => round_to_sig_figs(
+              Isa.pressure_from_geopotential_mmhg(h.to_f), 6
+            ),
           }
         end
 
@@ -121,7 +123,6 @@ module Atmospheric
       end
 
       class << self
-
         def table_1
           TableOne.new.to_h
         end
