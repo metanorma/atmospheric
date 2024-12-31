@@ -2,44 +2,17 @@ require "spec_helper"
 require_relative "../../../lib/atmospheric/export/iso_25331985"
 
 RSpec.describe "Iso25331985 Parsing and Serialization" do
-  let(:table_1_yaml_path) do
-    "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table1.yaml"
-  end
-  let(:table_2_yaml_path) do
-    "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table2.yaml"
-  end
-  let(:table_3_yaml_path) do
-    "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table3.yaml"
-  end
-  let(:table_4_yaml_path) do
-    "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table4.yaml"
-  end
-  let(:table_56_yaml_path) do
-    "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table56.yaml"
-  end
+  TABLE_MAPPINGS = [
+    ["Table 1", "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table1.yaml", Atmospheric::Export::Iso25331985::TableOne],
+    ["Table 2", "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table2.yaml", Atmospheric::Export::Iso25331985::TableTwo],
+    ["Table 3", "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table3.yaml", Atmospheric::Export::Iso25331985::TableThree],
+    ["Table 4", "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table4.yaml", Atmospheric::Export::Iso25331985::TableFour],
+    ["Table 56", "spec/fixtures/iso2533/sources/iso-2533-add-1-1985-new/yaml/table56.yaml", Atmospheric::Export::Iso25331985::TableFiveSix]
+  ]
 
-  it "correctly parses and serializes Table 1 YAML" do
-    verify_yaml_round_trip(table_1_yaml_path,
-                           Atmospheric::Export::Iso25331985::TableOne)
-  end
-
-  it "correctly parses and serializes Table 2 YAML" do
-    verify_yaml_round_trip(table_2_yaml_path,
-                           Atmospheric::Export::Iso25331985::TableTwo)
-  end
-
-  it "correctly parses and serializes Table 3 YAML" do
-    verify_yaml_round_trip(table_3_yaml_path,
-                           Atmospheric::Export::Iso25331985::TableThree)
-  end
-
-  it "correctly parses and serializes Table 4 YAML" do
-    verify_yaml_round_trip(table_4_yaml_path,
-                           Atmospheric::Export::Iso25331985::TableFour)
-  end
-
-  it "correctly parses and serializes Table 56 YAML" do
-    verify_yaml_round_trip(table_56_yaml_path,
-                           Atmospheric::Export::Iso25331985::TableFiveSix)
+  TABLE_MAPPINGS.each do |table_name, yaml_path, parser|
+    context table_name do
+      it_behaves_like "yaml parsing and serialization", yaml_path, parser
+    end
   end
 end
