@@ -40,14 +40,21 @@ RSpec.describe Atmospheric::Isa do
 
     context "variable (#{var}) outputs conform to test values" do
       test_values.each do |hash|
-        it "variable (#{var}) @#{hash['H']} outputs conforms to test value" do
-          geopotential_h = hash["H"]
-          expected_value = hash[var.to_s]
+        geopotential_h = hash["H"]
+        expected_value = hash[var.to_s]
+
+        it "variable (#{var}) H=#{hash["H"]} outputs conforms to test value" do
           calc = isa.send(method_name, geopotential_h)
           calc = calc.round(decimal_places) if !decimal_places.nil?
 
-          # Some values are missing due to missing page in original document
+          # Some values are missing due to missing page in original
+          # ISO 2533:1975 document.
           # See https://github.com/metanorma/iso-2533/issues/9
+          if expected_value.nil? && var == :p_mmhg &&
+             geopotential_h >= 48000.0 && geopotential_h <= 56800.0
+            pending "missing value in original document (metanorma/iso-2533#9)"
+          end
+
           expect(expected_value).to_not be_nil
 
           # For variable :n, the calculated value is an integer, but the tests
@@ -57,17 +64,15 @@ RSpec.describe Atmospheric::Isa do
 
           if !significant_digits.nil? && calc != 0
             calc = calc.round(significant_digits - Math.log10(calc).ceil)
-            diff = 10**-(significant_digits - Math.log10(calc).ceil)
+            diff = 10 ** -(significant_digits - Math.log10(calc).ceil)
 
             expected_min = expected_value - diff
-            expected_min = expected_min.round(significant_digits \
-              - Math.log10(calc).ceil)
+            expected_min = expected_min.round(significant_digits - Math.log10(calc).ceil)
 
             expected_max = expected_value + diff
-            expected_max = expected_max.round(significant_digits \
-              - Math.log10(calc).ceil)
+            expected_max = expected_max.round(significant_digits - Math.log10(calc).ceil)
           else
-            diff = 10**-decimal_places
+            diff = 10 ** -decimal_places
             expected_min = (expected_value - diff).round(decimal_places)
             expected_max = (expected_value + diff).round(decimal_places)
           end
