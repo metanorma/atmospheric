@@ -1,3 +1,0 @@
-[submodule "spec/fixtures/iso2533"]
-	path = spec/fixtures/iso2533
-	url = https://github.com/metanorma/iso-2533.git
