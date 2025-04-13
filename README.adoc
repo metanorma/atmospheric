@@ -902,7 +902,7 @@ as the ISO 2533 tables are rendered in both types of altitudes:
 * `by-geopotential-altitude`
 * `by-geometric-altitude`
 
-The `Iso25332024` class provides the following methods to generate tables:
+The `Iso25332025` class provides the following methods to generate tables:
 
 `table_atmosphere_meters`:: Atmosphere attributes by altitude (m). Grouped by
 `by-geopotential-altitude` and `by-geometric-altitude`. Each entry underneath is
@@ -949,8 +949,8 @@ is a `PressureAttrs` object. It follows this step schedule:
 ====
 [source,ruby]
 ----
-Atmospheric::Export::Iso25332024.table_atmosphere_meters #=> Lutaml::Model
-Atmospheric::Export::Iso25332024.table_atmosphere_meters.to_yaml #=> YAML
+Atmospheric::Export::Iso25332025.table_atmosphere_meters #=> Lutaml::Model
+Atmospheric::Export::Iso25332025.table_atmosphere_meters.to_yaml #=> YAML
 ----
 ====
 
@@ -1069,8 +1069,8 @@ Provides:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25332024.table_hypsometrical_mbar         #=> Lutaml::Model
-Atmospheric::Export::Iso25332024.table_hypsometrical_mbar.to_yaml #=> YAML
+Atmospheric::Export::Iso25332025.table_hypsometrical_mbar         #=> Lutaml::Model
+Atmospheric::Export::Iso25332025.table_hypsometrical_mbar.to_yaml #=> YAML
 ----
 
 

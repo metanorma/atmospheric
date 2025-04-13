@@ -18,11 +18,11 @@ Layout/LineLength:
     - 'lib/atmospheric/export/iso_25331975/group_three_attrs.rb'
     - 'lib/atmospheric/export/iso_25331975/group_two_attrs.rb'
     - 'lib/atmospheric/export/iso_25331985.rb'
-    - 'lib/atmospheric/export/iso_25332024.rb'
+    - 'lib/atmospheric/export/iso_2533.rb'
     - 'lib/atmospheric/export/pressure_attrs.rb'
     - 'lib/atmospheric/isa.rb'
     - 'spec/atmospheric/export/hypsometrical_tables/table_base_spec.rb'
-    - 'spec/atmospheric/export/iso_25332024_spec.rb'
+    - 'spec/atmospheric/export/iso_2533_spec.rb'
     - 'spec/spec_helper.rb'
 
 # Offense count: 1

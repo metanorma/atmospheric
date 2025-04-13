@@ -4,7 +4,7 @@ require_relative "altitude_attrs_group"
 
 module Atmospheric
   module Export
-    module Iso25332024
+    module Iso25332025
       class CombinedAltitudeAttrsGroup < AltitudeTable
         attribute :by_geometric_altitude, AltitudeAttrsGroup
         attribute :by_geopotential_altitude, AltitudeAttrsGroup

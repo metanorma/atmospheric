@@ -11,7 +11,7 @@ require_relative "../altitude_attrs"
 # and is not intended to be used directly.
 module Atmospheric
   module Export
-    module Iso25332024
+    module Iso25332025
       class AltitudeAttrsGroup < Lutaml::Model::Serializable
         attribute :rows, AltitudeAttrs, collection: true
 
