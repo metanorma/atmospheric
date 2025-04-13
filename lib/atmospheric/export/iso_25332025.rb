@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "iso_25331975"
 require_relative "iso_25332025/combined_altitude_attrs_group"
 
@@ -7,9 +9,9 @@ module Atmospheric
       class AltitudesInMeters < CombinedAltitudeAttrsGroup
         def steps
           (
-            (-5000..31950).step(50) +
-            (32000..50900).step(100) +
-            (51000..80000).step(200)
+            (-5000..31_950).step(50) +
+            (32_000..50_900).step(100) +
+            (51_000..80_000).step(200)
           )
         end
       end
@@ -17,9 +19,9 @@ module Atmospheric
       class AltitudesInFeet < CombinedAltitudeAttrsGroup
         def steps
           (
-            (-16500..-13750).step(250) +
-            (-14000..104800).step(200) +
-            (105000..262500).step(500)
+            (-16_500..-13_750).step(250) +
+            (-14_000..104_800).step(200) +
+            (105_000..262_500).step(500)
           )
         end
 

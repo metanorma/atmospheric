@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "lutaml/model"
 require_relative "../altitude_convertable_model"
 
@@ -44,37 +46,37 @@ module Atmospheric
             v = Isa::NormalPrecision.instance.temperature_at_layer_from_geopotential(gp_h_m)
             UnitValueInteger.new(
               value: precision == :reduced ? (v * 1000.0).round : v,
-              unitsml: "K",
+              unitsml: "K"
             )
           when :temperature_c
             v = Isa::NormalPrecision.instance.temperature_at_layer_celcius(gp_h_m)
             UnitValueInteger.new(
               value: precision == :reduced ? (v * 1000.0).round : v,
-              unitsml: "degC",
+              unitsml: "degC"
             )
           when :pressure_mbar
             v = Isa::NormalPrecision.instance.pressure_from_geopotential_mbar(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-              unitsml: "mbar",
+              unitsml: "mbar"
             )
           when :pressure_mmhg
             v = Isa::NormalPrecision.instance.pressure_from_geopotential_mmhg(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-              unitsml: "u:mm_Hg",
+              unitsml: "u:mm_Hg"
             )
           when :density
             v = Isa::NormalPrecision.instance.density_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-              unitsml: "kg*m^-3",
+              unitsml: "kg*m^-3"
             )
           when :acceleration
             v = Isa::NormalPrecision.instance.gravity_at_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? v.round(4) : v,
-              unitsml: "m*s^-2",
+              unitsml: "m*s^-2"
             )
           else
             raise ArgumentError, "Unknown attribute: #{name}"

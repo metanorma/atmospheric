@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "lutaml/model"
 
 module Atmospheric
@@ -5,9 +7,9 @@ module Atmospheric
     class AltitudeTable < Lutaml::Model::Serializable
       # Step 50 from -2k to 40k, step 100 above 32k, 200 above 51k to 80k
       def steps
-        ((-2000..31950).step(50) +
-         (32000..50900).step(100) +
-         (51000..80000).step(200))
+        ((-2000..31_950).step(50) +
+         (32_000..50_900).step(100) +
+         (51_000..80_000).step(200))
       end
 
       def steps_unit
@@ -33,13 +35,13 @@ module Atmospheric
         steps.each do |h|
           add_to_geometric(
             klass.new.set_altitude(
-              type: :geometric, unit: unit, value: h,
-            ),
+              type: :geometric, unit: unit, value: h
+            )
           )
           add_to_geopotential(
             klass.new.set_altitude(
-              type: :geopotential, unit: unit, value: h,
-            ),
+              type: :geopotential, unit: unit, value: h
+            )
           )
         end
         self

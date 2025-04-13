@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 require_relative "../../../lib/atmospheric/export/iso_25332025"
 
@@ -10,7 +12,7 @@ RSpec.describe Atmospheric::Export::Iso25332025 do
     ["AltitudesForPressure", "spec/fixtures/iso-2533-2025/yaml/table_hypsometrical_altitude.yaml",
      Atmospheric::Export::Iso25332025::AltitudesForPressure],
     ["HypsometricalMbar", "spec/fixtures/iso-2533-2025/yaml/table_hypsometrical_mbar.yaml",
-     Atmospheric::Export::Iso25332025::HypsometricalMbar],
+     Atmospheric::Export::Iso25332025::HypsometricalMbar]
   ]
 
   table_mappings.each do |table_name, yaml_path, parser|

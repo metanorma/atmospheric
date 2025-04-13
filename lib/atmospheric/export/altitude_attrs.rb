@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "lutaml/model"
 require_relative "../unit_value_float"
 require_relative "../unit_value_integer"
@@ -117,115 +119,115 @@ module Atmospheric
           v = Isa::NormalPrecision.instance.temperature_at_layer_from_geopotential(gp_h_m)
           UnitValueInteger.new(
             value: precision == :reduced ? (v * 1000.0).round : v,
-            unitsml: "K",
+            unitsml: "K"
           )
         when :temperature_c
           v = Isa::NormalPrecision.instance.temperature_at_layer_celcius(gp_h_m)
           UnitValueInteger.new(
             value: precision == :reduced ? (v * 1000.0).round : v,
-            unitsml: "degC",
+            unitsml: "degC"
           )
         when :pressure_mbar
           v = Isa::NormalPrecision.instance.pressure_from_geopotential_mbar(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-            unitsml: "mbar",
+            unitsml: "mbar"
           )
         when :pressure_mmhg
           v = Isa::NormalPrecision.instance.pressure_from_geopotential_mmhg(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-            unitsml: "u:mm_Hg",
+            unitsml: "u:mm_Hg"
           )
         when :density
           v = Isa::NormalPrecision.instance.density_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-            unitsml: "kg*m^-3",
+            unitsml: "kg*m^-3"
           )
         when :acceleration
           v = Isa::NormalPrecision.instance.gravity_at_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? v.round(4) : v,
-            unitsml: "m*s^-2",
+            unitsml: "m*s^-2"
           )
         when :ppn
           v = Isa::NormalPrecision.instance.p_p_n_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-            unitsml: nil,
+            unitsml: nil
           )
         when :rhorhon
           v = Isa::NormalPrecision.instance.rho_rho_n_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-            unitsml: nil,
+            unitsml: nil
           )
         when :sqrt_rhorhon
           v = Isa::NormalPrecision.instance.root_rho_rho_n_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-            unitsml: nil,
+            unitsml: nil
           )
         when :speed_of_sound
           v = Isa::NormalPrecision.instance.speed_of_sound_from_geopotential(gp_h_m)
           UnitValueInteger.new(
             value: precision == :reduced ? (v * 1000.0).round : v,
-            unitsml: "m*s^-1",
+            unitsml: "m*s^-1"
           )
         when :dynamic_viscosity
           v = Isa::NormalPrecision.instance.dynamic_viscosity_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-            unitsml: "Pa*s",
+            unitsml: "Pa*s"
           )
         when :kinematic_viscosity
           v = Isa::NormalPrecision.instance.kinematic_viscosity_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-            unitsml: "m^2*s^-1",
+            unitsml: "m^2*s^-1"
           )
         when :thermal_conductivity
           v = Isa::NormalPrecision.instance.thermal_conductivity_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-            unitsml: "W*m^-1*K^-1",
+            unitsml: "W*m^-1*K^-1"
           )
         when :pressure_scale_height
           v = Isa::NormalPrecision.instance.pressure_scale_height_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? v.round(1) : v,
-            unitsml: "m",
+            unitsml: "m"
           )
         when :specific_weight
           v = Isa::NormalPrecision.instance.specific_weight_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-            unitsml: "N*m^-3",
+            unitsml: "N*m^-3"
           )
         when :air_number_density
           v = Isa::NormalPrecision.instance.air_number_density_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-            unitsml: "m^-3",
+            unitsml: "m^-3"
           )
         when :mean_speed
           v = Isa::NormalPrecision.instance.mean_air_particle_speed_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? v.round(2) : v,
-            unitsml: "m*s^-1",
+            unitsml: "m*s^-1"
           )
         when :frequency
           v = Isa::NormalPrecision.instance.air_particle_collision_frequency_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-            unitsml: "s^-1",
+            unitsml: "s^-1"
           )
         when :mean_free_path
           v = Isa::NormalPrecision.instance.mean_free_path_of_air_particles_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-            unitsml: "m",
+            unitsml: "m"
           )
         else
           raise ArgumentError, "Unknown attribute: #{name}"

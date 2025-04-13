@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "hypsometrical_table"
 require_relative "iso_25331985/pressure_attrs"
 require_relative "iso_25331985/table_five_six_attrs"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "lutaml/model"
 require_relative "utils"
 require_relative "../unit_value_float"

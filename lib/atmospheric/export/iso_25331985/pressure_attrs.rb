@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../pressure_attrs"
 
 # The purpose of this class is to trim the attributes used in the ISO 2533:1985
