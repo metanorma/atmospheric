@@ -1,7 +1,7 @@
 require_relative "hypsometrical_table"
 require_relative "iso_25331985/pressure_attrs"
 require_relative "iso_25331985/table_five_six_attrs"
-require_relative "iso_25332024/combined_altitude_attrs_group"
+require_relative "iso_25332025/combined_altitude_attrs_group"
 
 module Atmospheric
   module Export
@@ -77,7 +77,7 @@ module Atmospheric
         end
       end
 
-      class TableFiveSix < Iso25332024::CombinedAltitudeAttrsGroup
+      class TableFiveSix < Iso25332025::CombinedAltitudeAttrsGroup
         def steps
           (-1000..4599).step(1)
         end

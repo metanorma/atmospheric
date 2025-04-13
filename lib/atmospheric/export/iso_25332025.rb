@@ -1,9 +1,9 @@
 require_relative "iso_25331975"
-require_relative "iso_25332024/combined_altitude_attrs_group"
+require_relative "iso_25332025/combined_altitude_attrs_group"
 
 module Atmospheric
   module Export
-    module Iso25332024
+    module Iso25332025
       class AltitudesInMeters < CombinedAltitudeAttrsGroup
         def steps
           (
