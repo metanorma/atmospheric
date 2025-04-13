@@ -28,7 +28,7 @@ for i in range(counts[0]):
 		match = None
 		while match is None:
 			line = f.readline()
-			if line == "by-geometrical-altitude:\n":
+			if line == "by-geometric-altitude:\n":
 				currentEntries = 0
 			elif line == "by-geopotential-altitude:\n":
 				currentEntries = 1
@@ -54,13 +54,13 @@ def output(filename, entries, geopotential):
 			continue
 		if geopotential:
 			output.write("- H: " + str(float(e["geopotential-altitude"])) + "\n")
-			output.write("  h: " + str(float(e["geometrical-altitude"])) + "\n")
+			output.write("  h: " + str(float(e["geometric-altitude"])) + "\n")
 		else:
-			output.write("- h: " + str(float(e["geometrical-altitude"])) + "\n")
+			output.write("- h: " + str(float(e["geometric-altitude"])) + "\n")
 			output.write("  H: " + str(float(e["geopotential-altitude"])) + "\n")
 
-		output.write("  TK: " + str(float(e["temperature-K"])/1000) + "\n")
-		output.write("  TC: " + str(float(e["temperature-C"])/1000) + "\n")
+		output.write("  TK: " + str(float(e["temperature-k"])/1000) + "\n")
+		output.write("  TC: " + str(float(e["temperature-c"])/1000) + "\n")
 		output.write("  p_mbar:" + e["pressure-mbar"] + "\n")
 		output.write("  p_mmhg:" + e["ppressure-mmhg"] + "\n")
 		output.write("  rho:" + e["density"] + "\n")

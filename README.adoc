@@ -3,65 +3,489 @@
 == Purpose
 
 This repository provides Ruby code for calculating values defined in the
-following documents:
+following standards:
 
 * International Standard Atmosphere (ISA) from ISO 2533:1975,
   ISO 2533:1975/ADD 1:1985 and ISO 2533:1975/ADD 2:1997
-* ICAO Standard Atmosphere (ICAO Doc 7488/3, 1994)
+* https://store.icao.int/en/manual-of-the-icao-standard-atmosphere-extended-to-80-kilometres-262500-feet-doc-7488[ICAO Standard Atmosphere (ICAO Doc 7488/3, 1994)]
 
-Which are technically identical documents but different in presentation and
+Which are technically identical standards but different in presentation and
 units (the ICAO document includes `ft` in addition to `m`).
+
+This library serves as a reference implementation for the values defined in
+ISO CD 2533:2025.
+
 
 == Usage
 
-=== Precision modes
+=== General
 
-There are two precision modes available for calculations: high precision and normal precision (default).
+This library contains code for two separate, but related, purposes.
 
-High Precision Mode::
-Uses more accurate constants and number calculations through Ruby's BigDecimal
-to provide results with higher precision. Suitable for applications where the
-utmost accuracy is required.
+* Calculating atmospheric properties at different altitudes. The algorithms
+  are based on ISO 2533.
 
-Normal Precision Mode (default)::
-Uses standard constants and number calculations to provide results with
-sufficient accuracy for most applications.
+* Generating tables of atmospheric properties at different altitudes. This library
+is used to data tables provided by the full ISO 2533 series:
 
-To specify the precision mode, set the `precision` attribute when creating an instance of `Atmospheric::Isa`:
+** ISO 2533:1975
+** ISO 2533:1975/ADD 1:1985
+** ISO 2533:1975/ADD 2:1997
+** ISO CD 2533:2025
 
-`:high`:: High precision mode
-`:normal` or not specified:: Normal precision mode
+For the typical user who wishes to calculate atmospheric properties, there
+is no need to worry about how the tables work.
 
-Example usage:
+To calculate atmospheric properties, either use the formulas directly or use the
+`Atmospheric::Export::AltitudeAttrs` class to bulk obtain the values needed.
+
+
+=== Prerequsites
+
+Include the `atmospheric` gem in your Gemfile:
+
+[source,ruby]
+----
+gem 'atmospheric'
+----
+
+Then use `require` in code:
+
+[source,ruby]
+----
+require 'atmospheric'
+----
+
+
+=== Atmospheric attributes by altitude
+
+The `Atmospheric::Export::AltitudeAttrs` class provides a way to obtain the
+atmospheric properties at a particular given altitude, geopotential or
+geometric.
+
+The resulting object can also be easily serialized, courtesy of the
+https://github.com/lutaml/lutaml-model[`lutaml-model`] library.
+
+Syntax:
 
 [source,ruby]
 ----
 require 'atmospheric'
 
-# Normal precision mode (default)
-normal_precision_instance = Atmospheric::Isa.new
+Atmospheric::Export::AltitudeAttrs.new.set_altitude(
+  value: {altitude-value} <1>
+  type: {altitude-type} <2>
+  unit: {altitude-unit} <3>
+)
+----
+<1> Value of the altitude desired. Integer.
+<2> Type of altitude. Symbol. One of `:geometric`, `:geopotential`.
+<3> Unit of the altitude. Symbol. One of `:meters`, `:feet`.
 
-# High precision mode
-high_precision_instance = Atmospheric::Isa.new(precision: :high)
+NOTE: The `set_altitude` method does not yet support high-precision mode.
+
+Each attribute of the `AltitudeAttrs` object is wrapped in a defined
+data class which is associated with a https://www.unitsml.org/[UnitsML] unit.
+
+Depending on the type of the value, it is in one of the following classes:
+
+* Integer. Class: `UnitValueInteger`
+* Float. Class: `UnitValueFloat`
+
+The `AltitudeAttrs` object provides the following attributes:
+
+`geometric_altitude_m`:: Geometric altitude in meters.
+`geometric_altitude_ft`:: Geometric altitude in feet.
+`geopotential_altitude_m`:: Geopotential altitude in meters.
+`geopotential_altitude_ft`:: Geopotential altitude in feet.
+`temperature_k`:: Temperature in Kelvin. This value is multiplied by 1000.
+`temperature_c`:: Temperature in Celsius. This value is multiplied by 1000.
+`pressure_mbar`:: Pressure in millibar.
+`pressure_mmhg`:: Pressure in mmHg.
+`density`:: Density in kg/m^3.
+`acceleration`:: Acceleration in m/s^2.
+`ppn`:: Ratio of pressure at altitude to pressure at sea level.
+`rhorhon`:: Ratio of density at altitude to density at sea level.
+`sqrt_rhorhon`:: Square root of the ratio of density at altitude to density at sea level.
+`speed_of_sound`:: Speed of sound in m/s.
+`dynamic_viscosity`:: Dynamic viscosity in kg/(m·s).
+`kinematic_viscosity`:: Kinematic viscosity in m^2/s.
+`thermal_conductivity`:: Thermal conductivity in W/(m·K).
+`pressure_scale_height`:: Pressure scale height in meters.
+`specific_weight`:: Specific weight in N/m^3.
+`air_number_density`:: Air number density in particles/m^3.
+`mean_speed`:: Mean speed of air particles in m/s.
+`frequency`:: Frequency of air particle collisions in 1/s.
+`mean_free_path`:: Mean free path of air particles in meters.
+
+[example]
+====
+[source,ruby]
+----
+require 'atmospheric'
+attrs = Atmospheric::Export::AltitudeAttrs.new.set_altitude(
+  value: -2000,
+  type: :geopotential,
+  unit: :meters
+)
+
+attrs.geopotential_altitude_m #=> -2000
+attrs.geopotential_altitude_ft #=> -6561.68
+attrs.geometric_altitude_m #=> -1999
+attrs.geometric_altitude_ft #=> -6560
+----
+====
+
+The object can be serialized into YAML or XML.
+
+.AltitudeAttrs in YAML
+[example]
+====
+[source,ruby]
+----
+attrs = Atmospheric::Export::AltitudeAttrs.new.set_altitude(
+  value: -2000,
+  type: :geopotential,
+  unit: :meters
+)
+
+attrs.to_yaml
 ----
 
-=== Formulas and calculations
+[source,yaml]
+----
+geometric-altitude-m:
+  value: -1999
+  unitsml: m
+  type: integer
+geometric-altitude-ft:
+  value: -6560
+  unitsml: ft
+  type: integer
+geopotential-altitude-m:
+  value: -2000
+  unitsml: m
+  type: integer
+geopotential-altitude-ft:
+  value: -6562
+  unitsml: ft
+  type: integer
+temperature-k:
+  value: 301150
+  unitsml: K
+  type: integer
+temperature-c:
+  value: 28000
+  unitsml: degC
+  type: integer
+pressure-mbar:
+  value: 1277.74
+  unitsml: mbar
+  type: float
+pressure-mmhg:
+  value: 958.382
+  unitsml: u:mm_Hg
+  type: float
+density:
+  value: 1.47808
+  unitsml: kg*m^-3
+  type: float
+acceleration:
+  value: 9.8128
+  unitsml: m*s^-2
+  type: float
+ppn:
+  value: 1.26103
+  type: float
+rhorhon:
+  value: 1.20659
+  type: float
+sqrt-rhorhon:
+  value: 1.09845
+  type: float
+speed-of-sound:
+  value: 347886
+  unitsml: m*s^-1
+  type: integer
+dynamic-viscosity:
+  value: 1.8514e-05
+  unitsml: Pa*s
+  type: float
+kinematic-viscosity:
+  value: 1.2526e-05
+  unitsml: m^2*s^-1
+  type: float
+thermal-conductivity:
+  value: 0.026359
+  unitsml: W*m^-1*K^-1
+  type: float
+pressure-scale-height:
+  value: 8809.5
+  unitsml: m
+  type: float
+specific-weight:
+  value: 14.504
+  unitsml: N*m^-3
+  type: float
+air-number-density:
+  value: 3.0734e+25
+  unitsml: m^-3
+  type: float
+mean-speed:
+  value: 469.18
+  unitsml: m*s^-1
+  type: float
+frequency:
+  value: 8535100000.0
+  unitsml: s^-1
+  type: float
+mean-free-path:
+  value: 5.4971e-08
+  unitsml: m
+  type: float
+----
+====
+
+.AltitudeAttrs in XML
+[example]
+====
+[source,ruby]
+----
+attrs = Atmospheric::Export::AltitudeAttrs.new.set_altitude(
+  value: -2000,
+  type: :geopotential,
+  unit: :meters
+)
+
+attrs.to_xml
+----
+
+[source,xml]
+----
+<atmosphere-attributes>
+  <geometric-altitude-m unitsml="m" type="integer">-1999</geometric-altitude-m>
+  <geometric-altitude-ft unitsml="ft" type="integer">-6560</geometric-altitude-ft>
+  <geopotential-altitude-m unitsml="m" type="integer">-2000</geopotential-altitude-m>
+  <geopotential-altitude-ft unitsml="ft" type="integer">-6562</geopotential-altitude-ft>
+  <temperature-k unitsml="K" type="integer">301150</temperature-k>
+  <temperature-c unitsml="degC" type="integer">28000</temperature-c>
+  <pressure-mbar unitsml="mbar" type="float">1277.74</pressure-mbar>
+  <pressure-mmhg unitsml="u:mm_Hg" type="float">958.382</pressure-mmhg>
+  <density unitsml="kg*m^-3" type="float">1.47808</density>
+  <acceleration unitsml="m*s^-2" type="float">9.8128</acceleration>
+  <ppn type="float">1.26103</ppn>
+  <rhorhon type="float">1.20659</rhorhon>
+  <sqrt-rhorhon type="float">1.09845</sqrt-rhorhon>
+  <speed-of-sound unitsml="m*s^-1" type="integer">347886</speed-of-sound>
+  <dynamic-viscosity unitsml="Pa*s" type="float">1.8514e-05</dynamic-viscosity>
+  <kinematic-viscosity unitsml="m^2*s^-1" type="float">1.2526e-05</kinematic-viscosity>
+  <thermal-conductivity unitsml="W*m^-1*K^-1" type="float">0.026359</thermal-conductivity>
+  <pressure-scale-height unitsml="m" type="float">8809.5</pressure-scale-height>
+  <specific-weight unitsml="N*m^-3" type="float">14.504</specific-weight>
+  <air-number-density unitsml="m^-3" type="float">3.0734e+25</air-number-density>
+  <mean-speed unitsml="m*s^-1" type="float">469.18</mean-speed>
+  <frequency unitsml="s^-1" type="float">8535100000.0</frequency>
+  <mean-free-path unitsml="m" type="float">5.4971e-08</mean-free-path>
+</atmosphere-attributes>
+----
+====
+
+
+=== Altitude by pressure
+
+The `Atmospheric::Export::PressureAttrs` class provides a way to obtain the
+altitude at a given pressure value (mbar, mmhg).
+
+Syntax:
 
 [source,ruby]
 ----
 require 'atmospheric'
-instance = Atmospheric::Isa.{method_name}
-# {method_name} is one of the following
+
+Atmospheric::Export::PressureAttrs.new.set_pressure(
+  value: {pressure-value} <1>
+  unit: {pressure-unit} <2>
+)
 ----
+<1> Value of the pressure desired. Float.
+<2> Unit of the pressure. Symbol. One of `:mbar`, `:mmhg`.
+
+NOTE: The `set_pressure` method does not yet support high-precision mode.
+
+Each attribute of the `PressureAttrs` object is wrapped in a defined
+data class which is associated with a https://www.unitsml.org/[UnitsML] unit.
+
+Depending on the type of the value, it is in one of the following classes:
+
+* Integer. Class: `UnitValueInteger`
+* Float. Class: `UnitValueFloat`
+
+The `PressureAttrs` object provides the following attributes:
+
+`pressure_mbar`:: Pressure in millibar.
+`pressure_mmhg`:: Pressure in mmHg.
+`geometric_altitude_m`:: Geometric altitude in meters.
+`geometric_altitude_ft`:: Geometric altitude in feet.
+`geopotential_altitude_m`:: Geopotential altitude in meters.
+`geopotential_altitude_ft`:: Geopotential altitude in feet.
+
+[example]
+====
+[source,ruby]
+----
+attrs = Atmospheric::Export::PressureAttrs.new.set_pressure(
+  value: 5.0,
+  unit: :mbar
+)
+
+attrs.pressure_mbar #=> 5.0
+attrs.pressure_mmhg #=> 3.7503084135
+attrs.geopotential_altitude_m #=> 35776
+attrs.geopotential_altitude_ft #=> 117377
+attrs.geometric_altitude_m #=> 35979
+attrs.geometric_altitude_ft #=> 118041
+----
+====
+
+The object can be serialized into YAML or XML.
+
+.PressureAttrs in YAML
+[example]
+====
+[source,ruby]
+----
+attrs = Atmospheric::Export::PressureAttrs.new.set_pressure(
+  value: 5.0,
+  unit: :mbar
+)
+
+attrs.to_yaml
+----
+
+[source,yaml]
+----
+pressure-mbar:
+  value: 5.0
+  unitsml: mbar
+  type: float
+pressure-mmhg:
+  value: 3.7503084135
+  unitsml: mmhg
+  type: float
+geopotential-altitude-m:
+  value: 35776
+  unitsml: m
+  type: integer
+geopotential-altitude-ft:
+  value: 117377
+  unitsml: ft
+  type: integer
+geometric-altitude-m:
+  value: 35979
+  unitsml: m
+  type: integer
+geometric-altitude-ft:
+  value: 118041
+  unitsml: ft
+  type: integer
+----
+====
+
+.PressureAttrs in XML
+[example]
+====
+[source,ruby]
+----
+attrs = Atmospheric::Export::PressureAttrs.new.set_pressure(
+  value: 5.0,
+  unit: :mbar
+)
+
+attrs.to_xml
+----
+
+[source,xml]
+----
+<hypsometrical-attributes>
+  <pressure-mbar unitsml="mbar" type="float">5.0</pressure-mbar>
+  <pressure-mmhg unitsml="mmhg" type="float">3.7503084135</pressure-mmhg>
+  <geometric-altitude-m unitsml="m" type="integer">35979</geometric-altitude-m>
+  <geometric-altitude-ft unitsml="ft" type="integer">118041</geometric-altitude-ft>
+  <geopotential-altitude-m unitsml="m" type="integer">35776</geopotential-altitude-m>
+  <geopotential-altitude-ft unitsml="ft" type="integer">117377</geopotential-altitude-ft>
+</hypsometrical-attributes>
+----
+====
+
+=== Algorithms
+
+==== General
+
+For users who wish to access the algorithms directly, the
+`Atmospheric::Isa::Algorithms` class provides a set of methods for calculating
+atmospheric properties at different altitudes.
+
+ISO 2533 specifies a number of formulas for the calculation of atmospheric
+properties at different altitudes.
+
+These algorithms are implemented in the `Atmospheric::Isa::Algorithms` class.
+
+There are two ways to use the `Atmospheric::Isa::Algorithms` class:
+
+* as a singleton class, using one of the precision modes (see below)
+* as a class instance
+
+[example]
+====
+[source,ruby]
+----
+require 'atmospheric'
+# Singleton class
+instance = Atmospheric::Isa::NormalPrecision.instance.instance
+instance.geometric_altitude_from_geopotential(100).to_f
+=> 100.00157315171192
+
+# Class instance
+instance = Atmospheric::Isa::Algorithms.new(precision: :high)
+instance.geometric_altitude_from_geopotential(100).to_f
+=> 100.00157315171192
+----
+====
+
+
+==== Formulas and calculations
+
+The `Algorithms` class supports the following methods for calculating
+atmospheric properties.
+
+Syntax:
+
+[source,ruby]
+----
+require 'atmospheric'
+instance = Atmospheric::Isa::Algorithms.new.{method_name} <1>
+----
+<1> `method_name` is one of the methods listed below.
 
 The available methods are:
 
+Converting between geometric and geopotential altitudes:
+
 * `geometric_altitude_from_geopotential(geopotential_altitude)`
 * `geopotential_altitude_from_geometric(geometric_altitude)`
-* `temperature_at_layer_from_geopotential(geopotential_altitude)`
-* `temperature_at_layer_celcius(geopotential_altitude)`
-* `pressure_from_geopotential_mbar(geopotential_altitude)`
-* `pressure_from_geopotential_mmhg(geopotential_altitude)`
+
+Obtaining the temperature value from an altitude:
+
+* `temperature_at_layer_from_geopotential(geopotential_altitude)` (Kelvin)
+* `temperature_at_layer_celcius(geopotential_altitude)` (Celcius)
+
+Obtaining the pressure value from an altitude:
+
+* `pressure_from_geopotential_mbar(geopotential_altitude)` (mbar/hPa)
+* `pressure_from_geopotential_mmhg(geopotential_altitude)` (mmHg)
+
+Obtaining other atmospheric properties from an altitude:
+
 * `density_from_geopotential(geopotential_altitude)`
 * `gravity_at_geopotential(geopotential_altitude)`
 * `p_p_n_from_geopotential(geopotential_altitude)`
@@ -77,6 +501,62 @@ The available methods are:
 * `mean_air_particle_speed_from_geopotential(geopotential_altitude)`
 * `air_particle_collision_frequency_from_geopotential(geopotential_altitude)`
 * `mean_free_path_of_air_particles_from_geopotential(geopotential_altitude)`
+
+Obtaining thermal conductivity from temperature:
+
+* `thermal_conductivity_from_temp(temp)`
+
+Obtaining geopotential altitude from a given pressure:
+
+* `geopotential_altitude_from_pressure_mbar(mbar)`
+* `geopotential_altitude_from_pressure_mmhg(mmhg)`
+
+
+==== Precision modes
+
+There are two precision modes available for calculations.
+
+High precision mode::
+Uses more accurate constants and number calculations through Ruby's BigDecimal
+to provide results with higher precision. Suitable for applications where the
+utmost accuracy is required.
+
+Normal precision mode (default)::
+Uses standard constants and number calculations to provide results with
+sufficient accuracy for most applications.
+
+To use the high precision mode, you can either:
+
+* use the `Atmospheric::Isa::HighPrecision` class
+* use the `Atmospheric::Isa::Algorithms` class then call the `set_precision(:high)` method
+
+[example]
+====
+[source,ruby]
+----
+require 'atmospheric'
+
+# High precision mode
+high_precision_instance = Atmospheric::Isa::HighPrecision.instance
+
+speed_h = Atmospheric::Isa::HighPrecision.instance.speed_of_sound_from_temp(100)
+=> 0.200467958523516054299360531511514627125051490111885121917578012786288944852326625441743718038552367514555018117e3
+
+speed_h.class
+=> BigDecimal
+
+# Normal precision mode (default)
+normal_precision_instance = Atmospheric::Isa::NormalPrecision.instance.instance
+
+speed_n = Atmospheric::Isa::NormalPrecision.instance.instance.speed_of_sound_from_temp(100)
+=> 200.46795852351607
+
+speed_n.class
+=> Float
+----
+====
+
+
 
 
 == Generating ISO 2533 tables
@@ -96,8 +576,8 @@ Tables 5 to 7 all have height information of the following keys in the hash:
 
 * `geopotential-altitude-m`
 * `geopotential-altitude-ft`
-* `geometrical-altitude-m`
-* `geometrical-altitude-ft`
+* `geometric-altitude-m`
+* `geometric-altitude-ft`
 
 All YAML tables generated contain these two keys which group altitude values
 as the ISO 2533 tables are rendered in both types of altitudes:
@@ -109,12 +589,12 @@ as the ISO 2533 tables are rendered in both types of altitudes:
 
 Title:
 "_Temperature (T and t), Pressure (p), Density (p) and Acceleration of free fall
-(g) in terms of geometrical altitude (h) and geopotential altitude (H)_"
+(g) in terms of geometric altitude (h) and geopotential altitude (H)_"
 
 Provides the following values in addition to geopotential and geometric height:
 
-* `temperature-K`
-* `temperature-C`
+* `temperature-k`
+* `temperature-c`
 * `pressure-mbar`
 * `pressure-mmhg`
 * `density`
@@ -122,8 +602,8 @@ Provides the following values in addition to geopotential and geometric height:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331975.table_5      #=> Hash
-Atmospheric::Export::Iso25331975.table_5_yaml #=> YAML
+Atmospheric::Export::Iso25331975.table_5         #=> Lutaml::Model
+Atmospheric::Export::Iso25331975.table_5.to_yaml #=> YAML
 ----
 
 ==== Table 6
@@ -131,7 +611,7 @@ Atmospheric::Export::Iso25331975.table_5_yaml #=> YAML
 Title:
 "_Relations of p'pn, p/pn and bar(p/pn), Speed of sound (a), Dynamic viscosity
 (p), Kinematic viscosity (v) and Thermal conductivity (lambda) in terms of
-geometrical altitude (h), and geopotential altitude (H)_"
+geometric altitude (h), and geopotential altitude (H)_"
 
 Provides the following values in addition to geopotential and geometric height:
 
@@ -145,8 +625,8 @@ Provides the following values in addition to geopotential and geometric height:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331975.table_6      #=> Hash
-Atmospheric::Export::Iso25331975.table_6_yaml #=> YAML
+Atmospheric::Export::Iso25331975.table_6         #=> Lutaml::Model
+Atmospheric::Export::Iso25331975.table_6.to_yaml #=> YAML
 ----
 
 ==== Table 7
@@ -154,7 +634,7 @@ Atmospheric::Export::Iso25331975.table_6_yaml #=> YAML
 Title:
 "_Pressure scale height (H_p) Specific weight (gamma), Air number density (n),
 Mean air-particle speed (v), Air-particle collision frequency (omega) and Mean
-free path of air particles (l) in terms of geometrical altitude (h) and
+free path of air particles (l) in terms of geometric altitude (h) and
 geopotential altitude (H)_"
 
 * `pressure-scale-height`
@@ -166,8 +646,8 @@ geopotential altitude (H)_"
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331975.table_7      #=> Hash
-Atmospheric::Export::Iso25331975.table_7_yaml #=> YAML
+Atmospheric::Export::Iso25331975.table_7         #=> Lutaml::Model
+Atmospheric::Export::Iso25331975.table_7.to_yaml #=> YAML
 ----
 
 
@@ -190,8 +670,8 @@ Provides:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_1      #=> Hash
-Atmospheric::Export::Iso25331985.table_1_yaml #=> YAML
+Atmospheric::Export::Iso25331985.table_1         #=> Lutaml::Model
+Atmospheric::Export::Iso25331985.table_1.to_yaml #=> YAML
 ----
 
 ==== Table 2 (hPa)
@@ -204,8 +684,8 @@ Same as Table 1 but for the range of `(20.0..1199.9).step(0.1)` in hPa.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_2      #=> Hash
-Atmospheric::Export::Iso25331985.table_2_yaml #=> YAML
+Atmospheric::Export::Iso25331985.table_2         #=> Lutaml::Model
+Atmospheric::Export::Iso25331985.table_2.to_yaml #=> YAML
 ----
 
 ==== Table 3 (mmHg)
@@ -223,8 +703,8 @@ Provides:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_3      #=> Hash
-Atmospheric::Export::Iso25331985.table_3_yaml #=> YAML
+Atmospheric::Export::Iso25331985.table_3         #=> Lutaml::Model
+Atmospheric::Export::Iso25331985.table_3.to_yaml #=> YAML
 ----
 
 ==== Table 4 (mmHg)
@@ -237,8 +717,8 @@ Same as Table 3 but for the range of `(10.0..899.9).step(0.1)` and results in mm
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_4      #=> Hash
-Atmospheric::Export::Iso25331985.table_4_yaml #=> YAML
+Atmospheric::Export::Iso25331985.table_4         #=> Lutaml::Model
+Atmospheric::Export::Iso25331985.table_4.to_yaml #=> YAML
 ----
 
 ==== Table 5 (hPa) and Table 6 (mmHg)
@@ -259,8 +739,8 @@ Range of `(-1000..4599).step(1)`.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_56      #=> Hash
-Atmospheric::Export::Iso25331985.table_56_yaml #=> YAML
+Atmospheric::Export::Iso25331985.table_56         #=> Lutaml::Model
+Atmospheric::Export::Iso25331985.table_56.to_yaml #=> YAML
 ----
 
 === ISO 2533 ADD 2:1997
@@ -287,7 +767,7 @@ Addendum 2 is exactly like ISO 2533:1975 with the tables but extended the tables
 
 Title:
 "_Temperature (T and t), pressure (p), density (p) and acceleration of free fall
-(g) in terms of geometrical altitude (h) and geopotential altitude (H) --
+(g) in terms of geometric altitude (h) and geopotential altitude (H) --
 Altitudes in metres_"
 
 Exactly same as ISO 2533:1975 Table 5, but with a different height range.
@@ -297,8 +777,8 @@ still provides it for completeness.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_1      #=> Hash
-Atmospheric::Export::Iso25331997.table_1_yaml #=> YAML
+Atmospheric::Export::Iso25331997.table_1         #=> Lutaml::Model
+Atmospheric::Export::Iso25331997.table_1.to_yaml #=> YAML
 ----
 
 ==== Table 2 (-5km to 2km)
@@ -306,14 +786,14 @@ Atmospheric::Export::Iso25331997.table_1_yaml #=> YAML
 Title:
 "_Relations of p'pn, p/pn and bar(p/pn), Speed of sound (a), Dynamic viscosity
 (p), Kinematic viscosity (v) and Thermal conductivity (lambda) in terms of
-geometrical altitude (h), and geopotential altitude (H) -- Altitudes in metres_"
+geometric altitude (h), and geopotential altitude (H) -- Altitudes in metres_"
 
 Exactly same as ISO 2533:1975 Table 6, but with a different height range.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_2      #=> Hash
-Atmospheric::Export::Iso25331997.table_2_yaml #=> YAML
+Atmospheric::Export::Iso25331997.table_2         #=> Lutaml::Model
+Atmospheric::Export::Iso25331997.table_2.to_yaml #=> YAML
 ----
 
 ==== Table 3 (-5km to 2km)
@@ -321,22 +801,22 @@ Atmospheric::Export::Iso25331997.table_2_yaml #=> YAML
 Title:
 "_Pressure scale height (H_p) Specific weight (gamma), Air number density (n),
 Mean air-particle speed (v), Air-particle collision frequency (omega) and Mean
-free path of air particles (l) in terms of geometrical altitude (h) and
+free path of air particles (l) in terms of geometric altitude (h) and
 geopotential altitude (H) -- Altitudes in metres_"
 
 Exactly same as ISO 2533:1975 Table 7, but with a different height range.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_3      #=> Hash
-Atmospheric::Export::Iso25331997.table_3_yaml #=> YAML
+Atmospheric::Export::Iso25331997.table_3         #=> Lutaml::Model
+Atmospheric::Export::Iso25331997.table_3.to_yaml #=> YAML
 ----
 
 ==== Table 4 (-16.5kft to 262.5kft)
 
 Title:
 "_Temperature (T and t), pressure (p), density (p) and acceleration of free fall
-(g) in terms of geometrical altitude (h) and geopotential altitude (H) --
+(g) in terms of geometric altitude (h) and geopotential altitude (H) --
 Altitudes in feet_"
 
 Exactly same as ISO 2533:1975 Table 5, but in feet and different range.
@@ -346,8 +826,8 @@ for completeness.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_4      #=> Hash
-Atmospheric::Export::Iso25331997.table_4_yaml #=> YAML
+Atmospheric::Export::Iso25331997.table_4         #=> Lutaml::Model
+Atmospheric::Export::Iso25331997.table_4.to_yaml #=> YAML
 ----
 
 ==== Table 5 (-16.5kft to 262.5kft)
@@ -355,14 +835,14 @@ Atmospheric::Export::Iso25331997.table_4_yaml #=> YAML
 Title:
 "_Relations of p'pn, p/pn and bar(p/pn), Speed of sound (a), Dynamic viscosity
 (p), Kinematic viscosity (v) and Thermal conductivity (lambda) in terms of
-geometrical altitude (h), and geopotential altitude (H) -- Altitudes in feet_"
+geometric altitude (h), and geopotential altitude (H) -- Altitudes in feet_"
 
 Exactly same as ISO 2533:1975 Table 6, but in feet and different range.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_5      #=> Hash
-Atmospheric::Export::Iso25331997.table_5_yaml #=> YAML
+Atmospheric::Export::Iso25331997.table_5         #=> Lutaml::Model
+Atmospheric::Export::Iso25331997.table_5.to_yaml #=> YAML
 ----
 
 ==== Table 6 (-16.5kft to 262.5kft)
@@ -370,27 +850,33 @@ Atmospheric::Export::Iso25331997.table_5_yaml #=> YAML
 Title:
 "_Pressure scale height (H_p) Specific weight (gamma), Air number density (n),
 Mean air-particle speed (v), Air-particle collision frequency (omega) and Mean
-free path of air particles (l) in terms of geometrical altitude (h) and
+free path of air particles (l) in terms of geometric altitude (h) and
 geopotential altitude (H) -- Altitudes in feet_"
 
 Exactly same as ISO 2533:1975 Table 7, but in feet and different range.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_6      #=> Hash
-Atmospheric::Export::Iso25331997.table_6_yaml #=> YAML
+Atmospheric::Export::Iso25331997.table_6         #=> Lutaml::Model
+Atmospheric::Export::Iso25331997.table_6.to_yaml #=> YAML
 ----
 
 
-=== ISO NP 2533:2024
+=== ISO 2533:2025
 
 ==== General
 
-ISO 2533 is now proposed to be revised for a 2024/2025 version, 49 years
-since the last edition (1975) and 27 years since it was last updated (1997).
+ISO 2533 is now being revised targeting a 2025 publication, which will be 50
+years since the last edition (1975) and 28 years since it was last updated
+(1997).
 
-ISO NP 2533:2024 will likely include all content in the previously published
-Addenda, including:
+It is currently in the CD stage (Committee Draft) and is expected to be published in 2025.
+
+* ISO NP 2533:2024. approved in 2024.
+* ISO WD 2533:2024. launched: 2024-11-22, closed: 2025-02-17.
+* ISO CD 2533:2024. pending.
+
+ISO 2533:2025 covers all content in the previously published Addenda, including:
 
 * Standard atmosphere values from altitude -5km to 80km (geometric and geopotential)
 +
@@ -410,35 +896,76 @@ In the 2024 edition only hPa/mbar is provided.
 This document will also align to the values provided in
 https://store.icao.int/en/manual-of-the-icao-standard-atmosphere-extended-to-80-kilometres-262500-feet-doc-7488[ICAO Doc 7488/3].
 
+All YAML tables generated contain these two keys which group altitude values
+as the ISO 2533 tables are rendered in both types of altitudes:
 
-All tables in the new edition are arranged in these steps.
+* `by-geopotential-altitude`
+* `by-geometric-altitude`
 
-.ISO 2533:2024 atmosphere values (m): step 50 from -5k, 100 from 32k, 200 from 51k to 80k
+The `Iso25332024` class provides the following methods to generate tables:
+
+`table_atmosphere_meters`:: Atmosphere attributes by altitude (m). Grouped by
+`by-geopotential-altitude` and `by-geometric-altitude`. Each entry underneath is
+an `AltitudeAttrs` object. The altitude interval values follow these steps:
++
+.Step 50 from -5k, 100 from 32k, 200 from 51k to 80k.
 ----
 (-5000..31950).step(50) +
 (32000..50900).step(100) +
 (51000..80000).step(200)
 ----
 
-.ISO 2533:2024 atmosphere values (ft): step 250 from -16500, 200 from -14000, 500 from 105000 to 262500
+`table_atmosphere_feet`:: Atmosphere attributes by altitude (ft). Grouped by
+`by-geopotential-altitude` and `by-geometric-altitude`. Each entry underneath is
+an `AltitudeAttrs` object. The altitude interval values follow these steps:
++
+.Step 250 from -16500, 200 from -14000, 500 from 105000 to 262500
 ----
 (-16500..-13750).step(250) +
 (-14000..104800).step(200) +
 (105000..262500).step(500)
 ----
 
-Tables 5 to 10 all have height information of the following keys in the hash:
+`table_hypsometrical_altitude`:: Atmosphere attributes by altitude (m). This is
+the same as `table_atmosphere_meters` except with a modified step.
++
+.Step 1 from -1000 to 4599
+----
+(-1000..4599).step(1)
+----
 
-* `geopotential-altitude-m`
-* `geopotential-altitude-ft`
-* `geometrical-altitude-m`
-* `geometrical-altitude-ft`
+`table_hypsometrical_mbar`:: Hypsometrical table by pressure (mbar). This is a
+table that provides altitude values per unit of pressure. Each entry underneath
+is a `PressureAttrs` object. It follows this step schedule:
++
+.Step 0.01 from 5 to 20, 0.1 from 20 to 1770.9
+----
+(5.0..19.99).step(0.01) +
+(20.0..1770.9).step(0.1)
+----
 
-All YAML tables generated contain these two keys which group altitude values
-as the ISO 2533 tables are rendered in both types of altitudes:
+.Generating the ISO 2533:2025 tables
+[example]
+====
+[source,ruby]
+----
+Atmospheric::Export::Iso25332024.table_atmosphere_meters #=> Lutaml::Model
+Atmospheric::Export::Iso25332024.table_atmosphere_meters.to_yaml #=> YAML
+----
+====
 
-* `by-geopotential-altitude`
-* `by-geometric-altitude`
+The above table methods are used as the data sources for the data tables in ISO 2533:2025:
+
+* `table_atmosphere_meters`: Table 5 (meters), Table 6 (meters), Table 7
+(meters). This data table is split into 3 tables for readability reasons.
+
+* `table_atmosphere_feet`: Table 8 (feet), Table 9 (feet), Table 10 (feet).
+Similarly, this data table is split into 3 tables for readability reasons.
+
+* `table_hypsometrical_altitude`: Table 11 (mbar).
+
+* `table_hypsometrical_mbar`: Table 12 (geopotential), Table 13 (geometric).
+
 
 ==== Table 5 (meters)
 
@@ -447,22 +974,9 @@ NOTE: This corresponds to ISO 2533:1975 Table 5 combined with ISO 2533:1975/ADD
 
 Title:
 "_Temperature (T and t), Pressure (p), Density (p) and Acceleration of free fall
-(g) in terms of geometrical altitude (h) and geopotential altitude (H)_"
+(g) in terms of geometric altitude (h) and geopotential altitude (H)_"
 
-Provides the following values in addition to geopotential and geometric height:
-
-* `temperature-K`
-* `temperature-C`
-* `pressure-mbar`
-* `pressure-mmhg`
-* `density`
-* `acceleration`
-
-[source,ruby]
-----
-Atmospheric::Export::Iso25332024.table_5      #=> Hash
-Atmospheric::Export::Iso25332024.table_5_yaml #=> YAML
-----
+This table is a subset of the `table_atmosphere_meters` method.
 
 ==== Table 6 (meters)
 
@@ -472,23 +986,9 @@ NOTE: This corresponds to ISO 2533:1975 Table 6 combined with ISO 2533:1975/ADD
 Title:
 "_Relations of p'pn, p/pn and bar(p/pn), Speed of sound (a), Dynamic viscosity
 (p), Kinematic viscosity (v) and Thermal conductivity (lambda) in terms of
-geometrical altitude (h), and geopotential altitude (H)_"
+geometric altitude (h), and geopotential altitude (H)_"
 
-Provides the following values in addition to geopotential and geometric height:
-
-* `ppn`
-* `rhorhon`
-* `sqrt-rhorhon`
-* `speed-of-sound`
-* `dynamic-viscosity`
-* `kinematic-viscosity`
-* `thermal-conductivity`
-
-[source,ruby]
-----
-Atmospheric::Export::Iso25332024.table_6      #=> Hash
-Atmospheric::Export::Iso25332024.table_6_yaml #=> YAML
-----
+This table is a subset of the `table_atmosphere_meters` method.
 
 ==== Table 7 (meters)
 
@@ -498,21 +998,10 @@ NOTE: This corresponds to ISO 2533:1975 Table 7 combined with ISO 2533:1975/ADD
 Title:
 "_Pressure scale height (H_p) Specific weight (gamma), Air number density (n),
 Mean air-particle speed (v), Air-particle collision frequency (omega) and Mean
-free path of air particles (l) in terms of geometrical altitude (h) and
+free path of air particles (l) in terms of geometric altitude (h) and
 geopotential altitude (H)_"
 
-* `pressure-scale-height`
-* `specific-weight`
-* `air-number-density`
-* `mean-speed`
-* `frequency`
-* `mean-free-path`
-
-[source,ruby]
-----
-Atmospheric::Export::Iso25332024.table_7      #=> Hash
-Atmospheric::Export::Iso25332024.table_7_yaml #=> YAML
-----
+This table is a subset of the `table_atmosphere_meters` method.
 
 ==== Table 8 (-16.5kft to 262.5kft)
 
@@ -520,7 +1009,7 @@ NOTE: This corresponds to ISO 2533:1975/ADD 2:1997 Table 4.
 
 Title:
 "_Temperature (T and t), pressure (p), density (p) and acceleration of free fall
-(g) in terms of geometrical altitude (h) and geopotential altitude (H) --
+(g) in terms of geometric altitude (h) and geopotential altitude (H) --
 Altitudes in feet_"
 
 Exactly same as ISO 2533:1975 Table 5, but in feet and different range.
@@ -528,11 +1017,7 @@ Exactly same as ISO 2533:1975 Table 5, but in feet and different range.
 Pressure at mmHg is not produced, but the implementation still provides it
 for completeness.
 
-[source,ruby]
-----
-Atmospheric::Export::Iso25332024.table_8      #=> Hash
-Atmospheric::Export::Iso25332024.table_8_yaml #=> YAML
-----
+This table is a subset of the `table_atmosphere_feet` method.
 
 ==== Table 9 (-16.5kft to 262.5kft)
 
@@ -541,15 +1026,11 @@ NOTE: This corresponds to ISO 2533:1975/ADD 2:1997 Table 5.
 Title:
 "_Relations of p'pn, p/pn and bar(p/pn), Speed of sound (a), Dynamic viscosity
 (p), Kinematic viscosity (v) and Thermal conductivity (lambda) in terms of
-geometrical altitude (h), and geopotential altitude (H) -- Altitudes in feet_"
+geometric altitude (h), and geopotential altitude (H) -- Altitudes in feet_"
 
 Exactly same as ISO 2533:1975 Table 6, but in feet and different range.
 
-[source,ruby]
-----
-Atmospheric::Export::Iso25332024.table_9      #=> Hash
-Atmospheric::Export::Iso25332024.table_9_yaml #=> YAML
-----
+This table is a subset of the `table_atmosphere_feet` method.
 
 ==== Table 10 (-16.5kft to 262.5kft)
 
@@ -558,19 +1039,15 @@ NOTE: This corresponds to ISO 2533:1975/ADD 2:1997 Table 6.
 Title:
 "_Pressure scale height (H_p) Specific weight (gamma), Air number density (n),
 Mean air-particle speed (v), Air-particle collision frequency (omega) and Mean
-free path of air particles (l) in terms of geometrical altitude (h) and
+free path of air particles (l) in terms of geometric altitude (h) and
 geopotential altitude (H) -- Altitudes in feet_"
 
 Exactly same as ISO 2533:1975 Table 7, but in feet and different range.
 
-[source,ruby]
-----
-Atmospheric::Export::Iso25332024.table_10      #=> Hash
-Atmospheric::Export::Iso25332024.table_10_yaml #=> YAML
-----
+This table is a subset of the `table_atmosphere_feet` method.
 
 
-==== Table 11 (hPa)
+==== Table 11 (mbar)
 
 NOTE: This corresponds to ISO 2533:1975/ADD 1:1985 Table 1 combined with Table 2.
 
@@ -584,6 +1061,7 @@ For the range of `(5.0..19.99).step(0.01) + (20.0..1199.9).step(0.1)` in hPa.
 Provides:
 
 * `pressure-mbar`
+* `pressure-mmhg`
 * `geopotential-altitude-m`
 * `geopotential-altitude-ft`
 * `geometric-altitude-m`
@@ -591,67 +1069,62 @@ Provides:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25332024.table_11      #=> Hash
-Atmospheric::Export::Iso25332024.table_11_yaml #=> YAML
+Atmospheric::Export::Iso25332024.table_hypsometrical_mbar         #=> Lutaml::Model
+Atmospheric::Export::Iso25332024.table_hypsometrical_mbar.to_yaml #=> YAML
 ----
 
 
-==== Table 12 (hPa)
+==== Table 12 (geopotential altitude, m)
 
-NOTE: This corresponds to ISO 2533:1975/ADD 1:1985 Table 5 but in geometric altitude.
-
-Title:
-"_Barometric pressure, in hectopascals, as a function of geometric altitude
-for -1000 <= H < +4600 m at intervals of 1m_"
-
-Provides:
-
-* `geometric-altitude-m`
-* `pressure-mbar`
-* `pressure-mmhg`
-
-Range of `(-1000..4599).step(1)`.
-
-[source,ruby]
-----
-Atmospheric::Export::Iso25332024.table_12      #=> Hash
-Atmospheric::Export::Iso25332024.table_12_yaml #=> YAML
-----
-
-==== Table 13 (hPa)
-
-NOTE: This corresponds to ISO 2533:1975/ADD 1:1985 Table 5, in geopotential altitude.
+NOTE: This corresponds to ISO 2533:1975/ADD 1:1985 Table 5 but in geopotential altitude.
 
 Title:
 "_Barometric pressure, in hectopascals, as a function of geopotential altitude
 for -1000 <= H < +4600 m at intervals of 1m_"
 
-Provides:
+This table is a subset of the `table_atmosphere_meters` method.
 
-* `geopotential-altitude-m`
-* `pressure-mbar`
-* `pressure-mmhg`
 
-Range of `(-1000..4599).step(1)`.
+==== Table 13 (geometric altitude, m)
 
-[source,ruby]
-----
-Atmospheric::Export::Iso25332024.table_13      #=> Hash
-Atmospheric::Export::Iso25332024.table_13_yaml #=> YAML
-----
+NOTE: This corresponds to ISO 2533:1975/ADD 1:1985 Table 5, in geometric altitude.
+
+Title:
+"_Barometric pressure, in hectopascals, as a function of geometric altitude
+for -1000 <= H < +4600 m at intervals of 1m_"
+
+This table is a subset of the `table_atmosphere_meters` method.
 
 
 
 == Testing
 
+=== General
+
 [source,sh]
 ----
-$ rspec
+$ bundle exec rake
 ----
+
+=== Re-generate fixture tables
+
+The `spec/fixtures/iso*` directories contains YAML files that are used to
+generate the ISO 2533 tables.
+
+To re-generate the tables, run:
+
+[source,sh]
+----
+$ bundle exec rake clean generate
+----
+
+These tasks are defined in the `Rakefile`.
+
+=== Algorithms
 
 Tests are encoded in `spec/fixtures/tests.yml` in the following format:
 
-[source,yml]
+[source,yaml]
 ----
 - H: -2000.0
   h: -1999.0
@@ -687,7 +1160,3 @@ It is used to generate all the other values.
 
 Copyright Ribose.
 
-
-== TODO
-
-* expose this as a plugin to LutaML / Metanorma YAML2text

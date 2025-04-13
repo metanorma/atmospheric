@@ -1,13 +1,13 @@
+require_relative "../altitude_attrs"
+
 module Atmospheric
   module Export
     module Iso25331985
-      class TableFiveSixAttrs < Lutaml::Model::Serializable
-        attribute :geopotential_altitude, :integer
-        attribute :pressure_mbar, :float
-        attribute :pressure_mmhg, :float
-
+      class TableFiveSixAttrs < ::Atmospheric::Export::AltitudeAttrs
+        # TODO: Completely override other attributes / key value mappings so
+        # they don't show in YAML
         key_value do
-          map "geopotential-altitude", to: :geopotential_altitude
+          map "geopotential-altitude-m", to: :geopotential_altitude_m
           map "pressure-mbar", to: :pressure_mbar
           map "pressure-mmhg", to: :pressure_mmhg
         end
