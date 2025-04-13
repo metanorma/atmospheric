@@ -10,22 +10,20 @@ Gem::Specification.new do |spec|
 
   spec.homepage      = "https://github.com/metanorma/atmospheric"
   spec.summary       = <<~HERE.strip
-    Implementation of International Standard Atmosphere (ISA) formulas"
+    Implementation of the ISO Standard Atmosphere (ISA) model"
   HERE
   spec.description = <<~HERE.strip
-    Implementation of International Standard Atmosphere (ISA) formulas as
-    defined in ISO 2533:1975 and ICAO 7488/3 1994"
+    Implementation of the ISO Standard Atmosphere (ISA) model as
+    defined in ISO 2533 and ICAO 7488/3 1994.
+    Reference implementation used in ISO 2533:2025."
   HERE
-  spec.license       = "BSD-2-Clause"
 
-  spec.files         = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").select do |f|
-      f.match(%r{^(lib|exe)/}) || f.match(%r{\.yaml$})
-    end
-  end
+  spec.license = "BSD-2-Clause"
+
+  spec.files = Dir.glob("lib/**/*", File::FNM_DOTMATCH)
   spec.extra_rdoc_files = %w[README.adoc LICENSE.txt]
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  # spec.bindir        = "exe"
+  # spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
