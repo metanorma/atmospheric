@@ -139,7 +139,7 @@ module Atmospheric
           temp = num(current_layer[:T])
           height_diff = geopotential_alt - capital_h_b
 
-          p_i = if beta == 0
+          p_i = if beta.zero?
                   # Formula (13)
                   pressure_formula_beta_zero(p_b, temp, height_diff)
                 else
@@ -187,7 +187,7 @@ module Atmospheric
         p_b = pressure_layers[i]
         height_diff = geopotential_alt - capital_h_b
 
-        if beta == 0
+        if beta.zero?
           # Formula (13)
           pressure_formula_beta_zero(p_b, temp, height_diff)
         else

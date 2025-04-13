@@ -19,6 +19,6 @@ RSpec.shared_examples "yaml parsing and serialization" do |yaml_path, model_clas
     original_yaml = File.read(yaml_path)
     model_instance = model_class.from_yaml(original_yaml)
     generated_yaml = model_instance.to_yaml
-    expect(YAML.load(generated_yaml.strip)).to eq(YAML.load(original_yaml.strip))
+    expect(YAML.safe_load(generated_yaml.strip)).to eq(YAML.safe_load(original_yaml.strip))
   end
 end
