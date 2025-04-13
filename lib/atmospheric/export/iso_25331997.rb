@@ -1,4 +1,3 @@
-require_relative "./target"
 require_relative "./iso_25331975"
 
 module Atmospheric
@@ -38,63 +37,48 @@ module Atmospheric
 
       class GroupFour < Iso25331975::GroupOne
         include Iso25331997::GroupBaseFeet
+        def set_attrs(klass: Iso25331975::GroupOneAttrs, unit: steps_unit)
+          super
+        end
       end
 
       class GroupFive < Iso25331975::GroupTwo
         include Iso25331997::GroupBaseFeet
+        def set_attrs(klass: Iso25331975::GroupTwoAttrs, unit: steps_unit)
+          super
+        end
       end
 
       class GroupSix < Iso25331975::GroupThree
         include Iso25331997::GroupBaseFeet
+        def set_attrs(klass: Iso25331975::GroupThreeAttrs, unit: steps_unit)
+          super
+        end
       end
 
       class << self
         def table_1
-          GroupOne.new.to_h
+          GroupOne.new.set_attrs
         end
 
         def table_2
-          GroupTwo.new.to_h
+          GroupTwo.new.set_attrs
         end
 
         def table_3
-          GroupThree.new.to_h
+          GroupThree.new.set_attrs
         end
 
         def table_4
-          GroupFour.new.to_h
+          GroupFour.new.set_attrs
         end
 
         def table_5
-          GroupFive.new.to_h
+          GroupFive.new.set_attrs
         end
 
         def table_6
-          GroupSix.new.to_h
-        end
-
-        def table_1_yaml
-          GroupOne.new.set_attrs.to_yaml
-        end
-
-        def table_2_yaml
-          GroupTwo.new.set_attrs.to_yaml
-        end
-
-        def table_3_yaml
-          GroupThree.new.set_attrs.to_yaml
-        end
-
-        def table_4_yaml
-          GroupFour.new.set_attrs.to_yaml
-        end
-
-        def table_5_yaml
-          GroupFive.new.set_attrs.to_yaml
-        end
-
-        def table_6_yaml
-          GroupSix.new.set_attrs.to_yaml
+          GroupSix.new.set_attrs
         end
       end
     end

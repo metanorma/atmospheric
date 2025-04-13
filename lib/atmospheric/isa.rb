@@ -1,92 +1,15 @@
 require "bigdecimal"
 require "bigdecimal/math"
+require "singleton"
 
 module Atmospheric
   module Isa
     # International Standard Atmosphere (ISA) (ISO 2533:1975)
     # ICAO Standard Atmosphere (ICAO Doc 7488/3, 1994)
 
-    class << self
-      private
-
-      @precision = :normal # Note the initial make_constants run won't see this
-
-      def num(str)
-        if @precision == :high
-          BigDecimal(str)
-        else
-          str.to_f
-        end
-      end
-
-      def sqrt(num)
-        if @precision == :high
-          BigMath.sqrt(num, 100)
-        else
-          Math.sqrt(num)
-        end
-      end
-
-      def log10(num)
-        if @precision == :high
-          BigMath.log(num, 100) / BigMath.log(10, 100)
-        else
-          Math.log10(num)
-        end
-      end
-
-      # rubocop:disable Metrics/AbcSize
-      # rubocop:disable Metrics/MethodLength
-      def make_constants
-        # 2.1 Primary constants and characteristics
-        # Table 1 - Main constants and characteristics adopted for
-        #           the calculation of the ISO Standard Atmosphere
-        @constants = {
-          # g_n gravitation at mean sea level (m.s-2)
-          g_n: num("9.80665"),
-
-          # Avogadro constant (mol-1)
-          N_A: num("6.02257e+23"),
-
-          # p_n pressure at mean sea level (Pa)
-          p_n: num("101325"),
-
-          # rho_n standard air density
-          rho_n: num("1.225"),
-
-          # T_n standard thermodynamic air temperature at mean sea level
-          T_n: num("288.15"),
-
-          # universal gas constant
-          R_star: num("8.31432"),
-
-          # radius of the Earth (m)
-          radius: num("6356766"),
-
-          # adiabatic index (dimensionless)
-          k: num("1.4"),
-        }
-
-        # 2.2 The equation of the static atmosphere and the perfect gas law
-        # Formula (2)
-        # M: air molar mass at sea level, kg.kmol-1
-        # Value given in 2.1 as M: 28.964720
-        @constants[:M] =
-          (@constants[:rho_n] * @constants[:R_star] * @constants[:T_n]) \
-            / @constants[:p_n]
-
-        # Formula (3)
-        # R: specific gas constant, J.K-1.kg-1.
-        # Value given in 2.1 as R: 287.05287
-        @constants[:R] = @constants[:R_star] / @constants[:M]
-
-        @sqrt2 = sqrt(num("2"))
-        @pi = if @precision == :high then BigMath.PI(100) else Math::PI end
-      end
-      # rubocop:enable Metrics/AbcSize
-      # rubocop:enable Metrics/MethodLength
-
-      public
+    class Algorithms
+      attr_accessor :precision
+      attr_reader :pressure_layers, :constants, :sqrt2, :pi
 
       def set_precision(precision)
         @precision = if precision == :high then :high else :normal end
@@ -94,11 +17,7 @@ module Atmospheric
           if defined?(@pressure_layers)
         make_constants
       end
-    end
 
-    make_constants
-
-    class << self
       # 2.3 Geopotential and geometric altitides; acceleration of free fall
 
       # 2.3 Formula (8)
@@ -153,7 +72,6 @@ module Atmospheric
         )
       end
 
-      # rubocop:disable Metrics/AbcSize
       def locate_lower_layer(geopotential_alt)
         # Return first layer if lower than lowest
         return 0 if geopotential_alt < num(TEMPERATURE_LAYERS[0][:H])
@@ -169,7 +87,6 @@ module Atmospheric
 
         nil
       end
-      # rubocop:enable Metrics/AbcSize
 
       # Table 4 - Temperature and vertical temperature gradients
       #
@@ -196,9 +113,6 @@ module Atmospheric
       # 2.7 Pressure
 
       # Base pressure values given defined `TEMPERATURE_LAYERS` and constants
-      # rubocop:disable Metrics/AbcSize
-      # rubocop:disable Metrics/PerceivedComplexity
-      # rubocop:disable Metrics/MethodLength
       def pressure_layers
         return @pressure_layers if @pressure_layers
 
@@ -225,22 +139,19 @@ module Atmospheric
           temp = num(current_layer[:T])
           height_diff = geopotential_alt - capital_h_b
 
-          p_i = if beta != 0
+          p_i = if beta == 0
+                  # Formula (13)
+                  pressure_formula_beta_zero(p_b, temp, height_diff)
+                else
                   # Formula (12)
                   pressure_formula_beta_nonzero(p_b, beta, capital_t_b,
                                                 height_diff)
-                else
-                  # Formula (13)
-                  pressure_formula_beta_zero(p_b, temp, height_diff)
                 end
           p[i] = p_i
         end
 
         @pressure_layers = p
       end
-      # rubocop:enable Metrics/AbcSize
-      # rubocop:enable Metrics/PerceivedComplexity
-      # rubocop:enable Metrics/MethodLength
 
       # Formula (12)
       def pressure_formula_beta_nonzero(p_b, beta, temp, height_diff)
@@ -265,8 +176,6 @@ module Atmospheric
         pascal * num("0.01")
       end
 
-      # rubocop:disable Metrics/AbcSize
-      # rubocop:disable Metrics/MethodLength
       # Pressure for a given geopotential altitude `H` (m) above mean sea level
       def pressure_from_geopotential(geopotential_alt)
         i = locate_lower_layer(geopotential_alt)
@@ -278,16 +187,14 @@ module Atmospheric
         p_b = pressure_layers[i]
         height_diff = geopotential_alt - capital_h_b
 
-        if beta != 0
-          # Formula (12)
-          pressure_formula_beta_nonzero(p_b, beta, capital_t_b, height_diff)
-        else
+        if beta == 0
           # Formula (13)
           pressure_formula_beta_zero(p_b, temp, height_diff)
+        else
+          # Formula (12)
+          pressure_formula_beta_nonzero(p_b, beta, capital_t_b, height_diff)
         end
       end
-      # rubocop:enable Metrics/AbcSize
-      # rubocop:enable Metrics/MethodLength
 
       def pressure_from_geopotential_mbar(geopotential_alt)
         pa_to_mbar(pressure_from_geopotential(geopotential_alt))
@@ -452,8 +359,6 @@ module Atmospheric
       # ADD 1
       # Formulae used in the calculation of the relationships
       # between geopotential altitude and pressure
-      # rubocop:disable Metrics/AbcSize
-      # rubocop:disable Metrics/MethodLength
       def geopotential_altitude_from_pressure_mbar(pressure)
         if pressure >= pa_to_mbar(pressure_layers[2]) # H <= 11 000 m
           (num("3.731444") - pressure**num("0.1902631")) / num("8.41728e-5")
@@ -461,10 +366,10 @@ module Atmospheric
           (num("3.1080387") - log10(pressure)) / num("6.848325e-5")
         elsif pressure >= pa_to_mbar(pressure_layers[4]) # H <= 32 000 m
           (num("1.2386515") - pressure**num("0.02927125")) \
-            / (num("5.085177e-6") * pressure**num("0.02927125"))
+/ (num("5.085177e-6") * pressure**num("0.02927125"))
         elsif pressure >= pa_to_mbar(pressure_layers[5]) # H <= 47 000 m
           (num("1.9630052") - pressure**num("0.08195949")) \
-            / (num("2.013664e-5") * pressure**num("0.08195949"))
+/ (num("2.013664e-5") * pressure**num("0.08195949"))
         end
       end
 
@@ -481,8 +386,106 @@ module Atmospheric
             / (num("2.013664e-5") * pressure**num("0.08195949"))
         end
       end
-      # rubocop:enable Metrics/AbcSize
-      # rubocop:enable Metrics/MethodLength
+
+      def mbar_to_mmhg(mbar)
+        # Convert mbar to Pa, then Pa to mmHg
+        pa = mbar / num("0.01") # or mbar * 100
+        pa_to_mmhg(pa)
+      end
+
+      def mmhg_to_mbar(mmhg)
+        # Convert mmHg to Pa, then Pa to mbar
+        pa = mmhg / num("0.007500616827")
+        pa_to_mbar(pa)
+      end
+
+      private
+
+      def num(str)
+        if @precision == :high
+          BigDecimal(str)
+        else
+          str.to_f
+        end
+      end
+
+      def sqrt(num)
+        if @precision == :high
+          BigMath.sqrt(num, 100)
+        else
+          Math.sqrt(num)
+        end
+      end
+
+      def log10(num)
+        if @precision == :high
+          BigMath.log(num, 100) / BigMath.log(10, 100)
+        else
+          Math.log10(num)
+        end
+      end
+
+      def make_constants
+        # 2.1 Primary constants and characteristics
+        # Table 1 - Main constants and characteristics adopted for
+        #           the calculation of the ISO Standard Atmosphere
+        @constants = {
+          # g_n gravitation at mean sea level (m.s-2)
+          g_n: num("9.80665"),
+
+          # Avogadro constant (mol-1)
+          N_A: num("6.02257e+23"),
+
+          # p_n pressure at mean sea level (Pa)
+          p_n: num("101325"),
+
+          # rho_n standard air density
+          rho_n: num("1.225"),
+
+          # T_n standard thermodynamic air temperature at mean sea level
+          T_n: num("288.15"),
+
+          # universal gas constant
+          R_star: num("8.31432"),
+
+          # radius of the Earth (m)
+          radius: num("6356766"),
+
+          # adiabatic index (dimensionless)
+          k: num("1.4"),
+        }
+
+        # 2.2 The equation of the static atmosphere and the perfect gas law
+        # Formula (2)
+        # M: air molar mass at sea level, kg.kmol-1
+        # Value given in 2.1 as M: 28.964720
+        @constants[:M] =
+          (@constants[:rho_n] * @constants[:R_star] * @constants[:T_n]) / @constants[:p_n]
+
+        # Formula (3)
+        # R: specific gas constant, J.K-1.kg-1.
+        # Value given in 2.1 as R: 287.05287
+        @constants[:R] = @constants[:R_star] / @constants[:M]
+
+        @sqrt2 = sqrt(num("2"))
+        @pi = if @precision == :high then BigMath.PI(100) else Math::PI end
+      end
+    end
+
+    class HighPrecision < Algorithms
+      include Singleton
+
+      def initialize
+        set_precision(:high)
+      end
+    end
+
+    class NormalPrecision < Algorithms
+      include Singleton
+
+      def initialize
+        set_precision(:normal)
+      end
     end
   end
 end
