@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../altitude_table"
 require_relative "group_one_attrs"
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "lutaml/model"
 
 module Atmospheric
@@ -43,37 +45,37 @@ module Atmospheric
             v = Isa::NormalPrecision.instance.pressure_scale_height_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? v.round(1) : v,
-              unitsml: "m",
+              unitsml: "m"
             )
           when :specific_weight
             v = Isa::NormalPrecision.instance.specific_weight_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-              unitsml: "N*m^-3",
+              unitsml: "N*m^-3"
             )
           when :air_number_density
             v = Isa::NormalPrecision.instance.air_number_density_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-              unitsml: "m^-3",
+              unitsml: "m^-3"
             )
           when :mean_speed
             v = Isa::NormalPrecision.instance.mean_air_particle_speed_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? v.round(2) : v,
-              unitsml: "m*s^-1",
+              unitsml: "m*s^-1"
             )
           when :frequency
             v = Isa::NormalPrecision.instance.air_particle_collision_frequency_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-              unitsml: "s^-1",
+              unitsml: "s^-1"
             )
           when :mean_free_path
             v = Isa::NormalPrecision.instance.mean_free_path_of_air_particles_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-              unitsml: "m",
+              unitsml: "m"
             )
           else
             raise ArgumentError, "Unknown attribute: #{name}"

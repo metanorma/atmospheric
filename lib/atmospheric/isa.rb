@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bigdecimal"
 require "bigdecimal/math"
 require "singleton"
@@ -12,7 +14,7 @@ module Atmospheric
       attr_reader :pressure_layers, :constants, :sqrt2, :pi
 
       def set_precision(precision)
-        @precision = if precision == :high then :high else :normal end
+        @precision = precision == :high ? :high : :normal
         remove_instance_variable(:@pressure_layers) \
           if defined?(@pressure_layers)
         make_constants
@@ -68,7 +70,7 @@ module Atmospheric
 
       def temperature_at_layer_celcius(geopotential_alt)
         kelvin_to_celsius(
-          temperature_at_layer_from_geopotential(geopotential_alt),
+          temperature_at_layer_from_geopotential(geopotential_alt)
         )
       end
 
@@ -107,7 +109,7 @@ module Atmospheric
         { H: "47000", T: "270.65", B: "0"       },
         { H: "51000", T: "270.65", B: "-0.0028" },
         { H: "71000", T: "214.65", B: "-0.002"  },
-        { H: "80000", T: "196.65" },
+        { H: "80000", T: "196.65" }
       ].freeze
 
       # 2.7 Pressure
@@ -452,7 +454,7 @@ module Atmospheric
           radius: num("6356766"),
 
           # adiabatic index (dimensionless)
-          k: num("1.4"),
+          k: num("1.4")
         }
 
         # 2.2 The equation of the static atmosphere and the perfect gas law
@@ -468,7 +470,7 @@ module Atmospheric
         @constants[:R] = @constants[:R_star] / @constants[:M]
 
         @sqrt2 = sqrt(num("2"))
-        @pi = if @precision == :high then BigMath.PI(100) else Math::PI end
+        @pi = @precision == :high ? BigMath.PI(100) : Math::PI
       end
     end
 

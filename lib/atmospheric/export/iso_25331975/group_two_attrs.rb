@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "lutaml/model"
 
 module Atmospheric
@@ -46,43 +48,43 @@ module Atmospheric
             v = Isa::NormalPrecision.instance.p_p_n_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-              unitsml: nil,
+              unitsml: nil
             )
           when :rhorhon
             v = Isa::NormalPrecision.instance.rho_rho_n_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-              unitsml: nil,
+              unitsml: nil
             )
           when :sqrt_rhorhon
             v = Isa::NormalPrecision.instance.root_rho_rho_n_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-              unitsml: nil,
+              unitsml: nil
             )
           when :speed_of_sound
             v = Isa::NormalPrecision.instance.speed_of_sound_from_geopotential(gp_h_m)
             UnitValueInteger.new(
               value: precision == :reduced ? (v * 1000.0).round : v,
-              unitsml: "m*s^-1",
+              unitsml: "m*s^-1"
             )
           when :dynamic_viscosity
             v = Isa::NormalPrecision.instance.dynamic_viscosity_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-              unitsml: "Pa*s",
+              unitsml: "Pa*s"
             )
           when :kinematic_viscosity
             v = Isa::NormalPrecision.instance.kinematic_viscosity_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-              unitsml: "m^2*s^-1",
+              unitsml: "m^2*s^-1"
             )
           when :thermal_conductivity
             v = Isa::NormalPrecision.instance.thermal_conductivity_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
-              unitsml: "W*m^-1*K^-1",
+              unitsml: "W*m^-1*K^-1"
             )
           else
             raise ArgumentError, "Unknown attribute: #{name}"

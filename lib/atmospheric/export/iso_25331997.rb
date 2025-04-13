@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "./iso_25331975"
 
 module Atmospheric
@@ -24,9 +26,9 @@ module Atmospheric
       module GroupBaseFeet
         def steps
           (
-            (-16500..-13750).step(250) +
-            (-14000..104800).step(200) +
-            (105000..262500).step(500)
+            (-16_500..-13_750).step(250) +
+            (-14_000..104_800).step(200) +
+            (105_000..262_500).step(500)
           )
         end
 

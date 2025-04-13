@@ -13,11 +13,11 @@ task default: %i[spec rubocop]
 
 require "atmospheric"
 
-task generate: [
-  "generate_1975",
-  "generate_1985",
-  "generate_1997",
-  "generate_2025",
+task generate: %w[
+  generate_1975
+  generate_1985
+  generate_1997
+  generate_2025
 ]
 
 task :clean do
@@ -30,7 +30,7 @@ end
 directory "spec/fixtures/iso-2533-1975-new/yaml"
 
 generate_1975_subtasks = [
-  "spec/fixtures/iso-2533-1975-new/yaml",
+  "spec/fixtures/iso-2533-1975-new/yaml"
 ]
 
 (5..7).each do |n|
@@ -45,12 +45,12 @@ end
 task generate_1975: generate_1975_subtasks
 
 generate_1985_subtasks = [
-  "spec/fixtures/iso-2533-add-1-1985-new/yaml",
+  "spec/fixtures/iso-2533-add-1-1985-new/yaml"
 ]
 
 directory "spec/fixtures/iso-2533-add-1-1985-new/yaml"
 
-%w(1 2 3 4 56).each do |n|
+%w[1 2 3 4 56].each do |n|
   filename = "spec/fixtures/iso-2533-add-1-1985-new/yaml/table#{n}.yaml"
   file filename do |t|
     File.write(t.name,
@@ -62,7 +62,7 @@ end
 task generate_1985: generate_1985_subtasks
 
 generate_1997_subtasks = [
-  "spec/fixtures/iso-2533-add-2-1997-new/yaml",
+  "spec/fixtures/iso-2533-add-2-1997-new/yaml"
 ]
 
 directory "spec/fixtures/iso-2533-add-2-1997-new/yaml"
@@ -79,7 +79,7 @@ end
 task generate_1997: generate_1997_subtasks
 
 generate_2025_subtasks = [
-  "spec/fixtures/iso-2533-2025/yaml",
+  "spec/fixtures/iso-2533-2025/yaml"
 ]
 
 directory "spec/fixtures/iso-2533-2025/yaml"

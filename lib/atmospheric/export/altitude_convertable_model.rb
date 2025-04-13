@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "utils"
 require_relative "../unit_value_float"
 require_relative "../unit_value_integer"
@@ -17,7 +19,7 @@ module Atmospheric
       end
 
       def set_altitude(value:, type: :geometric, unit: :meters,
-precision: :reduced)
+                       precision: :reduced)
         case type
         when :geometric
           set_geometric_altitude(value, unit: unit, precision: precision)

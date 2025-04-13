@@ -37,7 +37,7 @@ RSpec.describe Atmospheric::Isa do
     n: ["air_number_density_from_geopotential", nil, 4],
     v_bar: ["mean_air_particle_speed_from_geopotential", 2, nil],
     omega: ["air_particle_collision_frequency_from_geopotential", nil, 5],
-    l: ["mean_free_path_of_air_particles_from_geopotential", nil, 5],
+    l: ["mean_free_path_of_air_particles_from_geopotential", nil, 5]
   }.freeze
 
   def get_expected_range(expected_value, decimal_places)
@@ -56,13 +56,13 @@ RSpec.describe Atmospheric::Isa do
   skip_tests = [
     { H: 3950.0, skip: :p_mmhg },
     { H: 8750.0, skip: :n },
-    { H: 23800.0, skip: :n },
-    { H: 38500.0, skip: :n },
-    { H: 56000.0, skip: :n },
-    { H: 73000.0, skip: :n },
-    { H: 14700.0, skip: :omega },
-    { H: 29350.0, skip: :omega },
-    { H: 78200.0, skip: :omega },
+    { H: 23_800.0, skip: :n },
+    { H: 38_500.0, skip: :n },
+    { H: 56_000.0, skip: :n },
+    { H: 73_000.0, skip: :n },
+    { H: 14_700.0, skip: :omega },
+    { H: 29_350.0, skip: :omega },
+    { H: 78_200.0, skip: :omega }
   ]
 
   test_values = YAML.safe_load(IO.read("spec/fixtures/tests-geopotential.yml"))
@@ -78,15 +78,15 @@ RSpec.describe Atmospheric::Isa do
         geopotential_h = hash["H"]
         expected_value = hash[var.to_s]
 
-        it "variable (#{var}) H=#{hash['H']} outputs conforms to test value" do
+        it "variable (#{var}) H=#{hash["H"]} outputs conforms to test value" do
           calc = isa.send(method_name, geopotential_h)
-          calc = calc.round(decimal_places) if !decimal_places.nil?
+          calc = calc.round(decimal_places) unless decimal_places.nil?
 
           # Some values are missing due to missing page in original
           # ISO 2533:1975 document.
           # See https://github.com/metanorma/iso-2533/issues/9
           if expected_value.nil? && var == :p_mmhg &&
-              geopotential_h >= 48000.0 && geopotential_h <= 56800.0
+             geopotential_h >= 48_000.0 && geopotential_h <= 56_800.0
             pending "missing value in original document (metanorma/iso-2533#9)"
           end
 
@@ -102,9 +102,7 @@ RSpec.describe Atmospheric::Isa do
           calc = calc.to_f if var == :n
 
           # set decimal_places
-          if !significant_digits.nil? && calc != 0
-            decimal_places = significant_digits - Math.log10(calc).ceil
-          end
+          decimal_places = significant_digits - Math.log10(calc).ceil if !significant_digits.nil? && calc != 0
 
           original_expected_range = get_expected_range(expected_value,
                                                        decimal_places)
@@ -123,7 +121,7 @@ RSpec.describe Atmospheric::Isa do
 
           expect(calc).to be_between(
             original_expected_range.begin,
-            original_expected_range.end,
+            original_expected_range.end
           ).inclusive
         end
       end
