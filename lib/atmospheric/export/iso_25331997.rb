@@ -39,21 +39,21 @@ module Atmospheric
 
       class GroupFour < Iso25331975::GroupOne
         include Iso25331997::GroupBaseFeet
-        def set_attrs(klass: Iso25331975::GroupOneAttrs, unit: steps_unit)
+        def set_attrs(klass: Iso25331975::GroupOneAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end
 
       class GroupFive < Iso25331975::GroupTwo
         include Iso25331997::GroupBaseFeet
-        def set_attrs(klass: Iso25331975::GroupTwoAttrs, unit: steps_unit)
+        def set_attrs(klass: Iso25331975::GroupTwoAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end
 
       class GroupSix < Iso25331975::GroupThree
         include Iso25331997::GroupBaseFeet
-        def set_attrs(klass: Iso25331975::GroupThreeAttrs, unit: steps_unit)
+        def set_attrs(klass: Iso25331975::GroupThreeAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end

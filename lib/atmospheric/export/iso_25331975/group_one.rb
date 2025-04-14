@@ -15,7 +15,7 @@ module Atmospheric
           map "by-geopotential-altitude", to: :by_geopotential_altitude
         end
 
-        def set_attrs(klass: GroupOneAttrs, unit: steps_unit)
+        def set_attrs(klass: GroupOneAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end

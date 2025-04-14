@@ -25,11 +25,11 @@ module Atmospheric
         self.rows = []
       end
 
-      def set_attrs(klass: PressureAttrs, unit: steps_unit)
+      def set_attrs(klass: PressureAttrs, unit: steps_unit, precision: :reduced)
         initialize_attrs
 
         steps.each do |p|
-          rows << klass.new.set_pressure(value: p, unit: unit)
+          rows << klass.new.set_pressure(value: p, unit: unit, precision: precision)
         end
         self
       end

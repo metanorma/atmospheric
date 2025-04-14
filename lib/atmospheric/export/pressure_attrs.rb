@@ -35,32 +35,40 @@ module Atmospheric
         map_element "geopotential-altitude-ft", to: :geopotential_altitude_ft
       end
 
-      def set_pressure(value:, unit: :mbar)
+      def set_pressure(value:, unit: :mbar, precision: :reduced)
         method_name = "geopotential_altitude_from_pressure_#{unit}"
         gp_h_m = Isa::NormalPrecision.instance.send(method_name, value)
         gp_h_ft = m_to_ft(gp_h_m)
         gm_h_m = Isa::NormalPrecision.instance.geometric_altitude_from_geopotential(gp_h_m)
         gm_h_ft = m_to_ft(gm_h_m)
 
-        realize_altitudes(gm_h_m, gm_h_ft, gp_h_m, gp_h_ft)
+        realize_altitudes(gm_h_m, gm_h_ft, gp_h_m, gp_h_ft, precision: precision)
         realize_pressures(value, unit: unit)
 
         self
       end
 
       # TODO: Not sure why we need round(1) for meter values
-      def realize_altitudes(hgmm, hgmf, hgpm, hgpf)
-        self.geometric_altitude_m = UnitValueInteger.new(value: hgmm.round(1),
-                                                         unitsml: "m")
+      def realize_altitudes(hgmm, hgmf, hgpm, hgpf, precision: :reduced)
+        self.geometric_altitude_m = UnitValueInteger.new(
+          value: precision == :reduced ? hgmm.round(1) : hgmm,
+          unitsml: "m"
+        )
 
-        self.geometric_altitude_ft = UnitValueInteger.new(value: hgmf.round,
-                                                          unitsml: "ft")
+        self.geometric_altitude_ft = UnitValueInteger.new(
+          value: precision == :reduced ? hgmf.round : hgmf,
+          unitsml: "ft"
+        )
 
-        self.geopotential_altitude_m = UnitValueInteger.new(value: hgpm.round(1),
-                                                            unitsml: "m")
+        self.geopotential_altitude_m = UnitValueInteger.new(
+          value: precision == :reduced ? hgpm.round(1) : hgpm,
+          unitsml: "m"
+        )
 
-        self.geopotential_altitude_ft = UnitValueInteger.new(value: hgpf.round,
-                                                             unitsml: "ft")
+        self.geopotential_altitude_ft = UnitValueInteger.new(
+          value: precision == :reduced ? hgpf.round : hgpf,
+          unitsml: "ft"
+        )
       end
 
       def realize_pressures(input, unit:)
