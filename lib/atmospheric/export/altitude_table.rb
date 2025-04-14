@@ -29,18 +29,18 @@ module Atmospheric
         self.by_geopotential_altitude = []
       end
 
-      def set_attrs(klass:, unit: steps_unit)
+      def set_attrs(klass:, unit: steps_unit, precision: :normal)
         initialize_attrs
 
         steps.each do |h|
           add_to_geometric(
             klass.new.set_altitude(
-              type: :geometric, unit: unit, value: h
+              type: :geometric, unit: unit, value: h, precision: precision
             )
           )
           add_to_geopotential(
             klass.new.set_altitude(
-              type: :geopotential, unit: unit, value: h
+              type: :geopotential, unit: unit, value: h, precision: precision
             )
           )
         end

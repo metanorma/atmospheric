@@ -35,7 +35,7 @@ module Atmospheric
           self.by_geopotential_altitude = AltitudeAttrsGroup.new(rows: [])
         end
 
-        def set_attrs(klass: AltitudeAttrs, unit: steps_unit)
+        def set_attrs(klass: AltitudeAttrs, unit: steps_unit, precision: :normal)
           super
         end
       end

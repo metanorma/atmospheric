@@ -30,7 +30,7 @@ module Atmospheric
           :mbar
         end
 
-        def set_attrs(klass: PressureAttrs, unit: steps_unit)
+        def set_attrs(klass: PressureAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end
@@ -42,7 +42,7 @@ module Atmospheric
           (20.0..1199.9).step(0.1).to_a.map { |v| v.round(1) }
         end
 
-        def set_attrs(klass: PressureAttrs, unit: steps_unit)
+        def set_attrs(klass: PressureAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end
@@ -58,7 +58,7 @@ module Atmospheric
           :mmhg
         end
 
-        def set_attrs(klass: PressureAttrs, unit: steps_unit)
+        def set_attrs(klass: PressureAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end
@@ -74,7 +74,7 @@ module Atmospheric
           :mmhg
         end
 
-        def set_attrs(klass: PressureAttrs, unit: steps_unit)
+        def set_attrs(klass: PressureAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end
@@ -84,7 +84,7 @@ module Atmospheric
           (-1000..4599).step(1)
         end
 
-        def set_attrs(klass: TableFiveSixAttrs, unit: steps_unit)
+        def set_attrs(klass: TableFiveSixAttrs, unit: steps_unit, precision: :reduced)
           super
         end
       end

@@ -37,7 +37,9 @@ module Atmospheric
         hgpm, hgpf = values_in_m_ft(h, unit: unit)
         hgmm = Isa::NormalPrecision.instance.geometric_altitude_from_geopotential(hgpm)
         hgmf = m_to_ft(hgmm).round
-        realize_altitudes(hgmm, hgmf, hgpm, hgpf)
+        # TODO: We have to used reduced here because we must round values for
+        # the Integer data type as defined.
+        realize_altitudes(hgmm, hgmf, hgpm, hgpf, precision: :reduced)
         realize_values_from_geopotential(hgpm, precision: precision)
       end
 
@@ -45,22 +47,32 @@ module Atmospheric
         hgmm, hgmf = values_in_m_ft(h, unit: unit)
         hgpm = Isa::NormalPrecision.instance.geopotential_altitude_from_geometric(hgmm)
         hgpf = m_to_ft(hgpm).round
-        realize_altitudes(hgmm, hgmf, hgpm, hgpf)
+        # TODO: We have to used reduced here because we must round values for
+        # the Integer data type as defined.
+        realize_altitudes(hgmm, hgmf, hgpm, hgpf, precision: :reduced)
         realize_values_from_geopotential(hgpm, precision: precision)
       end
 
-      def realize_altitudes(hgmm, hgmf, hgpm, hgpf)
-        self.geometric_altitude_m = UnitValueInteger.new(value: hgmm.round,
-                                                         unitsml: "m")
+      def realize_altitudes(hgmm, hgmf, hgpm, hgpf, precision: :reduced)
+        self.geometric_altitude_m = UnitValueInteger.new(
+          value: precision == :reduced ? hgmm.round : hgmm,
+          unitsml: "m"
+        )
 
-        self.geometric_altitude_ft = UnitValueInteger.new(value: hgmf.round,
-                                                          unitsml: "ft")
+        self.geometric_altitude_ft = UnitValueInteger.new(
+          value: precision == :reduced ? hgmf.round : hgmf,
+          unitsml: "ft"
+        )
 
-        self.geopotential_altitude_m = UnitValueInteger.new(value: hgpm.round,
-                                                            unitsml: "m")
+        self.geopotential_altitude_m = UnitValueInteger.new(
+          value: precision == :reduced ? hgpm.round : hgpm,
+          unitsml: "m"
+        )
 
-        self.geopotential_altitude_ft = UnitValueInteger.new(value: hgpf.round,
-                                                             unitsml: "ft")
+        self.geopotential_altitude_ft = UnitValueInteger.new(
+          value: precision == :reduced ? hgpf.round : hgpf,
+          unitsml: "ft"
+        )
       end
 
       def realize_values_from_geopotential(gp_h_m, precision:)
