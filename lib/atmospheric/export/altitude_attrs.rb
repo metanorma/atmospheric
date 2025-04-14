@@ -10,8 +10,8 @@ module Atmospheric
       include AltitudeConvertableModel
 
       # From Group One
-      attribute :temperature_k, UnitValueInteger
-      attribute :temperature_c, UnitValueInteger
+      attribute :temperature_k, UnitValueFloat
+      attribute :temperature_c, UnitValueFloat
       attribute :pressure_mbar, UnitValueFloat
       attribute :pressure_mmhg, UnitValueFloat
       attribute :density, UnitValueFloat
@@ -21,7 +21,7 @@ module Atmospheric
       attribute :ppn, UnitValueFloat
       attribute :rhorhon, UnitValueFloat
       attribute :sqrt_rhorhon, UnitValueFloat
-      attribute :speed_of_sound, UnitValueInteger
+      attribute :speed_of_sound, UnitValueFloat
       attribute :dynamic_viscosity, UnitValueFloat
       attribute :kinematic_viscosity, UnitValueFloat
       attribute :thermal_conductivity, UnitValueFloat
@@ -117,13 +117,13 @@ module Atmospheric
         case name
         when :temperature_k
           v = Isa::NormalPrecision.instance.temperature_at_layer_from_geopotential(gp_h_m)
-          UnitValueInteger.new(
+          UnitValueFloat.new(
             value: precision == :reduced ? (v * 1000.0).round : v,
             unitsml: "K"
           )
         when :temperature_c
           v = Isa::NormalPrecision.instance.temperature_at_layer_celcius(gp_h_m)
-          UnitValueInteger.new(
+          UnitValueFloat.new(
             value: precision == :reduced ? (v * 1000.0).round : v,
             unitsml: "degC"
           )
@@ -171,7 +171,7 @@ module Atmospheric
           )
         when :speed_of_sound
           v = Isa::NormalPrecision.instance.speed_of_sound_from_geopotential(gp_h_m)
-          UnitValueInteger.new(
+          UnitValueFloat.new(
             value: precision == :reduced ? (v * 1000.0).round : v,
             unitsml: "m*s^-1"
           )
