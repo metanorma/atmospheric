@@ -11,9 +11,9 @@ module Atmospheric
       include Utils
       attribute :pressure_mbar, UnitValueFloat
       attribute :pressure_mmhg, UnitValueFloat
-      attribute :geometric_altitude_m, UnitValueInteger
+      attribute :geometric_altitude_m, UnitValueFloat
       attribute :geometric_altitude_ft, UnitValueInteger
-      attribute :geopotential_altitude_m, UnitValueInteger
+      attribute :geopotential_altitude_m, UnitValueFloat
       attribute :geopotential_altitude_ft, UnitValueInteger
 
       key_value do
@@ -50,7 +50,7 @@ module Atmospheric
 
       # TODO: Not sure why we need round(1) for meter values
       def realize_altitudes(hgmm, hgmf, hgpm, hgpf, precision: :reduced)
-        self.geometric_altitude_m = UnitValueInteger.new(
+        self.geometric_altitude_m = UnitValueFloat.new(
           value: precision == :reduced ? hgmm.round(1) : hgmm,
           unitsml: "m"
         )
@@ -60,7 +60,7 @@ module Atmospheric
           unitsml: "ft"
         )
 
-        self.geopotential_altitude_m = UnitValueInteger.new(
+        self.geopotential_altitude_m = UnitValueFloat.new(
           value: precision == :reduced ? hgpm.round(1) : hgpm,
           unitsml: "m"
         )
