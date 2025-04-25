@@ -41,39 +41,41 @@ module Atmospheric
         end
 
         def calculate(gp_h_m, name, precision: :reduced)
+          isa = precision == :high ? Isa::HighPrecision.instance : Isa::NormalPrecision.instance
+
           case name
           when :temperature_k
-            v = Isa::NormalPrecision.instance.temperature_at_layer_from_geopotential(gp_h_m)
+            v = isa.temperature_at_layer_from_geopotential(gp_h_m)
             UnitValueInteger.new(
               value: precision == :reduced ? (v * 1000.0).round : v,
               unitsml: "K"
             )
           when :temperature_c
-            v = Isa::NormalPrecision.instance.temperature_at_layer_celcius(gp_h_m)
+            v = isa.temperature_at_layer_celcius(gp_h_m)
             UnitValueInteger.new(
               value: precision == :reduced ? (v * 1000.0).round : v,
               unitsml: "degC"
             )
           when :pressure_mbar
-            v = Isa::NormalPrecision.instance.pressure_from_geopotential_mbar(gp_h_m)
+            v = isa.pressure_from_geopotential_mbar(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
               unitsml: "mbar"
             )
           when :pressure_mmhg
-            v = Isa::NormalPrecision.instance.pressure_from_geopotential_mmhg(gp_h_m)
+            v = isa.pressure_from_geopotential_mmhg(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
               unitsml: "u:mm_Hg"
             )
           when :density
-            v = Isa::NormalPrecision.instance.density_from_geopotential(gp_h_m)
+            v = isa.density_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
               unitsml: "kg*m^-3"
             )
           when :acceleration
-            v = Isa::NormalPrecision.instance.gravity_at_geopotential(gp_h_m)
+            v = isa.gravity_at_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? v.round(4) : v,
               unitsml: "m*s^-2"

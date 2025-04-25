@@ -40,39 +40,41 @@ module Atmospheric
         end
 
         def calculate(gp_h_m, name, precision: :reduced)
+          isa = precision == :high ? Isa::HighPrecision.instance : Isa::NormalPrecision.instance
+
           case name
           when :pressure_scale_height
-            v = Isa::NormalPrecision.instance.pressure_scale_height_from_geopotential(gp_h_m)
+            v = isa.pressure_scale_height_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? v.round(1) : v,
               unitsml: "m"
             )
           when :specific_weight
-            v = Isa::NormalPrecision.instance.specific_weight_from_geopotential(gp_h_m)
+            v = isa.specific_weight_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
               unitsml: "N*m^-3"
             )
           when :air_number_density
-            v = Isa::NormalPrecision.instance.air_number_density_from_geopotential(gp_h_m)
+            v = isa.air_number_density_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
               unitsml: "m^-3"
             )
           when :mean_speed
-            v = Isa::NormalPrecision.instance.mean_air_particle_speed_from_geopotential(gp_h_m)
+            v = isa.mean_air_particle_speed_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? v.round(2) : v,
               unitsml: "m*s^-1"
             )
           when :frequency
-            v = Isa::NormalPrecision.instance.air_particle_collision_frequency_from_geopotential(gp_h_m)
+            v = isa.air_particle_collision_frequency_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
               unitsml: "s^-1"
             )
           when :mean_free_path
-            v = Isa::NormalPrecision.instance.mean_free_path_of_air_particles_from_geopotential(gp_h_m)
+            v = isa.mean_free_path_of_air_particles_from_geopotential(gp_h_m)
             UnitValueFloat.new(
               value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
               unitsml: "m"

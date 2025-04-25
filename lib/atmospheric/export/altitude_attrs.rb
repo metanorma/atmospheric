@@ -33,6 +33,7 @@ module Atmospheric
       attribute :mean_speed, UnitValueFloat
       attribute :frequency, UnitValueFloat
       attribute :mean_free_path, UnitValueFloat
+      attribute :precision, :string, values: %w[reduced normal high]
 
       key_value do
         map "geometric-altitude-m", to: :geometric_altitude_m
@@ -64,6 +65,8 @@ module Atmospheric
         map "mean-speed", to: :mean_speed
         map "frequency", to: :frequency
         map "mean-free-path", to: :mean_free_path
+
+        map "precision", to: :precision
       end
 
       xml do
@@ -97,10 +100,14 @@ module Atmospheric
         map_element "mean-speed", to: :mean_speed
         map_element "frequency", to: :frequency
         map_element "mean-free-path", to: :mean_free_path
+
+        map_element "precision", to: :precision
       end
 
       # In meters only
       def realize_values_from_geopotential(gp_h_m, precision: :reduced)
+        self.precision = precision.to_s
+
         %i[
           temperature_k temperature_c pressure_mbar pressure_mmhg density
           acceleration ppn rhorhon sqrt_rhorhon speed_of_sound
@@ -114,117 +121,119 @@ module Atmospheric
       end
 
       def calculate(gp_h_m, name, precision: :reduced)
+        isa = precision == :high ? Isa::HighPrecision.instance : Isa::NormalPrecision.instance
+
         case name
         when :temperature_k
-          v = Isa::NormalPrecision.instance.temperature_at_layer_from_geopotential(gp_h_m)
+          v = isa.temperature_at_layer_from_geopotential(gp_h_m)
           UnitValueFloat.new(
-            value: precision == :reduced ? (v * 1000.0).round : v,
+            value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: "K"
           )
         when :temperature_c
-          v = Isa::NormalPrecision.instance.temperature_at_layer_celcius(gp_h_m)
+          v = isa.temperature_at_layer_celcius(gp_h_m)
           UnitValueFloat.new(
-            value: precision == :reduced ? (v * 1000.0).round : v,
+            value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: "degC"
           )
         when :pressure_mbar
-          v = Isa::NormalPrecision.instance.pressure_from_geopotential_mbar(gp_h_m)
+          v = isa.pressure_from_geopotential_mbar(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: "mbar"
           )
         when :pressure_mmhg
-          v = Isa::NormalPrecision.instance.pressure_from_geopotential_mmhg(gp_h_m)
+          v = isa.pressure_from_geopotential_mmhg(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: "u:mm_Hg"
           )
         when :density
-          v = Isa::NormalPrecision.instance.density_from_geopotential(gp_h_m)
+          v = isa.density_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: "kg*m^-3"
           )
         when :acceleration
-          v = Isa::NormalPrecision.instance.gravity_at_geopotential(gp_h_m)
+          v = isa.gravity_at_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? v.round(4) : v,
             unitsml: "m*s^-2"
           )
         when :ppn
-          v = Isa::NormalPrecision.instance.p_p_n_from_geopotential(gp_h_m)
+          v = isa.p_p_n_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: nil
           )
         when :rhorhon
-          v = Isa::NormalPrecision.instance.rho_rho_n_from_geopotential(gp_h_m)
+          v = isa.rho_rho_n_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: nil
           )
         when :sqrt_rhorhon
-          v = Isa::NormalPrecision.instance.root_rho_rho_n_from_geopotential(gp_h_m)
+          v = isa.root_rho_rho_n_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: nil
           )
         when :speed_of_sound
-          v = Isa::NormalPrecision.instance.speed_of_sound_from_geopotential(gp_h_m)
+          v = isa.speed_of_sound_from_geopotential(gp_h_m)
           UnitValueFloat.new(
-            value: precision == :reduced ? (v * 1000.0).round : v,
+            value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
             unitsml: "m*s^-1"
           )
         when :dynamic_viscosity
-          v = Isa::NormalPrecision.instance.dynamic_viscosity_from_geopotential(gp_h_m)
+          v = isa.dynamic_viscosity_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
             unitsml: "Pa*s"
           )
         when :kinematic_viscosity
-          v = Isa::NormalPrecision.instance.kinematic_viscosity_from_geopotential(gp_h_m)
+          v = isa.kinematic_viscosity_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
             unitsml: "m^2*s^-1"
           )
         when :thermal_conductivity
-          v = Isa::NormalPrecision.instance.thermal_conductivity_from_geopotential(gp_h_m)
+          v = isa.thermal_conductivity_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
             unitsml: "W*m^-1*K^-1"
           )
         when :pressure_scale_height
-          v = Isa::NormalPrecision.instance.pressure_scale_height_from_geopotential(gp_h_m)
+          v = isa.pressure_scale_height_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? v.round(1) : v,
             unitsml: "m"
           )
         when :specific_weight
-          v = Isa::NormalPrecision.instance.specific_weight_from_geopotential(gp_h_m)
+          v = isa.specific_weight_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
             unitsml: "N*m^-3"
           )
         when :air_number_density
-          v = Isa::NormalPrecision.instance.air_number_density_from_geopotential(gp_h_m)
+          v = isa.air_number_density_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
             unitsml: "m^-3"
           )
         when :mean_speed
-          v = Isa::NormalPrecision.instance.mean_air_particle_speed_from_geopotential(gp_h_m)
+          v = isa.mean_air_particle_speed_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? v.round(2) : v,
             unitsml: "m*s^-1"
           )
         when :frequency
-          v = Isa::NormalPrecision.instance.air_particle_collision_frequency_from_geopotential(gp_h_m)
+          v = isa.air_particle_collision_frequency_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
             unitsml: "s^-1"
           )
         when :mean_free_path
-          v = Isa::NormalPrecision.instance.mean_free_path_of_air_particles_from_geopotential(gp_h_m)
+          v = isa.mean_free_path_of_air_particles_from_geopotential(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 5) : v,
             unitsml: "m"

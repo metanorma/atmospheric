@@ -60,20 +60,20 @@ module Atmospheric
       end
 
       class << self
-        def table_atmosphere_meters
-          AltitudesInMeters.new.set_attrs
+        def table_atmosphere_meters(precision: :reduced)
+          AltitudesInMeters.new.set_attrs(precision: precision)
         end
 
-        def table_atmosphere_feet
-          AltitudesInFeet.new.set_attrs
+        def table_atmosphere_feet(precision: :reduced)
+          AltitudesInFeet.new.set_attrs(precision: precision)
         end
 
-        def table_hypsometrical_altitude
-          AltitudesForPressure.new.set_attrs
+        def table_hypsometrical_altitude(precision: :reduced)
+          AltitudesForPressure.new.set_attrs(precision: precision)
         end
 
-        def table_hypsometrical_mbar
-          HypsometricalMbar.new.set_attrs
+        def table_hypsometrical_mbar(precision: :reduced)
+          HypsometricalMbar.new.set_attrs(precision: precision)
         end
       end
     end

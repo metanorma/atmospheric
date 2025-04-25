@@ -75,17 +75,26 @@ require 'atmospheric'
 Atmospheric::Export::AltitudeAttrs.new.set_altitude(
   value: {altitude-value} <1>
   type: {altitude-type} <2>
-  unit: {altitude-unit} <3>
+  unit: {altitude-unit} <3>,
+  precision: {precision-mode} <4>
 )
 ----
 <1> Value of the altitude desired. Integer.
 <2> Type of altitude. Symbol. One of `:geometric`, `:geopotential`.
 <3> Unit of the altitude. Symbol. One of `:meters`, `:feet`.
-
-NOTE: The `set_altitude` method does not yet support high-precision mode.
+<4> Precision mode. Symbol. One of `:normal`, `:high`, `:reduced`. Default is `:normal`.
 
 Each attribute of the `AltitudeAttrs` object is wrapped in a defined
 data class which is associated with a https://www.unitsml.org/[UnitsML] unit.
+
+Behavior of the precision mode:
+
+`:reduced`:: (default) Uses Isa::NormalPrecision for calculations with signficant digits
+rounding according to the original ISO 2533 specification.
+
+`:normal`:: Uses Isa::NormalPrecision for calculations without value modification.
+
+`:high`:: Uses Isa::HighPrecision for calculations without value modifications. This mode uses BigDecimal.
 
 Depending on the type of the value, it is in one of the following classes:
 
@@ -303,14 +312,24 @@ Syntax:
 require 'atmospheric'
 
 Atmospheric::Export::PressureAttrs.new.set_pressure(
-  value: {pressure-value} <1>
-  unit: {pressure-unit} <2>
+  value: {pressure-value}, <1>
+  unit: {pressure-unit}, <2>
+  precision: {precision-mode} <3>
 )
 ----
 <1> Value of the pressure desired. Float.
 <2> Unit of the pressure. Symbol. One of `:mbar`, `:mmhg`.
 
 NOTE: The `set_pressure` method does not yet support high-precision mode.
+
+Behavior of the precision mode:
+
+`:reduced`:: (default) Uses Isa::NormalPrecision for calculations with signficant digits
+rounding according to the original ISO 2533/ADD 2 specification.
+
+`:normal`:: Uses Isa::NormalPrecision for calculations without value modification.
+
+`:high`:: Uses Isa::HighPrecision for calculations without value modifications. This mode uses BigDecimal.
 
 Each attribute of the `PressureAttrs` object is wrapped in a defined
 data class which is associated with a https://www.unitsml.org/[UnitsML] unit.
@@ -949,8 +968,13 @@ is a `PressureAttrs` object. It follows this step schedule:
 ====
 [source,ruby]
 ----
+# Defaults to precision mode `:reduced`
 Atmospheric::Export::Iso25332025.table_atmosphere_meters #=> Lutaml::Model
 Atmospheric::Export::Iso25332025.table_atmosphere_meters.to_yaml #=> YAML
+
+# To use precision mode `:high`
+x = Atmospheric::Export::Iso25332025.table_atmosphere_meters(precision: :high)
+x.to_yaml #=> YAML
 ----
 ====
 
@@ -1069,8 +1093,13 @@ Provides:
 
 [source,ruby]
 ----
+# Defaults to precision mode `:reduced`
 Atmospheric::Export::Iso25332025.table_hypsometrical_mbar         #=> Lutaml::Model
 Atmospheric::Export::Iso25332025.table_hypsometrical_mbar.to_yaml #=> YAML
+
+# To use precision mode `:high`
+x = Atmospheric::Export::Iso25332025.table_hypsometrical_mbar(precision: :high)
+x.to_yaml #=> YAML
 ----
 
 
