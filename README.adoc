@@ -193,7 +193,7 @@ pressure-mbar:
   type: float
 pressure-mmhg:
   value: 958.382
-  unitsml: u:mm_Hg
+  unitsml: mm_Hg
   type: float
 density:
   value: 1.47808
@@ -279,7 +279,7 @@ attrs.to_xml
   <temperature-k unitsml="K" type="integer">301150</temperature-k>
   <temperature-c unitsml="degC" type="integer">28000</temperature-c>
   <pressure-mbar unitsml="mbar" type="float">1277.74</pressure-mbar>
-  <pressure-mmhg unitsml="u:mm_Hg" type="float">958.382</pressure-mmhg>
+  <pressure-mmhg unitsml="mm_Hg" type="float">958.382</pressure-mmhg>
   <density unitsml="kg*m^-3" type="float">1.47808</density>
   <acceleration unitsml="m*s^-2" type="float">9.8128</acceleration>
   <ppn type="float">1.26103</ppn>

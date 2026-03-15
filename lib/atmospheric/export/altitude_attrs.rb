@@ -146,7 +146,7 @@ module Atmospheric
           v = isa.pressure_from_geopotential_mmhg(gp_h_m)
           UnitValueFloat.new(
             value: precision == :reduced ? round_to_sig_figs(v, 6) : v,
-            unitsml: "u:mm_Hg"
+            unitsml: "mm_Hg"
           )
         when :density
           v = isa.density_from_geopotential(gp_h_m)
