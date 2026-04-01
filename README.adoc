@@ -1,4 +1,4 @@
-= Atmospheric for Ruby (International Standard Atmosphere / ICAO Standard Atmosphere (ISA))
+= Atmospheric for Ruby (ISO Standard Atmosphere / ICAO Standard Atmosphere (ISA))
 
 == Purpose
 
@@ -40,7 +40,7 @@ To calculate atmospheric properties, either use the formulas directly or use the
 `Atmospheric::Export::AltitudeAttrs` class to bulk obtain the values needed.
 
 
-=== Prerequsites
+=== Prerequisites
 
 Include the `atmospheric` gem in your Gemfile:
 
@@ -103,29 +103,29 @@ Depending on the type of the value, it is in one of the following classes:
 
 The `AltitudeAttrs` object provides the following attributes:
 
-`geometric_altitude_m`:: Geometric altitude in meters.
-`geometric_altitude_ft`:: Geometric altitude in feet.
-`geopotential_altitude_m`:: Geopotential altitude in meters.
-`geopotential_altitude_ft`:: Geopotential altitude in feet.
-`temperature_k`:: Temperature in Kelvin. This value is multiplied by 1000.
-`temperature_c`:: Temperature in Celsius. This value is multiplied by 1000.
-`pressure_mbar`:: Pressure in millibar.
-`pressure_mmhg`:: Pressure in mmHg.
-`density`:: Density in kg/m^3.
-`acceleration`:: Acceleration in m/s^2.
-`ppn`:: Ratio of pressure at altitude to pressure at sea level.
-`rhorhon`:: Ratio of density at altitude to density at sea level.
-`sqrt_rhorhon`:: Square root of the ratio of density at altitude to density at sea level.
-`speed_of_sound`:: Speed of sound in m/s.
-`dynamic_viscosity`:: Dynamic viscosity in kg/(m·s).
-`kinematic_viscosity`:: Kinematic viscosity in m^2/s.
-`thermal_conductivity`:: Thermal conductivity in W/(m·K).
-`pressure_scale_height`:: Pressure scale height in meters.
-`specific_weight`:: Specific weight in N/m^3.
-`air_number_density`:: Air number density in particles/m^3.
-`mean_speed`:: Mean speed of air particles in m/s.
-`frequency`:: Frequency of air particle collisions in 1/s.
-`mean_free_path`:: Mean free path of air particles in meters.
+All attributes are represented as collections (arrays) to support multiple units:
+
+`geometric_altitudes`:: Array of geometric altitude values. Units: m, ft.
+`geopotential_altitudes`:: Array of geopotential altitude values. Units: m, ft.
+`temperatures`:: Array of temperature values. Units: K, degC.
+`pressures`:: Array of pressure values. Units: mbar, mm_Hg.
+`densities`:: Array of density values. Units: kg*m^-3.
+`accelerations`:: Array of acceleration values. Units: m*s^-2.
+`ppns`:: Array of pressure ratio values (unitless).
+`rhorhons`:: Array of density ratio values (unitless).
+`sqrt_rhorhons`:: Array of sqrt of density ratio values (unitless).
+`speeds_of_sound`:: Array of speed of sound values. Units: m*s^-1.
+`dynamic_viscosities`:: Array of dynamic viscosity values. Units: Pa*s.
+`kinematic_viscosities`:: Array of kinematic viscosity values. Units: m^2*s^-1.
+`thermal_conductivities`:: Array of thermal conductivity values. Units: W*m^-1*K^-1.
+`pressure_scale_heights`:: Array of pressure scale height values. Units: m.
+`specific_weights`:: Array of specific weight values. Units: N*m^-3.
+`air_number_densities`:: Array of air number density values. Units: m^-3.
+`mean_speeds`:: Array of mean speed values. Units: m*s^-1.
+`frequencies`:: Array of frequency values. Units: s^-1.
+`mean_free_paths`:: Array of mean free path values. Units: m.
+
+Each attribute value is wrapped in `UnitValueFloat` or `UnitValueInteger` with UnitsML unit metadata.
 
 [example]
 ====
@@ -138,10 +138,15 @@ attrs = Atmospheric::Export::AltitudeAttrs.new.set_altitude(
   unit: :meters
 )
 
-attrs.geopotential_altitude_m #=> -2000
-attrs.geopotential_altitude_ft #=> -6561.68
-attrs.geometric_altitude_m #=> -1999
-attrs.geometric_altitude_ft #=> -6560
+# Access collection values
+attrs.geometric_altitudes[0].value  #=> -1999 (meters)
+attrs.geometric_altitudes[1].value  #=> -6560 (feet)
+attrs.geopotential_altitudes[0].value #=> -2000 (meters)
+attrs.geopotential_altitudes[1].value #=> -6562 (feet)
+attrs.temperatures[0].value           #=> 301.15 (Kelvin)
+attrs.temperatures[1].value           #=> 28.0 (Celsius)
+attrs.pressures[0].value             #=> 1277.74 (mbar)
+attrs.pressures[1].value             #=> 958.382 (mm_Hg)
 ----
 ====
 
@@ -163,95 +168,92 @@ attrs.to_yaml
 
 [source,yaml]
 ----
-geometric-altitude-m:
-  value: -1999
+geometric-altitude:
+- value: -1999
   unitsml: m
   type: integer
-geometric-altitude-ft:
-  value: -6560
+- value: -6560
   unitsml: ft
   type: integer
-geopotential-altitude-m:
-  value: -2000
+geopotential-altitude:
+- value: -2000
   unitsml: m
   type: integer
-geopotential-altitude-ft:
-  value: -6562
+- value: -6562
   unitsml: ft
   type: integer
-temperature-k:
-  value: 301150
+temperature:
+- value: 301.15
   unitsml: K
-  type: integer
-temperature-c:
-  value: 28000
+  type: float
+- value: 28.0
   unitsml: degC
-  type: integer
-pressure-mbar:
-  value: 1277.74
+  type: float
+pressure:
+- value: 1277.74
   unitsml: mbar
   type: float
-pressure-mmhg:
-  value: 958.382
+- value: 958.382
   unitsml: mm_Hg
   type: float
 density:
-  value: 1.47808
+- value: 1.47808
   unitsml: kg*m^-3
   type: float
 acceleration:
-  value: 9.8128
+- value: 9.8128
   unitsml: m*s^-2
   type: float
 ppn:
-  value: 1.26103
+- value: 1.26103
   type: float
 rhorhon:
-  value: 1.20659
+- value: 1.20659
   type: float
 sqrt-rhorhon:
-  value: 1.09845
+- value: 1.09845
   type: float
 speed-of-sound:
-  value: 347886
+- value: 347.886
   unitsml: m*s^-1
-  type: integer
+  type: float
 dynamic-viscosity:
-  value: 1.8514e-05
+- value: 1.8514e-05
   unitsml: Pa*s
   type: float
 kinematic-viscosity:
-  value: 1.2526e-05
+- value: 1.2526e-05
   unitsml: m^2*s^-1
   type: float
 thermal-conductivity:
-  value: 0.026359
+- value: 0.026359
   unitsml: W*m^-1*K^-1
   type: float
 pressure-scale-height:
-  value: 8809.5
+- value: 8809.5
   unitsml: m
   type: float
 specific-weight:
-  value: 14.504
+- value: 14.504
   unitsml: N*m^-3
   type: float
 air-number-density:
-  value: 3.0734e+25
+- value: 3.0734e+25
   unitsml: m^-3
   type: float
 mean-speed:
-  value: 469.18
+- value: 469.18
   unitsml: m*s^-1
   type: float
 frequency:
-  value: 8535100000.0
+- value: 8535100000.0
   unitsml: s^-1
   type: float
 mean-free-path:
-  value: 5.4971e-08
+- value: 5.4971e-08
   unitsml: m
   type: float
+precision: reduced
 ----
 ====
 
@@ -272,20 +274,20 @@ attrs.to_xml
 [source,xml]
 ----
 <atmosphere-attributes>
-  <geometric-altitude-m unitsml="m" type="integer">-1999</geometric-altitude-m>
-  <geometric-altitude-ft unitsml="ft" type="integer">-6560</geometric-altitude-ft>
-  <geopotential-altitude-m unitsml="m" type="integer">-2000</geopotential-altitude-m>
-  <geopotential-altitude-ft unitsml="ft" type="integer">-6562</geopotential-altitude-ft>
-  <temperature-k unitsml="K" type="integer">301150</temperature-k>
-  <temperature-c unitsml="degC" type="integer">28000</temperature-c>
-  <pressure-mbar unitsml="mbar" type="float">1277.74</pressure-mbar>
-  <pressure-mmhg unitsml="mm_Hg" type="float">958.382</pressure-mmhg>
+  <geometric-altitude unitsml="m" type="integer">-1999</geometric-altitude>
+  <geometric-altitude unitsml="ft" type="integer">-6560</geometric-altitude>
+  <geopotential-altitude unitsml="m" type="integer">-2000</geopotential-altitude>
+  <geopotential-altitude unitsml="ft" type="integer">-6562</geopotential-altitude>
+  <temperature unitsml="K" type="float">301.15</temperature>
+  <temperature unitsml="degC" type="float">28.0</temperature>
+  <pressure unitsml="mbar" type="float">1277.74</pressure>
+  <pressure unitsml="mm_Hg" type="float">958.382</pressure>
   <density unitsml="kg*m^-3" type="float">1.47808</density>
   <acceleration unitsml="m*s^-2" type="float">9.8128</acceleration>
   <ppn type="float">1.26103</ppn>
   <rhorhon type="float">1.20659</rhorhon>
   <sqrt-rhorhon type="float">1.09845</sqrt-rhorhon>
-  <speed-of-sound unitsml="m*s^-1" type="integer">347886</speed-of-sound>
+  <speed-of-sound unitsml="m*s^-1" type="float">347.886</speed-of-sound>
   <dynamic-viscosity unitsml="Pa*s" type="float">1.8514e-05</dynamic-viscosity>
   <kinematic-viscosity unitsml="m^2*s^-1" type="float">1.2526e-05</kinematic-viscosity>
   <thermal-conductivity unitsml="W*m^-1*K^-1" type="float">0.026359</thermal-conductivity>
@@ -295,6 +297,7 @@ attrs.to_xml
   <mean-speed unitsml="m*s^-1" type="float">469.18</mean-speed>
   <frequency unitsml="s^-1" type="float">8535100000.0</frequency>
   <mean-free-path unitsml="m" type="float">5.4971e-08</mean-free-path>
+  <precision>reduced</precision>
 </atmosphere-attributes>
 ----
 ====
@@ -341,12 +344,11 @@ Depending on the type of the value, it is in one of the following classes:
 
 The `PressureAttrs` object provides the following attributes:
 
-`pressure_mbar`:: Pressure in millibar.
-`pressure_mmhg`:: Pressure in mmHg.
-`geometric_altitude_m`:: Geometric altitude in meters.
-`geometric_altitude_ft`:: Geometric altitude in feet.
-`geopotential_altitude_m`:: Geopotential altitude in meters.
-`geopotential_altitude_ft`:: Geopotential altitude in feet.
+All attributes are represented as collections (arrays) to support multiple units:
+
+`pressures`:: Array of pressure values. Units: mbar, mm_Hg.
+`geometric_altitudes`:: Array of geometric altitude values. Units: m, ft.
+`geopotential_altitudes`:: Array of geopotential altitude values. Units: m, ft.
 
 [example]
 ====
@@ -357,12 +359,13 @@ attrs = Atmospheric::Export::PressureAttrs.new.set_pressure(
   unit: :mbar
 )
 
-attrs.pressure_mbar #=> 5.0
-attrs.pressure_mmhg #=> 3.7503084135
-attrs.geopotential_altitude_m #=> 35776
-attrs.geopotential_altitude_ft #=> 117377
-attrs.geometric_altitude_m #=> 35979
-attrs.geometric_altitude_ft #=> 118041
+# Access collection values
+attrs.pressures[0].value           #=> 5.0 (mbar)
+attrs.pressures[1].value           #=> 3.7503084135 (mm_Hg)
+attrs.geopotential_altitudes[0].value #=> 35776.5 (meters)
+attrs.geopotential_altitudes[1].value #=> 117377.0 (feet)
+attrs.geometric_altitudes[0].value #=> 35979.0 (meters)
+attrs.geometric_altitudes[1].value #=> 118041.0 (feet)
 ----
 ====
 
@@ -383,30 +386,27 @@ attrs.to_yaml
 
 [source,yaml]
 ----
-pressure-mbar:
-  value: 5.0
+pressure:
+- value: 5.0
   unitsml: mbar
   type: float
-pressure-mmhg:
-  value: 3.7503084135
-  unitsml: mmhg
+- value: 3.7503084135
+  unitsml: mm_Hg
   type: float
-geopotential-altitude-m:
-  value: 35776
+geopotential-altitude:
+- value: 35776.5
   unitsml: m
-  type: integer
-geopotential-altitude-ft:
-  value: 117377
+  type: float
+- value: 117377.0
   unitsml: ft
-  type: integer
-geometric-altitude-m:
-  value: 35979
+  type: float
+geometric-altitude:
+- value: 35979.0
   unitsml: m
-  type: integer
-geometric-altitude-ft:
-  value: 118041
+  type: float
+- value: 118041.0
   unitsml: ft
-  type: integer
+  type: float
 ----
 ====
 
@@ -426,12 +426,12 @@ attrs.to_xml
 [source,xml]
 ----
 <hypsometrical-attributes>
-  <pressure-mbar unitsml="mbar" type="float">5.0</pressure-mbar>
-  <pressure-mmhg unitsml="mmhg" type="float">3.7503084135</pressure-mmhg>
-  <geometric-altitude-m unitsml="m" type="integer">35979</geometric-altitude-m>
-  <geometric-altitude-ft unitsml="ft" type="integer">118041</geometric-altitude-ft>
-  <geopotential-altitude-m unitsml="m" type="integer">35776</geopotential-altitude-m>
-  <geopotential-altitude-ft unitsml="ft" type="integer">117377</geopotential-altitude-ft>
+  <pressure unitsml="mbar" type="float">5.0</pressure>
+  <pressure unitsml="mm_Hg" type="float">3.7503084135</pressure>
+  <geometric-altitude unitsml="m" type="float">35979</geometric-altitude>
+  <geometric-altitude unitsml="ft" type="float">118041</geometric-altitude>
+  <geopotential-altitude unitsml="m" type="float">35776</geopotential-altitude>
+  <geopotential-altitude unitsml="ft" type="float">117377</geopotential-altitude>
 </hypsometrical-attributes>
 ----
 ====
@@ -591,12 +591,11 @@ All tables in the 1975 edition are arranged in these steps in meters:
 (51000..80000).step(200)
 ----
 
-Tables 5 to 7 all have height information of the following keys in the hash:
+Tables 5 to 7 all have height information as collections (arrays) with
+UnitsML unit metadata:
 
-* `geopotential-altitude-m`
-* `geopotential-altitude-ft`
-* `geometric-altitude-m`
-* `geometric-altitude-ft`
+* `geometric-altitude` (collection: m, ft)
+* `geopotential-altitude` (collection: m, ft)
 
 All YAML tables generated contain these two keys which group altitude values
 as the ISO 2533 tables are rendered in both types of altitudes:
@@ -612,10 +611,8 @@ Title:
 
 Provides the following values in addition to geopotential and geometric height:
 
-* `temperature-k`
-* `temperature-c`
-* `pressure-mbar`
-* `pressure-mmhg`
+* `temperature` (collection: K, degC)
+* `pressure` (collection: mbar, mm_Hg)
 * `density`
 * `acceleration`
 
@@ -684,7 +681,7 @@ For the range of `(5.0..19.99).step(0.01)` in hPa.
 
 Provides:
 
-* `pressure-mbar`
+* `pressure` (collection: mbar, mm_Hg)
 * `geopotential-altitude`
 
 [source,ruby]
@@ -717,7 +714,7 @@ Same as Table 1 but for the range of `(4.0..9.99).step(0.01)` and results in mmh
 
 Provides:
 
-* `pressure-mmhg`
+* `pressure` (collection: mbar, mm_Hg)
 * `geopotential-altitude`
 
 [source,ruby]
@@ -751,8 +748,7 @@ for -1000 <= H < +4600 m at intervals of 1m_"
 Provides:
 
 * `geopotential-altitude`
-* `pressure-mbar`
-* `pressure-mmhg`
+* `pressure` (collection: mbar, mm_Hg)
 
 Range of `(-1000..4599).step(1)`.
 
@@ -1084,12 +1080,9 @@ For the range of `(5.0..19.99).step(0.01) + (20.0..1199.9).step(0.1)` in hPa.
 
 Provides:
 
-* `pressure-mbar`
-* `pressure-mmhg`
-* `geopotential-altitude-m`
-* `geopotential-altitude-ft`
-* `geometric-altitude-m`
-* `geometric-altitude-ft`
+* `pressure` (collection: mbar, mm_Hg)
+* `geopotential-altitude` (collection: m, ft)
+* `geometric-altitude` (collection: m, ft)
 
 [source,ruby]
 ----
@@ -1124,6 +1117,75 @@ for -1000 <= H < +4600 m at intervals of 1m_"
 
 This table is a subset of the `table_atmosphere_meters` method.
 
+== XML Schema
+
+An XSD schema for the XML serialization format is provided at
+`schema/atmospheric.xsd`.
+
+The schema defines the following root elements:
+
+`atmospheric`:: Polymorphic root element. Two variants:
++
+--
+* **Hypsometrical table**: contains `<hypsometrical-attributes>` records
+  (pressure → altitude lookup).
+* **ISO 2533:2025 table**: contains `<by-geometric-altitude>` and
+  `<by-geopotential-altitude>` sections, each with
+  `<atmospheric-attributes>` records.
+--
++
+[example]
+====
+[source,xml]
+----
+<!-- Hypsometrical table variant -->
+<atmospheric>
+  <hypsometrical-attributes>
+    <pressure unitsml="mbar" type="float">1013.25</pressure>
+    <pressure unitsml="mm_Hg" type="float">760.0</pressure>
+    <geometric-altitude unitsml="m" type="float">0.0</geometric-altitude>
+    <geometric-altitude unitsml="ft" type="float">0.0</geometric-altitude>
+    <geopotential-altitude unitsml="m" type="float">0.0</geopotential-altitude>
+    <geopotential-altitude unitsml="ft" type="float">0.0</geopotential-altitude>
+  </hypsometrical-attributes>
+</atmospheric>
+
+<!-- ISO 2533:2025 table variant -->
+<atmospheric>
+  <by-geometric-altitude>
+    <atmospheric-attributes>...</atmospheric-attributes>
+  </by-geometric-altitude>
+  <by-geopotential-altitude>
+    <atmospheric-attributes>...</atmospheric-attributes>
+  </by-geopotential-altitude>
+</atmospheric>
+----
+====
+
+`atmosphere-attributes`:: Full atmospheric property record (ISO 2533:2025).
+Contains all altitude, temperature, pressure, density, and derived properties.
+
+`hypsometrical-attributes`:: Pressure-to-altitude record. Contains pressure
+and altitude values.
+
+`group-one-attrs`:: ISO 2533:1975 Group One record (temperature, pressure,
+density, acceleration). Temperature values use integer type (scaled by 1000).
+
+`attributes-group`:: Wrapper for a collection of `<atmospheric-attributes>`.
+
+All value elements share a common pattern:
+
+* Text content: the numeric value
+* `unitsml` attribute (optional): the UnitsML unit identifier (e.g., `m`,
+  `ft`, `K`, `mbar`)
+* `type` attribute (required): either `"float"` or `"integer"`
+
+[source,xml]
+----
+<temperature unitsml="K" type="float">288.15</temperature>
+<geometric-altitude unitsml="m" type="integer">5000</geometric-altitude>
+<ppn type="float">0.53338</ppn>  <!-- dimensionless, no unitsml -->
+----
 
 
 == Testing
@@ -1185,7 +1247,6 @@ The only defining value in a tests is `H` (geopotential altitude).
 It is used to generate all the other values.
 
 
-== License
+== Copyright and license
 
-Copyright Ribose.
-
+Copyright Ribose. Licensed under the 3-clause BSD license.

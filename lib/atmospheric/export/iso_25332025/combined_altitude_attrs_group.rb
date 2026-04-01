@@ -17,7 +17,7 @@ module Atmospheric
         end
 
         xml do
-          root "atmospheric"
+          element "atmospheric"
           map_element "by-geometric-altitude", to: :by_geometric_altitude
           map_element "by-geopotential-altitude", to: :by_geopotential_altitude
         end

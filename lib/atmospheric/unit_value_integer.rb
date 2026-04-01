@@ -15,7 +15,7 @@ module Atmospheric
     end
 
     xml do
-      root "unit-value-integer"
+      element "unit-value-integer"
       map_content to: :value
       map_attribute :unitsml, to: :unitsml
       map_attribute :type, to: :type, render_default: true

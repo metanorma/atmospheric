@@ -9,9 +9,8 @@ module Atmospheric
         # TODO: Completely override other attributes / key value mappings so
         # they don't show in YAML
         key_value do
-          map "geopotential-altitude-m", to: :geopotential_altitude_m
-          map "pressure-mbar", to: :pressure_mbar
-          map "pressure-mmhg", to: :pressure_mmhg
+          map "geopotential-altitude", to: :geopotential_altitudes
+          map "pressure", to: :pressures
         end
       end
     end

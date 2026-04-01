@@ -10,96 +10,86 @@ module Atmospheric
       include AltitudeConvertableModel
 
       # From Group One
-      attribute :temperature_k, UnitValueFloat
-      attribute :temperature_c, UnitValueFloat
-      attribute :pressure_mbar, UnitValueFloat
-      attribute :pressure_mmhg, UnitValueFloat
-      attribute :density, UnitValueFloat
-      attribute :acceleration, UnitValueFloat
+      attribute :temperatures, UnitValueFloat, collection: true
+      attribute :pressures, UnitValueFloat, collection: true
+      attribute :densities, UnitValueFloat, collection: true
+      attribute :accelerations, UnitValueFloat, collection: true
 
       # From Group Two
-      attribute :ppn, UnitValueFloat
-      attribute :rhorhon, UnitValueFloat
-      attribute :sqrt_rhorhon, UnitValueFloat
-      attribute :speed_of_sound, UnitValueFloat
-      attribute :dynamic_viscosity, UnitValueFloat
-      attribute :kinematic_viscosity, UnitValueFloat
-      attribute :thermal_conductivity, UnitValueFloat
+      attribute :ppns, UnitValueFloat, collection: true
+      attribute :rhorhons, UnitValueFloat, collection: true
+      attribute :sqrt_rhorhons, UnitValueFloat, collection: true
+      attribute :speeds_of_sound, UnitValueFloat, collection: true
+      attribute :dynamic_viscosities, UnitValueFloat, collection: true
+      attribute :kinematic_viscosities, UnitValueFloat, collection: true
+      attribute :thermal_conductivities, UnitValueFloat, collection: true
 
       # From Group Three
-      attribute :pressure_scale_height, UnitValueFloat
-      attribute :specific_weight, UnitValueFloat
-      attribute :air_number_density, UnitValueFloat
-      attribute :mean_speed, UnitValueFloat
-      attribute :frequency, UnitValueFloat
-      attribute :mean_free_path, UnitValueFloat
+      attribute :pressure_scale_heights, UnitValueFloat, collection: true
+      attribute :specific_weights, UnitValueFloat, collection: true
+      attribute :air_number_densities, UnitValueFloat, collection: true
+      attribute :mean_speeds, UnitValueFloat, collection: true
+      attribute :frequencies, UnitValueFloat, collection: true
+      attribute :mean_free_paths, UnitValueFloat, collection: true
       attribute :precision, :string, values: %w[reduced normal high]
 
       key_value do
-        map "geometric-altitude-m", to: :geometric_altitude_m
-        map "geometric-altitude-ft", to: :geometric_altitude_ft
-        map "geopotential-altitude-m", to: :geopotential_altitude_m
-        map "geopotential-altitude-ft", to: :geopotential_altitude_ft
+        map "geometric-altitude", to: :geometric_altitudes
+        map "geopotential-altitude", to: :geopotential_altitudes
 
         # From Group One
-        map "temperature-k", to: :temperature_k
-        map "temperature-c", to: :temperature_c
-        map "pressure-mbar", to: :pressure_mbar
-        map "pressure-mmhg", to: :pressure_mmhg
-        map "density", to: :density
-        map "acceleration", to: :acceleration
+        map "temperature", to: :temperatures
+        map "pressure", to: :pressures
+        map "density", to: :densities
+        map "acceleration", to: :accelerations
 
         # From Group Two
-        map "ppn", to: :ppn
-        map "rhorhon", to: :rhorhon
-        map "sqrt-rhorhon", to: :sqrt_rhorhon
-        map "speed-of-sound", to: :speed_of_sound
-        map "dynamic-viscosity", to: :dynamic_viscosity
-        map "kinematic-viscosity", to: :kinematic_viscosity
-        map "thermal-conductivity", to: :thermal_conductivity
+        map "ppn", to: :ppns
+        map "rhorhon", to: :rhorhons
+        map "sqrt-rhorhon", to: :sqrt_rhorhons
+        map "speed-of-sound", to: :speeds_of_sound
+        map "dynamic-viscosity", to: :dynamic_viscosities
+        map "kinematic-viscosity", to: :kinematic_viscosities
+        map "thermal-conductivity", to: :thermal_conductivities
 
         # From Group Three
-        map "pressure-scale-height", to: :pressure_scale_height
-        map "specific-weight", to: :specific_weight
-        map "air-number-density", to: :air_number_density
-        map "mean-speed", to: :mean_speed
-        map "frequency", to: :frequency
-        map "mean-free-path", to: :mean_free_path
+        map "pressure-scale-height", to: :pressure_scale_heights
+        map "specific-weight", to: :specific_weights
+        map "air-number-density", to: :air_number_densities
+        map "mean-speed", to: :mean_speeds
+        map "frequency", to: :frequencies
+        map "mean-free-path", to: :mean_free_paths
 
         map "precision", to: :precision
       end
 
       xml do
-        root "atmosphere-attributes"
-        map_element "geometric-altitude-m", to: :geometric_altitude_m
-        map_element "geometric-altitude-ft", to: :geometric_altitude_ft
-        map_element "geopotential-altitude-m", to: :geopotential_altitude_m
-        map_element "geopotential-altitude-ft", to: :geopotential_altitude_ft
+        element "atmosphere-attributes"
+        map_element "geometric-altitude", to: :geometric_altitudes
+        map_element "geopotential-altitude", to: :geopotential_altitudes
 
         # From Group One
-        map_element "temperature-k", to: :temperature_k
-        map_element "temperature-c", to: :temperature_c
-        map_element "pressure-mbar", to: :pressure_mbar
-        map_element "pressure-mmhg", to: :pressure_mmhg
-        map_element "density", to: :density
-        map_element "acceleration", to: :acceleration
+        map_element "temperature", to: :temperatures
+        map_element "pressure", to: :pressures
+        map_element "density", to: :densities
+        map_element "acceleration", to: :accelerations
 
         # From Group Two
-        map_element "ppn", to: :ppn
-        map_element "rhorhon", to: :rhorhon
-        map_element "sqrt-rhorhon", to: :sqrt_rhorhon
-        map_element "speed-of-sound", to: :speed_of_sound
-        map_element "dynamic-viscosity", to: :dynamic_viscosity
-        map_element "kinematic-viscosity", to: :kinematic_viscosity
-        map_element "thermal-conductivity", to: :thermal_conductivity
+        map_element "ppn", to: :ppns
+        map_element "rhorhon", to: :rhorhons
+        map_element "sqrt-rhorhon", to: :sqrt_rhorhons
+        map_element "speed-of-sound", to: :speeds_of_sound
+        map_element "dynamic-viscosity", to: :dynamic_viscosities
+        map_element "kinematic-viscosity", to: :kinematic_viscosities
+        map_element "thermal-conductivity", to: :thermal_conductivities
 
         # From Group Three
-        map_element "pressure-scale-height", to: :pressure_scale_height
-        map_element "specific-weight", to: :specific_weight
-        map_element "air-number-density", to: :air_number_density
-        map_element "mean-speed", to: :mean_speed
-        map_element "frequency", to: :frequency
-        map_element "mean-free-path", to: :mean_free_path
+        map_element "pressure-scale-height", to: :pressure_scale_heights
+        map_element "specific-weight", to: :specific_weights
+        map_element "air-number-density", to: :air_number_densities
+        map_element "mean-speed", to: :mean_speeds
+        map_element "frequency", to: :frequencies
+        map_element "mean-free-path", to: :mean_free_paths
 
         map_element "precision", to: :precision
       end
@@ -108,16 +98,78 @@ module Atmospheric
       def realize_values_from_geopotential(gp_h_m, precision: :reduced)
         self.precision = precision.to_s
 
-        %i[
-          temperature_k temperature_c pressure_mbar pressure_mmhg density
-          acceleration ppn rhorhon sqrt_rhorhon speed_of_sound
-          dynamic_viscosity kinematic_viscosity thermal_conductivity
-          pressure_scale_height specific_weight air_number_density mean_speed
-          frequency mean_free_path
-        ].each do |attr|
-          v = calculate(gp_h_m, attr, precision: precision)
-          send("#{attr}=", v) if respond_to?("#{attr}=")
-        end
+        # Group One
+        self.temperatures = [
+          calculate(gp_h_m, :temperature_k, precision: precision),
+          calculate(gp_h_m, :temperature_c, precision: precision)
+        ]
+
+        self.pressures = [
+          calculate(gp_h_m, :pressure_mbar, precision: precision),
+          calculate(gp_h_m, :pressure_mmhg, precision: precision)
+        ]
+
+        self.densities = [
+          calculate(gp_h_m, :density, precision: precision)
+        ]
+
+        self.accelerations = [
+          calculate(gp_h_m, :acceleration, precision: precision)
+        ]
+
+        # Group Two
+        self.ppns = [
+          calculate(gp_h_m, :ppn, precision: precision)
+        ]
+
+        self.rhorhons = [
+          calculate(gp_h_m, :rhorhon, precision: precision)
+        ]
+
+        self.sqrt_rhorhons = [
+          calculate(gp_h_m, :sqrt_rhorhon, precision: precision)
+        ]
+
+        self.speeds_of_sound = [
+          calculate(gp_h_m, :speed_of_sound, precision: precision)
+        ]
+
+        self.dynamic_viscosities = [
+          calculate(gp_h_m, :dynamic_viscosity, precision: precision)
+        ]
+
+        self.kinematic_viscosities = [
+          calculate(gp_h_m, :kinematic_viscosity, precision: precision)
+        ]
+
+        self.thermal_conductivities = [
+          calculate(gp_h_m, :thermal_conductivity, precision: precision)
+        ]
+
+        # Group Three
+        self.pressure_scale_heights = [
+          calculate(gp_h_m, :pressure_scale_height, precision: precision)
+        ]
+
+        self.specific_weights = [
+          calculate(gp_h_m, :specific_weight, precision: precision)
+        ]
+
+        self.air_number_densities = [
+          calculate(gp_h_m, :air_number_density, precision: precision)
+        ]
+
+        self.mean_speeds = [
+          calculate(gp_h_m, :mean_speed, precision: precision)
+        ]
+
+        self.frequencies = [
+          calculate(gp_h_m, :frequency, precision: precision)
+        ]
+
+        self.mean_free_paths = [
+          calculate(gp_h_m, :mean_free_path, precision: precision)
+        ]
       end
 
       def calculate(gp_h_m, name, precision: :reduced)

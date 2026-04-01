@@ -9,35 +9,49 @@ module Atmospheric
       class GroupOneAttrs < Lutaml::Model::Serializable
         include AltitudeConvertableModel
 
-        attribute :temperature_k, UnitValueInteger
-        attribute :temperature_c, UnitValueInteger
-        attribute :pressure_mbar, UnitValueFloat
-        attribute :pressure_mmhg, UnitValueFloat
-        attribute :density, UnitValueFloat
-        attribute :acceleration, UnitValueFloat
+        attribute :temperatures, UnitValueInteger, collection: true
+        attribute :pressures, UnitValueFloat, collection: true
+        attribute :densities, UnitValueFloat, collection: true
+        attribute :accelerations, UnitValueFloat, collection: true
 
         key_value do
-          map "geometric-altitude-m", to: :geometric_altitude_m
-          map "geometric-altitude-ft", to: :geometric_altitude_ft
-          map "geopotential-altitude-m", to: :geopotential_altitude_m
-          map "geopotential-altitude-ft", to: :geopotential_altitude_ft
-          map "temperature-k", to: :temperature_k
-          map "temperature-c", to: :temperature_c
-          map "pressure-mbar", to: :pressure_mbar
-          map "pressure-mmhg", to: :pressure_mmhg
-          map "density", to: :density
-          map "acceleration", to: :acceleration
+          map "geometric-altitude", to: :geometric_altitudes
+          map "geopotential-altitude", to: :geopotential_altitudes
+          map "temperature", to: :temperatures
+          map "pressure", to: :pressures
+          map "density", to: :densities
+          map "acceleration", to: :accelerations
+        end
+
+        xml do
+          element "group-one-attrs"
+          map_element "geometric-altitude", to: :geometric_altitudes
+          map_element "geopotential-altitude", to: :geopotential_altitudes
+          map_element "temperature", to: :temperatures
+          map_element "pressure", to: :pressures
+          map_element "density", to: :densities
+          map_element "acceleration", to: :accelerations
         end
 
         # In meters only
         def realize_values_from_geopotential(gp_h_m, precision: :reduced)
-          %i[
-            temperature_k temperature_c pressure_mbar pressure_mmhg density
-            acceleration
-          ].each do |attr|
-            v = calculate(gp_h_m, attr, precision: precision)
-            send("#{attr}=", v) if respond_to?("#{attr}=")
-          end
+          self.temperatures = [
+            calculate(gp_h_m, :temperature_k, precision: precision),
+            calculate(gp_h_m, :temperature_c, precision: precision)
+          ]
+
+          self.pressures = [
+            calculate(gp_h_m, :pressure_mbar, precision: precision),
+            calculate(gp_h_m, :pressure_mmhg, precision: precision)
+          ]
+
+          self.densities = [
+            calculate(gp_h_m, :density, precision: precision)
+          ]
+
+          self.accelerations = [
+            calculate(gp_h_m, :acceleration, precision: precision)
+          ]
         end
 
         def calculate(gp_h_m, name, precision: :reduced)

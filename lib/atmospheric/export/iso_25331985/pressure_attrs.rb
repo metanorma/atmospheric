@@ -9,9 +9,8 @@ module Atmospheric
     module Iso25331985
       class PressureAttrs < ::Atmospheric::Export::PressureAttrs
         key_value do
-          map "pressure-mbar", to: :pressure_mbar
-          map "pressure-mmhg", to: :pressure_mmhg
-          map "geopotential-altitude-m", to: :geopotential_altitude_m
+          map "pressure", to: :pressures
+          map "geopotential-altitude", to: :geopotential_altitudes
         end
       end
     end

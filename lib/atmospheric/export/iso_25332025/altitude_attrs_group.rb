@@ -18,7 +18,7 @@ module Atmospheric
         attribute :rows, AltitudeAttrs, collection: true
 
         xml do
-          root "attributes-group"
+          element "attributes-group"
           map_element "atmospheric-attributes", to: :rows
         end
       end
