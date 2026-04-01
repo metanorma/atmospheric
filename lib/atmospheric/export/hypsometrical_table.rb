@@ -9,7 +9,7 @@ module Atmospheric
       attribute :rows, PressureAttrs, collection: true
 
       xml do
-        root "atmospheric"
+        element "atmospheric"
         map_element "hypsometrical-attributes", to: :rows
       end
 

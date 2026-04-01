@@ -15,7 +15,7 @@ module Atmospheric
     end
 
     xml do
-      root "unitl-value-float"
+      element "unitl-value-float"
       map_content to: :value
       map_attribute :unitsml, to: :unitsml
       map_attribute :type, to: :type, render_default: true

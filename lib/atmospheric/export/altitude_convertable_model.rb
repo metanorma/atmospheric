@@ -11,10 +11,8 @@ module Atmospheric
 
       def self.included(base)
         base.class_eval do
-          attribute :geometric_altitude_m, UnitValueInteger
-          attribute :geometric_altitude_ft, UnitValueInteger
-          attribute :geopotential_altitude_m, UnitValueInteger
-          attribute :geopotential_altitude_ft, UnitValueInteger
+          attribute :geometric_altitudes, UnitValueInteger, collection: true
+          attribute :geopotential_altitudes, UnitValueInteger, collection: true
         end
       end
 
@@ -54,25 +52,27 @@ module Atmospheric
       end
 
       def realize_altitudes(hgmm, hgmf, hgpm, hgpf, precision: :reduced)
-        self.geometric_altitude_m = UnitValueInteger.new(
-          value: precision == :reduced ? hgmm.round : hgmm,
-          unitsml: "m"
-        )
+        self.geometric_altitudes = [
+          UnitValueInteger.new(
+            value: precision == :reduced ? hgmm.round : hgmm,
+            unitsml: "m"
+          ),
+          UnitValueInteger.new(
+            value: precision == :reduced ? hgmf.round : hgmf,
+            unitsml: "ft"
+          )
+        ]
 
-        self.geometric_altitude_ft = UnitValueInteger.new(
-          value: precision == :reduced ? hgmf.round : hgmf,
-          unitsml: "ft"
-        )
-
-        self.geopotential_altitude_m = UnitValueInteger.new(
-          value: precision == :reduced ? hgpm.round : hgpm,
-          unitsml: "m"
-        )
-
-        self.geopotential_altitude_ft = UnitValueInteger.new(
-          value: precision == :reduced ? hgpf.round : hgpf,
-          unitsml: "ft"
-        )
+        self.geopotential_altitudes = [
+          UnitValueInteger.new(
+            value: precision == :reduced ? hgpm.round : hgpm,
+            unitsml: "m"
+          ),
+          UnitValueInteger.new(
+            value: precision == :reduced ? hgpf.round : hgpf,
+            unitsml: "ft"
+          )
+        ]
       end
 
       def realize_values_from_geopotential(gp_h_m, precision:)

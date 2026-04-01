@@ -9,30 +9,21 @@ module Atmospheric
   module Export
     class PressureAttrs < Lutaml::Model::Serializable
       include Utils
-      attribute :pressure_mbar, UnitValueFloat
-      attribute :pressure_mmhg, UnitValueFloat
-      attribute :geometric_altitude_m, UnitValueFloat
-      attribute :geometric_altitude_ft, UnitValueInteger
-      attribute :geopotential_altitude_m, UnitValueFloat
-      attribute :geopotential_altitude_ft, UnitValueInteger
+      attribute :pressures, UnitValueFloat, collection: true
+      attribute :geometric_altitudes, UnitValueFloat, collection: true
+      attribute :geopotential_altitudes, UnitValueFloat, collection: true
 
       key_value do
-        map "pressure-mbar", to: :pressure_mbar
-        map "pressure-mmhg", to: :pressure_mmhg
-        map "geopotential-altitude-m", to: :geopotential_altitude_m
-        map "geopotential-altitude-ft", to: :geopotential_altitude_ft
-        map "geometric-altitude-m", to: :geometric_altitude_m
-        map "geometric-altitude-ft", to: :geometric_altitude_ft
+        map "pressure", to: :pressures
+        map "geopotential-altitude", to: :geopotential_altitudes
+        map "geometric-altitude", to: :geometric_altitudes
       end
 
       xml do
-        root "hypsometrical-attributes"
-        map_element "pressure-mbar", to: :pressure_mbar
-        map_element "pressure-mmhg", to: :pressure_mmhg
-        map_element "geometric-altitude-m", to: :geometric_altitude_m
-        map_element "geometric-altitude-ft", to: :geometric_altitude_ft
-        map_element "geopotential-altitude-m", to: :geopotential_altitude_m
-        map_element "geopotential-altitude-ft", to: :geopotential_altitude_ft
+        element "hypsometrical-attributes"
+        map_element "pressure", to: :pressures
+        map_element "geometric-altitude", to: :geometric_altitudes
+        map_element "geopotential-altitude", to: :geopotential_altitudes
       end
 
       def set_pressure(value:, unit: :mbar, precision: :reduced)
@@ -48,45 +39,52 @@ module Atmospheric
         self
       end
 
-      # TODO: Not sure why we need round(1) for meter values
       def realize_altitudes(hgmm, hgmf, hgpm, hgpf, precision: :reduced)
-        self.geometric_altitude_m = UnitValueFloat.new(
-          value: precision == :reduced ? hgmm.round(1) : hgmm,
-          unitsml: "m"
-        )
+        self.geometric_altitudes = [
+          UnitValueFloat.new(
+            value: precision == :reduced ? hgmm.round(1) : hgmm,
+            unitsml: "m"
+          ),
+          UnitValueFloat.new(
+            value: precision == :reduced ? hgmf.round : hgmf,
+            unitsml: "ft"
+          )
+        ]
 
-        self.geometric_altitude_ft = UnitValueInteger.new(
-          value: precision == :reduced ? hgmf.round : hgmf,
-          unitsml: "ft"
-        )
-
-        self.geopotential_altitude_m = UnitValueFloat.new(
-          value: precision == :reduced ? hgpm.round(1) : hgpm,
-          unitsml: "m"
-        )
-
-        self.geopotential_altitude_ft = UnitValueInteger.new(
-          value: precision == :reduced ? hgpf.round : hgpf,
-          unitsml: "ft"
-        )
+        self.geopotential_altitudes = [
+          UnitValueFloat.new(
+            value: precision == :reduced ? hgpm.round(1) : hgpm,
+            unitsml: "m"
+          ),
+          UnitValueFloat.new(
+            value: precision == :reduced ? hgpf.round : hgpf,
+            unitsml: "ft"
+          )
+        ]
       end
 
       def realize_pressures(input, unit:)
-        # pattern: [value in mbar, value in mmhg]
-        mbar, mmhg = case unit
-                     when :mbar
-                       [input,
-                        Isa::NormalPrecision.instance.mbar_to_mmhg(input)]
-                     when :mmhg
-                       [Isa::NormalPrecision.instance.mmhg_to_mbar(input),
-                        input]
-                     else
-                       raise ArgumentError,
-                             "Invalid unit: #{unit}. Use :mbar or :mmhg."
-                     end
-
-        self.pressure_mbar = UnitValueFloat.new(value: mbar, unitsml: "mbar")
-        self.pressure_mmhg = UnitValueFloat.new(value: mmhg, unitsml: "mmhg")
+        self.pressures = case unit
+                         when :mbar
+                           [
+                             UnitValueFloat.new(value: input, unitsml: "mbar"),
+                             UnitValueFloat.new(
+                               value: Isa::NormalPrecision.instance.mbar_to_mmhg(input),
+                               unitsml: "mm_Hg"
+                             )
+                           ]
+                         when :mmhg
+                           [
+                             UnitValueFloat.new(
+                               value: Isa::NormalPrecision.instance.mmhg_to_mbar(input),
+                               unitsml: "mbar"
+                             ),
+                             UnitValueFloat.new(value: input, unitsml: "mm_Hg")
+                           ]
+                         else
+                           raise ArgumentError,
+                                 "Invalid unit: #{unit}. Use :mbar or :mmhg."
+                         end
       end
     end
   end

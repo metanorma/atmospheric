@@ -8,35 +8,49 @@ module Atmospheric
       class GroupThreeAttrs < Lutaml::Model::Serializable
         include AltitudeConvertableModel
 
-        attribute :pressure_scale_height, UnitValueFloat
-        attribute :specific_weight, UnitValueFloat
-        attribute :air_number_density, UnitValueFloat
-        attribute :mean_speed, UnitValueFloat
-        attribute :frequency, UnitValueFloat
-        attribute :mean_free_path, UnitValueFloat
+        attribute :pressure_scale_heights, UnitValueFloat, collection: true
+        attribute :specific_weights, UnitValueFloat, collection: true
+        attribute :air_number_densities, UnitValueFloat, collection: true
+        attribute :mean_speeds, UnitValueFloat, collection: true
+        attribute :frequencies, UnitValueFloat, collection: true
+        attribute :mean_free_paths, UnitValueFloat, collection: true
 
         key_value do
-          map "geometric-altitude-m", to: :geometric_altitude_m
-          map "geometric-altitude-ft", to: :geometric_altitude_ft
-          map "geopotential-altitude-m", to: :geopotential_altitude_m
-          map "geopotential-altitude-ft", to: :geopotential_altitude_ft
-          map "pressure-scale-height", to: :pressure_scale_height
-          map "specific-weight", to: :specific_weight
-          map "air-number-density", to: :air_number_density
-          map "mean-speed", to: :mean_speed
-          map "frequency", to: :frequency
-          map "mean-free-path", to: :mean_free_path
+          map "geometric-altitude", to: :geometric_altitudes
+          map "geopotential-altitude", to: :geopotential_altitudes
+          map "pressure-scale-height", to: :pressure_scale_heights
+          map "specific-weight", to: :specific_weights
+          map "air-number-density", to: :air_number_densities
+          map "mean-speed", to: :mean_speeds
+          map "frequency", to: :frequencies
+          map "mean-free-path", to: :mean_free_paths
         end
 
         # In meters only
         def realize_values_from_geopotential(gp_h_m, precision: :reduced)
-          %i[
-            pressure_scale_height specific_weight air_number_density mean_speed
-            frequency mean_free_path
-          ].each do |attr|
-            v = calculate(gp_h_m, attr, precision: precision)
-            send("#{attr}=", v) if respond_to?("#{attr}=")
-          end
+          self.pressure_scale_heights = [
+            calculate(gp_h_m, :pressure_scale_height, precision: precision)
+          ]
+
+          self.specific_weights = [
+            calculate(gp_h_m, :specific_weight, precision: precision)
+          ]
+
+          self.air_number_densities = [
+            calculate(gp_h_m, :air_number_density, precision: precision)
+          ]
+
+          self.mean_speeds = [
+            calculate(gp_h_m, :mean_speed, precision: precision)
+          ]
+
+          self.frequencies = [
+            calculate(gp_h_m, :frequency, precision: precision)
+          ]
+
+          self.mean_free_paths = [
+            calculate(gp_h_m, :mean_free_path, precision: precision)
+          ]
         end
 
         def calculate(gp_h_m, name, precision: :reduced)

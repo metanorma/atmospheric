@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!--
+    XML Schema for the Atmospheric gem (ISO 2533 Standard Atmosphere).
+    Defines the XML serialization format for atmospheric property tables.
+  -->
+
+  <!-- ============================================================ -->
+  <!-- Top-level root elements                                       -->
+  <!-- ============================================================ -->
+
+  <!-- Main table container (used by HypsometricalTable and ISO 2533:2025 tables) -->
+  <xs:element name="atmospheric" type="atmospheric-type"/>
+
+  <!-- Full atmospheric attributes record (ISO 2533:2025) -->
+  <xs:element name="atmosphere-attributes" type="atmosphere-attributes-type"/>
+
+  <!-- Hypsometrical attributes record (pressure → altitude) -->
+  <xs:element name="hypsometrical-attributes" type="hypsometrical-attributes-type"/>
+
+  <!-- ISO 2533:1975 Group One attributes -->
+  <xs:element name="group-one-attrs" type="group-one-attrs-type"/>
+
+  <!-- Attributes group wrapper (ISO 2533:2025 standalone) -->
+  <xs:element name="attributes-group" type="attributes-group-type"/>
+
+  <!-- Standalone unit value elements -->
+  <xs:element name="unitl-value-float" type="unit-value-float-type"/>
+  <xs:element name="unit-value-integer" type="unit-value-integer-type"/>
+
+  <!-- ============================================================ -->
+  <!-- Simple types                                                  -->
+  <!-- ============================================================ -->
+
+  <xs:simpleType name="precision-type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="reduced"/>
+      <xs:enumeration value="normal"/>
+      <xs:enumeration value="high"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- ============================================================ -->
+  <!-- Unit value complex types                                      -->
+  <!-- ============================================================ -->
+
+  <xs:complexType name="unit-value-float-type">
+    <xs:simpleContent>
+      <xs:extension base="xs:double">
+        <xs:attribute name="unitsml" type="xs:string" use="optional"/>
+        <xs:attribute name="type" type="xs:string" use="required" fixed="float"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="unit-value-integer-type">
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+        <xs:attribute name="unitsml" type="xs:string" use="optional"/>
+        <xs:attribute name="type" type="xs:string" use="required" fixed="integer"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- ============================================================ -->
+  <!-- Atmospheric root type (polymorphic)                           -->
+  <!--                                                               -->
+  <!-- Two variants:                                                 -->
+  <!--   1. HypsometricalTable: sequence of hypsometrical-attributes -->
+  <!--   2. ISO 2533:2025 table: by-geometric / by-geopotential     -->
+  <!-- ============================================================ -->
+
+  <xs:complexType name="atmospheric-type">
+    <xs:choice>
+      <!-- Variant 1: Hypsometrical table (pressure → altitude) -->
+      <xs:sequence>
+        <xs:element name="hypsometrical-attributes"
+                    type="hypsometrical-attributes-type"
+                    maxOccurs="unbounded"/>
+      </xs:sequence>
+      <!-- Variant 2: ISO 2533:2025 altitude attributes table -->
+      <xs:sequence>
+        <xs:element name="by-geometric-altitude" type="by-altitude-type"/>
+        <xs:element name="by-geopotential-altitude" type="by-altitude-type"/>
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- By-altitude section wrapper (ISO 2533:2025) -->
+  <xs:complexType name="by-altitude-type">
+    <xs:sequence>
+      <xs:element name="atmospheric-attributes"
+                  type="atmosphere-attributes-type"
+                  maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ============================================================ -->
+  <!-- Atmosphere attributes type (ISO 2533:2025 full record)        -->
+  <!-- ============================================================ -->
+
+  <xs:complexType name="atmosphere-attributes-type">
+    <xs:sequence>
+      <!-- Altitudes -->
+      <xs:element name="geometric-altitude"
+                  type="unit-value-integer-type" maxOccurs="unbounded"/>
+      <xs:element name="geopotential-altitude"
+                  type="unit-value-integer-type" maxOccurs="unbounded"/>
+
+      <!-- Group One: primary atmospheric properties -->
+      <xs:element name="temperature"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="pressure"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="density"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="acceleration"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+
+      <!-- Group Two: secondary atmospheric properties -->
+      <xs:element name="ppn"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="rhorhon"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="sqrt-rhorhon"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="speed-of-sound"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="dynamic-viscosity"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="kinematic-viscosity"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="thermal-conductivity"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+
+      <!-- Group Three: derived atmospheric properties -->
+      <xs:element name="pressure-scale-height"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="specific-weight"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="air-number-density"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="mean-speed"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="frequency"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="mean-free-path"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+
+      <!-- Precision mode -->
+      <xs:element name="precision" type="precision-type"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ============================================================ -->
+  <!-- Hypsometrical attributes type (pressure → altitude)           -->
+  <!-- ============================================================ -->
+
+  <xs:complexType name="hypsometrical-attributes-type">
+    <xs:sequence>
+      <xs:element name="pressure"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="geometric-altitude"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="geopotential-altitude"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ============================================================ -->
+  <!-- Attributes group type (ISO 2533:2025 standalone wrapper)      -->
+  <!-- ============================================================ -->
+
+  <xs:complexType name="attributes-group-type">
+    <xs:sequence>
+      <xs:element name="atmospheric-attributes"
+                  type="atmosphere-attributes-type"
+                  maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ============================================================ -->
+  <!-- Group One attrs type (ISO 2533:1975)                          -->
+  <!--                                                               -->
+  <!-- Temperatures use UnitValueInteger (scaled by 1000)            -->
+  <!-- Other values use UnitValueFloat                               -->
+  <!-- ============================================================ -->
+
+  <xs:complexType name="group-one-attrs-type">
+    <xs:sequence>
+      <xs:element name="geometric-altitude"
+                  type="unit-value-integer-type" maxOccurs="unbounded"/>
+      <xs:element name="geopotential-altitude"
+                  type="unit-value-integer-type" maxOccurs="unbounded"/>
+      <xs:element name="temperature"
+                  type="unit-value-integer-type" maxOccurs="unbounded"/>
+      <xs:element name="pressure"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="density"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+      <xs:element name="acceleration"
+                  type="unit-value-float-type" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

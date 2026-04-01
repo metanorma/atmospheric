@@ -13,7 +13,9 @@ module Atmospheric
       end
 
       def round_to_sig_figs(num, num_sig_figs)
-        num.round(num_sig_figs - Math.log10(num).ceil).to_f
+        return 0.0 if num.nil? || num.zero?
+
+        num.round(num_sig_figs - Math.log10(num.abs).ceil).to_f
       end
 
       def m_to_ft(meters)

@@ -8,37 +8,55 @@ module Atmospheric
       class GroupTwoAttrs < Lutaml::Model::Serializable
         include AltitudeConvertableModel
 
-        attribute :ppn, UnitValueFloat
-        attribute :rhorhon, UnitValueFloat
-        attribute :sqrt_rhorhon, UnitValueFloat
-        attribute :speed_of_sound, UnitValueInteger
-        attribute :dynamic_viscosity, UnitValueFloat
-        attribute :kinematic_viscosity, UnitValueFloat
-        attribute :thermal_conductivity, UnitValueFloat
+        attribute :ppns, UnitValueFloat, collection: true
+        attribute :rhorhons, UnitValueFloat, collection: true
+        attribute :sqrt_rhorhons, UnitValueFloat, collection: true
+        attribute :speeds_of_sound, UnitValueInteger, collection: true
+        attribute :dynamic_viscosities, UnitValueFloat, collection: true
+        attribute :kinematic_viscosities, UnitValueFloat, collection: true
+        attribute :thermal_conductivities, UnitValueFloat, collection: true
 
         key_value do
-          map "geometric-altitude-m", to: :geometric_altitude_m
-          map "geometric-altitude-ft", to: :geometric_altitude_ft
-          map "geopotential-altitude-m", to: :geopotential_altitude_m
-          map "geopotential-altitude-ft", to: :geopotential_altitude_ft
-          map "ppn", to: :ppn
-          map "rhorhon", to: :rhorhon
-          map "sqrt-rhorhon", to: :sqrt_rhorhon
-          map "speed-of-sound", to: :speed_of_sound
-          map "dynamic-viscosity", to: :dynamic_viscosity
-          map "kinematic-viscosity", to: :kinematic_viscosity
-          map "thermal-conductivity", to: :thermal_conductivity
+          map "geometric-altitude", to: :geometric_altitudes
+          map "geopotential-altitude", to: :geopotential_altitudes
+          map "ppn", to: :ppns
+          map "rhorhon", to: :rhorhons
+          map "sqrt-rhorhon", to: :sqrt_rhorhons
+          map "speed-of-sound", to: :speeds_of_sound
+          map "dynamic-viscosity", to: :dynamic_viscosities
+          map "kinematic-viscosity", to: :kinematic_viscosities
+          map "thermal-conductivity", to: :thermal_conductivities
         end
 
         # In meters only
         def realize_values_from_geopotential(gp_h_m, precision: :reduced)
-          %i[
-            ppn rhorhon sqrt_rhorhon speed_of_sound
-            dynamic_viscosity kinematic_viscosity thermal_conductivity
-          ].each do |attr|
-            v = calculate(gp_h_m, attr, precision: precision)
-            send("#{attr}=", v) if respond_to?("#{attr}=")
-          end
+          self.ppns = [
+            calculate(gp_h_m, :ppn, precision: precision)
+          ]
+
+          self.rhorhons = [
+            calculate(gp_h_m, :rhorhon, precision: precision)
+          ]
+
+          self.sqrt_rhorhons = [
+            calculate(gp_h_m, :sqrt_rhorhon, precision: precision)
+          ]
+
+          self.speeds_of_sound = [
+            calculate(gp_h_m, :speed_of_sound, precision: precision)
+          ]
+
+          self.dynamic_viscosities = [
+            calculate(gp_h_m, :dynamic_viscosity, precision: precision)
+          ]
+
+          self.kinematic_viscosities = [
+            calculate(gp_h_m, :kinematic_viscosity, precision: precision)
+          ]
+
+          self.thermal_conductivities = [
+            calculate(gp_h_m, :thermal_conductivity, precision: precision)
+          ]
         end
 
         def calculate(gp_h_m, name, precision: :reduced)
