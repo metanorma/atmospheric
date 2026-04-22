@@ -3,6 +3,13 @@
 module Atmospheric
   module Export
     module Iso25331975
+      autoload :GroupOne, "atmospheric/export/iso_25331975/group_one"
+      autoload :GroupTwo, "atmospheric/export/iso_25331975/group_two"
+      autoload :GroupThree, "atmospheric/export/iso_25331975/group_three"
+      autoload :GroupOneAttrs, "atmospheric/export/iso_25331975/group_one_attrs"
+      autoload :GroupTwoAttrs, "atmospheric/export/iso_25331975/group_two_attrs"
+      autoload :GroupThreeAttrs, "atmospheric/export/iso_25331975/group_three_attrs"
+
       class << self
         def table_5
           GroupOne.new.set_attrs
@@ -19,7 +26,3 @@ module Atmospheric
     end
   end
 end
-
-require_relative "iso_25331975/group_one"
-require_relative "iso_25331975/group_two"
-require_relative "iso_25331975/group_three"

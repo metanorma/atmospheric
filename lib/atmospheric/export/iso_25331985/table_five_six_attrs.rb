@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../iso_25331975/group_one_attrs"
-
 module Atmospheric
   module Export
     module Iso25331985

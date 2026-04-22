@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "lutaml/model"
-
 module Atmospheric
   module Export
     class AltitudeTable < Lutaml::Model::Serializable

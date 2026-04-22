@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "lutaml/model"
-require_relative "pressure_attrs"
-
 module Atmospheric
   module Export
     class HypsometricalTable < Lutaml::Model::Serializable
@@ -10,6 +7,7 @@ module Atmospheric
 
       xml do
         element "atmospheric"
+        namespace Atmospheric::Iso2533Namespace
         map_element "hypsometrical-attributes", to: :rows
       end
 

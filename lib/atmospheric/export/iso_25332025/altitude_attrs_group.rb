@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "lutaml/model"
-require_relative "../altitude_attrs"
-
 # The purpose of this class is really for XML grouping.
 # It is not a table in the same sense as the other tables.
 # It is a collection of attributes grouped by altitude type.
@@ -19,6 +16,7 @@ module Atmospheric
 
         xml do
           element "attributes-group"
+          namespace Atmospheric::Iso2533Namespace
           map_element "atmospheric-attributes", to: :rows
         end
       end

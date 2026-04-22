@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require_relative "iso_25331975"
-require_relative "iso_25332025/combined_altitude_attrs_group"
-
 module Atmospheric
   module Export
     module Iso25332025
+      autoload :AltitudeAttrsGroup, "atmospheric/export/iso_25332025/altitude_attrs_group"
+      autoload :CombinedAltitudeAttrsGroup, "atmospheric/export/iso_25332025/combined_altitude_attrs_group"
+
       class AltitudesInMeters < CombinedAltitudeAttrsGroup
         def steps
           (
