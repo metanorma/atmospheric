@@ -265,7 +265,8 @@ precision: reduced
 attrs = Atmospheric::Export::AltitudeAttrs.new.set_altitude(
   value: -2000,
   type: :geopotential,
-  unit: :meters
+  unit: :meters,
+  precision: :normal
 )
 
 attrs.to_xml
@@ -273,7 +274,7 @@ attrs.to_xml
 
 [source,xml]
 ----
-<atmosphere-attributes>
+<atmosphere-attributes xmlns="urn:iso:std:iso:2533:tech:xsd">
   <geometric-altitude unitsml="m" type="integer">-1999</geometric-altitude>
   <geometric-altitude unitsml="ft" type="integer">-6560</geometric-altitude>
   <geopotential-altitude unitsml="m" type="integer">-2000</geopotential-altitude>
@@ -281,9 +282,9 @@ attrs.to_xml
   <temperature unitsml="K" type="float">301.15</temperature>
   <temperature unitsml="degC" type="float">28.0</temperature>
   <pressure unitsml="mbar" type="float">1277.74</pressure>
-  <pressure unitsml="mm_Hg" type="float">958.382</pressure>
+  <pressure unitsml="mm_Hg" type="float">958.38</pressure>
   <density unitsml="kg*m^-3" type="float">1.47808</density>
-  <acceleration unitsml="m*s^-2" type="float">9.8128</acceleration>
+  <acceleration unitsml="m*s^-2" type="float">9.81282</acceleration>
   <ppn type="float">1.26103</ppn>
   <rhorhon type="float">1.20659</rhorhon>
   <sqrt-rhorhon type="float">1.09845</sqrt-rhorhon>
@@ -297,7 +298,7 @@ attrs.to_xml
   <mean-speed unitsml="m*s^-1" type="float">469.18</mean-speed>
   <frequency unitsml="s^-1" type="float">8535100000.0</frequency>
   <mean-free-path unitsml="m" type="float">5.4971e-08</mean-free-path>
-  <precision>reduced</precision>
+  <precision>normal</precision>
 </atmosphere-attributes>
 ----
 ====
@@ -425,13 +426,13 @@ attrs.to_xml
 
 [source,xml]
 ----
-<hypsometrical-attributes>
+<hypsometrical-attributes xmlns="urn:iso:std:iso:2533:tech:xsd">
   <pressure unitsml="mbar" type="float">5.0</pressure>
   <pressure unitsml="mm_Hg" type="float">3.7503084135</pressure>
-  <geometric-altitude unitsml="m" type="float">35979</geometric-altitude>
-  <geometric-altitude unitsml="ft" type="float">118041</geometric-altitude>
-  <geopotential-altitude unitsml="m" type="float">35776</geopotential-altitude>
-  <geopotential-altitude unitsml="ft" type="float">117377</geopotential-altitude>
+  <geometric-altitude unitsml="m" type="float">35979.0</geometric-altitude>
+  <geometric-altitude unitsml="ft" type="float">118041.0</geometric-altitude>
+  <geopotential-altitude unitsml="m" type="float">35776.5</geopotential-altitude>
+  <geopotential-altitude unitsml="ft" type="float">117377.0</geopotential-altitude>
 </hypsometrical-attributes>
 ----
 ====
@@ -1122,6 +1123,10 @@ This table is a subset of the `table_atmosphere_meters` method.
 An XSD schema for the XML serialization format is provided at
 `schema/atmospheric.xsd`.
 
+The schema uses the XML namespace `urn:iso:std:iso:2533:tech:xsd` following
+the RFC 5141 pattern for ISO technical XML schema resources. All elements
+are namespace-qualified (`elementFormDefault="qualified"`).
+
 The schema defines the following root elements:
 
 `atmospheric`:: Polymorphic root element. Two variants:
@@ -1139,7 +1144,7 @@ The schema defines the following root elements:
 [source,xml]
 ----
 <!-- Hypsometrical table variant -->
-<atmospheric>
+<atmospheric xmlns="urn:iso:std:iso:2533:tech:xsd">
   <hypsometrical-attributes>
     <pressure unitsml="mbar" type="float">1013.25</pressure>
     <pressure unitsml="mm_Hg" type="float">760.0</pressure>
@@ -1151,7 +1156,7 @@ The schema defines the following root elements:
 </atmospheric>
 
 <!-- ISO 2533:2025 table variant -->
-<atmospheric>
+<atmospheric xmlns="urn:iso:std:iso:2533:tech:xsd">
   <by-geometric-altitude>
     <atmospheric-attributes>...</atmospheric-attributes>
   </by-geometric-altitude>
@@ -1167,9 +1172,6 @@ Contains all altitude, temperature, pressure, density, and derived properties.
 
 `hypsometrical-attributes`:: Pressure-to-altitude record. Contains pressure
 and altitude values.
-
-`group-one-attrs`:: ISO 2533:1975 Group One record (temperature, pressure,
-density, acceleration). Temperature values use integer type (scaled by 1000).
 
 `attributes-group`:: Wrapper for a collection of `<atmospheric-attributes>`.
 
