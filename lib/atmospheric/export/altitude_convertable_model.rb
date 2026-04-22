@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "utils"
-require_relative "../unit_value_float"
-require_relative "../unit_value_integer"
-
 module Atmospheric
   module Export
     module AltitudeConvertableModel

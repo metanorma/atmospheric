@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../altitude_table"
-require_relative "../altitude_attrs"
-require_relative "altitude_attrs_group"
-
 module Atmospheric
   module Export
     module Iso25332025
@@ -18,6 +14,7 @@ module Atmospheric
 
         xml do
           element "atmospheric"
+          namespace Atmospheric::Iso2533Namespace
           map_element "by-geometric-altitude", to: :by_geometric_altitude
           map_element "by-geopotential-altitude", to: :by_geopotential_altitude
         end

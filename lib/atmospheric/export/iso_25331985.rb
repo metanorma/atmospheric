@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-require_relative "hypsometrical_table"
-require_relative "iso_25331985/pressure_attrs"
-require_relative "iso_25331985/table_five_six_attrs"
-require_relative "iso_25331975/group_one"
-
 module Atmospheric
   module Export
     module Iso25331985
+      autoload :PressureAttrs, "atmospheric/export/iso_25331985/pressure_attrs"
+      autoload :TableFiveSixAttrs, "atmospheric/export/iso_25331985/table_five_six_attrs"
+
       class TableOne < HypsometricalTable
         # TODO: when Ruby's step does not create inaccurate floating point numbers
         # This is a hack to solve a Ruby bug with floating point calcuations

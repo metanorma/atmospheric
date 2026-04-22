@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "lutaml/model"
-
 module Atmospheric
   class UnitValueFloat < Lutaml::Model::Serializable
     attribute :value, :float
@@ -15,7 +13,8 @@ module Atmospheric
     end
 
     xml do
-      element "unitl-value-float"
+      element "unit-value-float"
+      namespace Atmospheric::Iso2533Namespace
       map_content to: :value
       map_attribute :unitsml, to: :unitsml
       map_attribute :type, to: :type, render_default: true

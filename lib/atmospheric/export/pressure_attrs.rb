@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require "lutaml/model"
-require_relative "utils"
-require_relative "../unit_value_float"
-require_relative "../unit_value_integer"
-
 module Atmospheric
   module Export
     class PressureAttrs < Lutaml::Model::Serializable
@@ -21,6 +16,7 @@ module Atmospheric
 
       xml do
         element "hypsometrical-attributes"
+        namespace Atmospheric::Iso2533Namespace
         map_element "pressure", to: :pressures
         map_element "geometric-altitude", to: :geometric_altitudes
         map_element "geopotential-altitude", to: :geopotential_altitudes

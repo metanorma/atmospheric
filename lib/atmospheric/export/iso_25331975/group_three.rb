@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "../altitude_table"
-require_relative "group_three_attrs"
-
 module Atmospheric
   module Export
     module Iso25331975

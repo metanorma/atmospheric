@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "lutaml/model"
-require_relative "../altitude_convertable_model"
-
 module Atmospheric
   module Export
     module Iso25331975

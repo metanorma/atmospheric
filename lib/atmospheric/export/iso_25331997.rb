@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative "./iso_25331975"
-
 module Atmospheric
   module Export
     module Iso25331997

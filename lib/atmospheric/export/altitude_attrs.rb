@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-require "lutaml/model"
-require_relative "../unit_value_float"
-require_relative "../unit_value_integer"
-
 module Atmospheric
   module Export
     class AltitudeAttrs < Lutaml::Model::Serializable
@@ -31,7 +27,7 @@ module Atmospheric
       attribute :mean_speeds, UnitValueFloat, collection: true
       attribute :frequencies, UnitValueFloat, collection: true
       attribute :mean_free_paths, UnitValueFloat, collection: true
-      attribute :precision, :string, values: %w[reduced normal high]
+      attribute :precision, PrecisionValue
 
       key_value do
         map "geometric-altitude", to: :geometric_altitudes
@@ -65,6 +61,7 @@ module Atmospheric
 
       xml do
         element "atmosphere-attributes"
+        namespace Atmospheric::Iso2533Namespace
         map_element "geometric-altitude", to: :geometric_altitudes
         map_element "geopotential-altitude", to: :geopotential_altitudes
 
