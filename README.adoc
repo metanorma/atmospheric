@@ -1,4 +1,4 @@
-= Atmospheric for Ruby (ISO Standard Atmosphere / ICAO Standard Atmosphere (ISA))
+= Atmospheris for Ruby (ISO Standard Atmosphere / ICAO Standard Atmosphere (ISA))
 
 == Purpose
 
@@ -37,29 +37,29 @@ For the typical user who wishes to calculate atmospheric properties, there
 is no need to worry about how the tables work.
 
 To calculate atmospheric properties, either use the formulas directly or use the
-`Atmospheric::Export::AltitudeAttrs` class to bulk obtain the values needed.
+`Atmospheris::Export::AltitudeAttrs` class to bulk obtain the values needed.
 
 
 === Prerequisites
 
-Include the `atmospheric` gem in your Gemfile:
+Include the `atmospheris` gem in your Gemfile:
 
 [source,ruby]
 ----
-gem 'atmospheric'
+gem 'atmospheris'
 ----
 
 Then use `require` in code:
 
 [source,ruby]
 ----
-require 'atmospheric'
+require 'atmospheris'
 ----
 
 
 === Atmospheric attributes by altitude
 
-The `Atmospheric::Export::AltitudeAttrs` class provides a way to obtain the
+The `Atmospheris::Export::AltitudeAttrs` class provides a way to obtain the
 atmospheric properties at a particular given altitude, geopotential or
 geometric.
 
@@ -70,9 +70,9 @@ Syntax:
 
 [source,ruby]
 ----
-require 'atmospheric'
+require 'atmospheris'
 
-Atmospheric::Export::AltitudeAttrs.new.set_altitude(
+Atmospheris::Export::AltitudeAttrs.new.set_altitude(
   value: {altitude-value} <1>
   type: {altitude-type} <2>
   unit: {altitude-unit} <3>,
@@ -131,8 +131,8 @@ Each attribute value is wrapped in `UnitValueFloat` or `UnitValueInteger` with U
 ====
 [source,ruby]
 ----
-require 'atmospheric'
-attrs = Atmospheric::Export::AltitudeAttrs.new.set_altitude(
+require 'atmospheris'
+attrs = Atmospheris::Export::AltitudeAttrs.new.set_altitude(
   value: -2000,
   type: :geopotential,
   unit: :meters
@@ -157,7 +157,7 @@ The object can be serialized into YAML or XML.
 ====
 [source,ruby]
 ----
-attrs = Atmospheric::Export::AltitudeAttrs.new.set_altitude(
+attrs = Atmospheris::Export::AltitudeAttrs.new.set_altitude(
   value: -2000,
   type: :geopotential,
   unit: :meters
@@ -262,7 +262,7 @@ precision: reduced
 ====
 [source,ruby]
 ----
-attrs = Atmospheric::Export::AltitudeAttrs.new.set_altitude(
+attrs = Atmospheris::Export::AltitudeAttrs.new.set_altitude(
   value: -2000,
   type: :geopotential,
   unit: :meters,
@@ -306,16 +306,16 @@ attrs.to_xml
 
 === Altitude by pressure
 
-The `Atmospheric::Export::PressureAttrs` class provides a way to obtain the
+The `Atmospheris::Export::PressureAttrs` class provides a way to obtain the
 altitude at a given pressure value (mbar, mmhg).
 
 Syntax:
 
 [source,ruby]
 ----
-require 'atmospheric'
+require 'atmospheris'
 
-Atmospheric::Export::PressureAttrs.new.set_pressure(
+Atmospheris::Export::PressureAttrs.new.set_pressure(
   value: {pressure-value}, <1>
   unit: {pressure-unit}, <2>
   precision: {precision-mode} <3>
@@ -355,7 +355,7 @@ All attributes are represented as collections (arrays) to support multiple units
 ====
 [source,ruby]
 ----
-attrs = Atmospheric::Export::PressureAttrs.new.set_pressure(
+attrs = Atmospheris::Export::PressureAttrs.new.set_pressure(
   value: 5.0,
   unit: :mbar
 )
@@ -377,7 +377,7 @@ The object can be serialized into YAML or XML.
 ====
 [source,ruby]
 ----
-attrs = Atmospheric::Export::PressureAttrs.new.set_pressure(
+attrs = Atmospheris::Export::PressureAttrs.new.set_pressure(
   value: 5.0,
   unit: :mbar
 )
@@ -416,7 +416,7 @@ geometric-altitude:
 ====
 [source,ruby]
 ----
-attrs = Atmospheric::Export::PressureAttrs.new.set_pressure(
+attrs = Atmospheris::Export::PressureAttrs.new.set_pressure(
   value: 5.0,
   unit: :mbar
 )
@@ -442,15 +442,15 @@ attrs.to_xml
 ==== General
 
 For users who wish to access the algorithms directly, the
-`Atmospheric::Isa::Algorithms` class provides a set of methods for calculating
+`Atmospheris::Isa::Algorithms` class provides a set of methods for calculating
 atmospheric properties at different altitudes.
 
 ISO 2533 specifies a number of formulas for the calculation of atmospheric
 properties at different altitudes.
 
-These algorithms are implemented in the `Atmospheric::Isa::Algorithms` class.
+These algorithms are implemented in the `Atmospheris::Isa::Algorithms` class.
 
-There are two ways to use the `Atmospheric::Isa::Algorithms` class:
+There are two ways to use the `Atmospheris::Isa::Algorithms` class:
 
 * as a singleton class, using one of the precision modes (see below)
 * as a class instance
@@ -459,14 +459,14 @@ There are two ways to use the `Atmospheric::Isa::Algorithms` class:
 ====
 [source,ruby]
 ----
-require 'atmospheric'
+require 'atmospheris'
 # Singleton class
-instance = Atmospheric::Isa::NormalPrecision.instance.instance
+instance = Atmospheris::Isa::NormalPrecision.instance.instance
 instance.geometric_altitude_from_geopotential(100).to_f
 => 100.00157315171192
 
 # Class instance
-instance = Atmospheric::Isa::Algorithms.new(precision: :high)
+instance = Atmospheris::Isa::Algorithms.new(precision: :high)
 instance.geometric_altitude_from_geopotential(100).to_f
 => 100.00157315171192
 ----
@@ -482,8 +482,8 @@ Syntax:
 
 [source,ruby]
 ----
-require 'atmospheric'
-instance = Atmospheric::Isa::Algorithms.new.{method_name} <1>
+require 'atmospheris'
+instance = Atmospheris::Isa::Algorithms.new.{method_name} <1>
 ----
 <1> `method_name` is one of the methods listed below.
 
@@ -547,28 +547,28 @@ sufficient accuracy for most applications.
 
 To use the high precision mode, you can either:
 
-* use the `Atmospheric::Isa::HighPrecision` class
-* use the `Atmospheric::Isa::Algorithms` class then call the `set_precision(:high)` method
+* use the `Atmospheris::Isa::HighPrecision` class
+* use the `Atmospheris::Isa::Algorithms` class then call the `set_precision(:high)` method
 
 [example]
 ====
 [source,ruby]
 ----
-require 'atmospheric'
+require 'atmospheris'
 
 # High precision mode
-high_precision_instance = Atmospheric::Isa::HighPrecision.instance
+high_precision_instance = Atmospheris::Isa::HighPrecision.instance
 
-speed_h = Atmospheric::Isa::HighPrecision.instance.speed_of_sound_from_temp(100)
+speed_h = Atmospheris::Isa::HighPrecision.instance.speed_of_sound_from_temp(100)
 => 0.200467958523516054299360531511514627125051490111885121917578012786288944852326625441743718038552367514555018117e3
 
 speed_h.class
 => BigDecimal
 
 # Normal precision mode (default)
-normal_precision_instance = Atmospheric::Isa::NormalPrecision.instance.instance
+normal_precision_instance = Atmospheris::Isa::NormalPrecision.instance.instance
 
-speed_n = Atmospheric::Isa::NormalPrecision.instance.instance.speed_of_sound_from_temp(100)
+speed_n = Atmospheris::Isa::NormalPrecision.instance.instance.speed_of_sound_from_temp(100)
 => 200.46795852351607
 
 speed_n.class
@@ -619,8 +619,8 @@ Provides the following values in addition to geopotential and geometric height:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331975.table_5         #=> Lutaml::Model
-Atmospheric::Export::Iso25331975.table_5.to_yaml #=> YAML
+Atmospheris::Export::Iso25331975.table_5         #=> Lutaml::Model
+Atmospheris::Export::Iso25331975.table_5.to_yaml #=> YAML
 ----
 
 ==== Table 6
@@ -642,8 +642,8 @@ Provides the following values in addition to geopotential and geometric height:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331975.table_6         #=> Lutaml::Model
-Atmospheric::Export::Iso25331975.table_6.to_yaml #=> YAML
+Atmospheris::Export::Iso25331975.table_6         #=> Lutaml::Model
+Atmospheris::Export::Iso25331975.table_6.to_yaml #=> YAML
 ----
 
 ==== Table 7
@@ -663,8 +663,8 @@ geopotential altitude (H)_"
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331975.table_7         #=> Lutaml::Model
-Atmospheric::Export::Iso25331975.table_7.to_yaml #=> YAML
+Atmospheris::Export::Iso25331975.table_7         #=> Lutaml::Model
+Atmospheris::Export::Iso25331975.table_7.to_yaml #=> YAML
 ----
 
 
@@ -687,8 +687,8 @@ Provides:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_1         #=> Lutaml::Model
-Atmospheric::Export::Iso25331985.table_1.to_yaml #=> YAML
+Atmospheris::Export::Iso25331985.table_1         #=> Lutaml::Model
+Atmospheris::Export::Iso25331985.table_1.to_yaml #=> YAML
 ----
 
 ==== Table 2 (hPa)
@@ -701,8 +701,8 @@ Same as Table 1 but for the range of `(20.0..1199.9).step(0.1)` in hPa.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_2         #=> Lutaml::Model
-Atmospheric::Export::Iso25331985.table_2.to_yaml #=> YAML
+Atmospheris::Export::Iso25331985.table_2         #=> Lutaml::Model
+Atmospheris::Export::Iso25331985.table_2.to_yaml #=> YAML
 ----
 
 ==== Table 3 (mmHg)
@@ -720,8 +720,8 @@ Provides:
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_3         #=> Lutaml::Model
-Atmospheric::Export::Iso25331985.table_3.to_yaml #=> YAML
+Atmospheris::Export::Iso25331985.table_3         #=> Lutaml::Model
+Atmospheris::Export::Iso25331985.table_3.to_yaml #=> YAML
 ----
 
 ==== Table 4 (mmHg)
@@ -734,8 +734,8 @@ Same as Table 3 but for the range of `(10.0..899.9).step(0.1)` and results in mm
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_4         #=> Lutaml::Model
-Atmospheric::Export::Iso25331985.table_4.to_yaml #=> YAML
+Atmospheris::Export::Iso25331985.table_4         #=> Lutaml::Model
+Atmospheris::Export::Iso25331985.table_4.to_yaml #=> YAML
 ----
 
 ==== Table 5 (hPa) and Table 6 (mmHg)
@@ -755,8 +755,8 @@ Range of `(-1000..4599).step(1)`.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331985.table_56         #=> Lutaml::Model
-Atmospheric::Export::Iso25331985.table_56.to_yaml #=> YAML
+Atmospheris::Export::Iso25331985.table_56         #=> Lutaml::Model
+Atmospheris::Export::Iso25331985.table_56.to_yaml #=> YAML
 ----
 
 === ISO 2533 ADD 2:1997
@@ -793,8 +793,8 @@ still provides it for completeness.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_1         #=> Lutaml::Model
-Atmospheric::Export::Iso25331997.table_1.to_yaml #=> YAML
+Atmospheris::Export::Iso25331997.table_1         #=> Lutaml::Model
+Atmospheris::Export::Iso25331997.table_1.to_yaml #=> YAML
 ----
 
 ==== Table 2 (-5km to 2km)
@@ -808,8 +808,8 @@ Exactly same as ISO 2533:1975 Table 6, but with a different height range.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_2         #=> Lutaml::Model
-Atmospheric::Export::Iso25331997.table_2.to_yaml #=> YAML
+Atmospheris::Export::Iso25331997.table_2         #=> Lutaml::Model
+Atmospheris::Export::Iso25331997.table_2.to_yaml #=> YAML
 ----
 
 ==== Table 3 (-5km to 2km)
@@ -824,8 +824,8 @@ Exactly same as ISO 2533:1975 Table 7, but with a different height range.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_3         #=> Lutaml::Model
-Atmospheric::Export::Iso25331997.table_3.to_yaml #=> YAML
+Atmospheris::Export::Iso25331997.table_3         #=> Lutaml::Model
+Atmospheris::Export::Iso25331997.table_3.to_yaml #=> YAML
 ----
 
 ==== Table 4 (-16.5kft to 262.5kft)
@@ -842,8 +842,8 @@ for completeness.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_4         #=> Lutaml::Model
-Atmospheric::Export::Iso25331997.table_4.to_yaml #=> YAML
+Atmospheris::Export::Iso25331997.table_4         #=> Lutaml::Model
+Atmospheris::Export::Iso25331997.table_4.to_yaml #=> YAML
 ----
 
 ==== Table 5 (-16.5kft to 262.5kft)
@@ -857,8 +857,8 @@ Exactly same as ISO 2533:1975 Table 6, but in feet and different range.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_5         #=> Lutaml::Model
-Atmospheric::Export::Iso25331997.table_5.to_yaml #=> YAML
+Atmospheris::Export::Iso25331997.table_5         #=> Lutaml::Model
+Atmospheris::Export::Iso25331997.table_5.to_yaml #=> YAML
 ----
 
 ==== Table 6 (-16.5kft to 262.5kft)
@@ -873,8 +873,8 @@ Exactly same as ISO 2533:1975 Table 7, but in feet and different range.
 
 [source,ruby]
 ----
-Atmospheric::Export::Iso25331997.table_6         #=> Lutaml::Model
-Atmospheric::Export::Iso25331997.table_6.to_yaml #=> YAML
+Atmospheris::Export::Iso25331997.table_6         #=> Lutaml::Model
+Atmospheris::Export::Iso25331997.table_6.to_yaml #=> YAML
 ----
 
 
@@ -966,11 +966,11 @@ is a `PressureAttrs` object. It follows this step schedule:
 [source,ruby]
 ----
 # Defaults to precision mode `:reduced`
-Atmospheric::Export::Iso25332025.table_atmosphere_meters #=> Lutaml::Model
-Atmospheric::Export::Iso25332025.table_atmosphere_meters.to_yaml #=> YAML
+Atmospheris::Export::Iso25332025.table_atmosphere_meters #=> Lutaml::Model
+Atmospheris::Export::Iso25332025.table_atmosphere_meters.to_yaml #=> YAML
 
 # To use precision mode `:high`
-x = Atmospheric::Export::Iso25332025.table_atmosphere_meters(precision: :high)
+x = Atmospheris::Export::Iso25332025.table_atmosphere_meters(precision: :high)
 x.to_yaml #=> YAML
 ----
 ====
@@ -1088,11 +1088,11 @@ Provides:
 [source,ruby]
 ----
 # Defaults to precision mode `:reduced`
-Atmospheric::Export::Iso25332025.table_hypsometrical_mbar         #=> Lutaml::Model
-Atmospheric::Export::Iso25332025.table_hypsometrical_mbar.to_yaml #=> YAML
+Atmospheris::Export::Iso25332025.table_hypsometrical_mbar         #=> Lutaml::Model
+Atmospheris::Export::Iso25332025.table_hypsometrical_mbar.to_yaml #=> YAML
 
 # To use precision mode `:high`
-x = Atmospheric::Export::Iso25332025.table_hypsometrical_mbar(precision: :high)
+x = Atmospheris::Export::Iso25332025.table_hypsometrical_mbar(precision: :high)
 x.to_yaml #=> YAML
 ----
 
@@ -1121,7 +1121,7 @@ This table is a subset of the `table_atmosphere_meters` method.
 == XML Schema
 
 An XSD schema for the XML serialization format is provided at
-`schema/atmospheric.xsd`.
+`schema/atmospheris.xsd`.
 
 The schema uses the XML namespace `urn:iso:std:iso:2533:tech:xsd` following
 the RFC 5141 pattern for ISO technical XML schema resources. All elements
@@ -1129,14 +1129,14 @@ are namespace-qualified (`elementFormDefault="qualified"`).
 
 The schema defines the following root elements:
 
-`atmospheric`:: Polymorphic root element. Two variants:
+`atmospheris`:: Polymorphic root element. Two variants:
 +
 --
 * **Hypsometrical table**: contains `<hypsometrical-attributes>` records
   (pressure → altitude lookup).
 * **ISO 2533:2025 table**: contains `<by-geometric-altitude>` and
   `<by-geopotential-altitude>` sections, each with
-  `<atmospheric-attributes>` records.
+  `<atmospheris-attributes>` records.
 --
 +
 [example]
@@ -1144,7 +1144,7 @@ The schema defines the following root elements:
 [source,xml]
 ----
 <!-- Hypsometrical table variant -->
-<atmospheric xmlns="urn:iso:std:iso:2533:tech:xsd">
+<atmospheris xmlns="urn:iso:std:iso:2533:tech:xsd">
   <hypsometrical-attributes>
     <pressure unitsml="mbar" type="float">1013.25</pressure>
     <pressure unitsml="mm_Hg" type="float">760.0</pressure>
@@ -1153,17 +1153,17 @@ The schema defines the following root elements:
     <geopotential-altitude unitsml="m" type="float">0.0</geopotential-altitude>
     <geopotential-altitude unitsml="ft" type="float">0.0</geopotential-altitude>
   </hypsometrical-attributes>
-</atmospheric>
+</atmospheris>
 
 <!-- ISO 2533:2025 table variant -->
-<atmospheric xmlns="urn:iso:std:iso:2533:tech:xsd">
+<atmospheris xmlns="urn:iso:std:iso:2533:tech:xsd">
   <by-geometric-altitude>
-    <atmospheric-attributes>...</atmospheric-attributes>
+    <atmospheris-attributes>...</atmospheric-attributes>
   </by-geometric-altitude>
   <by-geopotential-altitude>
-    <atmospheric-attributes>...</atmospheric-attributes>
+    <atmospheris-attributes>...</atmospheric-attributes>
   </by-geopotential-altitude>
-</atmospheric>
+</atmospheris>
 ----
 ====
 
@@ -1173,7 +1173,7 @@ Contains all altitude, temperature, pressure, density, and derived properties.
 `hypsometrical-attributes`:: Pressure-to-altitude record. Contains pressure
 and altitude values.
 
-`attributes-group`:: Wrapper for a collection of `<atmospheric-attributes>`.
+`attributes-group`:: Wrapper for a collection of `<atmospheris-attributes>`.
 
 All value elements share a common pattern:
 

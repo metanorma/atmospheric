@@ -1,0 +1,10155 @@
+---
+by-geometric-altitude:
+- geometric-altitude:
+  - value: -5000
+    unitsml: m
+    type: integer
+  - value: -16404
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -5004
+    unitsml: m
+    type: integer
+  - value: -16417
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 320676
+    unitsml: K
+    type: integer
+  - value: 47526
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1777.62
+    unitsml: mbar
+    type: float
+  - value: 1333.32
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.93112
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8221
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4950
+    unitsml: m
+    type: integer
+  - value: -16240
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4954
+    unitsml: m
+    type: integer
+  - value: -16253
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 320350
+    unitsml: K
+    type: integer
+  - value: 47200
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1768.15
+    unitsml: mbar
+    type: float
+  - value: 1326.22
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.92279
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8219
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4900
+    unitsml: m
+    type: integer
+  - value: -16076
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4904
+    unitsml: m
+    type: integer
+  - value: -16089
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 320025
+    unitsml: K
+    type: integer
+  - value: 46875
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1758.73
+    unitsml: mbar
+    type: float
+  - value: 1319.16
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.91449
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8218
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4850
+    unitsml: m
+    type: integer
+  - value: -15912
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4854
+    unitsml: m
+    type: integer
+  - value: -15924
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 319699
+    unitsml: K
+    type: integer
+  - value: 46549
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1749.35
+    unitsml: mbar
+    type: float
+  - value: 1312.12
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.90622
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8216
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4800
+    unitsml: m
+    type: integer
+  - value: -15748
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4804
+    unitsml: m
+    type: integer
+  - value: -15760
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 319374
+    unitsml: K
+    type: integer
+  - value: 46224
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1740.01
+    unitsml: mbar
+    type: float
+  - value: 1305.11
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.89797
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8215
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4750
+    unitsml: m
+    type: integer
+  - value: -15584
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4754
+    unitsml: m
+    type: integer
+  - value: -15596
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 319048
+    unitsml: K
+    type: integer
+  - value: 45898
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1730.71
+    unitsml: mbar
+    type: float
+  - value: 1298.14
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.88976
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8213
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4700
+    unitsml: m
+    type: integer
+  - value: -15420
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4703
+    unitsml: m
+    type: integer
+  - value: -15431
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 318723
+    unitsml: K
+    type: integer
+  - value: 45573
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1721.45
+    unitsml: mbar
+    type: float
+  - value: 1291.19
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.88156
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8212
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4650
+    unitsml: m
+    type: integer
+  - value: -15256
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4653
+    unitsml: m
+    type: integer
+  - value: -15267
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 318397
+    unitsml: K
+    type: integer
+  - value: 45247
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1712.23
+    unitsml: mbar
+    type: float
+  - value: 1284.28
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.8734
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.821
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4600
+    unitsml: m
+    type: integer
+  - value: -15092
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4603
+    unitsml: m
+    type: integer
+  - value: -15103
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 318072
+    unitsml: K
+    type: integer
+  - value: 44922
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1703.05
+    unitsml: mbar
+    type: float
+  - value: 1277.39
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.86526
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8209
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4550
+    unitsml: m
+    type: integer
+  - value: -14928
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4553
+    unitsml: m
+    type: integer
+  - value: -14939
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 317746
+    unitsml: K
+    type: integer
+  - value: 44596
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1693.91
+    unitsml: mbar
+    type: float
+  - value: 1270.54
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.85715
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8207
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4500
+    unitsml: m
+    type: integer
+  - value: -14764
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4503
+    unitsml: m
+    type: integer
+  - value: -14774
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 317421
+    unitsml: K
+    type: integer
+  - value: 44271
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1684.81
+    unitsml: mbar
+    type: float
+  - value: 1263.71
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.84907
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8205
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4450
+    unitsml: m
+    type: integer
+  - value: -14600
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4453
+    unitsml: m
+    type: integer
+  - value: -14610
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 317095
+    unitsml: K
+    type: integer
+  - value: 43945
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1675.75
+    unitsml: mbar
+    type: float
+  - value: 1256.92
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.84102
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8204
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4400
+    unitsml: m
+    type: integer
+  - value: -14436
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4403
+    unitsml: m
+    type: integer
+  - value: -14446
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 316770
+    unitsml: K
+    type: integer
+  - value: 43620
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1666.73
+    unitsml: mbar
+    type: float
+  - value: 1250.15
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.83299
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8202
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4350
+    unitsml: m
+    type: integer
+  - value: -14272
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4353
+    unitsml: m
+    type: integer
+  - value: -14281
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 316444
+    unitsml: K
+    type: integer
+  - value: 43294
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1657.75
+    unitsml: mbar
+    type: float
+  - value: 1243.42
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.82499
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8201
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4300
+    unitsml: m
+    type: integer
+  - value: -14108
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4303
+    unitsml: m
+    type: integer
+  - value: -14117
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 316119
+    unitsml: K
+    type: integer
+  - value: 42969
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1648.81
+    unitsml: mbar
+    type: float
+  - value: 1236.71
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.81701
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8199
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4250
+    unitsml: m
+    type: integer
+  - value: -13944
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4253
+    unitsml: m
+    type: integer
+  - value: -13953
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 315793
+    unitsml: K
+    type: integer
+  - value: 42643
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1639.91
+    unitsml: mbar
+    type: float
+  - value: 1230.03
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.80907
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8198
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4200
+    unitsml: m
+    type: integer
+  - value: -13780
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4203
+    unitsml: m
+    type: integer
+  - value: -13789
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 315468
+    unitsml: K
+    type: integer
+  - value: 42318
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1631.04
+    unitsml: mbar
+    type: float
+  - value: 1223.38
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.80114
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8196
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4150
+    unitsml: m
+    type: integer
+  - value: -13615
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4153
+    unitsml: m
+    type: integer
+  - value: -13624
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 315143
+    unitsml: K
+    type: integer
+  - value: 41993
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1622.22
+    unitsml: mbar
+    type: float
+  - value: 1216.77
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.79325
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8195
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4100
+    unitsml: m
+    type: integer
+  - value: -13451
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4103
+    unitsml: m
+    type: integer
+  - value: -13460
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 314817
+    unitsml: K
+    type: integer
+  - value: 41667
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1613.44
+    unitsml: mbar
+    type: float
+  - value: 1210.18
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.78538
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8193
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4050
+    unitsml: m
+    type: integer
+  - value: -13287
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4053
+    unitsml: m
+    type: integer
+  - value: -13296
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 314492
+    unitsml: K
+    type: integer
+  - value: 41342
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1604.69
+    unitsml: mbar
+    type: float
+  - value: 1203.62
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.77754
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8192
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4000
+    unitsml: m
+    type: integer
+  - value: -13123
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4003
+    unitsml: m
+    type: integer
+  - value: -13132
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 314166
+    unitsml: K
+    type: integer
+  - value: 41016
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1595.98
+    unitsml: mbar
+    type: float
+  - value: 1197.08
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.76973
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.819
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3950
+    unitsml: m
+    type: integer
+  - value: -12959
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3952
+    unitsml: m
+    type: integer
+  - value: -12967
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 313841
+    unitsml: K
+    type: integer
+  - value: 40691
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1587.31
+    unitsml: mbar
+    type: float
+  - value: 1190.58
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.76194
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8188
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3900
+    unitsml: m
+    type: integer
+  - value: -12795
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3902
+    unitsml: m
+    type: integer
+  - value: -12803
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 313516
+    unitsml: K
+    type: integer
+  - value: 40366
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1578.68
+    unitsml: mbar
+    type: float
+  - value: 1184.11
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.75418
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8187
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3850
+    unitsml: m
+    type: integer
+  - value: -12631
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3852
+    unitsml: m
+    type: integer
+  - value: -12639
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 313190
+    unitsml: K
+    type: integer
+  - value: 40040
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1570.09
+    unitsml: mbar
+    type: float
+  - value: 1177.66
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.74644
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8185
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3800
+    unitsml: m
+    type: integer
+  - value: -12467
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3802
+    unitsml: m
+    type: integer
+  - value: -12475
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 312865
+    unitsml: K
+    type: integer
+  - value: 39715
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1561.53
+    unitsml: mbar
+    type: float
+  - value: 1171.25
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.73873
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8184
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3750
+    unitsml: m
+    type: integer
+  - value: -12303
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3752
+    unitsml: m
+    type: integer
+  - value: -12310
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 312539
+    unitsml: K
+    type: integer
+  - value: 39389
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1553.02
+    unitsml: mbar
+    type: float
+  - value: 1164.86
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.73105
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8182
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3700
+    unitsml: m
+    type: integer
+  - value: -12139
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3702
+    unitsml: m
+    type: integer
+  - value: -12146
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 312214
+    unitsml: K
+    type: integer
+  - value: 39064
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1544.54
+    unitsml: mbar
+    type: float
+  - value: 1158.5
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.72339
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8181
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3650
+    unitsml: m
+    type: integer
+  - value: -11975
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3652
+    unitsml: m
+    type: integer
+  - value: -11982
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 311889
+    unitsml: K
+    type: integer
+  - value: 38739
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1536.1
+    unitsml: mbar
+    type: float
+  - value: 1152.17
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.71576
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8179
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3600
+    unitsml: m
+    type: integer
+  - value: -11811
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3602
+    unitsml: m
+    type: integer
+  - value: -11818
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 311563
+    unitsml: K
+    type: integer
+  - value: 38413
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1527.69
+    unitsml: mbar
+    type: float
+  - value: 1145.86
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.70816
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8178
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3550
+    unitsml: m
+    type: integer
+  - value: -11647
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3552
+    unitsml: m
+    type: integer
+  - value: -11653
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 311238
+    unitsml: K
+    type: integer
+  - value: 38088
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1519.33
+    unitsml: mbar
+    type: float
+  - value: 1139.59
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.70058
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8176
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3500
+    unitsml: m
+    type: integer
+  - value: -11483
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3502
+    unitsml: m
+    type: integer
+  - value: -11489
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 310913
+    unitsml: K
+    type: integer
+  - value: 37763
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1511.0
+    unitsml: mbar
+    type: float
+  - value: 1133.34
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.69303
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8175
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3450
+    unitsml: m
+    type: integer
+  - value: -11319
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3452
+    unitsml: m
+    type: integer
+  - value: -11325
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 310587
+    unitsml: K
+    type: integer
+  - value: 37437
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1502.71
+    unitsml: mbar
+    type: float
+  - value: 1127.12
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.6855
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8173
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3400
+    unitsml: m
+    type: integer
+  - value: -11155
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3402
+    unitsml: m
+    type: integer
+  - value: -11161
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 310262
+    unitsml: K
+    type: integer
+  - value: 37112
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1494.45
+    unitsml: mbar
+    type: float
+  - value: 1120.93
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.678
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8171
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3350
+    unitsml: m
+    type: integer
+  - value: -10991
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3352
+    unitsml: m
+    type: integer
+  - value: -10997
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 309936
+    unitsml: K
+    type: integer
+  - value: 36786
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1486.23
+    unitsml: mbar
+    type: float
+  - value: 1114.77
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.67052
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.817
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3300
+    unitsml: m
+    type: integer
+  - value: -10827
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3302
+    unitsml: m
+    type: integer
+  - value: -10832
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 309611
+    unitsml: K
+    type: integer
+  - value: 36461
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1478.05
+    unitsml: mbar
+    type: float
+  - value: 1108.63
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.66307
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8168
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3250
+    unitsml: m
+    type: integer
+  - value: -10663
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3252
+    unitsml: m
+    type: integer
+  - value: -10668
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 309286
+    unitsml: K
+    type: integer
+  - value: 36136
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1469.91
+    unitsml: mbar
+    type: float
+  - value: 1102.52
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.65565
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8167
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3200
+    unitsml: m
+    type: integer
+  - value: -10499
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3202
+    unitsml: m
+    type: integer
+  - value: -10504
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 308960
+    unitsml: K
+    type: integer
+  - value: 35810
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1461.8
+    unitsml: mbar
+    type: float
+  - value: 1096.44
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.64825
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8165
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3150
+    unitsml: m
+    type: integer
+  - value: -10335
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3152
+    unitsml: m
+    type: integer
+  - value: -10340
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 308635
+    unitsml: K
+    type: integer
+  - value: 35485
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1453.73
+    unitsml: mbar
+    type: float
+  - value: 1090.38
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.64087
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8164
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3100
+    unitsml: m
+    type: integer
+  - value: -10171
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3102
+    unitsml: m
+    type: integer
+  - value: -10176
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 308310
+    unitsml: K
+    type: integer
+  - value: 35160
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1445.69
+    unitsml: mbar
+    type: float
+  - value: 1084.36
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.63353
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8162
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3050
+    unitsml: m
+    type: integer
+  - value: -10007
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3051
+    unitsml: m
+    type: integer
+  - value: -10011
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 307985
+    unitsml: K
+    type: integer
+  - value: 34835
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1437.69
+    unitsml: mbar
+    type: float
+  - value: 1078.36
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.6262
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8161
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3000
+    unitsml: m
+    type: integer
+  - value: -9843
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3001
+    unitsml: m
+    type: integer
+  - value: -9847
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 307659
+    unitsml: K
+    type: integer
+  - value: 34509
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1429.73
+    unitsml: mbar
+    type: float
+  - value: 1072.38
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.61891
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8159
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2950
+    unitsml: m
+    type: integer
+  - value: -9678
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2951
+    unitsml: m
+    type: integer
+  - value: -9683
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 307334
+    unitsml: K
+    type: integer
+  - value: 34184
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1421.8
+    unitsml: mbar
+    type: float
+  - value: 1066.44
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.61163
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8158
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2900
+    unitsml: m
+    type: integer
+  - value: -9514
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2901
+    unitsml: m
+    type: integer
+  - value: -9519
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 307009
+    unitsml: K
+    type: integer
+  - value: 33859
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1413.91
+    unitsml: mbar
+    type: float
+  - value: 1060.52
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.60439
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8156
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2850
+    unitsml: m
+    type: integer
+  - value: -9350
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2851
+    unitsml: m
+    type: integer
+  - value: -9355
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 306683
+    unitsml: K
+    type: integer
+  - value: 33533
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1406.05
+    unitsml: mbar
+    type: float
+  - value: 1054.63
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.59716
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8154
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2800
+    unitsml: m
+    type: integer
+  - value: -9186
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2801
+    unitsml: m
+    type: integer
+  - value: -9190
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 306358
+    unitsml: K
+    type: integer
+  - value: 33208
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1398.23
+    unitsml: mbar
+    type: float
+  - value: 1048.76
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.58997
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8153
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2750
+    unitsml: m
+    type: integer
+  - value: -9022
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2751
+    unitsml: m
+    type: integer
+  - value: -9026
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 306033
+    unitsml: K
+    type: integer
+  - value: 32883
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1390.45
+    unitsml: mbar
+    type: float
+  - value: 1042.92
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.58279
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8151
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2700
+    unitsml: m
+    type: integer
+  - value: -8858
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2701
+    unitsml: m
+    type: integer
+  - value: -8862
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 305707
+    unitsml: K
+    type: integer
+  - value: 32557
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1382.7
+    unitsml: mbar
+    type: float
+  - value: 1037.11
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.57565
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.815
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2650
+    unitsml: m
+    type: integer
+  - value: -8694
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2651
+    unitsml: m
+    type: integer
+  - value: -8698
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 305382
+    unitsml: K
+    type: integer
+  - value: 32232
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1374.98
+    unitsml: mbar
+    type: float
+  - value: 1031.32
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.56852
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8148
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2600
+    unitsml: m
+    type: integer
+  - value: -8530
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2601
+    unitsml: m
+    type: integer
+  - value: -8534
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 305057
+    unitsml: K
+    type: integer
+  - value: 31907
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1367.3
+    unitsml: mbar
+    type: float
+  - value: 1025.56
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.56143
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8147
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2550
+    unitsml: m
+    type: integer
+  - value: -8366
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2551
+    unitsml: m
+    type: integer
+  - value: -8369
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 304732
+    unitsml: K
+    type: integer
+  - value: 31582
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1359.66
+    unitsml: mbar
+    type: float
+  - value: 1019.83
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.55435
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8145
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2500
+    unitsml: m
+    type: integer
+  - value: -8202
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2501
+    unitsml: m
+    type: integer
+  - value: -8205
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 304406
+    unitsml: K
+    type: integer
+  - value: 31256
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1352.05
+    unitsml: mbar
+    type: float
+  - value: 1014.12
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.5473
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8144
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2450
+    unitsml: m
+    type: integer
+  - value: -8038
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2451
+    unitsml: m
+    type: integer
+  - value: -8041
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 304081
+    unitsml: K
+    type: integer
+  - value: 30931
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1344.47
+    unitsml: mbar
+    type: float
+  - value: 1008.44
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.54028
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8142
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2400
+    unitsml: m
+    type: integer
+  - value: -7874
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2401
+    unitsml: m
+    type: integer
+  - value: -7877
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 303756
+    unitsml: K
+    type: integer
+  - value: 30606
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1336.93
+    unitsml: mbar
+    type: float
+  - value: 1002.78
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.53328
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8141
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2350
+    unitsml: m
+    type: integer
+  - value: -7710
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2351
+    unitsml: m
+    type: integer
+  - value: -7713
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 303431
+    unitsml: K
+    type: integer
+  - value: 30281
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1329.42
+    unitsml: mbar
+    type: float
+  - value: 997.149
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.52631
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8139
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2300
+    unitsml: m
+    type: integer
+  - value: -7546
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2301
+    unitsml: m
+    type: integer
+  - value: -7549
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 303105
+    unitsml: K
+    type: integer
+  - value: 29955
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1321.95
+    unitsml: mbar
+    type: float
+  - value: 991.544
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.51936
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8138
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2250
+    unitsml: m
+    type: integer
+  - value: -7382
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2251
+    unitsml: m
+    type: integer
+  - value: -7385
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 302780
+    unitsml: K
+    type: integer
+  - value: 29630
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1314.51
+    unitsml: mbar
+    type: float
+  - value: 985.965
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.51243
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8136
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2200
+    unitsml: m
+    type: integer
+  - value: -7218
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2201
+    unitsml: m
+    type: integer
+  - value: -7220
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 302455
+    unitsml: K
+    type: integer
+  - value: 29305
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1307.11
+    unitsml: mbar
+    type: float
+  - value: 980.411
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.50553
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8134
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2150
+    unitsml: m
+    type: integer
+  - value: -7054
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2151
+    unitsml: m
+    type: integer
+  - value: -7056
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 302130
+    unitsml: K
+    type: integer
+  - value: 28980
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1299.74
+    unitsml: mbar
+    type: float
+  - value: 974.883
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.49865
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8133
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2100
+    unitsml: m
+    type: integer
+  - value: -6890
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2101
+    unitsml: m
+    type: integer
+  - value: -6892
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 301805
+    unitsml: K
+    type: integer
+  - value: 28655
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1292.4
+    unitsml: mbar
+    type: float
+  - value: 969.38
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.4918
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8131
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2050
+    unitsml: m
+    type: integer
+  - value: -6726
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2051
+    unitsml: m
+    type: integer
+  - value: -6728
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 301479
+    unitsml: K
+    type: integer
+  - value: 28329
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1285.1
+    unitsml: mbar
+    type: float
+  - value: 963.903
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.48497
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.813
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2000
+    unitsml: m
+    type: integer
+  - value: -6562
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2001
+    unitsml: m
+    type: integer
+  - value: -6564
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 301154
+    unitsml: K
+    type: integer
+  - value: 28004
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1277.83
+    unitsml: mbar
+    type: float
+  - value: 958.45
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.47816
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8128
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1950
+    unitsml: m
+    type: integer
+  - value: -6398
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1951
+    unitsml: m
+    type: integer
+  - value: -6400
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 300829
+    unitsml: K
+    type: integer
+  - value: 27679
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1270.59
+    unitsml: mbar
+    type: float
+  - value: 953.023
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.47138
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8127
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1900
+    unitsml: m
+    type: integer
+  - value: -6234
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1901
+    unitsml: m
+    type: integer
+  - value: -6235
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 300504
+    unitsml: K
+    type: integer
+  - value: 27354
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1263.39
+    unitsml: mbar
+    type: float
+  - value: 947.621
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.46462
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8125
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1850
+    unitsml: m
+    type: integer
+  - value: -6070
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1851
+    unitsml: m
+    type: integer
+  - value: -6071
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 300179
+    unitsml: K
+    type: integer
+  - value: 27029
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1256.22
+    unitsml: mbar
+    type: float
+  - value: 942.243
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.45789
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8124
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1800
+    unitsml: m
+    type: integer
+  - value: -5906
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1801
+    unitsml: m
+    type: integer
+  - value: -5907
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 299853
+    unitsml: K
+    type: integer
+  - value: 26703
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1249.08
+    unitsml: mbar
+    type: float
+  - value: 936.891
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.45118
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8122
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1750
+    unitsml: m
+    type: integer
+  - value: -5741
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1750
+    unitsml: m
+    type: integer
+  - value: -5743
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 299528
+    unitsml: K
+    type: integer
+  - value: 26378
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1241.98
+    unitsml: mbar
+    type: float
+  - value: 931.563
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.44449
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8121
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1700
+    unitsml: m
+    type: integer
+  - value: -5577
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1700
+    unitsml: m
+    type: integer
+  - value: -5579
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 299203
+    unitsml: K
+    type: integer
+  - value: 26053
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1234.91
+    unitsml: mbar
+    type: float
+  - value: 926.26
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.43783
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8119
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1650
+    unitsml: m
+    type: integer
+  - value: -5413
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1650
+    unitsml: m
+    type: integer
+  - value: -5415
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 298878
+    unitsml: K
+    type: integer
+  - value: 25728
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1227.87
+    unitsml: mbar
+    type: float
+  - value: 920.981
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.43119
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8117
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1600
+    unitsml: m
+    type: integer
+  - value: -5249
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1600
+    unitsml: m
+    type: integer
+  - value: -5251
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 298553
+    unitsml: K
+    type: integer
+  - value: 25403
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1220.87
+    unitsml: mbar
+    type: float
+  - value: 915.727
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.42458
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8116
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1550
+    unitsml: m
+    type: integer
+  - value: -5085
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1550
+    unitsml: m
+    type: integer
+  - value: -5087
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 298227
+    unitsml: K
+    type: integer
+  - value: 25077
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1213.9
+    unitsml: mbar
+    type: float
+  - value: 910.497
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.41799
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8114
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1500
+    unitsml: m
+    type: integer
+  - value: -4921
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1500
+    unitsml: m
+    type: integer
+  - value: -4922
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 297902
+    unitsml: K
+    type: integer
+  - value: 24752
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1206.96
+    unitsml: mbar
+    type: float
+  - value: 905.292
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.41142
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8113
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1450
+    unitsml: m
+    type: integer
+  - value: -4757
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1450
+    unitsml: m
+    type: integer
+  - value: -4758
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 297577
+    unitsml: K
+    type: integer
+  - value: 24427
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1200.05
+    unitsml: mbar
+    type: float
+  - value: 900.11
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.40487
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8111
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1400
+    unitsml: m
+    type: integer
+  - value: -4593
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1400
+    unitsml: m
+    type: integer
+  - value: -4594
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 297252
+    unitsml: K
+    type: integer
+  - value: 24102
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1193.17
+    unitsml: mbar
+    type: float
+  - value: 894.953
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.39835
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.811
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1350
+    unitsml: m
+    type: integer
+  - value: -4429
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1350
+    unitsml: m
+    type: integer
+  - value: -4430
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 296927
+    unitsml: K
+    type: integer
+  - value: 23777
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1186.33
+    unitsml: mbar
+    type: float
+  - value: 889.82
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.39185
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8108
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1300
+    unitsml: m
+    type: integer
+  - value: -4265
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1300
+    unitsml: m
+    type: integer
+  - value: -4266
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 296602
+    unitsml: K
+    type: integer
+  - value: 23452
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1179.52
+    unitsml: mbar
+    type: float
+  - value: 884.711
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.38538
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8107
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1250
+    unitsml: m
+    type: integer
+  - value: -4101
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1250
+    unitsml: m
+    type: integer
+  - value: -4102
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 296277
+    unitsml: K
+    type: integer
+  - value: 23127
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1172.74
+    unitsml: mbar
+    type: float
+  - value: 879.626
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.37893
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8105
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1200
+    unitsml: m
+    type: integer
+  - value: -3937
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1200
+    unitsml: m
+    type: integer
+  - value: -3938
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 295951
+    unitsml: K
+    type: integer
+  - value: 22801
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1165.99
+    unitsml: mbar
+    type: float
+  - value: 874.564
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.3725
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8104
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1150
+    unitsml: m
+    type: integer
+  - value: -3773
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1150
+    unitsml: m
+    type: integer
+  - value: -3774
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 295626
+    unitsml: K
+    type: integer
+  - value: 22476
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1159.27
+    unitsml: mbar
+    type: float
+  - value: 869.526
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.36609
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8102
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1100
+    unitsml: m
+    type: integer
+  - value: -3609
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1100
+    unitsml: m
+    type: integer
+  - value: -3610
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 295301
+    unitsml: K
+    type: integer
+  - value: 22151
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1152.59
+    unitsml: mbar
+    type: float
+  - value: 864.512
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.35971
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.81
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1050
+    unitsml: m
+    type: integer
+  - value: -3445
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1050
+    unitsml: m
+    type: integer
+  - value: -3445
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 294976
+    unitsml: K
+    type: integer
+  - value: 21826
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1145.93
+    unitsml: mbar
+    type: float
+  - value: 859.521
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.35335
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8099
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1000
+    unitsml: m
+    type: integer
+  - value: -3281
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1000
+    unitsml: m
+    type: integer
+  - value: -3281
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 294651
+    unitsml: K
+    type: integer
+  - value: 21501
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1139.31
+    unitsml: mbar
+    type: float
+  - value: 854.554
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.34702
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8097
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -950
+    unitsml: m
+    type: integer
+  - value: -3117
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -950
+    unitsml: m
+    type: integer
+  - value: -3117
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 294326
+    unitsml: K
+    type: integer
+  - value: 21176
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1132.72
+    unitsml: mbar
+    type: float
+  - value: 849.61
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.3407
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8096
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -900
+    unitsml: m
+    type: integer
+  - value: -2953
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -900
+    unitsml: m
+    type: integer
+  - value: -2953
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 294001
+    unitsml: K
+    type: integer
+  - value: 20851
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1126.16
+    unitsml: mbar
+    type: float
+  - value: 844.689
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.33441
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8094
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -850
+    unitsml: m
+    type: integer
+  - value: -2789
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -850
+    unitsml: m
+    type: integer
+  - value: -2789
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 293676
+    unitsml: K
+    type: integer
+  - value: 20526
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1119.63
+    unitsml: mbar
+    type: float
+  - value: 839.792
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.32814
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8093
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -800
+    unitsml: m
+    type: integer
+  - value: -2625
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -800
+    unitsml: m
+    type: integer
+  - value: -2625
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 293351
+    unitsml: K
+    type: integer
+  - value: 20201
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1113.13
+    unitsml: mbar
+    type: float
+  - value: 834.918
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.3219
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8091
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -750
+    unitsml: m
+    type: integer
+  - value: -2461
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -750
+    unitsml: m
+    type: integer
+  - value: -2461
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 293026
+    unitsml: K
+    type: integer
+  - value: 19876
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1106.66
+    unitsml: mbar
+    type: float
+  - value: 830.066
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.31567
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.809
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -700
+    unitsml: m
+    type: integer
+  - value: -2297
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -700
+    unitsml: m
+    type: integer
+  - value: -2297
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 292701
+    unitsml: K
+    type: integer
+  - value: 19551
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1100.23
+    unitsml: mbar
+    type: float
+  - value: 825.238
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.30947
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8088
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -650
+    unitsml: m
+    type: integer
+  - value: -2133
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -650
+    unitsml: m
+    type: integer
+  - value: -2133
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 292375
+    unitsml: K
+    type: integer
+  - value: 19225
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1093.82
+    unitsml: mbar
+    type: float
+  - value: 820.432
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.3033
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8087
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -600
+    unitsml: m
+    type: integer
+  - value: -1969
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -600
+    unitsml: m
+    type: integer
+  - value: -1969
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 292050
+    unitsml: K
+    type: integer
+  - value: 18900
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1087.44
+    unitsml: mbar
+    type: float
+  - value: 815.649
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.29714
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8085
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -550
+    unitsml: m
+    type: integer
+  - value: -1804
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -550
+    unitsml: m
+    type: integer
+  - value: -1805
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 291725
+    unitsml: K
+    type: integer
+  - value: 18575
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1081.1
+    unitsml: mbar
+    type: float
+  - value: 810.889
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.29101
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8083
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -500
+    unitsml: m
+    type: integer
+  - value: -1640
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -500
+    unitsml: m
+    type: integer
+  - value: -1641
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 291400
+    unitsml: K
+    type: integer
+  - value: 18250
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1074.78
+    unitsml: mbar
+    type: float
+  - value: 806.151
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.2849
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8082
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -450
+    unitsml: m
+    type: integer
+  - value: -1476
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -450
+    unitsml: m
+    type: integer
+  - value: -1476
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 291075
+    unitsml: K
+    type: integer
+  - value: 17925
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1068.49
+    unitsml: mbar
+    type: float
+  - value: 801.436
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.27881
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.808
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -400
+    unitsml: m
+    type: integer
+  - value: -1312
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -400
+    unitsml: m
+    type: integer
+  - value: -1312
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 290750
+    unitsml: K
+    type: integer
+  - value: 17600
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1062.24
+    unitsml: mbar
+    type: float
+  - value: 796.744
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.27274
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8079
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -350
+    unitsml: m
+    type: integer
+  - value: -1148
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -350
+    unitsml: m
+    type: integer
+  - value: -1148
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 290425
+    unitsml: K
+    type: integer
+  - value: 17275
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1056.01
+    unitsml: mbar
+    type: float
+  - value: 792.073
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.2667
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8077
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -300
+    unitsml: m
+    type: integer
+  - value: -984
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -300
+    unitsml: m
+    type: integer
+  - value: -984
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 290100
+    unitsml: K
+    type: integer
+  - value: 16950
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1049.81
+    unitsml: mbar
+    type: float
+  - value: 787.425
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.26067
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8076
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -250
+    unitsml: m
+    type: integer
+  - value: -820
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -250
+    unitsml: m
+    type: integer
+  - value: -820
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 289775
+    unitsml: K
+    type: integer
+  - value: 16625
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1043.65
+    unitsml: mbar
+    type: float
+  - value: 782.799
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.25467
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8074
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -200
+    unitsml: m
+    type: integer
+  - value: -656
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -200
+    unitsml: m
+    type: integer
+  - value: -656
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 289450
+    unitsml: K
+    type: integer
+  - value: 16300
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1037.51
+    unitsml: mbar
+    type: float
+  - value: 778.196
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.24869
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8073
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -150
+    unitsml: m
+    type: integer
+  - value: -492
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -150
+    unitsml: m
+    type: integer
+  - value: -492
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 289125
+    unitsml: K
+    type: integer
+  - value: 15975
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1031.4
+    unitsml: mbar
+    type: float
+  - value: 773.614
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.24274
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8071
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -100
+    unitsml: m
+    type: integer
+  - value: -328
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -100
+    unitsml: m
+    type: integer
+  - value: -328
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 288800
+    unitsml: K
+    type: integer
+  - value: 15650
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1025.32
+    unitsml: mbar
+    type: float
+  - value: 769.054
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.2368
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.807
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -50
+    unitsml: m
+    type: integer
+  - value: -164
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -50
+    unitsml: m
+    type: integer
+  - value: -164
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 288475
+    unitsml: K
+    type: integer
+  - value: 15325
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1019.27
+    unitsml: mbar
+    type: float
+  - value: 764.516
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.23089
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8068
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 0
+    unitsml: m
+    type: integer
+  - value: 0
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 0
+    unitsml: m
+    type: integer
+  - value: 0
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 288150
+    unitsml: K
+    type: integer
+  - value: 15000
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1013.25
+    unitsml: mbar
+    type: float
+  - value: 760.0
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.225
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8067
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 50
+    unitsml: m
+    type: integer
+  - value: 164
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 50
+    unitsml: m
+    type: integer
+  - value: 164
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 287825
+    unitsml: K
+    type: integer
+  - value: 14675
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1007.26
+    unitsml: mbar
+    type: float
+  - value: 755.506
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.21913
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8065
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 100
+    unitsml: m
+    type: integer
+  - value: 328
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 100
+    unitsml: m
+    type: integer
+  - value: 328
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 287500
+    unitsml: K
+    type: integer
+  - value: 14350
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1001.29
+    unitsml: mbar
+    type: float
+  - value: 751.033
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.21328
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8063
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 150
+    unitsml: m
+    type: integer
+  - value: 492
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 150
+    unitsml: m
+    type: integer
+  - value: 492
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 287175
+    unitsml: K
+    type: integer
+  - value: 14025
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 995.36
+    unitsml: mbar
+    type: float
+  - value: 746.581
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.20746
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8062
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 200
+    unitsml: m
+    type: integer
+  - value: 656
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 200
+    unitsml: m
+    type: integer
+  - value: 656
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 286850
+    unitsml: K
+    type: integer
+  - value: 13700
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 989.454
+    unitsml: mbar
+    type: float
+  - value: 742.152
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.20165
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.806
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 250
+    unitsml: m
+    type: integer
+  - value: 820
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 250
+    unitsml: m
+    type: integer
+  - value: 820
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 286525
+    unitsml: K
+    type: integer
+  - value: 13375
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 983.576
+    unitsml: mbar
+    type: float
+  - value: 737.743
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.19587
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8059
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 300
+    unitsml: m
+    type: integer
+  - value: 984
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 300
+    unitsml: m
+    type: integer
+  - value: 984
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 286200
+    unitsml: K
+    type: integer
+  - value: 13050
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 977.727
+    unitsml: mbar
+    type: float
+  - value: 733.356
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.19011
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8057
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 350
+    unitsml: m
+    type: integer
+  - value: 1148
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 350
+    unitsml: m
+    type: integer
+  - value: 1148
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 285875
+    unitsml: K
+    type: integer
+  - value: 12725
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 971.907
+    unitsml: mbar
+    type: float
+  - value: 728.99
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.18437
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8056
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 400
+    unitsml: m
+    type: integer
+  - value: 1312
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 400
+    unitsml: m
+    type: integer
+  - value: 1312
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 285550
+    unitsml: K
+    type: integer
+  - value: 12400
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 966.114
+    unitsml: mbar
+    type: float
+  - value: 724.645
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.17865
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8054
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 450
+    unitsml: m
+    type: integer
+  - value: 1476
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 450
+    unitsml: m
+    type: integer
+  - value: 1476
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 285225
+    unitsml: K
+    type: integer
+  - value: 12075
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 960.349
+    unitsml: mbar
+    type: float
+  - value: 720.321
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.17295
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8053
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 500
+    unitsml: m
+    type: integer
+  - value: 1640
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 500
+    unitsml: m
+    type: integer
+  - value: 1640
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 284900
+    unitsml: K
+    type: integer
+  - value: 11750
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 954.613
+    unitsml: mbar
+    type: float
+  - value: 716.019
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.16727
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8051
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 550
+    unitsml: m
+    type: integer
+  - value: 1804
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 550
+    unitsml: m
+    type: integer
+  - value: 1804
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 284575
+    unitsml: K
+    type: integer
+  - value: 11425
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 948.904
+    unitsml: mbar
+    type: float
+  - value: 711.737
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.16162
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.805
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 600
+    unitsml: m
+    type: integer
+  - value: 1969
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 600
+    unitsml: m
+    type: integer
+  - value: 1968
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 284250
+    unitsml: K
+    type: integer
+  - value: 11100
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 943.223
+    unitsml: mbar
+    type: float
+  - value: 707.476
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.15598
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8048
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 650
+    unitsml: m
+    type: integer
+  - value: 2133
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 650
+    unitsml: m
+    type: integer
+  - value: 2132
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 283925
+    unitsml: K
+    type: integer
+  - value: 10775
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 937.57
+    unitsml: mbar
+    type: float
+  - value: 703.235
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.15037
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8046
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 700
+    unitsml: m
+    type: integer
+  - value: 2297
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 700
+    unitsml: m
+    type: integer
+  - value: 2296
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 283601
+    unitsml: K
+    type: integer
+  - value: 10451
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 931.944
+    unitsml: mbar
+    type: float
+  - value: 699.016
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.14478
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8045
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 750
+    unitsml: m
+    type: integer
+  - value: 2461
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 750
+    unitsml: m
+    type: integer
+  - value: 2460
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 283276
+    unitsml: K
+    type: integer
+  - value: 10126
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 926.346
+    unitsml: mbar
+    type: float
+  - value: 694.817
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.13921
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8043
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 800
+    unitsml: m
+    type: integer
+  - value: 2625
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 800
+    unitsml: m
+    type: integer
+  - value: 2624
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 282951
+    unitsml: K
+    type: integer
+  - value: 9801
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 920.775
+    unitsml: mbar
+    type: float
+  - value: 690.638
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.13366
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8042
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 850
+    unitsml: m
+    type: integer
+  - value: 2789
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 850
+    unitsml: m
+    type: integer
+  - value: 2788
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 282626
+    unitsml: K
+    type: integer
+  - value: 9476
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 915.231
+    unitsml: mbar
+    type: float
+  - value: 686.48
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.12813
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.804
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 900
+    unitsml: m
+    type: integer
+  - value: 2953
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 900
+    unitsml: m
+    type: integer
+  - value: 2952
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 282301
+    unitsml: K
+    type: integer
+  - value: 9151
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 909.715
+    unitsml: mbar
+    type: float
+  - value: 682.342
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.12262
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8039
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 950
+    unitsml: m
+    type: integer
+  - value: 3117
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 950
+    unitsml: m
+    type: integer
+  - value: 3116
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 281976
+    unitsml: K
+    type: integer
+  - value: 8826
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 904.225
+    unitsml: mbar
+    type: float
+  - value: 678.225
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.11713
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8037
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1000
+    unitsml: m
+    type: integer
+  - value: 3281
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1000
+    unitsml: m
+    type: integer
+  - value: 3280
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 281651
+    unitsml: K
+    type: integer
+  - value: 8501
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 898.763
+    unitsml: mbar
+    type: float
+  - value: 674.128
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.11166
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8036
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1050
+    unitsml: m
+    type: integer
+  - value: 3445
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1050
+    unitsml: m
+    type: integer
+  - value: 3444
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 281326
+    unitsml: K
+    type: integer
+  - value: 8176
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 893.327
+    unitsml: mbar
+    type: float
+  - value: 670.05
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.10621
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8034
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1100
+    unitsml: m
+    type: integer
+  - value: 3609
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1100
+    unitsml: m
+    type: integer
+  - value: 3608
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 281001
+    unitsml: K
+    type: integer
+  - value: 7851
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 887.918
+    unitsml: mbar
+    type: float
+  - value: 665.993
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.10079
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8033
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1150
+    unitsml: m
+    type: integer
+  - value: 3773
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1150
+    unitsml: m
+    type: integer
+  - value: 3772
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 280676
+    unitsml: K
+    type: integer
+  - value: 7526
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 882.536
+    unitsml: mbar
+    type: float
+  - value: 661.956
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.09538
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8031
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1200
+    unitsml: m
+    type: integer
+  - value: 3937
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1200
+    unitsml: m
+    type: integer
+  - value: 3936
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 280351
+    unitsml: K
+    type: integer
+  - value: 7201
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 877.18
+    unitsml: mbar
+    type: float
+  - value: 657.939
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.08999
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8029
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1250
+    unitsml: m
+    type: integer
+  - value: 4101
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1250
+    unitsml: m
+    type: integer
+  - value: 4100
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 280027
+    unitsml: K
+    type: integer
+  - value: 6877
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 871.851
+    unitsml: mbar
+    type: float
+  - value: 653.942
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.08463
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8028
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1300
+    unitsml: m
+    type: integer
+  - value: 4265
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1300
+    unitsml: m
+    type: integer
+  - value: 4264
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 279702
+    unitsml: K
+    type: integer
+  - value: 6552
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 866.548
+    unitsml: mbar
+    type: float
+  - value: 649.964
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.07928
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8026
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1350
+    unitsml: m
+    type: integer
+  - value: 4429
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1350
+    unitsml: m
+    type: integer
+  - value: 4428
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 279377
+    unitsml: K
+    type: integer
+  - value: 6227
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 861.271
+    unitsml: mbar
+    type: float
+  - value: 646.006
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.07396
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8025
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1400
+    unitsml: m
+    type: integer
+  - value: 4593
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1400
+    unitsml: m
+    type: integer
+  - value: 4592
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 279052
+    unitsml: K
+    type: integer
+  - value: 5902
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 856.02
+    unitsml: mbar
+    type: float
+  - value: 642.068
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.06865
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8023
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1450
+    unitsml: m
+    type: integer
+  - value: 4757
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1450
+    unitsml: m
+    type: integer
+  - value: 4756
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 278727
+    unitsml: K
+    type: integer
+  - value: 5577
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 850.795
+    unitsml: mbar
+    type: float
+  - value: 638.149
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.06337
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8022
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1500
+    unitsml: m
+    type: integer
+  - value: 4921
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1500
+    unitsml: m
+    type: integer
+  - value: 4920
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 278402
+    unitsml: K
+    type: integer
+  - value: 5252
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 845.597
+    unitsml: mbar
+    type: float
+  - value: 634.25
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.0581
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.802
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1550
+    unitsml: m
+    type: integer
+  - value: 5085
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1550
+    unitsml: m
+    type: integer
+  - value: 5084
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 278077
+    unitsml: K
+    type: integer
+  - value: 4927
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 840.424
+    unitsml: mbar
+    type: float
+  - value: 630.37
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.05286
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8019
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1600
+    unitsml: m
+    type: integer
+  - value: 5249
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1600
+    unitsml: m
+    type: integer
+  - value: 5248
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 277753
+    unitsml: K
+    type: integer
+  - value: 4603
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 835.277
+    unitsml: mbar
+    type: float
+  - value: 626.509
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.04764
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8017
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1650
+    unitsml: m
+    type: integer
+  - value: 5413
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1650
+    unitsml: m
+    type: integer
+  - value: 5412
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 277428
+    unitsml: K
+    type: integer
+  - value: 4278
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 830.155
+    unitsml: mbar
+    type: float
+  - value: 622.668
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.04243
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8016
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1700
+    unitsml: m
+    type: integer
+  - value: 5577
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1700
+    unitsml: m
+    type: integer
+  - value: 5576
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 277103
+    unitsml: K
+    type: integer
+  - value: 3953
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 825.059
+    unitsml: mbar
+    type: float
+  - value: 618.845
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.03725
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8014
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1750
+    unitsml: m
+    type: integer
+  - value: 5741
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1750
+    unitsml: m
+    type: integer
+  - value: 5740
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 276778
+    unitsml: K
+    type: integer
+  - value: 3628
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 819.989
+    unitsml: mbar
+    type: float
+  - value: 615.042
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.03208
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8013
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1800
+    unitsml: m
+    type: integer
+  - value: 5906
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1799
+    unitsml: m
+    type: integer
+  - value: 5904
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 276453
+    unitsml: K
+    type: integer
+  - value: 3303
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 814.943
+    unitsml: mbar
+    type: float
+  - value: 611.258
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.02694
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8011
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1850
+    unitsml: m
+    type: integer
+  - value: 6070
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1849
+    unitsml: m
+    type: integer
+  - value: 6068
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 276128
+    unitsml: K
+    type: integer
+  - value: 2978
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 809.923
+    unitsml: mbar
+    type: float
+  - value: 607.493
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.02181
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8009
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1900
+    unitsml: m
+    type: integer
+  - value: 6234
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1899
+    unitsml: m
+    type: integer
+  - value: 6232
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 275804
+    unitsml: K
+    type: integer
+  - value: 2654
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 804.929
+    unitsml: mbar
+    type: float
+  - value: 603.746
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.01671
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8008
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1950
+    unitsml: m
+    type: integer
+  - value: 6398
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1949
+    unitsml: m
+    type: integer
+  - value: 6396
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 275479
+    unitsml: K
+    type: integer
+  - value: 2329
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 799.959
+    unitsml: mbar
+    type: float
+  - value: 600.019
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.01162
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8006
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 2000
+    unitsml: m
+    type: integer
+  - value: 6562
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1999
+    unitsml: m
+    type: integer
+  - value: 6560
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 275154
+    unitsml: K
+    type: integer
+  - value: 2004
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 795.014
+    unitsml: mbar
+    type: float
+  - value: 596.31
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.00655
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8005
+    unitsml: m*s^-2
+    type: float
+by-geopotential-altitude:
+- geometric-altitude:
+  - value: -4996
+    unitsml: m
+    type: integer
+  - value: -16391
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -5000
+    unitsml: m
+    type: integer
+  - value: -16404
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 320650
+    unitsml: K
+    type: integer
+  - value: 47500
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1776.87
+    unitsml: mbar
+    type: float
+  - value: 1332.76
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.93047
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8221
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4946
+    unitsml: m
+    type: integer
+  - value: -16228
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4950
+    unitsml: m
+    type: integer
+  - value: -16240
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 320325
+    unitsml: K
+    type: integer
+  - value: 47175
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1767.43
+    unitsml: mbar
+    type: float
+  - value: 1325.68
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.92215
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8219
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4896
+    unitsml: m
+    type: integer
+  - value: -16064
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4900
+    unitsml: m
+    type: integer
+  - value: -16076
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 320000
+    unitsml: K
+    type: integer
+  - value: 46850
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1758.02
+    unitsml: mbar
+    type: float
+  - value: 1318.62
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.91387
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8218
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4846
+    unitsml: m
+    type: integer
+  - value: -15900
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4850
+    unitsml: m
+    type: integer
+  - value: -15912
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 319675
+    unitsml: K
+    type: integer
+  - value: 46525
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1748.66
+    unitsml: mbar
+    type: float
+  - value: 1311.6
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.90561
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8216
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4796
+    unitsml: m
+    type: integer
+  - value: -15736
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4800
+    unitsml: m
+    type: integer
+  - value: -15748
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 319350
+    unitsml: K
+    type: integer
+  - value: 46200
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1739.33
+    unitsml: mbar
+    type: float
+  - value: 1304.61
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.89738
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8215
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4746
+    unitsml: m
+    type: integer
+  - value: -15572
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4750
+    unitsml: m
+    type: integer
+  - value: -15584
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 319025
+    unitsml: K
+    type: integer
+  - value: 45875
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1730.05
+    unitsml: mbar
+    type: float
+  - value: 1297.64
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.88917
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8213
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4697
+    unitsml: m
+    type: integer
+  - value: -15409
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4700
+    unitsml: m
+    type: integer
+  - value: -15420
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 318700
+    unitsml: K
+    type: integer
+  - value: 45550
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1720.81
+    unitsml: mbar
+    type: float
+  - value: 1290.71
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.881
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8212
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4647
+    unitsml: m
+    type: integer
+  - value: -15245
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4650
+    unitsml: m
+    type: integer
+  - value: -15256
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 318375
+    unitsml: K
+    type: integer
+  - value: 45225
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1711.6
+    unitsml: mbar
+    type: float
+  - value: 1283.81
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.87285
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.821
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4597
+    unitsml: m
+    type: integer
+  - value: -15081
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4600
+    unitsml: m
+    type: integer
+  - value: -15092
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 318050
+    unitsml: K
+    type: integer
+  - value: 44900
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1702.44
+    unitsml: mbar
+    type: float
+  - value: 1276.93
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.86472
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8208
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4547
+    unitsml: m
+    type: integer
+  - value: -14917
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4550
+    unitsml: m
+    type: integer
+  - value: -14928
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 317725
+    unitsml: K
+    type: integer
+  - value: 44575
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1693.32
+    unitsml: mbar
+    type: float
+  - value: 1270.09
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.85663
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8207
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4497
+    unitsml: m
+    type: integer
+  - value: -14753
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4500
+    unitsml: m
+    type: integer
+  - value: -14764
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 317400
+    unitsml: K
+    type: integer
+  - value: 44250
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1684.23
+    unitsml: mbar
+    type: float
+  - value: 1263.28
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.84856
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8205
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4447
+    unitsml: m
+    type: integer
+  - value: -14590
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4450
+    unitsml: m
+    type: integer
+  - value: -14600
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 317075
+    unitsml: K
+    type: integer
+  - value: 43925
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1675.19
+    unitsml: mbar
+    type: float
+  - value: 1256.49
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.84052
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8204
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4397
+    unitsml: m
+    type: integer
+  - value: -14426
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4400
+    unitsml: m
+    type: integer
+  - value: -14436
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 316750
+    unitsml: K
+    type: integer
+  - value: 43600
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1666.18
+    unitsml: mbar
+    type: float
+  - value: 1249.74
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.8325
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8202
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4347
+    unitsml: m
+    type: integer
+  - value: -14262
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4350
+    unitsml: m
+    type: integer
+  - value: -14272
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 316425
+    unitsml: K
+    type: integer
+  - value: 43275
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1657.22
+    unitsml: mbar
+    type: float
+  - value: 1243.02
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.82451
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8201
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4297
+    unitsml: m
+    type: integer
+  - value: -14098
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4300
+    unitsml: m
+    type: integer
+  - value: -14108
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 316100
+    unitsml: K
+    type: integer
+  - value: 42950
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1648.29
+    unitsml: mbar
+    type: float
+  - value: 1236.32
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.81655
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8199
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4247
+    unitsml: m
+    type: integer
+  - value: -13934
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4250
+    unitsml: m
+    type: integer
+  - value: -13944
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 315775
+    unitsml: K
+    type: integer
+  - value: 42625
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1639.4
+    unitsml: mbar
+    type: float
+  - value: 1229.65
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.80861
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8198
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4197
+    unitsml: m
+    type: integer
+  - value: -13770
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4200
+    unitsml: m
+    type: integer
+  - value: -13780
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 315450
+    unitsml: K
+    type: integer
+  - value: 42300
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1630.55
+    unitsml: mbar
+    type: float
+  - value: 1223.02
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.80071
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8196
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4147
+    unitsml: m
+    type: integer
+  - value: -13607
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4150
+    unitsml: m
+    type: integer
+  - value: -13615
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 315125
+    unitsml: K
+    type: integer
+  - value: 41975
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1621.74
+    unitsml: mbar
+    type: float
+  - value: 1216.41
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.79282
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8195
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4097
+    unitsml: m
+    type: integer
+  - value: -13443
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4100
+    unitsml: m
+    type: integer
+  - value: -13451
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 314800
+    unitsml: K
+    type: integer
+  - value: 41650
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1612.97
+    unitsml: mbar
+    type: float
+  - value: 1209.83
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.78497
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8193
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -4047
+    unitsml: m
+    type: integer
+  - value: -13279
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4050
+    unitsml: m
+    type: integer
+  - value: -13287
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 314475
+    unitsml: K
+    type: integer
+  - value: 41325
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1604.24
+    unitsml: mbar
+    type: float
+  - value: 1203.28
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.77714
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8191
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3997
+    unitsml: m
+    type: integer
+  - value: -13115
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -4000
+    unitsml: m
+    type: integer
+  - value: -13123
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 314150
+    unitsml: K
+    type: integer
+  - value: 41000
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1595.54
+    unitsml: mbar
+    type: float
+  - value: 1196.76
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.76933
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.819
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3948
+    unitsml: m
+    type: integer
+  - value: -12951
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3950
+    unitsml: m
+    type: integer
+  - value: -12959
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 313825
+    unitsml: K
+    type: integer
+  - value: 40675
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1586.89
+    unitsml: mbar
+    type: float
+  - value: 1190.26
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.76156
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8188
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3898
+    unitsml: m
+    type: integer
+  - value: -12787
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3900
+    unitsml: m
+    type: integer
+  - value: -12795
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 313500
+    unitsml: K
+    type: integer
+  - value: 40350
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1578.27
+    unitsml: mbar
+    type: float
+  - value: 1183.8
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.75381
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8187
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3848
+    unitsml: m
+    type: integer
+  - value: -12624
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3850
+    unitsml: m
+    type: integer
+  - value: -12631
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 313175
+    unitsml: K
+    type: integer
+  - value: 40025
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1569.69
+    unitsml: mbar
+    type: float
+  - value: 1177.36
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.74608
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8185
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3798
+    unitsml: m
+    type: integer
+  - value: -12460
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3800
+    unitsml: m
+    type: integer
+  - value: -12467
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 312850
+    unitsml: K
+    type: integer
+  - value: 39700
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1561.15
+    unitsml: mbar
+    type: float
+  - value: 1170.96
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.73838
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8184
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3748
+    unitsml: m
+    type: integer
+  - value: -12296
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3750
+    unitsml: m
+    type: integer
+  - value: -12303
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 312525
+    unitsml: K
+    type: integer
+  - value: 39375
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1552.64
+    unitsml: mbar
+    type: float
+  - value: 1164.58
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.73071
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8182
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3698
+    unitsml: m
+    type: integer
+  - value: -12132
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3700
+    unitsml: m
+    type: integer
+  - value: -12139
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 312200
+    unitsml: K
+    type: integer
+  - value: 39050
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1544.17
+    unitsml: mbar
+    type: float
+  - value: 1158.23
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.72306
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8181
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3648
+    unitsml: m
+    type: integer
+  - value: -11968
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3650
+    unitsml: m
+    type: integer
+  - value: -11975
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 311875
+    unitsml: K
+    type: integer
+  - value: 38725
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1535.74
+    unitsml: mbar
+    type: float
+  - value: 1151.9
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.71544
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8179
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3598
+    unitsml: m
+    type: integer
+  - value: -11804
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3600
+    unitsml: m
+    type: integer
+  - value: -11811
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 311550
+    unitsml: K
+    type: integer
+  - value: 38400
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1527.35
+    unitsml: mbar
+    type: float
+  - value: 1145.61
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.70785
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8178
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3548
+    unitsml: m
+    type: integer
+  - value: -11640
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3550
+    unitsml: m
+    type: integer
+  - value: -11647
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 311225
+    unitsml: K
+    type: integer
+  - value: 38075
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1519.0
+    unitsml: mbar
+    type: float
+  - value: 1139.34
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.70028
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8176
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3498
+    unitsml: m
+    type: integer
+  - value: -11477
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3500
+    unitsml: m
+    type: integer
+  - value: -11483
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 310900
+    unitsml: K
+    type: integer
+  - value: 37750
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1510.68
+    unitsml: mbar
+    type: float
+  - value: 1133.1
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.69274
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8175
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3448
+    unitsml: m
+    type: integer
+  - value: -11313
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3450
+    unitsml: m
+    type: integer
+  - value: -11319
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 310575
+    unitsml: K
+    type: integer
+  - value: 37425
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1502.4
+    unitsml: mbar
+    type: float
+  - value: 1126.89
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.68522
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8173
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3398
+    unitsml: m
+    type: integer
+  - value: -11149
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3400
+    unitsml: m
+    type: integer
+  - value: -11155
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 310250
+    unitsml: K
+    type: integer
+  - value: 37100
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1494.15
+    unitsml: mbar
+    type: float
+  - value: 1120.71
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.67772
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8171
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3348
+    unitsml: m
+    type: integer
+  - value: -10985
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3350
+    unitsml: m
+    type: integer
+  - value: -10991
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 309925
+    unitsml: K
+    type: integer
+  - value: 36775
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1485.94
+    unitsml: mbar
+    type: float
+  - value: 1114.55
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.67026
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.817
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3298
+    unitsml: m
+    type: integer
+  - value: -10821
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3300
+    unitsml: m
+    type: integer
+  - value: -10827
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 309600
+    unitsml: K
+    type: integer
+  - value: 36450
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1477.77
+    unitsml: mbar
+    type: float
+  - value: 1108.42
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.66282
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8168
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3248
+    unitsml: m
+    type: integer
+  - value: -10657
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3250
+    unitsml: m
+    type: integer
+  - value: -10663
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 309275
+    unitsml: K
+    type: integer
+  - value: 36125
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1469.64
+    unitsml: mbar
+    type: float
+  - value: 1102.32
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.6554
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8167
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3198
+    unitsml: m
+    type: integer
+  - value: -10493
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3200
+    unitsml: m
+    type: integer
+  - value: -10499
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 308950
+    unitsml: K
+    type: integer
+  - value: 35800
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1461.54
+    unitsml: mbar
+    type: float
+  - value: 1096.24
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.64801
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8165
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3148
+    unitsml: m
+    type: integer
+  - value: -10330
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3150
+    unitsml: m
+    type: integer
+  - value: -10335
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 308625
+    unitsml: K
+    type: integer
+  - value: 35475
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1453.47
+    unitsml: mbar
+    type: float
+  - value: 1090.2
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.64064
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8164
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3098
+    unitsml: m
+    type: integer
+  - value: -10166
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3100
+    unitsml: m
+    type: integer
+  - value: -10171
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 308300
+    unitsml: K
+    type: integer
+  - value: 35150
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1445.45
+    unitsml: mbar
+    type: float
+  - value: 1084.18
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.6333
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8162
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -3049
+    unitsml: m
+    type: integer
+  - value: -10002
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3050
+    unitsml: m
+    type: integer
+  - value: -10007
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 307975
+    unitsml: K
+    type: integer
+  - value: 34825
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1437.46
+    unitsml: mbar
+    type: float
+  - value: 1078.18
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.62599
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8161
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2999
+    unitsml: m
+    type: integer
+  - value: -9838
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -3000
+    unitsml: m
+    type: integer
+  - value: -9843
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 307650
+    unitsml: K
+    type: integer
+  - value: 34500
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1429.5
+    unitsml: mbar
+    type: float
+  - value: 1072.21
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.6187
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8159
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2949
+    unitsml: m
+    type: integer
+  - value: -9674
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2950
+    unitsml: m
+    type: integer
+  - value: -9678
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 307325
+    unitsml: K
+    type: integer
+  - value: 34175
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1421.58
+    unitsml: mbar
+    type: float
+  - value: 1066.28
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.61143
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8158
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2899
+    unitsml: m
+    type: integer
+  - value: -9510
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2900
+    unitsml: m
+    type: integer
+  - value: -9514
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 307000
+    unitsml: K
+    type: integer
+  - value: 33850
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1413.7
+    unitsml: mbar
+    type: float
+  - value: 1060.36
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.60419
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8156
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2849
+    unitsml: m
+    type: integer
+  - value: -9346
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2850
+    unitsml: m
+    type: integer
+  - value: -9350
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 306675
+    unitsml: K
+    type: integer
+  - value: 33525
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1405.85
+    unitsml: mbar
+    type: float
+  - value: 1054.48
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.59698
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8154
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2799
+    unitsml: m
+    type: integer
+  - value: -9182
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2800
+    unitsml: m
+    type: integer
+  - value: -9186
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 306350
+    unitsml: K
+    type: integer
+  - value: 33200
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1398.04
+    unitsml: mbar
+    type: float
+  - value: 1048.62
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.58979
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8153
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2749
+    unitsml: m
+    type: integer
+  - value: -9018
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2750
+    unitsml: m
+    type: integer
+  - value: -9022
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 306025
+    unitsml: K
+    type: integer
+  - value: 32875
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1390.26
+    unitsml: mbar
+    type: float
+  - value: 1042.78
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.58262
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8151
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2699
+    unitsml: m
+    type: integer
+  - value: -8855
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2700
+    unitsml: m
+    type: integer
+  - value: -8858
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 305700
+    unitsml: K
+    type: integer
+  - value: 32550
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1382.52
+    unitsml: mbar
+    type: float
+  - value: 1036.97
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.57548
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.815
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2649
+    unitsml: m
+    type: integer
+  - value: -8691
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2650
+    unitsml: m
+    type: integer
+  - value: -8694
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 305375
+    unitsml: K
+    type: integer
+  - value: 32225
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1374.81
+    unitsml: mbar
+    type: float
+  - value: 1031.19
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.56837
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8148
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2599
+    unitsml: m
+    type: integer
+  - value: -8527
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2600
+    unitsml: m
+    type: integer
+  - value: -8530
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 305050
+    unitsml: K
+    type: integer
+  - value: 31900
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1367.14
+    unitsml: mbar
+    type: float
+  - value: 1025.44
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.56127
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8147
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2549
+    unitsml: m
+    type: integer
+  - value: -8363
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2550
+    unitsml: m
+    type: integer
+  - value: -8366
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 304725
+    unitsml: K
+    type: integer
+  - value: 31575
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1359.5
+    unitsml: mbar
+    type: float
+  - value: 1019.71
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.55421
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8145
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2499
+    unitsml: m
+    type: integer
+  - value: -8199
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2500
+    unitsml: m
+    type: integer
+  - value: -8202
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 304400
+    unitsml: K
+    type: integer
+  - value: 31250
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1351.9
+    unitsml: mbar
+    type: float
+  - value: 1014.01
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.54717
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8144
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2449
+    unitsml: m
+    type: integer
+  - value: -8035
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2450
+    unitsml: m
+    type: integer
+  - value: -8038
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 304075
+    unitsml: K
+    type: integer
+  - value: 30925
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1344.33
+    unitsml: mbar
+    type: float
+  - value: 1008.33
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.54015
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8142
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2399
+    unitsml: m
+    type: integer
+  - value: -7871
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2400
+    unitsml: m
+    type: integer
+  - value: -7874
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 303750
+    unitsml: K
+    type: integer
+  - value: 30600
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1336.79
+    unitsml: mbar
+    type: float
+  - value: 1002.68
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.53315
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8141
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2349
+    unitsml: m
+    type: integer
+  - value: -7707
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2350
+    unitsml: m
+    type: integer
+  - value: -7710
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 303425
+    unitsml: K
+    type: integer
+  - value: 30275
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1329.29
+    unitsml: mbar
+    type: float
+  - value: 997.051
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.52618
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8139
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2299
+    unitsml: m
+    type: integer
+  - value: -7543
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2300
+    unitsml: m
+    type: integer
+  - value: -7546
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 303100
+    unitsml: K
+    type: integer
+  - value: 29950
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1321.83
+    unitsml: mbar
+    type: float
+  - value: 991.451
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.51924
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8137
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2249
+    unitsml: m
+    type: integer
+  - value: -7379
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2250
+    unitsml: m
+    type: integer
+  - value: -7382
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 302775
+    unitsml: K
+    type: integer
+  - value: 29625
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1314.39
+    unitsml: mbar
+    type: float
+  - value: 985.876
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.51232
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8136
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2199
+    unitsml: m
+    type: integer
+  - value: -7215
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2200
+    unitsml: m
+    type: integer
+  - value: -7218
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 302450
+    unitsml: K
+    type: integer
+  - value: 29300
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1306.99
+    unitsml: mbar
+    type: float
+  - value: 980.327
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.50542
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8134
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2149
+    unitsml: m
+    type: integer
+  - value: -7051
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2150
+    unitsml: m
+    type: integer
+  - value: -7054
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 302125
+    unitsml: K
+    type: integer
+  - value: 28975
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1299.63
+    unitsml: mbar
+    type: float
+  - value: 974.803
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.49855
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8133
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2099
+    unitsml: m
+    type: integer
+  - value: -6887
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2100
+    unitsml: m
+    type: integer
+  - value: -6890
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 301800
+    unitsml: K
+    type: integer
+  - value: 28650
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1292.3
+    unitsml: mbar
+    type: float
+  - value: 969.304
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.4917
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8131
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -2049
+    unitsml: m
+    type: integer
+  - value: -6724
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2050
+    unitsml: m
+    type: integer
+  - value: -6726
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 301475
+    unitsml: K
+    type: integer
+  - value: 28325
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1285.0
+    unitsml: mbar
+    type: float
+  - value: 963.83
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.48488
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.813
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1999
+    unitsml: m
+    type: integer
+  - value: -6560
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -2000
+    unitsml: m
+    type: integer
+  - value: -6562
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 301150
+    unitsml: K
+    type: integer
+  - value: 28000
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1277.74
+    unitsml: mbar
+    type: float
+  - value: 958.382
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.47808
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8128
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1949
+    unitsml: m
+    type: integer
+  - value: -6396
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1950
+    unitsml: m
+    type: integer
+  - value: -6398
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 300825
+    unitsml: K
+    type: integer
+  - value: 27675
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1270.51
+    unitsml: mbar
+    type: float
+  - value: 952.958
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.4713
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8127
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1899
+    unitsml: m
+    type: integer
+  - value: -6232
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1900
+    unitsml: m
+    type: integer
+  - value: -6234
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 300500
+    unitsml: K
+    type: integer
+  - value: 27350
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1263.31
+    unitsml: mbar
+    type: float
+  - value: 947.559
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.46455
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8125
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1849
+    unitsml: m
+    type: integer
+  - value: -6068
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1850
+    unitsml: m
+    type: integer
+  - value: -6070
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 300175
+    unitsml: K
+    type: integer
+  - value: 27025
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1256.14
+    unitsml: mbar
+    type: float
+  - value: 942.186
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.45782
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8124
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1799
+    unitsml: m
+    type: integer
+  - value: -5904
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1800
+    unitsml: m
+    type: integer
+  - value: -5906
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 299850
+    unitsml: K
+    type: integer
+  - value: 26700
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1249.01
+    unitsml: mbar
+    type: float
+  - value: 936.836
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.45111
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8122
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1750
+    unitsml: m
+    type: integer
+  - value: -5740
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1750
+    unitsml: m
+    type: integer
+  - value: -5741
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 299525
+    unitsml: K
+    type: integer
+  - value: 26375
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1241.91
+    unitsml: mbar
+    type: float
+  - value: 931.512
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.44443
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8121
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1700
+    unitsml: m
+    type: integer
+  - value: -5576
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1700
+    unitsml: m
+    type: integer
+  - value: -5577
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 299200
+    unitsml: K
+    type: integer
+  - value: 26050
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1234.85
+    unitsml: mbar
+    type: float
+  - value: 926.212
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.43777
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8119
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1650
+    unitsml: m
+    type: integer
+  - value: -5412
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1650
+    unitsml: m
+    type: integer
+  - value: -5413
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 298875
+    unitsml: K
+    type: integer
+  - value: 25725
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1227.81
+    unitsml: mbar
+    type: float
+  - value: 920.936
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.43114
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8117
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1600
+    unitsml: m
+    type: integer
+  - value: -5248
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1600
+    unitsml: m
+    type: integer
+  - value: -5249
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 298550
+    unitsml: K
+    type: integer
+  - value: 25400
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1220.81
+    unitsml: mbar
+    type: float
+  - value: 915.685
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.42452
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8116
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1550
+    unitsml: m
+    type: integer
+  - value: -5084
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1550
+    unitsml: m
+    type: integer
+  - value: -5085
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 298225
+    unitsml: K
+    type: integer
+  - value: 25075
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1213.84
+    unitsml: mbar
+    type: float
+  - value: 910.458
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.41794
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8114
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1500
+    unitsml: m
+    type: integer
+  - value: -4920
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1500
+    unitsml: m
+    type: integer
+  - value: -4921
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 297900
+    unitsml: K
+    type: integer
+  - value: 24750
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1206.91
+    unitsml: mbar
+    type: float
+  - value: 905.255
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.41137
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8113
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1450
+    unitsml: m
+    type: integer
+  - value: -4756
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1450
+    unitsml: m
+    type: integer
+  - value: -4757
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 297575
+    unitsml: K
+    type: integer
+  - value: 24425
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1200.0
+    unitsml: mbar
+    type: float
+  - value: 900.076
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.40483
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8111
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1400
+    unitsml: m
+    type: integer
+  - value: -4592
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1400
+    unitsml: m
+    type: integer
+  - value: -4593
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 297250
+    unitsml: K
+    type: integer
+  - value: 24100
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1193.13
+    unitsml: mbar
+    type: float
+  - value: 894.922
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.39831
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.811
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1350
+    unitsml: m
+    type: integer
+  - value: -4428
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1350
+    unitsml: m
+    type: integer
+  - value: -4429
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 296925
+    unitsml: K
+    type: integer
+  - value: 23775
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1186.29
+    unitsml: mbar
+    type: float
+  - value: 889.791
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.39182
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8108
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1300
+    unitsml: m
+    type: integer
+  - value: -4264
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1300
+    unitsml: m
+    type: integer
+  - value: -4265
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 296600
+    unitsml: K
+    type: integer
+  - value: 23450
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1179.48
+    unitsml: mbar
+    type: float
+  - value: 884.684
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.38535
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8107
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1250
+    unitsml: m
+    type: integer
+  - value: -4100
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1250
+    unitsml: m
+    type: integer
+  - value: -4101
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 296275
+    unitsml: K
+    type: integer
+  - value: 23125
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1172.7
+    unitsml: mbar
+    type: float
+  - value: 879.601
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.3789
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8105
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1200
+    unitsml: m
+    type: integer
+  - value: -3936
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1200
+    unitsml: m
+    type: integer
+  - value: -3937
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 295950
+    unitsml: K
+    type: integer
+  - value: 22800
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1165.96
+    unitsml: mbar
+    type: float
+  - value: 874.541
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.37247
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8104
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1150
+    unitsml: m
+    type: integer
+  - value: -3772
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1150
+    unitsml: m
+    type: integer
+  - value: -3773
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 295625
+    unitsml: K
+    type: integer
+  - value: 22475
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1159.25
+    unitsml: mbar
+    type: float
+  - value: 869.505
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.36607
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8102
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1100
+    unitsml: m
+    type: integer
+  - value: -3608
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1100
+    unitsml: m
+    type: integer
+  - value: -3609
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 295300
+    unitsml: K
+    type: integer
+  - value: 22150
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1152.56
+    unitsml: mbar
+    type: float
+  - value: 864.493
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.35969
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.81
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1050
+    unitsml: m
+    type: integer
+  - value: -3444
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1050
+    unitsml: m
+    type: integer
+  - value: -3445
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 294975
+    unitsml: K
+    type: integer
+  - value: 21825
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1145.91
+    unitsml: mbar
+    type: float
+  - value: 859.504
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.35333
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8099
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -1000
+    unitsml: m
+    type: integer
+  - value: -3280
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -1000
+    unitsml: m
+    type: integer
+  - value: -3281
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 294650
+    unitsml: K
+    type: integer
+  - value: 21500
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1139.29
+    unitsml: mbar
+    type: float
+  - value: 854.538
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.347
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8097
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -950
+    unitsml: m
+    type: integer
+  - value: -3116
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -950
+    unitsml: m
+    type: integer
+  - value: -3117
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 294325
+    unitsml: K
+    type: integer
+  - value: 21175
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1132.7
+    unitsml: mbar
+    type: float
+  - value: 849.596
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.34068
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8096
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -900
+    unitsml: m
+    type: integer
+  - value: -2952
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -900
+    unitsml: m
+    type: integer
+  - value: -2953
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 294000
+    unitsml: K
+    type: integer
+  - value: 20850
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1126.14
+    unitsml: mbar
+    type: float
+  - value: 844.677
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.3344
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8094
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -850
+    unitsml: m
+    type: integer
+  - value: -2788
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -850
+    unitsml: m
+    type: integer
+  - value: -2789
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 293675
+    unitsml: K
+    type: integer
+  - value: 20525
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1119.62
+    unitsml: mbar
+    type: float
+  - value: 839.781
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.32813
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8093
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -800
+    unitsml: m
+    type: integer
+  - value: -2624
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -800
+    unitsml: m
+    type: integer
+  - value: -2625
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 293350
+    unitsml: K
+    type: integer
+  - value: 20200
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1113.12
+    unitsml: mbar
+    type: float
+  - value: 834.908
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.32188
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8091
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -750
+    unitsml: m
+    type: integer
+  - value: -2460
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -750
+    unitsml: m
+    type: integer
+  - value: -2461
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 293025
+    unitsml: K
+    type: integer
+  - value: 19875
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1106.65
+    unitsml: mbar
+    type: float
+  - value: 830.058
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.31566
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.809
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -700
+    unitsml: m
+    type: integer
+  - value: -2296
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -700
+    unitsml: m
+    type: integer
+  - value: -2297
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 292700
+    unitsml: K
+    type: integer
+  - value: 19550
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1100.22
+    unitsml: mbar
+    type: float
+  - value: 825.23
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.30946
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8088
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -650
+    unitsml: m
+    type: integer
+  - value: -2132
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -650
+    unitsml: m
+    type: integer
+  - value: -2133
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 292375
+    unitsml: K
+    type: integer
+  - value: 19225
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1093.81
+    unitsml: mbar
+    type: float
+  - value: 820.426
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.30329
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8087
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -600
+    unitsml: m
+    type: integer
+  - value: -1968
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -600
+    unitsml: m
+    type: integer
+  - value: -1969
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 292050
+    unitsml: K
+    type: integer
+  - value: 18900
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1087.44
+    unitsml: mbar
+    type: float
+  - value: 815.644
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.29713
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8085
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -550
+    unitsml: m
+    type: integer
+  - value: -1804
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -550
+    unitsml: m
+    type: integer
+  - value: -1804
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 291725
+    unitsml: K
+    type: integer
+  - value: 18575
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1081.09
+    unitsml: mbar
+    type: float
+  - value: 810.884
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.291
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8083
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -500
+    unitsml: m
+    type: integer
+  - value: -1640
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -500
+    unitsml: m
+    type: integer
+  - value: -1640
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 291400
+    unitsml: K
+    type: integer
+  - value: 18250
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1074.78
+    unitsml: mbar
+    type: float
+  - value: 806.148
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.28489
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8082
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -450
+    unitsml: m
+    type: integer
+  - value: -1476
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -450
+    unitsml: m
+    type: integer
+  - value: -1476
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 291075
+    unitsml: K
+    type: integer
+  - value: 17925
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1068.49
+    unitsml: mbar
+    type: float
+  - value: 801.433
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.2788
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.808
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -400
+    unitsml: m
+    type: integer
+  - value: -1312
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -400
+    unitsml: m
+    type: integer
+  - value: -1312
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 290750
+    unitsml: K
+    type: integer
+  - value: 17600
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1062.23
+    unitsml: mbar
+    type: float
+  - value: 796.741
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.27274
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8079
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -350
+    unitsml: m
+    type: integer
+  - value: -1148
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -350
+    unitsml: m
+    type: integer
+  - value: -1148
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 290425
+    unitsml: K
+    type: integer
+  - value: 17275
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1056.01
+    unitsml: mbar
+    type: float
+  - value: 792.072
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.26669
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8077
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -300
+    unitsml: m
+    type: integer
+  - value: -984
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -300
+    unitsml: m
+    type: integer
+  - value: -984
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 290100
+    unitsml: K
+    type: integer
+  - value: 16950
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1049.81
+    unitsml: mbar
+    type: float
+  - value: 787.424
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.26067
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8076
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -250
+    unitsml: m
+    type: integer
+  - value: -820
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -250
+    unitsml: m
+    type: integer
+  - value: -820
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 289775
+    unitsml: K
+    type: integer
+  - value: 16625
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1043.65
+    unitsml: mbar
+    type: float
+  - value: 782.798
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.25467
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8074
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -200
+    unitsml: m
+    type: integer
+  - value: -656
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -200
+    unitsml: m
+    type: integer
+  - value: -656
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 289450
+    unitsml: K
+    type: integer
+  - value: 16300
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1037.51
+    unitsml: mbar
+    type: float
+  - value: 778.195
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.24869
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8073
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -150
+    unitsml: m
+    type: integer
+  - value: -492
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -150
+    unitsml: m
+    type: integer
+  - value: -492
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 289125
+    unitsml: K
+    type: integer
+  - value: 15975
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1031.4
+    unitsml: mbar
+    type: float
+  - value: 773.614
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.24274
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8071
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -100
+    unitsml: m
+    type: integer
+  - value: -328
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -100
+    unitsml: m
+    type: integer
+  - value: -328
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 288800
+    unitsml: K
+    type: integer
+  - value: 15650
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1025.32
+    unitsml: mbar
+    type: float
+  - value: 769.054
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.2368
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.807
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: -50
+    unitsml: m
+    type: integer
+  - value: -164
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: -50
+    unitsml: m
+    type: integer
+  - value: -164
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 288475
+    unitsml: K
+    type: integer
+  - value: 15325
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1019.27
+    unitsml: mbar
+    type: float
+  - value: 764.516
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.23089
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8068
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 0
+    unitsml: m
+    type: integer
+  - value: 0
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 0
+    unitsml: m
+    type: integer
+  - value: 0
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 288150
+    unitsml: K
+    type: integer
+  - value: 15000
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1013.25
+    unitsml: mbar
+    type: float
+  - value: 760.0
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.225
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8067
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 50
+    unitsml: m
+    type: integer
+  - value: 164
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 50
+    unitsml: m
+    type: integer
+  - value: 164
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 287825
+    unitsml: K
+    type: integer
+  - value: 14675
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1007.26
+    unitsml: mbar
+    type: float
+  - value: 755.505
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.21913
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8065
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 100
+    unitsml: m
+    type: integer
+  - value: 328
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 100
+    unitsml: m
+    type: integer
+  - value: 328
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 287500
+    unitsml: K
+    type: integer
+  - value: 14350
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 1001.29
+    unitsml: mbar
+    type: float
+  - value: 751.033
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.21328
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8063
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 150
+    unitsml: m
+    type: integer
+  - value: 492
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 150
+    unitsml: m
+    type: integer
+  - value: 492
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 287175
+    unitsml: K
+    type: integer
+  - value: 14025
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 995.36
+    unitsml: mbar
+    type: float
+  - value: 746.581
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.20746
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8062
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 200
+    unitsml: m
+    type: integer
+  - value: 656
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 200
+    unitsml: m
+    type: integer
+  - value: 656
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 286850
+    unitsml: K
+    type: integer
+  - value: 13700
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 989.453
+    unitsml: mbar
+    type: float
+  - value: 742.151
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.20165
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.806
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 250
+    unitsml: m
+    type: integer
+  - value: 820
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 250
+    unitsml: m
+    type: integer
+  - value: 820
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 286525
+    unitsml: K
+    type: integer
+  - value: 13375
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 983.575
+    unitsml: mbar
+    type: float
+  - value: 737.742
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.19587
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8059
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 300
+    unitsml: m
+    type: integer
+  - value: 984
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 300
+    unitsml: m
+    type: integer
+  - value: 984
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 286200
+    unitsml: K
+    type: integer
+  - value: 13050
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 977.726
+    unitsml: mbar
+    type: float
+  - value: 733.355
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.19011
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8057
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 350
+    unitsml: m
+    type: integer
+  - value: 1148
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 350
+    unitsml: m
+    type: integer
+  - value: 1148
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 285875
+    unitsml: K
+    type: integer
+  - value: 12725
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 971.904
+    unitsml: mbar
+    type: float
+  - value: 728.988
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.18436
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8056
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 400
+    unitsml: m
+    type: integer
+  - value: 1312
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 400
+    unitsml: m
+    type: integer
+  - value: 1312
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 285550
+    unitsml: K
+    type: integer
+  - value: 12400
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 966.111
+    unitsml: mbar
+    type: float
+  - value: 724.643
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.17864
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8054
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 450
+    unitsml: m
+    type: integer
+  - value: 1476
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 450
+    unitsml: m
+    type: integer
+  - value: 1476
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 285225
+    unitsml: K
+    type: integer
+  - value: 12075
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 960.346
+    unitsml: mbar
+    type: float
+  - value: 720.319
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.17295
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8053
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 500
+    unitsml: m
+    type: integer
+  - value: 1641
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 500
+    unitsml: m
+    type: integer
+  - value: 1640
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 284900
+    unitsml: K
+    type: integer
+  - value: 11750
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 954.608
+    unitsml: mbar
+    type: float
+  - value: 716.015
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.16727
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8051
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 550
+    unitsml: m
+    type: integer
+  - value: 1805
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 550
+    unitsml: m
+    type: integer
+  - value: 1804
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 284575
+    unitsml: K
+    type: integer
+  - value: 11425
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 948.899
+    unitsml: mbar
+    type: float
+  - value: 711.733
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.16161
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.805
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 600
+    unitsml: m
+    type: integer
+  - value: 1969
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 600
+    unitsml: m
+    type: integer
+  - value: 1969
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 284250
+    unitsml: K
+    type: integer
+  - value: 11100
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 943.217
+    unitsml: mbar
+    type: float
+  - value: 707.471
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.15598
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8048
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 650
+    unitsml: m
+    type: integer
+  - value: 2133
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 650
+    unitsml: m
+    type: integer
+  - value: 2133
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 283925
+    unitsml: K
+    type: integer
+  - value: 10775
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 937.562
+    unitsml: mbar
+    type: float
+  - value: 703.23
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.15036
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8046
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 700
+    unitsml: m
+    type: integer
+  - value: 2297
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 700
+    unitsml: m
+    type: integer
+  - value: 2297
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 283600
+    unitsml: K
+    type: integer
+  - value: 10450
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 931.936
+    unitsml: mbar
+    type: float
+  - value: 699.009
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.14477
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8045
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 750
+    unitsml: m
+    type: integer
+  - value: 2461
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 750
+    unitsml: m
+    type: integer
+  - value: 2461
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 283275
+    unitsml: K
+    type: integer
+  - value: 10125
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 926.336
+    unitsml: mbar
+    type: float
+  - value: 694.809
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.1392
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8043
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 800
+    unitsml: m
+    type: integer
+  - value: 2625
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 800
+    unitsml: m
+    type: integer
+  - value: 2625
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 282950
+    unitsml: K
+    type: integer
+  - value: 9800
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 920.764
+    unitsml: mbar
+    type: float
+  - value: 690.63
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.13364
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8042
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 850
+    unitsml: m
+    type: integer
+  - value: 2789
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 850
+    unitsml: m
+    type: integer
+  - value: 2789
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 282625
+    unitsml: K
+    type: integer
+  - value: 9475
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 915.219
+    unitsml: mbar
+    type: float
+  - value: 686.471
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.12811
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.804
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 900
+    unitsml: m
+    type: integer
+  - value: 2953
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 900
+    unitsml: m
+    type: integer
+  - value: 2953
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 282300
+    unitsml: K
+    type: integer
+  - value: 9150
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 909.701
+    unitsml: mbar
+    type: float
+  - value: 682.332
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.1226
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8039
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 950
+    unitsml: m
+    type: integer
+  - value: 3117
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 950
+    unitsml: m
+    type: integer
+  - value: 3117
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 281975
+    unitsml: K
+    type: integer
+  - value: 8825
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 904.21
+    unitsml: mbar
+    type: float
+  - value: 678.213
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.11711
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8037
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1000
+    unitsml: m
+    type: integer
+  - value: 3281
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1000
+    unitsml: m
+    type: integer
+  - value: 3281
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 281650
+    unitsml: K
+    type: integer
+  - value: 8500
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 898.746
+    unitsml: mbar
+    type: float
+  - value: 674.115
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.11164
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8036
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1050
+    unitsml: m
+    type: integer
+  - value: 3445
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1050
+    unitsml: m
+    type: integer
+  - value: 3445
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 281325
+    unitsml: K
+    type: integer
+  - value: 8175
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 893.308
+    unitsml: mbar
+    type: float
+  - value: 670.036
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.10619
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8034
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1100
+    unitsml: m
+    type: integer
+  - value: 3610
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1100
+    unitsml: m
+    type: integer
+  - value: 3609
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 281000
+    unitsml: K
+    type: integer
+  - value: 7850
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 887.898
+    unitsml: mbar
+    type: float
+  - value: 665.978
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.10077
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8033
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1150
+    unitsml: m
+    type: integer
+  - value: 3774
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1150
+    unitsml: m
+    type: integer
+  - value: 3773
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 280675
+    unitsml: K
+    type: integer
+  - value: 7525
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 882.513
+    unitsml: mbar
+    type: float
+  - value: 661.939
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.09536
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8031
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1200
+    unitsml: m
+    type: integer
+  - value: 3938
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1200
+    unitsml: m
+    type: integer
+  - value: 3937
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 280350
+    unitsml: K
+    type: integer
+  - value: 7200
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 877.156
+    unitsml: mbar
+    type: float
+  - value: 657.921
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.08997
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8029
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1250
+    unitsml: m
+    type: integer
+  - value: 4102
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1250
+    unitsml: m
+    type: integer
+  - value: 4101
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 280025
+    unitsml: K
+    type: integer
+  - value: 6875
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 871.824
+    unitsml: mbar
+    type: float
+  - value: 653.922
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.0846
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8028
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1300
+    unitsml: m
+    type: integer
+  - value: 4266
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1300
+    unitsml: m
+    type: integer
+  - value: 4265
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 279700
+    unitsml: K
+    type: integer
+  - value: 6550
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 866.519
+    unitsml: mbar
+    type: float
+  - value: 649.943
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.07925
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8026
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1350
+    unitsml: m
+    type: integer
+  - value: 4430
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1350
+    unitsml: m
+    type: integer
+  - value: 4429
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 279375
+    unitsml: K
+    type: integer
+  - value: 6225
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 861.241
+    unitsml: mbar
+    type: float
+  - value: 645.984
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.07393
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8025
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1400
+    unitsml: m
+    type: integer
+  - value: 4594
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1400
+    unitsml: m
+    type: integer
+  - value: 4593
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 279050
+    unitsml: K
+    type: integer
+  - value: 5900
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 855.988
+    unitsml: mbar
+    type: float
+  - value: 642.044
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.06862
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8023
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1450
+    unitsml: m
+    type: integer
+  - value: 4758
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1450
+    unitsml: m
+    type: integer
+  - value: 4757
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 278725
+    unitsml: K
+    type: integer
+  - value: 5575
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 850.761
+    unitsml: mbar
+    type: float
+  - value: 638.123
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.06333
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8022
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1500
+    unitsml: m
+    type: integer
+  - value: 4922
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1500
+    unitsml: m
+    type: integer
+  - value: 4921
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 278400
+    unitsml: K
+    type: integer
+  - value: 5250
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 845.56
+    unitsml: mbar
+    type: float
+  - value: 634.222
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.05807
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.802
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1550
+    unitsml: m
+    type: integer
+  - value: 5087
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1550
+    unitsml: m
+    type: integer
+  - value: 5085
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 278075
+    unitsml: K
+    type: integer
+  - value: 4925
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 840.385
+    unitsml: mbar
+    type: float
+  - value: 630.34
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.05282
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8019
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1600
+    unitsml: m
+    type: integer
+  - value: 5251
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1600
+    unitsml: m
+    type: integer
+  - value: 5249
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 277750
+    unitsml: K
+    type: integer
+  - value: 4600
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 835.235
+    unitsml: mbar
+    type: float
+  - value: 626.478
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.04759
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8017
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1650
+    unitsml: m
+    type: integer
+  - value: 5415
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1650
+    unitsml: m
+    type: integer
+  - value: 5413
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 277425
+    unitsml: K
+    type: integer
+  - value: 4275
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 830.111
+    unitsml: mbar
+    type: float
+  - value: 622.635
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.04239
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8016
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1700
+    unitsml: m
+    type: integer
+  - value: 5579
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1700
+    unitsml: m
+    type: integer
+  - value: 5577
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 277100
+    unitsml: K
+    type: integer
+  - value: 3950
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 825.013
+    unitsml: mbar
+    type: float
+  - value: 618.811
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.0372
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8014
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1750
+    unitsml: m
+    type: integer
+  - value: 5743
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1750
+    unitsml: m
+    type: integer
+  - value: 5741
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 276775
+    unitsml: K
+    type: integer
+  - value: 3625
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 819.94
+    unitsml: mbar
+    type: float
+  - value: 615.005
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.03203
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8013
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1801
+    unitsml: m
+    type: integer
+  - value: 5907
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1800
+    unitsml: m
+    type: integer
+  - value: 5906
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 276450
+    unitsml: K
+    type: integer
+  - value: 3300
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 814.892
+    unitsml: mbar
+    type: float
+  - value: 611.219
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.02688
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8011
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1851
+    unitsml: m
+    type: integer
+  - value: 6071
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1850
+    unitsml: m
+    type: integer
+  - value: 6070
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 276125
+    unitsml: K
+    type: integer
+  - value: 2975
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 809.87
+    unitsml: mbar
+    type: float
+  - value: 607.452
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.02176
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8009
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1901
+    unitsml: m
+    type: integer
+  - value: 6235
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1900
+    unitsml: m
+    type: integer
+  - value: 6234
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 275800
+    unitsml: K
+    type: integer
+  - value: 2650
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 804.872
+    unitsml: mbar
+    type: float
+  - value: 603.704
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.01665
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8008
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 1951
+    unitsml: m
+    type: integer
+  - value: 6400
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 1950
+    unitsml: m
+    type: integer
+  - value: 6398
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 275475
+    unitsml: K
+    type: integer
+  - value: 2325
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 799.9
+    unitsml: mbar
+    type: float
+  - value: 599.974
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.01156
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8006
+    unitsml: m*s^-2
+    type: float
+- geometric-altitude:
+  - value: 2001
+    unitsml: m
+    type: integer
+  - value: 6564
+    unitsml: ft
+    type: integer
+  geopotential-altitude:
+  - value: 2000
+    unitsml: m
+    type: integer
+  - value: 6562
+    unitsml: ft
+    type: integer
+  temperature:
+  - value: 275150
+    unitsml: K
+    type: integer
+  - value: 2000
+    unitsml: degC
+    type: integer
+  pressure:
+  - value: 794.952
+    unitsml: mbar
+    type: float
+  - value: 596.263
+    unitsml: mm_Hg
+    type: float
+  density:
+  - value: 1.00649
+    unitsml: kg*m^-3
+    type: float
+  acceleration:
+  - value: 9.8005
+    unitsml: m*s^-2
+    type: float

@@ -1,0 +1,41 @@
+# frozen_string_literal: true
+
+module Atmospheris
+  module Export
+    module Iso25332025
+      class CombinedAltitudeAttrsGroup < AltitudeTable
+        attribute :by_geometric_altitude, AltitudeAttrsGroup
+        attribute :by_geopotential_altitude, AltitudeAttrsGroup
+
+        key_value do
+          map "by-geometric-altitude", to: :by_geometric_altitude
+          map "by-geopotential-altitude", to: :by_geopotential_altitude
+        end
+
+        xml do
+          element "atmospheris"
+          namespace Atmospheris::Iso2533Namespace
+          map_element "by-geometric-altitude", to: :by_geometric_altitude
+          map_element "by-geopotential-altitude", to: :by_geopotential_altitude
+        end
+
+        def add_to_geometric(item)
+          by_geometric_altitude.rows << item
+        end
+
+        def add_to_geopotential(item)
+          by_geopotential_altitude.rows << item
+        end
+
+        def initialize_attrs
+          self.by_geometric_altitude = AltitudeAttrsGroup.new(rows: [])
+          self.by_geopotential_altitude = AltitudeAttrsGroup.new(rows: [])
+        end
+
+        def set_attrs(klass: AltitudeAttrs, unit: steps_unit, precision: :normal)
+          super
+        end
+      end
+    end
+  end
+end
