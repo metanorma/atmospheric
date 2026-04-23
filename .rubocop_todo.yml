@@ -9,13 +9,13 @@
 # Offense count: 1
 Lint/DuplicateMethods:
   Exclude:
-    - 'lib/atmospheric/isa.rb'
+    - 'lib/atmospheris/isa.rb'
 
 # Offense count: 2
 # Configuration parameters: AllowedParentClasses.
 Lint/MissingSuper:
   Exclude:
-    - 'lib/atmospheric/isa.rb'
+    - 'lib/atmospheris/isa.rb'
 
 # Offense count: 9
 # Configuration parameters: AllowedMethods, AllowedPatterns, CountRepeatedAttributes.
@@ -51,14 +51,14 @@ Metrics/PerceivedComplexity:
 # Offense count: 1
 Naming/AccessorMethodName:
   Exclude:
-    - 'lib/atmospheric/isa.rb'
+    - 'lib/atmospheris/isa.rb'
 
 # Offense count: 2
 # Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
 # AllowedNames: as, at, by, cc, db, id, if, in, io, ip, of, on, os, pp, to
 Naming/MethodParameterName:
   Exclude:
-    - 'lib/atmospheric/export/altitude_convertable_model.rb'
+    - 'lib/atmospheris/export/altitude_convertable_model.rb'
 
 # Offense count: 18
 # Configuration parameters: EnforcedStyle, CheckMethodNames, CheckSymbols, AllowedIdentifiers, AllowedPatterns.
@@ -67,9 +67,9 @@ Naming/MethodParameterName:
 Naming/VariableNumber:
   Exclude:
     - 'Rakefile'
-    - 'lib/atmospheric/export/iso_25331975.rb'
-    - 'lib/atmospheric/export/iso_25331985.rb'
-    - 'lib/atmospheric/export/iso_25331997.rb'
+    - 'lib/atmospheris/export/iso_25331975.rb'
+    - 'lib/atmospheris/export/iso_25331985.rb'
+    - 'lib/atmospheris/export/iso_25331997.rb'
 
 # Offense count: 40
 # Configuration parameters: AllowedConstants.
