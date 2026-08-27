@@ -11,4 +11,5 @@ module Atmospheris
   autoload :UnitValueFloat, "atmospheris/unit_value_float"
   autoload :UnitValueInteger, "atmospheris/unit_value_integer"
   autoload :Export, "atmospheris/export"
+  autoload :Iso5878, "atmospheris/iso5878"
 end

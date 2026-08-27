@@ -1,4 +1,4 @@
-= Atmospheris for Ruby (ISO Standard Atmosphere / ICAO Standard Atmosphere (ISA))
+= Atmospheris for Ruby (ISO 2533 Standard Atmosphere / ISO 5878 Reference Atmospheres)
 
 == Purpose
 
@@ -8,12 +8,15 @@ following standards:
 * International Standard Atmosphere (ISA) from ISO 2533:1975,
   ISO 2533:1975/ADD 1:1985 and ISO 2533:1975/ADD 2:1997
 * https://store.icao.int/en/manual-of-the-icao-standard-atmosphere-extended-to-80-kilometres-262500-feet-doc-7488[ICAO Standard Atmosphere (ICAO Doc 7488/3, 1994)]
+* ISO 5878 reference atmospheres for aerospace use, including wind
+  distribution calculations (Rice/circular normal distribution)
 
-Which are technically identical standards but different in presentation and
-units (the ICAO document includes `ft` in addition to `m`).
+The ISO 2533 and ICAO Doc 7488/3 standards are technically identical but
+different in presentation and units (the ICAO document includes `ft` in
+addition to `m`).
 
 This library serves as a reference implementation for the values defined in
-ISO CD 2533:2025.
+ISO CD 2533:2025 and ISO/DIS 5878.
 
 
 == Usage
@@ -576,6 +579,160 @@ speed_n.class
 ----
 ====
 
+
+=== ISO 5878 — Wind characteristics
+
+The library implements wind speed distribution calculations per ISO 5878
+(Reference atmospheres for aerospace use). Wind speed is modeled using the
+*circular normal (Rice) distribution*, which derives scalar wind speed
+statistics from observed vector components.
+
+
+==== Quick start — Wind distribution
+
+[source,ruby]
+----
+require 'atmospheris'
+
+# Compute derived wind characteristics from observed parameters
+wind = Atmospheris::Iso5878.compute_wind_derived(-3.9, -1.2, 5.9)
+
+wind.vr     #=> 4.08 — vector mean wind magnitude (m/s)
+wind.vsc    #=> 6.03 — scalar mean wind speed (m/s)
+wind.sigma  #=> 4.17 — per-component standard deviation (m/s)
+
+# Percentile wind speeds
+wind.percentiles[1].high    #=> ~14.7 (not exceeded on 99% of occasions)
+wind.percentiles[10].low    #=> ~0.5
+wind.percentiles[10].high   #=> ~12.0
+wind.percentiles[20]        #=> PercentilePair with low and high
+----
+
+
+==== WindObservation
+
+The `Atmospheris::Iso5878::WindObservation` class encapsulates a single
+altitude-level wind observation with its empirically measured parameters
+and lazily computed derived statistics.
+
+[source,ruby]
+----
+require 'atmospheris'
+
+obs = Atmospheris::Iso5878::WindObservation.new(
+  geopotential_altitude: 1000,
+  vx: -3.9,
+  vy: -1.2,
+  sigma_r: 5.9,
+  vsa: 7.6   # optional: observed scalar mean speed
+)
+
+obs.vr                          #=> 4.08
+obs.theta                       #=> direction in radians from east
+obs.vsc                         #=> 6.03 (calculated)
+obs.percentile_bounds[1].high   #=> ~14.7
+obs.derived_fields              #=> WindDerivedFields struct
+----
+
+Parameters:
+
+* `geopotential_altitude` — Altitude in metres
+* `vx` — Mean zonal wind component (m/s)
+* `vy` — Mean meridional wind component (m/s)
+* `sigma_r` — Standard deviation of vector mean wind (m/s)
+* `vsa` — (optional) Observed scalar mean speed (m/s)
+* `nu_max` — (optional) Max observed speed once in 10 years (m/s)
+* `use_absolute_vx` — (default: false) For zones > 20°N where Vy ≈ 0
+
+
+==== RiceDistribution
+
+The `Atmospheris::Iso5878::RiceDistribution` class encapsulates a Rice
+distribution with fixed parameters (Vr, sigma_r), providing lazy-cached
+statistical computations.
+
+[source,ruby]
+----
+require 'atmospheris'
+
+dist = Atmospheris::Iso5878::RiceDistribution.new(vr: 4.08, sigma_r: 5.9)
+
+dist.mean              #=> 6.03 (scalar mean wind speed Vsc)
+dist.pdf(5.0)          #=> probability density at 5 m/s
+dist.cdf(10.0)         #=> P(wind ≤ 10 m/s)
+dist.quantile(0.99)    #=> ~14.7 (wind speed exceeded on 1% of occasions)
+dist.percentile_bounds #=> { 1 => Pair, 10 => Pair, 20 => Pair }
+----
+
+Methods:
+
+* `pdf(nu)` — Probability density at wind speed nu
+* `cdf(x)` — Cumulative distribution function
+* `quantile(p)` — Inverse CDF (quantile function)
+* `mean` — Analytical Rice distribution mean (Vsc, Eq. 4)
+* `percentile_bounds` — Hash mapping percentage (1, 10, 20) to `PercentilePair`
+
+
+==== Low-level functions
+
+Module-level functions in `Atmospheris::Iso5878` for direct access to the
+underlying mathematical operations:
+
+[cols="3,5",grid="none"]
+|===
+|Method |Description
+
+|`bessel_i0(x)` |Modified Bessel function of the first kind, order zero
+|`bessel_i1(x)` |Modified Bessel function of the first kind, order one
+|`rice_pdf(nu, vr, sigma_r)` |Rice distribution PDF (Eq. 3)
+|`rice_cdf(x, vr, sigma_r)` |Rice distribution CDF (adaptive Simpson quadrature)
+|`rice_inv_cdf(p, vr, sigma_r)` |Rice inverse CDF via bisection
+|`rice_mean(vr, sigma_r)` |Rice analytical mean (Eq. 4)
+|`compute_wind_derived(vx, vy, sigma_r, use_absolute_vx:)` |Compute all derived wind fields
+|===
+
+
+==== Wind table export
+
+The `Atmospheris::Export::Iso5878.generate_wind_table` method augments
+empirical wind observation YAML data with computed derived fields (Vsc,
+percentile bounds):
+
+[source,ruby]
+----
+require 'atmospheris'
+
+wind_data = YAML.load_file('table1.yaml')
+augmented = Atmospheris::Export::Iso5878.generate_wind_table(wind_data)
+File.write('table1-computed.yaml', YAML.dump(augmented))
+----
+
+Empirical fields (Vx, Vy, sigma-r, Vsa, nu-max) are never overwritten.
+Only blank computed fields (Vsc, percentile bounds) are filled.
+
+
+==== Data structures
+
+`PercentilePair` — Struct with `low` and `high` fields (keyword init):
+
+[source,ruby]
+----
+pair = Atmospheris::Iso5878::PercentilePair.new(low: 0.5, high: 14.7)
+pair.low   #=> 0.5
+pair.high  #=> 14.7
+----
+
+`WindDerivedFields` — Struct with `vr`, `sigma`, `vsc`, `percentiles` (keyword init):
+
+[source,ruby]
+----
+fields = Atmospheris::Iso5878::WindDerivedFields.new(
+  vr: 4.08,
+  sigma: 4.17,
+  vsc: 6.03,
+  percentiles: { 1 => pair, 10 => pair2, 20 => pair3 }
+)
+----
 
 
 

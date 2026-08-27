@@ -12,12 +12,13 @@ Gem::Specification.new do |spec|
 
   spec.homepage      = "https://github.com/metanorma/atmospheris"
   spec.summary       = <<~HERE.strip
-    Implementation of the ISO Standard Atmosphere (ISA) model"
+    ISO 2533 Standard Atmosphere and ISO 5878 Reference Atmospheres
   HERE
   spec.description = <<~HERE.strip
     Implementation of the ISO Standard Atmosphere (ISA) model as
-    defined in ISO 2533 and ICAO 7488/3 1994.
-    Reference implementation used in ISO 2533:2025."
+    defined in ISO 2533 and ICAO 7488/3 1994, plus ISO 5878
+    reference atmospheres with wind distribution (Rice) calculations.
+    Reference implementation used in ISO 2533:2025.
   HERE
 
   spec.license = "BSD-2-Clause"
