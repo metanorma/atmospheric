@@ -13,5 +13,6 @@ module Atmospheris
     autoload :Iso25331985, "atmospheris/export/iso_25331985"
     autoload :Iso25331997, "atmospheris/export/iso_25331997"
     autoload :Iso25332025, "atmospheris/export/iso_25332025"
+    autoload :Iso5878, "atmospheris/export/iso_5878"
   end
 end
