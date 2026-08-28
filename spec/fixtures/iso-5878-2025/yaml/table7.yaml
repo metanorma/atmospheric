@@ -1,0 +1,330 @@
+---
+id: atmosphere-table-7
+title-en: Mean values of characteristics during June-July at stem:[45 "unitsml(deg)"] N
+title-fr: 
+title-ru: 
+note-en: 
+note-fr: 
+note-ru: 
+rows-h:
+  - geometrical-altitude: 0
+    geopotential-altitude: 0
+    temperature-K: 291.150
+    temperature-C: 18.50
+    p-mbar: 1.013500e3
+    density: 1.212677e0
+
+  - geometrical-altitude: 1000
+    geopotential-altitude: 1000
+    temperature-K: 286.651
+    temperature-C: 13.50
+    p-mbar: 9.004805e2
+    density: 1.094357e0
+
+  - geometrical-altitude: 2000
+    geopotential-altitude: 1999
+    temperature-K: 282.153
+    temperature-C: 9.00
+    p-mbar: 7.985996e2
+    density: 9.860133e-1
+
+  - geometrical-altitude: 3000
+    geopotential-altitude: 2999
+    temperature-K: 276.158
+    temperature-C: 3.01
+    p-mbar: 7.066750e2
+    density: 8.914549e-1
+
+  - geometrical-altitude: 4000
+    geopotential-altitude: 3997
+    temperature-K: 270.165
+    temperature-C: -2.98
+    p-mbar: 6.236801e2
+    density: 8.042124e-1
+
+  - geometrical-altitude: 5000
+    geopotential-altitude: 4996
+    temperature-K: 264.174
+    temperature-C: -8.98
+    p-mbar: 5.489141e2
+    density: 7.238575e-1
+
+  - geometrical-altitude: 6000
+    geopotential-altitude: 5994
+    temperature-K: 258.184
+    temperature-C: -14.97
+    p-mbar: 4.817178e2
+    density: 6.499823e-1
+
+  - geometrical-altitude: 7000
+    geopotential-altitude: 6992
+    temperature-K: 252.196
+    temperature-C: -20.95
+    p-mbar: 4.214714e2
+    density: 5.821939e-1
+
+  - geometrical-altitude: 8000
+    geopotential-altitude: 7990
+    temperature-K: 246.210
+    temperature-C: -26.94
+    p-mbar: 3.675938e2
+    density: 5.201158e-1
+
+  - geometrical-altitude: 9000
+    geopotential-altitude: 8987
+    temperature-K: 240.226
+    temperature-C: -32.92
+    p-mbar: 3.195402e2
+    density: 4.633881e-1
+
+  - geometrical-altitude: 10000
+    geopotential-altitude: 9984
+    temperature-K: 234.244
+    temperature-C: -38.91
+    p-mbar: 2.768012e2
+    density: 4.116585e-1
+
+  - geometrical-altitude: 12000
+    geopotential-altitude: 11977
+    temperature-K: 222.286
+    temperature-C: -50.86
+    p-mbar: 2.053950e2
+    density: 3.218967e-1
+
+  - geometrical-altitude: 14000
+    geopotential-altitude: 13969
+    temperature-K: 216.150
+    temperature-C: -57.00
+    p-mbar: 1.502602e2
+    density: 2.421737e-1
+
+  - geometrical-altitude: 16000
+    geopotential-altitude: 15960
+    temperature-K: 216.150
+    temperature-C: -57.00
+    p-mbar: 1.096999e2
+    density: 1.768028e-1
+
+  - geometrical-altitude: 18000
+    geopotential-altitude: 17949
+    temperature-K: 217.289
+    temperature-C: -55.86
+    p-mbar: 8.013558e1
+    density: 1.284771e-1
+
+  - geometrical-altitude: 20000
+    geopotential-altitude: 19937
+    temperature-K: 219.675
+    temperature-C: -53.47
+    p-mbar: 5.872381e1
+    density: 9.312628e-2
+
+  - geometrical-altitude: 22000
+    geopotential-altitude: 21924
+    temperature-K: 222.059
+    temperature-C: -51.09
+    p-mbar: 4.318617e1
+    density: 6.775082e-2
+
+  - geometrical-altitude: 24000
+    geopotential-altitude: 23910
+    temperature-K: 224.442
+    temperature-C: -48.71
+    p-mbar: 3.187007e1
+    density: 4.946723e-2
+
+  - geometrical-altitude: 26000
+    geopotential-altitude: 25894
+    temperature-K: 227.538
+    temperature-C: -45.61
+    p-mbar: 2.360416e1
+    density: 3.613868e-2
+
+  - geometrical-altitude: 28000
+    geopotential-altitude: 27877
+    temperature-K: 231.504
+    temperature-C: -41.65
+    p-mbar: 1.757078e1
+    density: 2.644051e-2
+
+  - geometrical-altitude: 30000
+    geopotential-altitude: 29859
+    temperature-K: 235.468
+    temperature-C: -37.68
+    p-mbar: 1.314769e1
+    density: 1.945161e-2
+
+  - geometrical-altitude: 32000
+    geopotential-altitude: 31840
+    temperature-K: 240.165
+    temperature-C: -32.98
+    p-mbar: 9.891545e0
+    density: 1.434802e-2
+
+  - geometrical-altitude: 34000
+    geopotential-altitude: 33819
+    temperature-K: 244.916
+    temperature-C: -28.23
+    p-mbar: 7.484711e0
+    density: 1.064624e-2
+
+  - geometrical-altitude: 36000
+    geopotential-altitude: 35797
+    temperature-K: 249.663
+    temperature-C: -23.49
+    p-mbar: 5.694896e0
+    density: 7.946373e-3
+
+  - geometrical-altitude: 38000
+    geopotential-altitude: 37774
+    temperature-K: 254.408
+    temperature-C: -18.74
+    p-mbar: 4.356168e0
+    density: 5.965020e-3
+
+  - geometrical-altitude: 40000
+    geopotential-altitude: 39750
+    temperature-K: 259.150
+    temperature-C: -14.00
+    p-mbar: 3.349228e0
+    density: 4.502277e-3
+
+  - geometrical-altitude: 42000
+    geopotential-altitude: 41724
+    temperature-K: 263.888
+    temperature-C: -9.26
+    p-mbar: 2.587762e0
+    density: 3.416191e-3
+
+  - geometrical-altitude: 44000
+    geopotential-altitude: 43698
+    temperature-K: 268.624
+    temperature-C: -4.53
+    p-mbar: 2.008934e0
+    density: 2.605307e-3
+
+  - geometrical-altitude: 46000
+    geopotential-altitude: 45670
+    temperature-K: 273.357
+    temperature-C: 0.21
+    p-mbar: 1.566736e0
+    density: 1.996659e-3
+
+  - geometrical-altitude: 48000
+    geopotential-altitude: 47640
+    temperature-K: 276.550
+    temperature-C: 3.40
+    p-mbar: 1.227015e0
+    density: 1.545661e-3
+
+  - geometrical-altitude: 50000
+    geopotential-altitude: 49610
+    temperature-K: 276.550
+    temperature-C: 3.40
+    p-mbar: 9.620223e-1
+    density: 1.211852e-3
+
+  - geometrical-altitude: 52000
+    geopotential-altitude: 51578
+    temperature-K: 275.047
+    temperature-C: 1.90
+    p-mbar: 7.542266e-1
+    density: 9.552852e-4
+
+  - geometrical-altitude: 54000
+    geopotential-altitude: 53545
+    temperature-K: 269.933
+    temperature-C: -3.22
+    p-mbar: 5.893773e-1
+    density: 7.606347e-4
+
+  - geometrical-altitude: 56000
+    geopotential-altitude: 55511
+    temperature-K: 264.821
+    temperature-C: -8.33
+    p-mbar: 4.584636e-1
+    density: 6.031006e-4
+
+  - geometrical-altitude: 58000
+    geopotential-altitude: 57476
+    temperature-K: 259.713
+    temperature-C: -13.44
+    p-mbar: 3.549443e-1
+    density: 4.761061e-4
+
+  - geometrical-altitude: 60000
+    geopotential-altitude: 59439
+    temperature-K: 254.609
+    temperature-C: -18.54
+    p-mbar: 2.734507e-1
+    density: 3.741485e-4
+
+  - geometrical-altitude: 62000
+    geopotential-altitude: 61401
+    temperature-K: 246.985
+    temperature-C: -26.16
+    p-mbar: 2.093902e-1
+    density: 2.953411e-4
+
+  - geometrical-altitude: 64000
+    geopotential-altitude: 63362
+    temperature-K: 238.357
+    temperature-C: -34.79
+    p-mbar: 1.588737e-1
+    density: 2.322001e-4
+
+  - geometrical-altitude: 66000
+    geopotential-altitude: 65322
+    temperature-K: 229.734
+    temperature-C: -43.42
+    p-mbar: 1.193453e-1
+    density: 1.809747e-4
+
+  - geometrical-altitude: 68000
+    geopotential-altitude: 67280
+    temperature-K: 221.117
+    temperature-C: -52.03
+    p-mbar: 8.869240e-2
+    density: 1.397343e-4
+
+  - geometrical-altitude: 70000
+    geopotential-altitude: 69238
+    temperature-K: 212.505
+    temperature-C: -60.64
+    p-mbar: 6.515194e-2
+    density: 1.068063e-4
+
+  - geometrical-altitude: 72000
+    geopotential-altitude: 71194
+    temperature-K: 205.569
+    temperature-C: -67.58
+    p-mbar: 4.730012e-2
+    density: 8.015719e-5
+
+  - geometrical-altitude: 74000
+    geopotential-altitude: 73148
+    temperature-K: 199.705
+    temperature-C: -73.44
+    p-mbar: 3.401890e-2
+    density: 5.934311e-5
+
+  - geometrical-altitude: 76000
+    geopotential-altitude: 75102
+    temperature-K: 193.844
+    temperature-C: -79.31
+    p-mbar: 2.423285e-2
+    density: 4.355028e-5
+
+  - geometrical-altitude: 78000
+    geopotential-altitude: 77055
+    temperature-K: 187.986
+    temperature-C: -85.16
+    p-mbar: 1.708683e-2
+    density: 3.166453e-5
+
+  - geometrical-altitude: 80000
+    geopotential-altitude: 79006
+    temperature-K: 182.133
+    temperature-C: -91.02
+    p-mbar: 1.191828e-2
+    density: 2.279625e-5

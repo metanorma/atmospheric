@@ -12,9 +12,9 @@ RSpec.describe Atmospheris::Iso5878::SurfaceParameters do
   LAMBERT_EXPECTED = {
     15 => { g0: 9.78381, r_phi_km: 6337.84 },
     30 => { g0: 9.79324, r_phi_km: 6345.65 },
-    45 => { g0: 9.80616, r_phi_km: 6356.36 },  # Lambert output (not ISA override)
+    45 => { g0: 9.80616, r_phi_km: 6356.36 }, # Lambert output (not ISA override)
     60 => { g0: 9.81911, r_phi_km: 6367.10 },
-    80 => { g0: 9.83051, r_phi_km: 6376.56 },
+    80 => { g0: 9.83051, r_phi_km: 6376.56 }
   }.freeze
 
   LAMBERT_EXPECTED.each do |lat, expected|

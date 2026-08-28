@@ -9,19 +9,24 @@ RSpec.describe Atmospheris::Export::Iso5878::AtmosphereProfileExport do
 
   let(:layers) do
     Atmospheris::Iso5878::TemperatureLayerStructure.from_yaml_rows([
-      { geopotential_altitude: 0.0,    temperature_K: 299.65 },
-      { geopotential_altitude: 2.250,  temperature_K: 286.15 },
-      { geopotential_altitude: 16.500, temperature_K: 193.15 },
-      { geopotential_altitude: 30.000, temperature_K: 231.15 },
-      { geopotential_altitude: 80.000, temperature_K: 198.15 },
-    ]).to_a
+                                                                     { geopotential_altitude: 0.0,
+                                                                       temperature_K: 299.65 },
+                                                                     { geopotential_altitude: 2.250,
+                                                                       temperature_K: 286.15 },
+                                                                     { geopotential_altitude: 16.500,
+                                                                       temperature_K: 193.15 },
+                                                                     { geopotential_altitude: 30.000,
+                                                                       temperature_K: 231.15 },
+                                                                     { geopotential_altitude: 80.000,
+                                                                       temperature_K: 198.15 }
+                                                                   ]).to_a
   end
 
   let(:profile) do
     Atmospheris::Iso5878::AtmosphereProfile.new(
       surface_params: params,
       surface_temperature: 299.65,
-      surface_pressure: 101325.0,
+      surface_pressure: 101_325.0,
       layers: layers
     )
   end
@@ -85,10 +90,11 @@ RSpec.describe Atmospheris::Export::Iso5878::AtmosphereProfileExport do
 
   describe "cross-validation against Table 3 YAML" do
     let(:yaml_base) do
+      # Allow overriding for standard-source cross-checks, but default to vendored fixtures
       candidates = [
-        File.expand_path("../../../../../../mn/iso-5878/sources/iso-5878-2024/03-yaml", __dir__),
-        "/Users/mulgogi/src/mn/iso-5878/sources/iso-5878-2024/03-yaml"
-      ]
+        ENV["ISO5878_YAML_ROOT"],
+        File.expand_path("../../fixtures/iso-5878-2025/yaml", __dir__)
+      ].compact
       candidates.find { |p| Dir.exist?(p) }
     end
 
@@ -120,7 +126,7 @@ RSpec.describe Atmospheris::Export::Iso5878::AtmosphereProfileExport do
         ref_t = ref_row["temperature-K"].to_f
         comp_t = comp_row["temperature-K"].to_f
         if (ref_t - comp_t).abs > 1.0
-          errors << "H=#{ref_row['geopotential-altitude']}m T: ref=#{ref_t}, computed=#{comp_t.round(3)}"
+          errors << "H=#{ref_row["geopotential-altitude"]}m T: ref=#{ref_t}, computed=#{comp_t.round(3)}"
         end
 
         # Pressure check (relative 0.3% or absolute 1 mbar)
@@ -130,12 +136,12 @@ RSpec.describe Atmospheris::Export::Iso5878::AtmosphereProfileExport do
         comp_p = comp_row["p-mbar"].to_f
         tol = [ref_p.abs * 0.005, 1.0].max
         if (ref_p - comp_p).abs > tol
-          errors << "H=#{ref_row['geopotential-altitude']}m P: ref=#{ref_p}, computed=#{comp_p.round(3)}"
+          errors << "H=#{ref_row["geopotential-altitude"]}m P: ref=#{ref_p}, computed=#{comp_p.round(3)}"
         end
       end
 
       expect(errors).to be_empty,
-        "Table 3 export mismatches:\n#{errors.first(5).join("\n")}"
+                        "Table 3 export mismatches:\n#{errors.first(5).join("\n")}"
     end
   end
 end
@@ -227,10 +233,11 @@ RSpec.describe Atmospheris::Export::Iso5878::WindTableExport do
 
   describe "cross-validation against Wind Table 1 YAML" do
     let(:yaml_path) do
+      # Allow overriding for standard-source cross-checks, but default to vendored fixture
       candidates = [
-        File.expand_path("../../../../../../mn/iso-5878/sources/iso-5878-2024/04-yaml/table1.yaml", __dir__),
-        "/Users/mulgogi/src/mn/iso-5878/sources/iso-5878-2024/04-yaml/table1.yaml"
-      ]
+        ENV["ISO5878_YAML_ROOT"] && File.expand_path("04-yaml/table1.yaml", ENV["ISO5878_YAML_ROOT"]),
+        File.expand_path("../../fixtures/iso-5878-2025/yaml/table1.yaml", __dir__)
+      ].compact
       candidates.find { |p| File.exist?(p) }
     end
 
@@ -250,11 +257,11 @@ RSpec.describe Atmospheris::Export::Iso5878::WindTableExport do
 
           ref_vsc = obs["Vsc"].to_f
           comp_vsc = result["rows"][zi]["values"][oi]["Vsc"].to_f
-          if (ref_vsc - comp_vsc).abs > 4.0
-            errors << "#{zone['angle-low']}-#{zone['angle-high']}° #{zone['month']} " \
-                      "alt=#{obs['geopotential-altitude']}km: " \
-                      "tabulated=#{ref_vsc}, computed=#{comp_vsc.round(1)}"
-          end
+          next unless (ref_vsc - comp_vsc).abs > 4.0
+
+          errors << "#{zone["angle-low"]}-#{zone["angle-high"]}° #{zone["month"]} " \
+                    "alt=#{obs["geopotential-altitude"]}km: " \
+                    "tabulated=#{ref_vsc}, computed=#{comp_vsc.round(1)}"
         end
       end
 

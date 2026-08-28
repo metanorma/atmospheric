@@ -4,9 +4,9 @@ module Atmospheris
   module Export
     module Iso5878
       autoload :AtmosphereProfileExport,
-        "atmospheris/export/iso_5878/atmosphere_profile_export"
+               "atmospheris/export/iso_5878/atmosphere_profile_export"
       autoload :WindTableExport,
-        "atmospheris/export/iso_5878/wind_table_export"
+               "atmospheris/export/iso_5878/wind_table_export"
 
       class << self
         # Generate atmosphere profile YAML data for a given model.

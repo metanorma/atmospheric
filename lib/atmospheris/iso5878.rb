@@ -42,15 +42,14 @@ module Atmospheris
         value = ax * (0.5 + y * (0.87890594 + y * (0.51498869 +
           y * (0.15084934 + y * (0.02658733 + y * (0.00301532 +
           y * 0.00032411))))))
-        x < 0 ? -value : value
       else
         y = 3.75 / ax
         value = (Math.exp(ax) / Math.sqrt(ax)) * (0.39894228 + y * (-0.03988024 +
           y * (-0.00362018 + y * (0.00163801 + y * (-0.01031555 +
           y * (0.02282967 + y * (-0.02895312 + y * (0.01787654 +
           y * -0.00420059))))))))
-        x < 0 ? -value : value
       end
+      x.negative? ? -value : value
     end
 
     # --- Rice (circular normal) distribution ---
@@ -60,6 +59,7 @@ module Atmospheris
     # Rice distribution PDF per ISO 5878 Eq. 3.
     def self.rice_pdf(nu, vr, sigma_r)
       return 0.0 if nu <= 0
+
       sr2 = sigma_r * sigma_r
       ratio = 2.0 * nu * vr / sr2
       (2.0 * nu / sr2) * Math.exp(-(nu * nu + vr * vr) / sr2) * bessel_i0(ratio)
@@ -68,12 +68,11 @@ module Atmospheris
     # Rice distribution CDF via adaptive Simpson quadrature on the PDF.
     def self.rice_cdf(x, vr, sigma_r)
       return 0.0 if x <= 0
+
       sigma = sigma_r / Math.sqrt(2)
 
       # Rayleigh limit for very small Vr
-      if vr < sigma * 1e-6
-        return 1.0 - Math.exp(-x * x / (2.0 * sigma * sigma))
-      end
+      return 1.0 - Math.exp(-x * x / (2.0 * sigma * sigma)) if vr < sigma * 1e-6
 
       adaptive_simpson(
         ->(t) { rice_pdf(t, vr, sigma_r) },
@@ -85,6 +84,7 @@ module Atmospheris
     def self.rice_inv_cdf(p, vr, sigma_r)
       return 0.0 if p <= 0
       return Float::INFINITY if p >= 1
+
       sigma = sigma_r / Math.sqrt(2)
 
       lo = 0.0
@@ -149,8 +149,6 @@ module Atmospheris
         }
       )
     end
-
-    private
 
     # Adaptive Simpson quadrature (iterative).
     def self.adaptive_simpson(f, a, b, tol, max_depth)

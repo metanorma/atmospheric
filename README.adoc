@@ -735,6 +735,119 @@ fields = Atmospheris::Iso5878::WindDerivedFields.new(
 ----
 
 
+=== ISO 5878 — Reference atmosphere profiles
+
+ISO 5878 defines reference atmospheres as temperature layer structures for
+selected latitudes (15°, 30°, 45°, 60°, 80°) and seasons, anchored to
+latitude-specific surface conditions. The library models these with
+`SurfaceParameters`, `AtmosphereProfile` and `AtmosphereModelRegistry`.
+
+
+==== SurfaceParameters
+
+Latitude-dependent constants per ISO 5878 Eq. 0 (Lambert's equation for
+sea-level gravity), Eq. 13 (nominal earth radius), Eq. 7–9 (altitude
+conversions using latitude-specific gravity and radius):
+
+[source,ruby]
+----
+require 'atmospheris'
+
+sp = Atmospheris::Iso5878::SurfaceParameters.new(45)
+
+sp.gravity_at_sea_level        #=> 9.80616 (m/s^2)
+sp.nominal_earth_radius        #=> 6356364 (m)
+sp.geopotential_from_geometric(5000)   #=> ~4995.8 (m)
+sp.gravity_at_geometric(10_000)        #=> 9.7754 (m/s^2)
+----
+
+
+==== AtmosphereProfile
+
+An `AtmosphereProfile` is an `Isa::Algorithms` subclass whose constants and
+temperature layers are injected instead of using the ISO 2533 defaults:
+
+[source,ruby]
+----
+require 'atmospheris'
+
+sp = Atmospheris::Iso5878::SurfaceParameters.new(45)
+
+layers = Atmospheris::Iso5878::TemperatureLayerStructure.from_yaml_rows([
+  { geopotential_altitude: 0.0,     temperature_K: 272.65 },
+  { geopotential_altitude: 16_500,  temperature_K: 216.65 },
+  # ...
+]).to_a
+
+profile = Atmospheris::Iso5878::AtmosphereProfile.new(
+  surface_params: sp,
+  surface_temperature: 272.65,
+  surface_pressure: 101_800.0,
+  layers: layers
+)
+
+profile.temperature_at_layer_from_geopotential(5000)
+profile.pressure_from_geopotential(5000)
+profile.density_from_geopotential(5000)
+----
+
+
+==== AtmosphereModelRegistry
+
+The registry maps model IDs to latitude, season and surface conditions
+(ISO 5878 Table 2), and builds profiles from Table 16/19 layer data.
+Available model IDs:
+
+`15-annual`,
+`30-winter`, `30-summer`,
+`45-winter`, `45-summer`,
+`60-winter`, `60-summer`, `60-warm`, `60-cold`,
+`80-winter`, `80-summer`, `80-warm`, `80-cold`.
+
+[source,ruby]
+----
+require 'atmospheris'
+require 'yaml'
+
+table16 = YAML.load_file('table16.yaml')
+
+profile = Atmospheris::Iso5878::AtmosphereModelRegistry.create("45-winter", table16)
+
+profile.temperature_at_layer_from_geopotential(0)     #=> 272.62 (K)
+profile.pressure_from_geopotential(5000)              #=> 52999.1 (Pa)
+profile.density_from_geopotential(5000)               #=> 0.74254 (kg/m^3)
+
+Atmospheris::Iso5878::AtmosphereModelRegistry.model_ids
+#=> ["15-annual", "30-winter", ...]
+----
+
+
+==== Atmosphere profile export
+
+The `Atmospheris::Export::Iso5878.generate_atmosphere_profile` method
+generates ISO 5878 atmosphere table YAML data for a given model:
+
+[source,ruby]
+----
+require 'atmospheris'
+require 'yaml'
+
+table16 = YAML.load_file('table16.yaml')
+
+data = Atmospheris::Export::Iso5878.generate_atmosphere_profile(
+  "45-winter", table16,
+  table_id: "atmosphere-table-5",
+  title_en: "January reference atmosphere, 45N",
+  geometric_altitudes: [0, 5000, 10_000, 20_000]
+)
+
+data["rows-h"][0]
+#=> {"geometrical-altitude"=>0, "geopotential-altitude"=>0,
+#     "temperature-K"=>272.62, "temperature-C"=>-0.53,
+#     "p-mbar"=>1018.0, "density"=>1.300853}
+----
+
+
 
 == Generating ISO 2533 tables
 

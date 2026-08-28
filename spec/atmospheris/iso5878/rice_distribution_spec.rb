@@ -117,7 +117,7 @@ RSpec.describe Atmospheris::Iso5878::RiceDistribution do
       it "matches numerical integration of PDF" do
         dist = described_class.new(vr: 3.9, sigma_r: 5.9)
         # Numerical integration: integral of x*f(x) dx from 0 to inf
-        n_steps = 10000
+        n_steps = 10_000
         dx = 30.0 / n_steps
         integral = (1...n_steps).sum do |i|
           x = i * dx
@@ -129,13 +129,12 @@ RSpec.describe Atmospheris::Iso5878::RiceDistribution do
   end
 
   describe "cross-validation against Wind Table 1 YAML data" do
-    # Load actual YAML from ISO 5878 project
+    # Load vendored ISO 5878 wind table fixture
     let(:wind_yaml_path) do
-      # Try multiple locations: ISO5878_YAML_ROOT override, relative to gem, or absolute path
+      # Allow overriding for standard-source cross-checks, but default to vendored fixture
       candidates = [
         ENV["ISO5878_YAML_ROOT"] && File.expand_path("04-yaml/table1.yaml", ENV["ISO5878_YAML_ROOT"]),
-        File.expand_path("../../../../mn/iso-5878/sources/iso-5878-2025/04-yaml/table1.yaml", __dir__),
-        "/Users/mulgogi/src/mn/iso-5878/sources/iso-5878-2025/04-yaml/table1.yaml"
+        File.expand_path("../../fixtures/iso-5878-2025/yaml/table1.yaml", __dir__)
       ].compact
       candidates.find { |p| File.exist?(p) }
     end
@@ -166,12 +165,12 @@ RSpec.describe Atmospheris::Iso5878::RiceDistribution do
           dist = described_class.new(vr: vr, sigma_r: sigma_r)
           computed_vsc = dist.mean
 
-          unless (computed_vsc - expected_vsc).abs < 4.0
-            errors << "#{zone['angle-low']}-#{zone['angle-high']}° #{zone['month']} " \
-                      "alt=#{obs['geopotential-altitude']}km: " \
-                      "computed Vsc=#{computed_vsc.round(2)}, " \
-                      "tabulated=#{expected_vsc}"
-          end
+          next if (computed_vsc - expected_vsc).abs < 4.0
+
+          errors << "#{zone["angle-low"]}-#{zone["angle-high"]}° #{zone["month"]} " \
+                    "alt=#{obs["geopotential-altitude"]}km: " \
+                    "computed Vsc=#{computed_vsc.round(2)}, " \
+                    "tabulated=#{expected_vsc}"
         end
       end
 
@@ -203,14 +202,16 @@ RSpec.describe Atmospheris::Iso5878::RiceDistribution do
             ["Vsc-20-high", bounds[20].high]
           ].each do |key, computed|
             next if obs[key].nil?
+
             expected = obs[key].to_f
             # Skip clearly erroneous data: Vsc-X-low > Vsc (impossible for lower percentile below mean)
             next if key.end_with?("-low") && expected > vsc_val
-            unless (computed - expected).abs < 6.0
-              errors << "#{zone['angle-low']}-#{zone['angle-high']}° #{zone['month']} " \
-                        "alt=#{obs['geopotential-altitude']}km #{key}: " \
-                        "computed=#{computed.round(2)}, tabulated=#{expected}"
-            end
+
+            next if (computed - expected).abs < 6.0
+
+            errors << "#{zone["angle-low"]}-#{zone["angle-high"]}° #{zone["month"]} " \
+                      "alt=#{obs["geopotential-altitude"]}km #{key}: " \
+                      "computed=#{computed.round(2)}, tabulated=#{expected}"
           end
         end
       end
