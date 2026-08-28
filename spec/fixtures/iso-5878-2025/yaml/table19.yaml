@@ -1,0 +1,195 @@
+---
+id: atmosphere-table-19
+title-en: Temperature structure of warm and cold Winter stratospheric models
+title-fr:
+title-ru:
+note-en:
+note-fr:
+note-ru:
+rows-60-warm:
+  - geopotential-altitude: 0.00
+    temperature-K: 256.15
+    gradient: 0.0
+
+  - geopotential-altitude: 1.00
+    temperature-K: 258.15
+    gradient: +2.0
+
+  - geopotential-altitude: 3.00
+    temperature-K: 250.15
+    gradient: -4.0
+
+  - geopotential-altitude: 9.00
+    temperature-K: 217.15
+    gradient: -5.5
+
+  - geopotential-altitude: 15.00
+    temperature-K: 217.15
+    gradient: 0.0
+
+  - geopotential-altitude: 19.00
+    temperature-K: 213.15
+    gradient: -1.0
+
+  - geopotential-altitude: 24.00
+    temperature-K: 213.15
+    gradient: 0.0
+
+  - geopotential-altitude: 36.00
+    temperature-K: 261.15
+    gradient: +4.0
+
+  - geopotential-altitude: 42.00
+    temperature-K: 267.15
+    gradient: +1.0
+
+  - geopotential-altitude: 48.00
+    temperature-K: 267.15
+    gradient: 0.0
+
+  - geopotential-altitude: 80.00
+    temperature-K: 187.15
+    gradient: -2.5
+
+rows-60-cold:
+  - geopotential-altitude: 0.00
+    temperature-K: 256.15
+    gradient: 0.0
+
+  - geopotential-altitude: 1.00
+    temperature-K: 258.15
+    gradient: 2.0
+
+  - geopotential-altitude: 3.00
+    temperature-K: 250.15
+    gradient: -4.0
+
+  - geopotential-altitude: 9.00
+    temperature-K: 217.15
+    gradient: -5.5
+
+  - geopotential-altitude: 15.00
+    temperature-K: 223.15
+    gradient: +1.0
+
+  - geopotential-altitude: 20.00
+    temperature-K: 223.15
+    gradient: 10
+
+  - geopotential-altitude: 34.00
+    temperature-K: 216.15
+    gradient: -0.5
+
+  - geopotential-altitude: 44.00
+    temperature-K: 220.15
+    gradient: +0.4
+
+  - geopotential-altitude: 49.00
+    temperature-K: 243.15
+    gradient: +4.6
+
+  - geopotential-altitude: 64.00
+    temperature-K: 243.15
+    gradient: 10
+
+  - geopotential-altitude: 70.00
+    temperature-K: 255.15
+    gradient: +2.0
+
+  - geopotential-altitude: 80.00
+    temperature-K: 238.15
+    gradient: -1.7
+
+rows-80-warm:
+  - geopotential-altitude: 0.00
+    temperature-K: 248.95
+    gradient: 0.0
+
+  - geopotential-altitude: 1.00
+    temperature-K: 253.05
+    gradient: +4.10
+
+  - geopotential-altitude: 3.00
+    temperature-K: 247.45
+    gradient: -2.80
+
+  - geopotential-altitude: 8.00
+    temperature-K: 214.95
+    gradient: -6.50
+
+  - geopotential-altitude: 20.00
+    temperature-K: 201.15
+    gradient: -1.15
+
+  - geopotential-altitude: 24.00
+    temperature-K: 201.15
+    gradient: 0.00
+
+  - geopotential-altitude: 28.00
+    temperature-K: 208.35
+    gradient: +1.80
+
+  - geopotential-altitude: 30.00
+    temperature-K: 224.35
+    gradient: +8.00
+
+  - geopotential-altitude: 40.00
+    temperature-K: 268.35
+    gradient: +4.40
+
+  - geopotential-altitude: 45.50
+    temperature-K: 268.35
+    gradient: 0.00
+
+  - geopotential-altitude: 47.50
+    temperature-K: 260.35
+    gradient: -4.00
+
+  - geopotential-altitude: 59.50
+    temperature-K: 244.15
+    gradient: -1.35
+
+  - geopotential-altitude: 71.00
+    temperature-K: 214.25
+    gradient: -2.60
+
+  - geopotential-altitude: 80.00
+    temperature-K: 204.35
+    gradient: -1.10
+
+rows-80-cold:
+  - geopotential-altitude: 0.00
+    temperature-K: 248.95
+    gradient: 0.0
+
+  - geopotential-altitude: 1.00
+    temperature-K: 253.05
+    gradient: +4.10
+
+  - geopotential-altitude: 3.00
+    temperature-K: 247.45
+    gradient: -2.80
+
+  - geopotential-altitude: 8.00
+    temperature-K: 214.95
+    gradient: -6.50
+
+  - geopotential-altitude: 20.00
+    temperature-K: 213.75
+    gradient: -0.10
+
+  - geopotential-altitude: 45.50
+    temperature-K: 231.60
+    gradient: +0.70
+
+  - geopotential-altitude: 52.00
+    temperature-K: 249.15
+    gradient: +2.70
+
+  - geopotential-altitude: 59.00
+    temperature-K: 249.15
+    gradient: 0.00
+
+  - geopotential-altitude: 80.00
+    temperature-K: 223.95
+    gradient: -1.20

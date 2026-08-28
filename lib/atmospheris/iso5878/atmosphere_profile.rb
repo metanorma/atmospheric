@@ -75,8 +75,10 @@ module Atmospheris
       # Override: locate layer index using injected model_layers.
       def locate_lower_layer(geopotential_alt)
         return 0 if geopotential_alt < model_layers[0][:H]
+
         i = model_layers.length - 1
         return i - 1 if geopotential_alt >= model_layers[i][:H]
+
         model_layers.each_with_index do |layer, ind|
           return ind - 1 if layer[:H] > geopotential_alt
         end

@@ -15,7 +15,7 @@ RSpec.describe Atmospheris::Iso5878::TemperatureLayerStructure do
       { geopotential_altitude: 0.0,   temperature_K: 299.65 },
       { geopotential_altitude: 2.250, temperature_K: 286.15 },
       { geopotential_altitude: 2.500, temperature_K: 286.95 },
-      { geopotential_altitude: 16.5,  temperature_K: 193.15 },
+      { geopotential_altitude: 16.5,  temperature_K: 193.15 }
     ]
   end
 
@@ -50,28 +50,42 @@ RSpec.describe Atmospheris::Iso5878::AtmosphereProfile do
 
   let(:layers) do
     Atmospheris::Iso5878::TemperatureLayerStructure.from_yaml_rows([
-      { geopotential_altitude: 0.0,    temperature_K: 299.65 },
-      { geopotential_altitude: 2.250,  temperature_K: 286.15 },
-      { geopotential_altitude: 2.500,  temperature_K: 286.95 },
-      { geopotential_altitude: 16.500, temperature_K: 193.15 },
-      { geopotential_altitude: 22.000, temperature_K: 215.15 },
-      { geopotential_altitude: 30.000, temperature_K: 231.15 },
-      { geopotential_altitude: 40.000, temperature_K: 259.15 },
-      { geopotential_altitude: 46.000, temperature_K: 272.35 },
-      { geopotential_altitude: 51.000, temperature_K: 272.35 },
-      { geopotential_altitude: 54.000, temperature_K: 265.15 },
-      { geopotential_altitude: 60.000, temperature_K: 247.15 },
-      { geopotential_altitude: 66.000, temperature_K: 226.15 },
-      { geopotential_altitude: 73.000, temperature_K: 205.15 },
-      { geopotential_altitude: 80.000, temperature_K: 198.15 },
-    ]).to_a
+                                                                     { geopotential_altitude: 0.0,
+                                                                       temperature_K: 299.65 },
+                                                                     { geopotential_altitude: 2.250,
+                                                                       temperature_K: 286.15 },
+                                                                     { geopotential_altitude: 2.500,
+                                                                       temperature_K: 286.95 },
+                                                                     { geopotential_altitude: 16.500,
+                                                                       temperature_K: 193.15 },
+                                                                     { geopotential_altitude: 22.000,
+                                                                       temperature_K: 215.15 },
+                                                                     { geopotential_altitude: 30.000,
+                                                                       temperature_K: 231.15 },
+                                                                     { geopotential_altitude: 40.000,
+                                                                       temperature_K: 259.15 },
+                                                                     { geopotential_altitude: 46.000,
+                                                                       temperature_K: 272.35 },
+                                                                     { geopotential_altitude: 51.000,
+                                                                       temperature_K: 272.35 },
+                                                                     { geopotential_altitude: 54.000,
+                                                                       temperature_K: 265.15 },
+                                                                     { geopotential_altitude: 60.000,
+                                                                       temperature_K: 247.15 },
+                                                                     { geopotential_altitude: 66.000,
+                                                                       temperature_K: 226.15 },
+                                                                     { geopotential_altitude: 73.000,
+                                                                       temperature_K: 205.15 },
+                                                                     { geopotential_altitude: 80.000,
+                                                                       temperature_K: 198.15 }
+                                                                   ]).to_a
   end
 
   subject(:profile) do
     described_class.new(
       surface_params: params,
       surface_temperature: 299.65,
-      surface_pressure: 101325.0,
+      surface_pressure: 101_325.0,
       layers: layers
     )
   end
@@ -87,7 +101,7 @@ RSpec.describe Atmospheris::Iso5878::AtmosphereProfile do
     end
 
     it "uses correct surface pressure" do
-      expect(profile.send(:constants)[:p_n]).to eq(101325.0)
+      expect(profile.send(:constants)[:p_n]).to eq(101_325.0)
     end
 
     it "uses latitude-specific earth radius" do
@@ -129,10 +143,11 @@ end
 
 RSpec.describe Atmospheris::Iso5878::AtmosphereModelRegistry do
   let(:yaml_base) do
+    # Allow overriding for standard-source cross-checks, but default to vendored fixtures
     candidates = [
-      File.expand_path("../../../../mn/iso-5878/sources/iso-5878-2024/03-yaml", __dir__),
-      "/Users/mulgogi/src/mn/iso-5878/sources/iso-5878-2024/03-yaml"
-    ]
+      ENV["ISO5878_YAML_ROOT"],
+      File.expand_path("../../fixtures/iso-5878-2025/yaml", __dir__)
+    ].compact
     candidates.find { |p| Dir.exist?(p) } || candidates.first
   end
 
@@ -178,19 +193,19 @@ RSpec.describe Atmospheris::Iso5878::AtmosphereModelRegistry do
     # Map profile tables to their model IDs and altitude key
     # Regime models (cold/warm) use table19 for layer data; standard models use table16.
     {
-      "table3.yaml"  => { model: "15-annual", rows_key: "rows-h", layers_source: :table16 },
-      "table4.yaml"  => { model: "30-winter", rows_key: "rows-h", layers_source: :table16 },
-      "table5.yaml"  => { model: "30-summer", rows_key: "rows-h", layers_source: :table16 },
-      "table6.yaml"  => { model: "45-winter", rows_key: "rows-h", layers_source: :table16 },
-      "table7.yaml"  => { model: "45-summer", rows_key: "rows-h", layers_source: :table16 },
-      "table8.yaml"  => { model: "60-winter", rows_key: "rows-h", layers_source: :table16 },
-      "table9.yaml"  => { model: "60-cold",   rows_key: "rows-h", layers_source: :table19 },
+      "table3.yaml" => { model: "15-annual", rows_key: "rows-h", layers_source: :table16 },
+      "table4.yaml" => { model: "30-winter", rows_key: "rows-h", layers_source: :table16 },
+      "table5.yaml" => { model: "30-summer", rows_key: "rows-h", layers_source: :table16 },
+      "table6.yaml" => { model: "45-winter", rows_key: "rows-h", layers_source: :table16 },
+      "table7.yaml" => { model: "45-summer", rows_key: "rows-h", layers_source: :table16 },
+      "table8.yaml" => { model: "60-winter", rows_key: "rows-h", layers_source: :table16 },
+      "table9.yaml" => { model: "60-cold",   rows_key: "rows-h", layers_source: :table19 },
       "table10.yaml" => { model: "60-warm",   rows_key: "rows-h", layers_source: :table19 },
       "table11.yaml" => { model: "60-summer", rows_key: "rows-h", layers_source: :table16 },
       "table12.yaml" => { model: "80-winter", rows_key: "rows-h", layers_source: :table16 },
       "table13.yaml" => { model: "80-cold",   rows_key: "rows-h", layers_source: :table19 },
       "table14.yaml" => { model: "80-warm",   rows_key: "rows-h", layers_source: :table19 },
-      "table15.yaml" => { model: "80-summer", rows_key: "rows-h", layers_source: :table16 },
+      "table15.yaml" => { model: "80-summer", rows_key: "rows-h", layers_source: :table16 }
     }.each do |filename, config|
       context filename do
         # Some models have known YAML breakpoint transcription errors:
@@ -226,7 +241,7 @@ RSpec.describe Atmospheris::Iso5878::AtmosphereModelRegistry do
           end
 
           expect(errors).to be_empty,
-            "#{config[:model]} temperature mismatches:\n#{errors.first(5).join("\n")}"
+                            "#{config[:model]} temperature mismatches:\n#{errors.first(5).join("\n")}"
         end
 
         it "computed pressure matches tabulated values" do
@@ -249,19 +264,19 @@ RSpec.describe Atmospheris::Iso5878::AtmosphereModelRegistry do
             expected_p = row["p-mbar"].to_f
             computed_p = profile.pressure_from_geopotential_mbar(gp_alt)
 
-            if pres_tol
-              tol = pres_tol
-            else
-              # Use relative tolerance for large pressures, absolute for small
-              tol = expected_p > 100 ? [expected_p.abs * 0.002, 2.0].max : 1.0
-            end
+            tol = if pres_tol
+                    pres_tol
+                  else
+                    # Use relative tolerance for large pressures, absolute for small
+                    expected_p > 100 ? [expected_p.abs * 0.002, 2.0].max : 1.0
+                  end
             unless (computed_p - expected_p).abs < tol
               errors << "H=#{gp_alt}m: computed P=#{computed_p.round(3)}, tabulated=#{expected_p}"
             end
           end
 
           expect(errors).to be_empty,
-            "#{config[:model]} pressure mismatches:\n#{errors.first(5).join("\n")}"
+                            "#{config[:model]} pressure mismatches:\n#{errors.first(5).join("\n")}"
         end
       end
     end
@@ -271,7 +286,7 @@ RSpec.describe Atmospheris::Iso5878::AtmosphereModelRegistry do
       "60-warm" => { rows_key: "rows-60-warm" },
       "60-cold" => { rows_key: "rows-60-cold" },
       "80-warm" => { rows_key: "rows-80-warm" },
-      "80-cold" => { rows_key: "rows-80-cold" },
+      "80-cold" => { rows_key: "rows-80-cold" }
     }
 
     warm_cold_models.each do |model_id, config|
@@ -288,7 +303,7 @@ RSpec.describe Atmospheris::Iso5878::AtmosphereModelRegistry do
             expected_T = row["temperature-K"].to_f
             computed_T = profile.temperature_at_layer_from_geopotential(gp_alt)
             expect(computed_T).to be_within(0.1).of(expected_T),
-              "#{model_id} H=#{gp_alt}m: expected #{expected_T}K, got #{computed_T.round(3)}K"
+                                  "#{model_id} H=#{gp_alt}m: expected #{expected_T}K, got #{computed_T.round(3)}K"
           end
         end
       end

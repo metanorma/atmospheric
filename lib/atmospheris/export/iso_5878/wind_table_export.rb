@@ -60,12 +60,12 @@ module Atmospheris
             o["Vsc"] = round1(wind.vsc) if obs["Vsc"].nil?
 
             bounds = wind.percentile_bounds
-            o["Vsc-1-low"]  = round1(bounds[1].low)   if obs["Vsc-1-low"].nil?
+            o["Vsc-1-low"]  = round1(bounds[1].low) if obs["Vsc-1-low"].nil?
             o["Vsc-1-high"] = round1(bounds[1].high)   if obs["Vsc-1-high"].nil?
             o["Vsc-10-low"] = round1(bounds[10].low)   if obs["Vsc-10-low"].nil?
-            o["Vsc-10-high"] = round1(bounds[10].high)  if obs["Vsc-10-high"].nil?
-            o["Vsc-20-low"] = round1(bounds[20].low)   if obs["Vsc-20-low"].nil?
-            o["Vsc-20-high"] = round1(bounds[20].high)  if obs["Vsc-20-high"].nil?
+            o["Vsc-10-high"] = round1(bounds[10].high) if obs["Vsc-10-high"].nil?
+            o["Vsc-20-low"] = round1(bounds[20].low) if obs["Vsc-20-low"].nil?
+            o["Vsc-20-high"] = round1(bounds[20].high) if obs["Vsc-20-high"].nil?
           end
         end
 

@@ -1,0 +1,408 @@
+---
+id: atmosphere-table-16
+title-en: Temperature structure of mean seasonal and mean annual reference atmospheres
+title-fr:
+title-ru:
+note-en:
+note-fr:
+note-ru:
+rows-15:
+  - geopotential-altitude: 0.000
+    temperature-K: 299.65
+    gradient: 0.0
+
+  - geopotential-altitude: 2.250
+    temperature-K: 286.15
+    gradient: 6.0
+
+  - geopotential-altitude: 2.500
+    temperature-K: 286.95
+    gradient: +3.2
+
+  - geopotential-altitude: 16.500
+    temperature-K: 193.15
+    gradient: -6.7
+
+  - geopotential-altitude: 22.000
+    temperature-K: 215.15
+    gradient: +4.0
+
+  - geopotential-altitude: 30.000
+    temperature-K: 231.15
+    gradient: +2.0
+
+  - geopotential-altitude: 40.000
+    temperature-K: 259.15
+    gradient: +2.8
+
+  - geopotential-altitude: 46.000
+    temperature-K: 272.35
+    gradient: +2.2
+
+  - geopotential-altitude: 51.000
+    temperature-K: 272.35
+    gradient: 0.0
+
+  - geopotential-altitude: 54.000
+    temperature-K: 265.15
+    gradient: 2.4
+
+  - geopotential-altitude: 60.000
+    temperature-K: 247.15
+    gradient: 3.0
+
+  - geopotential-altitude: 66.000
+    temperature-K: 226.15
+    gradient: 3.5
+
+  - geopotential-altitude: 73.000
+    temperature-K: 205.15
+    gradient: 3.0
+
+  - geopotential-altitude: 80.000
+    temperature-K: 198.15
+    gradient: -1.0
+
+rows-30-w:
+  - geopotential-altitude: 0.000
+    temperature-K: 283.15
+    gradient: 0.0
+
+  - geopotential-altitude: 2.000
+    temperature-K: 280.15
+    gradient: -1.5
+
+  - geopotential-altitude: 12.000
+    temperature-K: 216.15
+    gradient: -6.4
+
+  - geopotential-altitude: 16.500
+    temperature-K: 207.15
+    gradient: -2.0
+
+  - geopotential-altitude: 18.000
+    temperature-K: 207.15
+    gradient: 3
+
+  - geopotential-altitude: 24.000
+    temperature-K: 219.15
+    gradient: +2.0
+
+  - geopotential-altitude: 34.000
+    temperature-K: 237.15
+    gradient: +1.8
+
+  - geopotential-altitude: 47.000
+    temperature-K: 269.65
+    gradient: +2.5
+
+  - geopotential-altitude: 50.000
+    temperature-K: 269.65
+    gradient: 0.0
+
+  - geopotential-altitude: 70.000
+    temperature-K: 217.65
+    gradient: -2.6
+
+  - geopotential-altitude: 80.000
+    temperature-K: 195.65
+    gradient: -2.2
+
+rows-30-s:
+  - geopotential-altitude: 0.000
+    temperature-K: 297.15
+    gradient: 0.0
+
+  - geopotential-altitude: 2.000
+    temperature-K: 288.15
+    gradient: -4.5
+
+  - geopotential-altitude: 8.000
+    temperature-K: 252.15
+    gradient: -6.0
+
+  - geopotential-altitude: 14.500
+    temperature-K: 206.65
+    gradient: -7.0
+
+  - geopotential-altitude: 17.000
+    temperature-K: 206.65
+    gradient: 0.0
+
+  - geopotential-altitude: 22.000
+    temperature-K: 219.65
+    gradient: +2.6
+
+  - geopotential-altitude: 29.000
+    temperature-K: 230.15
+    gradient: +1.5
+
+  - geopotential-altitude: 47.000
+    temperature-K: 273.35
+    gradient: +2.4
+
+  - geopotential-altitude: 51.000
+    temperature-K: 273.35
+    gradient: 0.0
+
+  - geopotential-altitude: 60.000
+    temperature-K: 249.05
+    gradient: -2.7
+
+  - geopotential-altitude: 70.000
+    temperature-K: 209.05
+    gradient: -4.0
+
+  - geopotential-altitude: 80.000
+    temperature-K: 191.05
+    gradient: -1.8
+
+rows-45-w:
+  - geopotential-altitude: 0.000
+    temperature-K: 272.62
+    gradient: 0.0
+
+  - geopotential-altitude: 3.000
+    temperature-K: 260.65
+    gradient: -4.0
+
+  - geopotential-altitude: 10.000
+    temperature-K: 218.65
+    gradient: -6.0
+
+  - geopotential-altitude: 18.000
+    temperature-K: 215.45
+    gradient: -0.4
+
+  - geopotential-altitude: 28.000
+    temperature-K: 215.45
+    gradient: 0.0
+
+  - geopotential-altitude: 35.000
+    temperature-K: 231.55
+    gradient: +2.3
+
+  - geopotential-altitude: 47.000
+    temperature-K: 262.75
+    gradient: +2.6
+
+  - geopotential-altitude: 51.000
+    temperature-K: 262.75
+    gradient: 0.0
+
+  - geopotential-altitude: 60.000
+    temperature-K: 248.35
+    gradient: -1.6
+
+  - geopotential-altitude: 80.000
+    temperature-K: 206.35
+    gradient: -2.1
+
+rows-45-s:
+  - geopotential-altitude: 0.000
+    temperature-K: 291.15
+    gradient: 0.0
+
+  - geopotential-altitude: 2.000
+    temperature-K: 282.15
+    gradient: -4.5
+
+  - geopotential-altitude: 13.000
+    temperature-K: 216.15
+    gradient: -6.0
+
+  - geopotential-altitude: 17.000
+    temperature-K: 216.15
+    gradient: 0.0
+
+  - geopotential-altitude: 25.000
+    temperature-K: 225.75
+    gradient: +1.2
+
+  - geopotential-altitude: 30.000
+    temperature-K: 235.75
+    gradient: +2.0
+
+  - geopotential-altitude: 47.000
+    temperature-K: 276.55
+    gradient: +2.4
+
+  - geopotential-altitude: 51.000
+    temperature-K: 276.55
+    gradient: 0.0
+
+  - geopotential-altitude: 60.000
+    temperature-K: 253.15
+    gradient: -2.6
+
+  - geopotential-altitude: 70.000
+    temperature-K: 209.15
+    gradient: -4.4
+
+  - geopotential-altitude: 80.000
+    temperature-K: 179.15
+    gradient: -3.0
+
+rows-60-w:
+  - geopotential-altitude: 0.000
+    temperature-K: 256.15
+    gradient: 0.0
+
+  - geopotential-altitude: 1.000
+    temperature-K: 258.15
+    gradient: +2.0
+
+  - geopotential-altitude: 3.000
+    temperature-K: 250.15
+    gradient: 4.0
+
+  - geopotential-altitude: 9.000
+    temperature-K: 217.15
+    gradient: -5.5
+
+  - geopotential-altitude: 15.000
+    temperature-K: 217.15
+    gradient: 0.0
+
+  - geopotential-altitude: 25.000
+    temperature-K: 212.15
+    gradient: -0.5
+
+  - geopotential-altitude: 35.000
+    temperature-K: 219.15
+    gradient: +0.7
+
+  - geopotential-altitude: 49.000
+    temperature-K: 251.35
+    gradient: +2.3
+
+  - geopotential-altitude: 51.000
+    temperature-K: 251.35
+    gradient: 0.0
+
+  - geopotential-altitude: 80.000
+    temperature-K: 222.35
+    gradient: -1.0
+
+rows-60-s:
+  - geopotential-altitude: 0.000
+    temperature-K: 282.15
+    gradient: 0.0
+
+  - geopotential-altitude: 5.000
+    temperature-K: 261.15
+    gradient: -4.2
+
+  - geopotential-altitude: 10.000
+    temperature-K: 226.15
+    gradient: -7.0
+
+  - geopotential-altitude: 23.000
+    temperature-K: 226.15
+    gradient: 0.0
+
+  - geopotential-altitude: 32.000
+    temperature-K: 239.65
+    gradient: +1.5
+
+  - geopotential-altitude: 46.000
+    temperature-K: 281.65
+    gradient: +3.0
+
+  - geopotential-altitude: 51.000
+    temperature-K: 281.65
+    gradient: 0.0
+
+  - geopotential-altitude: 60.000
+    temperature-K: 260.95
+    gradient: -2.3
+
+  - geopotential-altitude: 80.000
+    temperature-K: 164.95
+    gradient: -4.8
+
+rows-80-w:
+  - geopotential-altitude: 0.000
+    temperature-K: 248.95
+    gradient:
+
+  - geopotential-altitude: 1.000
+    temperature-K: 253.05
+    gradient: +4.10
+
+  - geopotential-altitude: 3.000
+    temperature-K: 247.45
+    gradient: -2.80
+
+  - geopotential-altitude: 8.000
+    temperature-K: 214.95
+    gradient: -6.50
+
+  - geopotential-altitude: 20.000
+    temperature-K: 202.35
+    gradient: -1.05
+
+  - geopotential-altitude: 22.500
+    temperature-K: 202.35
+    gradient: 0.00
+
+  - geopotential-altitude: 32.500
+    temperature-K: 222.35
+    gradient: +2.00
+
+  - geopotential-altitude: 48.000
+    temperature-K: 247.15
+    gradient: +1.60
+
+  - geopotential-altitude: 53.000
+    temperature-K: 247.15
+    gradient: 0.00
+
+  - geopotential-altitude: 80.000
+    temperature-K: 217.45
+    gradient: -1.10
+
+rows-80-s:
+  - geopotential-altitude: 0.000
+    temperature-K: 276.65
+    gradient:
+
+  - geopotential-altitude: 4.000
+    temperature-K: 260.25
+    gradient: -4.10
+
+  - geopotential-altitude: 9.000
+    temperature-K: 228.25
+    gradient: -6.40
+
+  - geopotential-altitude: 15.000
+    temperature-K: 231.25
+    gradient: +0.50
+
+  - geopotential-altitude: 23.000
+    temperature-K: 233.25
+    gradient: +0.25
+
+  - geopotential-altitude: 32.000
+    temperature-K: 244.50
+    gradient: +1.25
+
+  - geopotential-altitude: 45.000
+    temperature-K: 279.60
+    gradient: +2.70
+
+  - geopotential-altitude: 52.500
+    temperature-K: 279.60
+    gradient: 0.00
+
+  - geopotential-altitude: 60.500
+    temperature-K: 253.60
+    gradient: -3.25
+
+  - geopotential-altitude: 73.000
+    temperature-K: 196.10
+    gradient: -4.60
+
+  - geopotential-altitude: 80.000
+    temperature-K: 175.10
+    gradient: -3.00
