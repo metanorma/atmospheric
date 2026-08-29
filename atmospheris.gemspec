@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ribose Inc."]
   spec.email         = ["open.source@ribose.com"]
 
-  spec.homepage      = "https://github.com/metanorma/atmospheris"
+  spec.homepage      = "https://github.com/atmospheris/atmospheris"
   spec.summary       = <<~HERE.strip
     ISO 2533 Standard Atmosphere and ISO 5878 Reference Atmospheres
   HERE
